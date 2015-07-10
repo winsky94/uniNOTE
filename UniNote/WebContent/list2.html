@@ -88,100 +88,118 @@
 			</div>
 		</nav>
 	</header>
-	<div>
-<div class="container">
+
+	<div class="container">
 		<div class="row">
-			<div class="col s12 l4">hh</div>
-			<div class="col s12 l8" id="searchZone">
-				<!--搜索区域-->
-				<form>
-					<div>
-						<input type="text" data-provide="typeahead">
-						<a class="waves-effect waves-light btn">搜索</a>
-					</div>
-					<form>
-						<style type="text/css">
+			<!-- 左边l4 -->
+
+			<div class="col s12 l4">
+			<br />
+			<h4>选择课程</h4>
+
+				<!--左边的内容-->
+
+				<ul class="collapsible" data-collapsible="expandable">
+					<li>
+						<div class="collapsible-header">
+						<i class="material-icons">list</i>
+						软件学院</div>
+						<div class="collapsible-body">
+							<div class="collection">
+								<a href="#!" class="collection-item">
+									 软件工程与计算Ⅰ
+									<span class="badge">6</span>
+								</a>
+								<a href="#!" class="collection-item">
+									   计算机组织结构
+									<span class="new badge">4</span>
+								</a>
+								<a href="#!" class="collection-item">计算机与操作系统
+									<span class="badge">22</span>
+								</a>
+								<a href="#!" class="collection-item">
+									数据库系统	
+									<span class="badge">14</span>
+								</a>
+								<a href="#!" class="collection-item">
+									 软件工程与计算Ⅲ	
+									<span class="badge">11</span>
+								</a>
+								<a href="#!" class="collection-item">
+									 软件工程统计方法
+									<span class="badge">17</span>
+								</a>
+								<a href="#!" class="collection-item">
+									 计算机网络
+									<span class="badge">32</span>
+								</a>
+
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header">
+							<i class="material-icons">list</i>
+							计算机科学与技术系
+						</div>
+						<div class="collapsible-body">
+							<div class="collection">
+							<a href="#!" class="collection-item">
+									 编译原理怕不怕!?
+									<span class="badge">32</span>
+								</a>
+
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header">
+							<i class="material-icons">list</i>
+							Third
+						</div>
+						<div class="collapsible-body">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
+					</li>
+
+				</ul>
+				<!-- 左边l4END -->
+			</div>
+			<!-- 右边l8 -->
+			<div class="col s12 l8">
+			<br />
+			<br />
+			<form id="searchZone">
+						<div>
+							<input type="text" data-provide="typeahead">
+							<a class="waves-effect waves-light btn">搜索</a>
+						</div>
+						<form>
+							<style type="text/css">
 			label{
 				margin: 5px;
 			}
 			</style>
-						<input type="radio" name="document" id="all-radio"/>
-						<label for="all-radio">all</label>
+							<input type="radio" name="document" id="all-radio"/>
+							<label for="all-radio">all</label>
 
-						<input type="radio" name="document" id="doc-radio"/>
-						<label for="doc-radio">doc</label>
-						<input type="radio" name="document" id="ppt-radio"/>
-						<label for="ppt-radio">ppt</label>
-						<input type="radio" name="document" id="xls-radio"/>
-						<label for="xls-radio">xls</label>
-						<input type="radio" name="document" id="pdf-radio"/>
-						<label for="pdf-radio">pdf</label>
-						<input type="radio" name="document" id="other-radio"/>
-						<label for="other-radio">other</label>
+							<input type="radio" name="document" id="doc-radio"/>
+							<label for="doc-radio">doc</label>
+							<input type="radio" name="document" id="ppt-radio"/>
+							<label for="ppt-radio">ppt</label>
+							<input type="radio" name="document" id="xls-radio"/>
+							<label for="xls-radio">xls</label>
+							<input type="radio" name="document" id="pdf-radio"/>
+							<label for="pdf-radio">pdf</label>
+							<input type="radio" name="document" id="other-radio"/>
+							<label for="other-radio">other</label>
 
+						</form>
 					</form>
-				</form>
-			</div>
-		</div>
-		
-			<div class="row">
-				<!--左边的内容-->
-				<div class="col s12 m4 l3">
-					<ul class="collapsible" data-collapsible="expandable">
-						<li>
-							<div class="collapsible-header">First</div>
-							<div class="collapsible-body">
-								<div class="collection">
-									<a href="#!" class="collection-item">
-										Alan
-										<span class="badge">1</span>
-									</a>
-									<a href="#!" class="collection-item">
-										Alan
-										<span class="new badge">4</span>
-									</a>
-									<a href="#!" class="collection-item">Alan</a>
-									<a href="#!" class="collection-item">
-										Alan
-										<span class="badge">14</span>
-									</a>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="collapsible-header">
-								<i class="material-icons">place</i>
-								Second
-							</div>
-							<div class="collapsible-body">
-								<p>Lorem ipsum dolor sit amet.</p>
-							</div>
-						</li>
-						<li>
-							<div class="collapsible-header">
-								<i class="material-icons">whatshot</i>
-								Third
-							</div>
-							<div class="collapsible-body">
-								<p>Lorem ipsum dolor sit amet.</p>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-				<!--右边的内容-->
-				<div class="col s12 m8 l9">
+					<br />
+					<div>
 					<ul class="collection">
-						<li class="collection-item avatar">
-							<img src="images/yuna.jpg" alt="" class="circle">
-							<a class="title" href="">Title</a>
-							<p>
-								First Line
-								<br>Second Line</p>
-							<a href="#!" class="secondary-content" title="not-selected">
-								<i class="material-icons">grade</i>
-							</a>
-						</li>
+						
 						<li class="collection-item avatar">
 							<i class="material-icons circle">folder</i>
 							<a class="title" href="">Title</a>
@@ -214,12 +232,12 @@
 						</li>
 					</ul>
 				</div>
+
+				<!-- 右边l8END -->
 			</div>
+
 		</div>
 	</div>
-
-
-
 
 	<!--
 <style type="text/css">
