@@ -3,12 +3,17 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>sign_up</title>
+  <title>up_load</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+    html,body{ height: 100%;}    
+    body{ position: relative; min-height: 350px;}    
+    footer{ position: relative; bottom: 0; left: 0; right: 0; }
+  </style>
 </head>
 <body>
 
@@ -60,69 +65,10 @@
   </header>
 
   <div class="container">
-    <!-- Page Content goes here --> 
-
-  <div class="row">
-    <div class="col s12">
-    <h2>注册账号</h2></div>
-    <div class="col s12 m4 l2"></div>
-    <div class="col s12 m4 l8">
-		<form action='/UniNote/SignUpServlet' method='post' class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="nickname" type="text" name="nickname" class="validate">
-                  <label for="last_name">Nickname</label>
-                </div>
-                
-                <div class="input-field col s12">
-                  <input id="password" type="password" name="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              
-                <div class="input-field col s12">
-                  <input id="email" type="email" name="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-              
-              <div class="row">
-              <div class="input-field col s6">
-                  <input placeholder="必填" id="school" type="text" name="school" class="validate">
-                  <label for="first_name">School</label>
-                </div>
-                
-                <div class="input-field col s6">
-                  <input id="phonenumber" type="text" name="phonenumber" class="validate">
-                  <label for="last_name">PhoneNumber</label>
-                </div>
-                
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <input type="submit" value=" 注册 " class="btn btn-primary"></div>
-              </div>
-
-           </form>
-    </div>
-    <div class="col s12 m4 l2"></div>
+     
   </div>
-  <div class="row">
-    <div class="col s12 m6 l3"></div>
-    <div class="col s12 m6 l3"></div>
-    <div class="col s12 m6 l3"></div>
-    <div class="col s12 m6 l3"></div>
-  </div>
-            
 
-    </div>
 
-  <style type="text/css">
-      html,body{ height: 100%;}
-
-      body{ position: relative; min-height: 350px;}
-
-      footer{ position: relative; bottom: 0; left: 0; right: 0; }
-    </style>
 
   <footer class="page-footer teal lighten-3">
     <div class="container">
