@@ -6162,4 +6162,17 @@ Picker.extend( 'pickadate', DatePicker )
   $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
+    $('.secondary-content').css('color','#777777');
+    $('.secondary-content').click(function(){ 
+    	var title=$(this).attr('title');
+    	if(title=='not-selected'){
+            $(this).css('color','#26A69A'); 
+            $(this).attr('title','selected');
+    	}else{
+    		$(this).css('color','#777777'); 
+    		$(this).attr('title','not-selected');
+    	}
+    	
+         
+     });
   });
