@@ -12,37 +12,50 @@ import object.UserVO;
 import sql.UserInfo;
 
 /**
- * Servlet implementation class LoginHandleServlet
+ * Servlet implementation class SignUpServlet
  */
-@WebServlet("/LoginHandleServlet")
-public class LoginHandleServlet extends HttpServlet {
+@WebServlet("/SignUpServlet")
+public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginHandleServlet() {
+	public SignUpServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-		String username = request.getParameter("username");
+		String nickname = request.getParameter("nickname");
 		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String school = request.getParameter("school");
+		String phoneNumber = request.getParameter("phonenumber");
 
-		UserInfo user=new UserInfo();
-		boolean result=user.login(username, password);
+		UserVO vo = new UserVO(nickname, password, email, school, phoneNumber);
+		UserInfo user = new UserInfo();
+		boolean result = user.add(vo);
 		if (result) {
 			response.sendRedirect("/UniNote/filelist.html");
 		} else {
-			response.sendRedirect("/UniNote/not-login.html");
+			// 提示注册失败
 		}
+
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
