@@ -38,180 +38,189 @@
 
 	<!-- Dropdown Structure -->
 	<ul id="dropdown1" class="dropdown-content">
-	<li>
+		<li>
 			<a href="#!">南京大学</a>
 		</li>
 		<li>
 			<a href="#!">切换</a>
 		</li>
-		
+
 		<li class="divider"></li>
 		<li>
 			<a href="http://www.nju.edu.cn" target="_blank">主页</a>
 		</li>
 	</ul>
-		<!-- Dropdown2 Structure -->
+	<!-- Dropdown2 Structure -->
 	<ul id="dropdown2" class="dropdown-content">
-	<li>
+		<li>
 			<a href="#!">王宁</a>
 		</li>
 		<li>
 			<a href="#!">个人信息</a>
 		</li>
-		
+
 	</ul>
 	<header>
-	<nav>
-		<div class="nav-wrapper teal lighten-3">
-			<div class="container">
-				<div class="row">
-					<div class="col l6 s12">
-						<a href="#!" class="brand-logo">uniNOTE</a>
+		<nav>
+			<div class="nav-wrapper teal lighten-3">
+				<div class="container">
+					<div class="row">
+						<div class="col l6 s12">
+							<a href="#!" class="brand-logo">uniNOTE</a>
+						</div>
+						<ul class="right hide-on-med-and-down">
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="list.html">文档</a>
+							</li>
+							<li>
+								<a href="upload.html">上传文档</a>
+							</li>
+							<!-- Dropdown Trigger -->
+							<li>
+								<a class="dropdown-button" href="#!" data-activates="dropdown1">
+									南京大学 <i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-button" href="#!" data-activates="dropdown2">
+									王宁 <i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
+						</ul>
 					</div>
-					<ul class="right hide-on-med-and-down">
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div>
+
+		<div class="row">
+			<div class="col s12 m8 l9" id="searchZone">
+				<!--搜索区域-->
+				<form>
+					<div>
+						<input type="text" data-provide="typeahead">
+						<a class="waves-effect waves-light btn">搜索</a>
+					</div>
+					<form>
+						<style type="text/css">
+			label{
+				margin: 5px;
+			}
+			</style>
+						<input type="radio" name="document" id="all-radio"/>
+						<label for="all-radio">all</label>
+
+						<input type="radio" name="document" id="doc-radio"/>
+						<label for="doc-radio">doc</label>
+						<input type="radio" name="document" id="ppt-radio"/>
+						<label for="ppt-radio">ppt</label>
+						<input type="radio" name="document" id="xls-radio"/>
+						<label for="xls-radio">xls</label>
+						<input type="radio" name="document" id="pdf-radio"/>
+						<label for="pdf-radio">pdf</label>
+						<input type="radio" name="document" id="other-radio"/>
+						<label for="other-radio">other</label>
+
+					</form>
+				</form>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<!--左边的内容-->
+				<div class="col s12 m4 l3">
+					<ul class="collapsible" data-collapsible="expandable">
 						<li>
-							<a href="index.html">首页</a>
+							<div class="collapsible-header">First</div>
+							<div class="collapsible-body">
+								<div class="collection">
+									<a href="#!" class="collection-item">
+										Alan
+										<span class="badge">1</span>
+									</a>
+									<a href="#!" class="collection-item">
+										Alan
+										<span class="new badge">4</span>
+									</a>
+									<a href="#!" class="collection-item">Alan</a>
+									<a href="#!" class="collection-item">
+										Alan
+										<span class="badge">14</span>
+									</a>
+								</div>
+							</div>
 						</li>
 						<li>
-							<a href="list.html">文档</a>
+							<div class="collapsible-header">
+								<i class="material-icons">place</i>
+								Second
+							</div>
+							<div class="collapsible-body">
+								<p>Lorem ipsum dolor sit amet.</p>
+							</div>
 						</li>
 						<li>
-							<a href="upload.html">上传文档</a>
+							<div class="collapsible-header">
+								<i class="material-icons">whatshot</i>
+								Third
+							</div>
+							<div class="collapsible-body">
+								<p>Lorem ipsum dolor sit amet.</p>
+							</div>
 						</li>
-						<!-- Dropdown Trigger -->
-						<li>
-							<a class="dropdown-button" href="#!" data-activates="dropdown1">
-								南京大学<i class="material-icons right">arrow_drop_down</i>
+
+					</ul>
+				</div>
+				<!--右边的内容-->
+				<div class="col s12 m8 l9">
+					<ul class="collection">
+						<li class="collection-item avatar">
+							<img src="images/yuna.jpg" alt="" class="circle">
+							<a class="title" href="">Title</a>
+							<p>
+								First Line
+								<br>Second Line</p>
+							<a href="#!" class="secondary-content" title="not-selected">
+								<i class="material-icons">grade</i>
 							</a>
 						</li>
-						<li>
-							<a class="dropdown-button" href="#!" data-activates="dropdown2">
-								王宁<i class="material-icons right">arrow_drop_down</i>
+						<li class="collection-item avatar">
+							<i class="material-icons circle">folder</i>
+							<a class="title" href="">Title</a>
+							<p>
+								First Line
+								<br>Second Line</p>
+							<a href="#!" class="secondary-content" title="not-selected">
+								<i class="material-icons">grade</i>
+							</a>
+						</li>
+						<li class="collection-item avatar">
+							<i class="material-icons circle green">insert_chart</i>
+							<a class="title" href="">Title</a>
+							<p>
+								First Line
+								<br>Second Line</p>
+							<a href="#!" class="secondary-content" title="not-selected">
+								<i class="material-icons">grade</i>
+							</a>
+						</li>
+						<li class="collection-item avatar">
+							<i class="material-icons circle red">play_arrow</i>
+							<a class="title" href="">Title</a>
+							<p>
+								First Line
+								<br>Second Line</p>
+							<a href="#!" class="secondary-content" title="not-selected">
+								<i class="material-icons">grade</i>
 							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
-		</div>
-	</nav>
-	</header>
-	<div class="col s12 m8 l9" id="searchZone">
-		<!--搜索区域-->
-		<form>
-			<div>
-				<input type="text" data-provide="typeahead">
-				<a class="waves-effect waves-light btn">搜索</a>
-			</div>
-			<form>
-				<style type="text/css">
-			label{
-				margin: 5px;
-			}
-			</style>
-				<input type="radio" name="document" id="all-radio"/>
-				<label for="all-radio">all</label>
-				<input type="radio" name="document" id="pdf-radio"/>
-				<label for="pdf-radio">pdf</label>
-				<input type="radio" name="document" id="doc-radio"/>
-				<label for="doc-radio">doc</label>
-				<input type="radio" name="document" id="ppt-radio"/>
-				<label for="ppt-radio">ppt</label>
-				<input type="radio" name="document" id="other-radio"/>
-				<label for="other-radio">other</label>
-			</form>
-		</form>
-	</div>
-	<div class="row">
-		<!--左边的内容-->
-		<div class="col s12 m4 l3">
-			<ul class="collapsible" data-collapsible="expandable">
-				<li>
-					<div class="collapsible-header"> <i class="material-icons">filter_drama</i>
-						First
-					</div>
-					<div class="collapsible-body">
-						<div class="collection">
-							<a href="#!" class="collection-item">
-								Alan
-								<span class="badge">1</span>
-							</a>
-							<a href="#!" class="collection-item">
-								Alan
-								<span class="new badge">4</span>
-							</a>
-							<a href="#!" class="collection-item">Alan</a>
-							<a href="#!" class="collection-item">
-								Alan
-								<span class="badge">14</span>
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="collapsible-header">
-						<i class="material-icons">place</i>
-						Second
-					</div>
-					<div class="collapsible-body">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</li>
-				<li>
-					<div class="collapsible-header">
-						<i class="material-icons">whatshot</i>
-						Third
-					</div>
-					<div class="collapsible-body">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</li>
-
-			</ul>
-		</div>
-		<!--右边的内容-->
-		<div class="col s12 m8 l9">
-			<ul class="collection">
-				<li class="collection-item avatar">
-					<img src="images/yuna.jpg" alt="" class="circle">
-					<a class="title" href="">Title</a>
-					<p>
-						First Line
-						<br>Second Line</p>
-					<a href="#!" class="secondary-content" title="not-selected">
-						<i class="material-icons">grade</i>
-					</a>
-				</li>
-				<li class="collection-item avatar">
-					<i class="material-icons circle">folder</i>
-					<a class="title" href="">Title</a>
-					<p>
-						First Line
-						<br>Second Line</p>
-					<a href="#!" class="secondary-content" title="not-selected">
-						<i class="material-icons">grade</i>
-					</a>
-				</li>
-				<li class="collection-item avatar">
-					<i class="material-icons circle green">insert_chart</i>
-					<a class="title" href="">Title</a>
-					<p>
-						First Line
-						<br>Second Line</p>
-					<a href="#!" class="secondary-content" title="not-selected">
-						<i class="material-icons">grade</i>
-					</a>
-				</li>
-				<li class="collection-item avatar">
-					<i class="material-icons circle red">play_arrow</i>
-					<a class="title" href="">Title</a>
-					<p>
-						First Line
-						<br>Second Line</p>
-					<a href="#!" class="secondary-content" title="not-selected">
-						<i class="material-icons">grade</i>
-					</a>
-				</li>
-			</ul>
 		</div>
 	</div>
 	<!--
