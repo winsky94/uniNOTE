@@ -30,7 +30,7 @@ public class UserInfo {
 			   count=resultSet.getInt("usernum");
 			   PreparedStatement statement = con
 					.prepareStatement("INSERT INTO user VALUES(?, ?,?,?,?,?)");
-			   statement.setInt(1, count++);
+			   statement.setInt(1, ++count);
 			   statement.setString(2, vo.getNickname());
 			   statement.setString(3, vo.getPassword());
 			   statement.setString(4, vo.getEmail());
