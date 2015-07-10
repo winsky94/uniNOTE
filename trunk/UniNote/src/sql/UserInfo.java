@@ -63,7 +63,6 @@ public class UserInfo {
 		boolean isTrue=true;
 		try {
 			Connection con = SqlManager.getConnection();
-			con.setAutoCommit(false);
 			Statement sql = con.createStatement();
 			String name=vo.getNickname();
 			name.replace("'", "''");
@@ -74,8 +73,6 @@ public class UserInfo {
 			}
 			else{
 				query = "delete from user where nickname='"+name+"'";
-				System.out.println(name);
-				System.out.println("删了");
 				sql.executeUpdate(query);
 			}
 			resultSet1.close();
