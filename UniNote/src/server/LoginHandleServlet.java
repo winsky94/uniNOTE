@@ -32,7 +32,7 @@ public class LoginHandleServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-
+System.out.println(username+" "+password);
 		UserInfo user = new UserInfo();
 		boolean result = user.login(username, password);
 		if (result) {
