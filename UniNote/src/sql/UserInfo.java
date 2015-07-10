@@ -19,7 +19,7 @@ public class UserInfo {
 			Statement sql = con.createStatement();
 			String name=vo.getNickname();
 			name.replace("'", "''");
-			String query = "select userID from user where nickname="+name;
+			String query = "select userID from user where nickname='"+name+"'";
 			ResultSet resultSet1 = sql.executeQuery(query);
 			if(!resultSet1.next()){
 			   istrue=true;
@@ -76,7 +76,7 @@ public class UserInfo {
 			Statement sql = con.createStatement();
 			String name=nickName;
 			name.replace("'", "''");
-			String query = "select password from user where nickname="+name+" limit 1";
+			String query = "select password from user where nickname='"+name+"' limit 1";
 			ResultSet resultSet1 = sql.executeQuery(query);
 			if(resultSet1.next()&&resultSet1.getString("password").equals(password)){
 				isTrue=true;
