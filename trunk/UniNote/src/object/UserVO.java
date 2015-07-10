@@ -12,6 +12,46 @@ public class UserVO {
     	 this.password=password;
     	 this.email=email;
     	 this.school=school;
-    	 this.p
+    	 this.phoneNumber=phoneNumber;
+     }
+     
+     public String getNickname(){
+    	 return nickname;
+     }
+     
+     public String getPassword(){
+    	 return password;
+     }
+     
+     public String getEmail(){
+    	 return email;
+     }
+     
+     public String getSchool(){
+    	 return school;
+     }
+     
+     public String getPhoneNumber(){
+    	 return phoneNumber;
+     }
+     
+     public void setNickname(String nickname){
+    	this.nickname=nickname;
+     }
+     
+     public void setPassword(String password){
+    	 this.password=password;
+     }
+     
+     public void setEmail(String email){
+    	 this.email=email;
+     }
+     
+     public void setSchool(String school){
+    	 this.school=school;
+     }
+     
+     public void setPhoneNumber(String phoneNumber){
+    	 this.phoneNumber=phoneNumber;
      }
 }
