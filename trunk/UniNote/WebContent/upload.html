@@ -13,6 +13,10 @@
     html,body{ height: 100%;}    
     body{ position: relative; min-height: 350px;}    
     footer{ position: relative; bottom: 0; left: 0; right: 0; }
+    .row{
+      margin-left: 9%;
+      margin-right: 9%;
+    }
   </style>
 </head>
 <body>
@@ -46,9 +50,9 @@
               <li>
                 <a href="list.html">分类</a>
               </li>
-             <li>
-               <a href="upload.html">上传文档</a>
-             </li>
+              <li>
+                <a href="upload.html">上传文档</a>
+              </li>
               <!-- Dropdown Trigger -->
               <li>
                 <a class="dropdown-button" href="#!" data-activates="dropdown1">
@@ -64,15 +68,93 @@
 
   </header>
 
-  <div class="container">
-     
+  <div class="row">
+    <!--左边的内容-->
+    <div class="col s12 m4 l3">
+      <ul class="collapsible" data-collapsible="expandable">
+        <li>
+          <div class="collapsible-header"> <i class="material-icons">filter_drama</i>
+            First
+          </div>
+          <div class="collapsible-body">
+            <div class="collection">
+              <a href="#!" class="collection-item">
+                Alan
+                <span class="badge">1</span>
+              </a>
+              <a href="#!" class="collection-item">
+                Alan
+                <span class="new badge">4</span>
+              </a>
+              <a href="#!" class="collection-item">Alan</a>
+              <a href="#!" class="collection-item">
+                Alan
+                <span class="badge">14</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">place</i>
+            Second
+          </div>
+          <div class="collapsible-body">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">whatshot</i>
+            Third
+          </div>
+          <div class="collapsible-body">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col s12 m8 l9">
+      <form action='/UniNote/SignUpServlet' method='post' class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="nickname" type="text" name="nickname" class="validate">
+            <label for="last_name">Nickname</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input id="password" type="password" name="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input id="email" type="email" name="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="必填" id="school" type="text" name="school" class="validate">
+            <label for="first_name">School</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input id="phonenumber" type="text" name="phonenumber" class="validate">
+            <label for="last_name">PhoneNumber</label>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="submit" value=" 注册 " class="btn btn-primary"></div>
+        </div>
+      </form>
+    </div>
   </div>
-
-
 
   <footer class="page-footer teal lighten-3">
     <div class="container">
-
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Footer Content</h5>
