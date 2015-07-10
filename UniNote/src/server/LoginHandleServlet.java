@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import object.UserVO;
 import sql.UserInfo;
 
 /**
@@ -34,12 +33,12 @@ public class LoginHandleServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		UserInfo user=new UserInfo();
-		boolean result=user.login(username, password);
+		UserInfo user = new UserInfo();
+		boolean result = user.login(username, password);
 		if (result) {
-			response.sendRedirect("/UniNote/filelist.html");
+			response.sendRedirect("/UniNote/list.html");
 		} else {
-			response.sendRedirect("/UniNote/not-login.html");
+			response.sendRedirect("/UniNote/index.html");
 		}
 	}
 
