@@ -67,16 +67,26 @@
     .btn{
       max-width: 30%;
     }
+    #radioButtons{
+    	margin-right: 150px;
+    }
 		</style>
 		<form>
 			<div>
 				<input type="text" data-provide="typeahead">
 				<a class="waves-effect waves-light btn">搜索</a>
 			</div>
-			<form >
-				<input type="radio" value="pdf" id="pdf-radio"><label for="pdf-radio">pdf</label>
-				<input type="radio" value="doc" id="doc-radio"><label for="doc-radio">doc</label>
-				<input type="radio" value="ppt" id="ppt-radio"><label for="ppt-radio">ppt</label>
+			<form id="radioButtons">
+				<input type="radio" name="document" id="all-radio"/>
+				<label for="all-radio">all</label>
+				<input type="radio" name="document" id="pdf-radio"/>
+				<label for="pdf-radio">pdf</label>
+				<input type="radio" name="document" id="doc-radio"/>
+				<label for="doc-radio">doc</label>
+				<input type="radio" name="document" id="ppt-radio"/>
+				<label for="ppt-radio">ppt</label>
+				<input type="radio" name="document" id="other-radio"/>
+				<label for="other-radio">other</label>
 			</form>
 		</form>
 	</div>
@@ -128,7 +138,42 @@
 			</ul>
 		</div>
 		<!--右边的内容-->
-		<div class="col s12 m8 l9"></div>
+		<div class="col s12 m8 l9">
+			<ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
+		</div>
 	</div>
 	<!--
 <style type="text/css">
