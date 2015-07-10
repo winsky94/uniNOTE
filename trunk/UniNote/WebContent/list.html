@@ -9,6 +9,31 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+	<style type="text/css">
+	#searchZone{
+      position: relative;
+      max-width: 50%;
+      margin-left: 37%;
+      margin-right: 13%;
+      margin-top:  35px;
+      margin-bottom:  10px;
+    }
+    input{
+      max-width: 80%;
+    }
+    .btn{
+      max-width: 30%;
+    }
+
+	.row{
+	  margin-left: 9%;
+	  margin-right: 9%;
+	}
+
+
+	</style>
+
 </head>
 <body>
 
@@ -50,24 +75,8 @@
 			</div>
 		</div>
 	</nav>
-	<div id="searchZone">
+	<div class="col s12 m8 l9" id="searchZone">
 		<!--搜索区域-->
-		<style type="text/css">
-		#searchZone{
-      position: relative;
-      max-width: 50%;
-      margin-left: 40%;
-      margin-right: 10%;
-      margin-top:  35px;
-      margin-bottom:  10px;
-    }
-    input{
-      max-width: 80%;
-    }
-    .btn{
-      max-width: 30%;
-    }
-		</style>
 		<form>
 			<div>
 				<input type="text" data-provide="typeahead">
@@ -93,12 +102,7 @@
 		</form>
 	</div>
 	<div class="row">
-	    <style type="text/css">
-	      .row{
-	      	margin-left: 9%;
-	      	margin-right: 9%;
-	      }
-	    </style>
+
 		<!--左边的内容-->
 		<div class="col s12 m4 l3">
 			<ul class="collapsible" data-collapsible="expandable">
