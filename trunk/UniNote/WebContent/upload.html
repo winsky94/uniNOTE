@@ -85,19 +85,8 @@
       </div>
     </nav>
   </header>
-<div class="container"><!--container -->
-  <div class="row">
-    <form action="#">
-      <div class="file-field input-field">
-        <input class="file-path validate" type="text"/>
-        <div class="btn">
-          <span>选择文件</span>
-          <input type="file" />
-        </div>
-      </div>
-    </form>
-  </div>
-
+  
+  <div class="container">
   <div class="row">
     <!--左边的内容-->
     <div class="col s12 m4 l3">
@@ -146,43 +135,43 @@
       </ul>
     </div>
     <div class="col s12 m8 l9">
-      <form action='/UniNote/SignUpServlet' method='post' class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="nickname" type="text" name="nickname" class="validate">
-            <label for="last_name">标签</label>
-          </div>
-
-          <div class="input-field col s12">
-            <input id="password" type="password" name="password" class="validate">
-            <label for="password">简介</label>
-          </div>
-
-          <div class="input-field col s12">
-            <input id="email" type="email" name="email" class="validate">
-            <label for="email">不知道</label>
-          </div>
-        </div>
 
         <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="必填" id="school" type="text" name="school" class="validate">
-            <label for="first_name">School</label>
-          </div>
-
-          <div class="input-field col s6">
-            <input id="phonenumber" type="text" name="phonenumber" class="validate">
-            <label for="last_name">PhoneNumber</label>
-          </div>
-
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>选择文件</span>
+                <input type="file" />
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text"/>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <input type="submit" value=" 注册 " class="btn btn-primary"></div>
-        </div>
-      </form>
+        <form action='/UniNote/SignUpServlet' method='post' class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="nickname" type="text" name="nickname" class="validate">
+              <label for="last_name">标签</label>
+            </div>
+
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" length="300"></textarea>
+              <label for="textarea1">简介</label>
+            </div>
+          </div>
+          <div class="col s12">
+            <input type="checkbox" class="filled-in" id="postgraduate" />
+            <label for="postgraduate">考研资料</label>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="submit" value=" 提交 " class="btn btn-primary"></div>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
   </div>
 
   <footer class="page-footer teal lighten-3">
