@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport"
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-<title>Starter Template - Materialize</title>
+	<title>Starter Template - Materialize</title>
 
-<!-- CSS  -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link href="css/materialize.css" type="text/css" rel="stylesheet"
+	<link href="css/materialize.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
-<link href="css/style.css" type="text/css" rel="stylesheet"
+	<link href="css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 </head>
 <body>
@@ -25,9 +25,15 @@
 						<a href="#!" class="brand-logo">uniNOTE</a>
 					</div>
 					<ul class="right hide-on-med-and-down">
-						<li><a href="sass.html">首页</a></li>
-						<li><a href="badges.html">分类</a></li>
-						<li><a class="modal-trigger" href="#modal1">登录/注册</a></li>
+						<li>
+							<a href="sass.html">首页</a>
+						</li>
+						<li>
+							<a href="badges.html">分类</a>
+						</li>
+						<li>
+							<a class="modal-trigger" href="#modal1">登录/注册</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -50,12 +56,14 @@
 									<input type="password" name="password" placeholder="密码" />
 								</DIV>
 								<p>
-									<input type="checkbox" class="filled-in" id="test1" /> <label
+									<input type="checkbox" class="filled-in" id="test1" />
+									<label
 										for="test1">下次自动登录</label>
 								</p>
 								<DIV class="span1">
 									<input type="submit" value=" 登录 " class="btn btn-primary">
-									<a href="sign_up.html"><input type="button" value=" 注册 " class="btn btn-primary"></a>
+									<a href="sign_up.html">
+										<input type="button" value=" 注册 " class="btn btn-primary"></a>
 								</DIV>
 							</div>
 						</div>
@@ -66,11 +74,10 @@
 		</div>
 	</div>
 
-	<div id="input">
-		<style type="text/css">
+	<style type="text/css">
 #input {
 	position: relative;
-	max-width: 50%;
+	max-width: 40%;
 	margin: auto;
 	margin-top: 250px;
 }
@@ -83,9 +90,27 @@ input {
 	max-width: 30%;
 }
 </style>
-		<input type="text" data-provide="typeahead"> <a
-			class="waves-effect waves-light btn">搜索</a>
-	</div>
+	<form id="input">
+		<input type="text" data-provide="typeahead">
+		<a class="waves-effect waves-light btn">搜索</a>
+		<form>
+				<style type="text/css">
+			label{
+				margin: 5px;
+			}
+			</style>
+				<input type="radio" name="document" id="all-radio"/>
+				<label for="all-radio">all</label>
+				<input type="radio" name="document" id="pdf-radio"/>
+				<label for="pdf-radio">pdf</label>
+				<input type="radio" name="document" id="doc-radio"/>
+				<label for="doc-radio">doc</label>
+				<input type="radio" name="document" id="ppt-radio"/>
+				<label for="ppt-radio">ppt</label>
+				<input type="radio" name="document" id="other-radio"/>
+				<label for="other-radio">other</label>
+			</form>
+	</form>
 	<style type="text/css">
 html, body {
 	height: 100%;
@@ -108,20 +133,26 @@ footer {
 			<div class="row">
 				<div class="col l6 s12">
 					<h5 class="white-text">Footer Content</h5>
-					<p class="grey-text text-lighten-4">You can use rows and
-						columns here to organize your footer content.</p>
+					<p class="grey-text text-lighten-4">
+						You can use rows and
+						columns here to organize your footer content.
+					</p>
 				</div>
 				<div class="col l4 offset-l2 s12">
 					<h5 class="white-text">Links</h5>
 					<ul>
 
-						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a>
+						<li>
+							<a class="grey-text text-lighten-3" href="#!">Link 1</a>
 						</li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a>
+						<li>
+							<a class="grey-text text-lighten-3" href="#!">Link 2</a>
 						</li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a>
+						<li>
+							<a class="grey-text text-lighten-3" href="#!">Link 3</a>
 						</li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a>
+						<li>
+							<a class="grey-text text-lighten-3" href="#!">Link 4</a>
 						</li>
 					</ul>
 				</div>
@@ -129,7 +160,8 @@ footer {
 		</div>
 		<div class="footer-copyright">
 			<div class="container">
-				© 2015 uniNOTE Group, NJU <a class="grey-text text-lighten-4 right"
+				© 2015 uniNOTE Group, NJU
+				<a class="grey-text text-lighten-4 right"
 					href="#!">More Links</a>
 			</div>
 		</div>
