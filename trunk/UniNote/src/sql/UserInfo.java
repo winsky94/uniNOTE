@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.management.Query;
+
 import object.UserVO;
 
 public class UserInfo {
@@ -58,7 +60,35 @@ public class UserInfo {
 	}
 
 	public boolean delete(UserVO vo) {
-		return true;
+		boolean isTrue=true;
+		try {
+			Connection con = SqlManager.getConnection();
+			con.setAutoCommit(false);
+			Statement sql = con.createStatement();
+			String name=vo.getNickname();
+			name.replace("'", "''");
+			String query = "select userID from user where nickname='"+name+"' limit 1";
+			ResultSet resultSet1 = sql.executeQuery(query);
+			if(!resultSet1.next()){
+				isTrue=false;
+			}
+			else{
+				query = "delete from user where nickname='"+name+"'";
+				System.out.println(name);
+				System.out.println("删了");
+				sql.executeUpdate(query);
+			}
+			resultSet1.close();
+			sql.close();
+			con.close();
+		    }catch (java.lang.ClassNotFoundException e) {
+				e.printStackTrace();
+				System.err.println("ClassNotFoundException:" + e.getMessage());
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+				System.err.println("SQLException:" + ex.getMessage());
+			}
+		return isTrue;
 	}
 
 	public boolean modify(UserVO vo) {
@@ -121,10 +151,12 @@ public class UserInfo {
 	}
 
 	public static void main(String[] args) {
-		UserInfo ui = new UserInfo();
-		// ui.createTable();
-		UserVO vo = new UserVO("1", "1", "1@qq.com", "nju", "13588888888");
-		// System.out.println(ui.add(vo));
-		System.out.println(ui.login("1", "1"));
+		UserInfo ui=new UserInfo();
+//		ui.createTable();
+		UserVO vo1=new UserVO("1", "1", "1@qq.com", "nju", "13588888888");
+		UserVO vo2=new UserVO("3", "3", "1@qq.com", "nju", "13588888888");
+//		System.out.println(ui.add(vo));
+//		System.out.println(ui.login("1", "1"));
+		System.out.println(ui.delete(vo2));
 	}
 }
