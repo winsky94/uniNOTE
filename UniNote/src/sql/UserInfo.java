@@ -121,6 +121,7 @@ public class UserInfo {
 		UserInfo ui=new UserInfo();
 //		ui.createTable();
 		UserVO vo=new UserVO("1", "1", "1@qq.com", "nju", "13588888888");
-		System.out.println(ui.add(vo));
+//		System.out.println(ui.add(vo));
+		System.out.println(ui.login("1", "1"));
 	} 
 }
