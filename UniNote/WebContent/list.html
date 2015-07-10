@@ -67,16 +67,18 @@
     .btn{
       max-width: 30%;
     }
-    #radioButtons {
-    	margin-right: 150px;
-    }
 		</style>
 		<form>
 			<div>
 				<input type="text" data-provide="typeahead">
 				<a class="waves-effect waves-light btn">搜索</a>
 			</div>
-			<form id="radioButtons">
+			<form>
+			<style type="text/css">
+			label{
+				margin: 5px;
+			}
+			</style>
 				<input type="radio" name="document" id="all-radio"/>
 				<label for="all-radio">all</label>
 				<input type="radio" name="document" id="pdf-radio"/>
