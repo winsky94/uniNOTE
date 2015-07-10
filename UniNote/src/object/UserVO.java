@@ -1,11 +1,11 @@
 package object;
 
 public class UserVO {
-     String nickname;
-     String password;
-     String email;
-     String school;
-     String phoneNumber;
+     private String nickname;
+     private String password;
+     private String email;
+     private String school;
+     private String phoneNumber;
      
      public UserVO(String nickname,String password,String email,String school,String phoneNumber){
     	 this.nickname=nickname;
