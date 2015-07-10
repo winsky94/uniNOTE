@@ -3,7 +3,7 @@ package sql;
 import object.UserVO;
 
 public class UserInfo {
-
+	
 	public boolean add(UserVO vo) {
 		return true;
 	}
@@ -18,5 +18,9 @@ public class UserInfo {
 
 	public UserVO search(String s) {
 		return null;
+	}
+	
+	public boolean login(String nickName,String password){
+		
 	}
 }
