@@ -11,6 +11,7 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+
   <nav>
     <div class="nav-wrapper teal lighten-3">
       <div class="container">
@@ -43,7 +44,6 @@
           <div class="tab-content">
             <div class="tab-pane" id="panel-60560"></div>
             <div class="tab-pane active" id="panel-549981">
-			<form action='/UniNote/LoginHandleServlet' method='post'>
               <DIV>
                 <input type="text" name="username" placeholder="用户名"/>
               </DIV>
@@ -54,11 +54,9 @@
                 <input type="checkbox" class="filled-in" id="test1" />
                 <label for="test1">下次自动登录</label>
               </p>
-              <DIV class="span1">     
-                <input type="submit" value=" 登录 " class="btn btn-primary">
-                <input type="submit" value=" 注册 " class="btn btn-primary">
-			  </DIV>
-			</form>
+              <DIV class="span1">
+                <input type="button" value=" 登录 " class="btn btn-primary">
+                <input type="button" value=" 注册 " class="btn btn-primary"></DIV>
             </div>
           </div>
    
@@ -77,34 +75,60 @@
       margin-top:  250px;
     }
     input{
-      max-width: 70%;
+      max-width: 80%;
     }
     .btn{
       max-width: 30%;
     }
+
   </style>
   <input type="text" data-provide="typeahead">
 
   <a class="waves-effect waves-light btn">搜索</a>
 </div>
-
-<footer class="page-footer teal lighten-3">
-
   <style type="text/css">
       html,body{ height: 100%;}
 
-      body{ position: relative; min-height: 550px;}
+      body{ position: relative; min-height: 350px;}
 
       footer{ position: absolute; bottom: 0; left: 0; right: 0; }
     </style>
-
-  <div class="footer-copyright">
+<footer class="page-footer teal lighten-3">
     <div class="container">
-      © 2015 uniNOTE Group, NJU
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">
+            You can use rows and columns here to organize your footer content.
+          </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2015 uniNOTE Group, NJU
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
