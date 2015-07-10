@@ -41,9 +41,11 @@ public class SignUpServlet extends HttpServlet {
 		UserInfo user = new UserInfo();
 		boolean result = user.add(vo);
 		if (result) {
-			response.sendRedirect("/UniNote/filelist.html");
+			System.out.println("true");
+			response.sendRedirect("/UniNote/list.html");
 		} else {
 			// 提示注册失败
+			System.out.println("false");
 		}
 
 	}
