@@ -28,7 +28,16 @@
 	 	.btn {
 	 		max-width: 30%;
 	 	}
+		#main_back {
+			width: 100%;
+			background: #795548;
+			position: relative;
+			margin-top: 10px;
+		}
 </style>
+	<style>
+		* { margin: 0; padding: 0; }
+	</style>
 </head>
 <body>
 	<header>
@@ -107,9 +116,7 @@
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-button" href="#!" data-activates="dropdown2">
-									王宁 <i class="material-icons right">arrow_drop_down</i>
-								</a>
+								<a class="modal-trigger" href="#modal1">登录/注册</a>
 							</li>
 						</ul>
 						<ul id="slide-out" class="side-nav">
@@ -130,10 +137,7 @@
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-button" href="#!" data-activates="dropdown4">
-									王宁
-									<i class="material-icons right">arrow_drop_down</i>
-								</a>
+								<a class="modal-trigger" href="#modal1">登录/注册</a>
 							</li>
 						</ul>
 						<a href="#" data-activates="slide-out" class="button-collapse">
@@ -145,41 +149,9 @@
 		</nav>
 	</header>
 
-	<!-- Modal Structure -->
-	<div id="modal1" class="main modal">
-		<div class="modal-content">
-			<section class="loginBox row-fluid">
-				<div class="tabbable" id="tabs-634549">
-					<form action='/UniNote/LoginHandleServlet' method='post'>
-						<div class="tab-content">
-							<div class="tab-pane" id="panel-60560"></div>
-							<div class="tab-pane active" id="panel-549981">
-								<DIV>
-									<input type="text" name="username" placeholder="用户名" />
-								</DIV>
-								<DIV>
-									<input type="password" name="password" placeholder="密码" />
-								</DIV>
-								<p>
-									<input type="checkbox" class="filled-in" id="test1" />
-									<label
-										for="test1">下次自动登录</label>
-								</p>
-								<DIV class="span1">
-									<input type="submit" value=" 登录 " class="btn btn-primary">
-									<a href="sign_up.html">
-										<input type="button" value=" 注册 " class="btn btn-primary"></a>
-								</DIV>
-							</div>
-						</div>
-					</form>
+<div id="main_back">
 
-				</div>
-			</section>
-		</div>
-	</div><!--main modal-->
-
-	<form id="input">
+	<form class="form" id="input">
 		<input type="text" data-provide="typeahead">
 		<a class="waves-effect waves-light btn">搜索</a>
 		<form>
@@ -200,6 +172,50 @@
 			<label for="other-radio">other</label>
 		</form>
 	</form>
+</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<!-- Modal Structure -->
+	<div id="modal1" class="main modal">
+		<div class="modal-content">
+			<section class="loginBox row-fluid">
+				<div class="tabbable" id="tabs-634549">
+					<form action='/UniNote/LoginHandleServlet' method='post'>
+						<div class="tab-content">
+							<div class="tab-pane" id="panel-60560"></div>
+							<div class="tab-pane active" id="panel-549981">
+								<DIV>
+									<input type="text" name="username" placeholder="用户名" />
+								</DIV>
+								<DIV>
+									<input type="password" name="password" placeholder="密码" />
+								</DIV>
+								<p>
+									<input type="checkbox" class="filled-in" id="test1" />
+									<label
+											for="test1">下次自动登录</label>
+								</p>
+								<DIV class="span1">
+									<input type="submit" value=" 登录 " class="btn btn-primary">
+									<a href="sign_up.html">
+										<input type="button" value=" 注册 " class="btn btn-primary"></a>
+								</DIV>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</section>
+		</div>
+	</div><!--main modal-->
+
+
+
 
 	<footer class="page-footer teal lighten-3">
 		<div class="container">
