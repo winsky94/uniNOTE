@@ -13,57 +13,73 @@
 	media="screen,projection" />
 	<link href="css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
+	<style type="text/css">
+	 	#input {
+	 		position: relative;
+	 		max-width: 40%;
+	 		margin: auto;
+	 		margin-top: 250px;
+	 	}		 
+
+	 	input {
+	 		max-width: 80%;
+	 	}		 
+
+	 	.btn {
+	 		max-width: 30%;
+	 	}
+</style>
 </head>
 <body>
-<header>
-<!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li>
-      <a href="#!">南京大学</a>
-    </li>
-    <li>
-      <a href="#!">切换</a>
-    </li>
+	<header>
+		<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content">
+			<li>
+				<a href="#!">南京大学</a>
+			</li>
+			<li>
+				<a href="#!">切换</a>
+			</li>
 
-    <li class="divider"></li>
-    <li>
-      <a href="http://www.nju.edu.cn" target="_blank">主页</a>
-    </li>
-  </ul>
-  <!-- Dropdown2 Structure -->
-  <ul id="dropdown2" class="dropdown-content">
-    <li>
-      <a href="#!">王宁</a>
-    </li>
-    <li>
-      <a href="#!">个人信息</a>
-    </li>
+			<li class="divider"></li>
+			<li>
+				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
+			</li>
+		</ul>
+		<!-- Dropdown2 Structure -->
+		<ul id="dropdown2" class="dropdown-content">
+			<li>
+				<a href="#!">王宁</a>
+			</li>
+			<li>
+				<a href="#!">个人信息</a>
+			</li>
 
-  </ul>
-    <!-- Dropdown Structure -->
-  <ul id="dropdown3" class="dropdown-content">
-    <li>
-      <a href="#!">南京大学</a>
-    </li>
-    <li>
-      <a href="#!">切换</a>
-    </li>
+		</ul>
+		<!-- Dropdown Structure -->
+		<ul id="dropdown3" class="dropdown-content">
+			<li>
+				<a href="#!">南京大学</a>
+			</li>
+			<li>
+				<a href="#!">切换</a>
+			</li>
 
-    <li class="divider"></li>
-    <li>
-      <a href="http://www.nju.edu.cn" target="_blank">主页</a>
-    </li>
-  </ul>
-  <!-- Dropdown2 Structure -->
-  <ul id="dropdown4" class="dropdown-content">
-    <li>
-      <a href="#!">王宁</a>
-    </li>
-    <li>
-      <a href="#!">个人信息</a>
-    </li>
+			<li class="divider"></li>
+			<li>
+				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
+			</li>
+		</ul>
+		<!-- Dropdown2 Structure -->
+		<ul id="dropdown4" class="dropdown-content">
+			<li>
+				<a href="#!">王宁</a>
+			</li>
+			<li>
+				<a href="#!">个人信息</a>
+			</li>
 
-  </ul>
+		</ul>
 
 		<nav>
 
@@ -120,7 +136,9 @@
 								</a>
 							</li>
 						</ul>
-						<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+						<a href="#" data-activates="slide-out" class="button-collapse">
+							<i class="mdi-navigation-menu"></i>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -128,7 +146,7 @@
 	</header>
 
 	<!-- Modal Structure -->
-	<div id="modal1" class="modal">
+	<div id="modal1" class="main modal">
 		<div class="modal-content">
 			<section class="loginBox row-fluid">
 				<div class="tabbable" id="tabs-634549">
@@ -159,62 +177,30 @@
 				</div>
 			</section>
 		</div>
-	</div>
+	</div><!--main modal-->
 
-	<style type="text/css">
-#input {
-	position: relative;
-	max-width: 40%;
-	margin: auto;
-	margin-top: 250px;
-}
-
-input {
-	max-width: 80%;
-}
-
-.btn {
-	max-width: 30%;
-}
-</style>
 	<form id="input">
 		<input type="text" data-provide="typeahead">
 		<a class="waves-effect waves-light btn">搜索</a>
 		<form>
-				<style type="text/css">
+			<style type="text/css">
 			label{
 				margin: 5px;
 			}
 			</style>
-				<input type="radio" name="document" id="all-radio"/>
-				<label for="all-radio">all</label>
-				<input type="radio" name="document" id="pdf-radio"/>
-				<label for="pdf-radio">pdf</label>
-				<input type="radio" name="document" id="doc-radio"/>
-				<label for="doc-radio">doc</label>
-				<input type="radio" name="document" id="ppt-radio"/>
-				<label for="ppt-radio">ppt</label>
-				<input type="radio" name="document" id="other-radio"/>
-				<label for="other-radio">other</label>
-			</form>
+			<input type="radio" name="document" id="all-radio"/>
+			<label for="all-radio">all</label>
+			<input type="radio" name="document" id="pdf-radio"/>
+			<label for="pdf-radio">pdf</label>
+			<input type="radio" name="document" id="doc-radio"/>
+			<label for="doc-radio">doc</label>
+			<input type="radio" name="document" id="ppt-radio"/>
+			<label for="ppt-radio">ppt</label>
+			<input type="radio" name="document" id="other-radio"/>
+			<label for="other-radio">other</label>
+		</form>
 	</form>
-	<style type="text/css">
-html, body {
-	height: 100%;
-}
 
-body {
-	position: relative;
-	min-height: 350px;
-}
-
-footer {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
-</style>
 	<footer class="page-footer teal lighten-3">
 		<div class="container">
 			<div class="row">
