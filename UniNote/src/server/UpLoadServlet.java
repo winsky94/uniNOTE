@@ -54,8 +54,8 @@ public class UpLoadServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		response.setCharacterEncoding("utf-8");
-		request.setCharacterEncoding("utf-8");
+		   response.setCharacterEncoding("utf-8");
+		   request.setCharacterEncoding("utf-8");
 		try {
 			// Create a factory for disk-based file items
 			DiskFileItemFactory factory = new DiskFileItemFactory();
