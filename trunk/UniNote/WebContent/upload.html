@@ -1,296 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>up_load</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>up_load</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <style type="text/css">
-    .row{
-      margin-left: 9%;
-      margin-right: 9%;
-    }
-    .file-field{
-      max-width: 60%;
-      margin-left: 20%;
-      margin-right: 20%；
-    }
-  </style>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <style type="text/css">
+        .row {
+            margin-left: 9%;
+            margin-right: 9%;
+        }
+
+        .file-field {
+            max-width: 60%;
+            margin-left: 20%;
+            margin-right: 20% ；
+        }
+    </style>
 </head>
 <body>
 
-  <header>
+<header>
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
-      <li>
-        <a href="#!">南京大学</a>
-      </li>
-      <li>
-        <a href="#!">切换</a>
-      </li>
+        <li>
+            <a href="#!">南京大学</a>
+        </li>
+        <li>
+            <a href="#!">切换</a>
+        </li>
 
-      <li class="divider"></li>
-      <li>
-        <a href="http://www.nju.edu.cn" target="_blank">主页</a>
-      </li>
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.nju.edu.cn" target="_blank">主页</a>
+        </li>
     </ul>
     <!-- Dropdown2 Structure -->
     <ul id="dropdown2" class="dropdown-content">
-      <li>
-        <a href="#!">王宁</a>
-      </li>
-      <li>
-        <a href="#!">个人信息</a>
-      </li>
+        <li>
+            <a href="#!">王宁</a>
+        </li>
+        <li>
+            <a href="#!">个人信息</a>
+        </li>
 
     </ul>
     <!-- Dropdown Structure -->
     <ul id="dropdown3" class="dropdown-content">
-      <li>
-        <a href="#!">南京大学</a>
-      </li>
-      <li>
-        <a href="#!">切换</a>
-      </li>
+        <li>
+            <a href="#!">南京大学</a>
+        </li>
+        <li>
+            <a href="#!">切换</a>
+        </li>
 
-      <li class="divider"></li>
-      <li>
-        <a href="http://www.nju.edu.cn" target="_blank">主页</a>
-      </li>
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.nju.edu.cn" target="_blank">主页</a>
+        </li>
     </ul>
     <!-- Dropdown2 Structure -->
     <ul id="dropdown4" class="dropdown-content">
-      <li>
-        <a href="#!">王宁</a>
-      </li>
-      <li>
-        <a href="#!">个人信息</a>
-      </li>
+        <li>
+            <a href="#!">王宁</a>
+        </li>
+        <li>
+            <a href="#!">个人信息</a>
+        </li>
 
     </ul>
 
     <nav>
 
-      <div class="nav-wrapper teal lighten-3">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <a href="#!" class="brand-logo">uniNOTE</a>
+        <div class="nav-wrapper teal lighten-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <a href="#!" class="brand-logo">uniNOTE</a>
+                    </div>
+
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li>
+                            <a href="list.html">文档</a>
+                        </li>
+                        <li>
+                            <a href="upload.html">上传文档</a>
+                        </li>
+                        <!-- Dropdown Trigger -->
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                                南京大学 <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown2">
+                                王宁 <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="slide-out" class="side-nav">
+                        <li>
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li>
+                            <a href="list.html">文档</a>
+                        </li>
+                        <li>
+                            <a href="upload.html">上传文档</a>
+                        </li>
+                        <!-- Dropdown Trigger -->
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown3">
+                                南京大学
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown4">
+                                王宁
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" data-activates="slide-out" class="button-collapse">
+                        <i class="mdi-navigation-menu"></i>
+                    </a>
+                </div>
             </div>
-
-            <ul class="right hide-on-med-and-down">
-              <li>
-                <a href="index.html">首页</a>
-              </li>
-              <li>
-                <a href="list.html">文档</a>
-              </li>
-              <li>
-                <a href="upload.html">上传文档</a>
-              </li>
-              <!-- Dropdown Trigger -->
-              <li>
-                <a class="dropdown-button" href="#!" data-activates="dropdown1">
-                  南京大学 <i class="material-icons right">arrow_drop_down</i>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-button" href="#!" data-activates="dropdown2">
-                  王宁 <i class="material-icons right">arrow_drop_down</i>
-                </a>
-              </li>
-            </ul>
-            <ul id="slide-out" class="side-nav">
-              <li>
-                <a href="index.html">首页</a>
-              </li>
-              <li>
-                <a href="list.html">文档</a>
-              </li>
-              <li>
-                <a href="upload.html">上传文档</a>
-              </li>
-              <!-- Dropdown Trigger -->
-              <li>
-                <a class="dropdown-button" href="#!" data-activates="dropdown3">
-                  南京大学
-                  <i class="material-icons right">arrow_drop_down</i>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-button" href="#!" data-activates="dropdown4">
-                  王宁
-                  <i class="material-icons right">arrow_drop_down</i>
-                </a>
-              </li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse">
-              <i class="mdi-navigation-menu"></i>
-            </a>
-          </div>
         </div>
-      </div>
     </nav>
-  </header>
+</header>
 
-    <div class="main container">
-      <div class="row">
+<div class="main container">
+    <div class="row">
         <!--左边的内容-->
         <div class="col s12 l4">
-          <br />
-          <h4>选择课程</h4>
-          <ul class="collapsible" data-collapsible="expandable">
-            <li>
-              <div class="collapsible-header">
-                <i class="material-icons">list</i>
-                软件学院
-              </div>
-              <div class="collapsible-body">
-                <div class="collection" title="软件学院">
-                  <a href="#!" class="collection-item" title="软件工程与计算Ⅰ">
-                    软件工程与计算Ⅰ
-                    <span class="badge">6</span>
-                  </a>
-                  <a href="#!" class="collection-item">
-                    计算机组织结构
-                    <span class="new badge">4</span>
-                  </a>
-                  <a href="#!" class="collection-item">
-                    计算机与操作系统
-                    <span class="badge">22</span>
-                  </a>
-                  <a href="#!" class="collection-item">
-                    数据库系统
-                    <span class="badge">14</span>
-                  </a>
-                  <a href="#!" class="collection-item">
-                    软件工程与计算Ⅲ
-                    <span class="badge">11</span>
-                  </a>
-                  <a href="#!" class="collection-item">
-                    软件工程统计方法
-                    <span class="badge">17</span>
-                  </a>
-                  <a href="#!" class="collection-item">
-                    计算机网络
-                    <span class="badge">32</span>
-                  </a>
+            <br/>
+            <h4>选择课程</h4>
+            <ul class="collapsible" data-collapsible="expandable">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">list</i>
+                        软件学院
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection" title="软件学院">
+                            <a href="#!" class="collection-item" title="软件工程与计算Ⅰ">
+                                软件工程与计算Ⅰ
+                                <span class="badge">6</span>
+                            </a>
+                            <a href="#!" class="collection-item">
+                                计算机组织结构
+                                <span class="new badge">4</span>
+                            </a>
+                            <a href="#!" class="collection-item">
+                                计算机与操作系统
+                                <span class="badge">22</span>
+                            </a>
+                            <a href="#!" class="collection-item">
+                                数据库系统
+                                <span class="badge">14</span>
+                            </a>
+                            <a href="#!" class="collection-item">
+                                软件工程与计算Ⅲ
+                                <span class="badge">11</span>
+                            </a>
+                            <a href="#!" class="collection-item">
+                                软件工程统计方法
+                                <span class="badge">17</span>
+                            </a>
+                            <a href="#!" class="collection-item">
+                                计算机网络
+                                <span class="badge">32</span>
+                            </a>
 
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header">
-                <i class="material-icons">list</i>
-                计算机科学与技术系
-              </div>
-              <div class="collapsible-body">
-                <div class="collection">
-                  <a href="#!" class="collection-item">
-                    编译原理怕不怕!?
-                    <span class="badge">32</span>
-                  </a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">list</i>
+                        计算机科学与技术系
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            <a href="#!" class="collection-item">
+                                编译原理怕不怕!?
+                                <span class="badge">32</span>
+                            </a>
 
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header">
-                <i class="material-icons">list</i>
-                Third
-              </div>
-              <div class="collapsible-body">
-                <p>Lorem ipsum dolor sit amet.</p>
-              </div>
-            </li>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">list</i>
+                        Third
+                    </div>
+                    <div class="collapsible-body">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </li>
 
-          </ul>
+            </ul>
         </div>
         <div class="col s12 l8">
 
-          <div class="row">
-            <br />
-             <form action='/UniNote/SignUpServlet' method='post' class="col s12">
-              <div class="file-field input-field">
-                <div class="btn">
-                  <span>选择文件</span>
-                  <input type="file" />
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text"/>
-                </div>
-              </div>
-          </div>
-         
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="text" name="tag" class="validate">
-                <label for="last_name">标签</label>
-                <input type="hidden" name="lecture" value="">
-              </div>
+            <br/>
 
-              <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea" length="300"></textarea>
-                <label for="textarea1">简介</label>
-              </div>
-            </div>
-            <div class="col s12">
-              <input type="checkbox" name="postgraduate" class="filled-in" id="postgraduate" />
-              <label for="postgraduate">考研资料</label>
-            </div>
-            <div class="row">
-              <div class="input-field col s6">
-                <input type="submit" value=" 提交 " class="btn btn-primary"></div>
-            </div>
-          </form>
+            <form action='/UniNote/SignUpServlet' method='post' class="col s12">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>选择文件</span>
+                        <input type="file"/>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text"/>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" length="300"></textarea>
+                        <label for="textarea1">简介</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="tag" name="tag" class="validate">
+                        <label for="tag">标签</label>
+                        <input type="hidden" name="lecture" value="">
+                    </div>
+
+                </div>
+                <div class="col s12">
+                    <input type="checkbox" name="postgraduate" class="filled-in" id="postgraduate"/>
+                    <label for="postgraduate">考研资料</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input type="submit" value=" 提交 " class="btn btn-primary"></div>
+                </div>
+            </form>
         </div>
-      </div>
-    </div><!--main container--> 
+    </div>
+</div>
+<!--main container-->
 
-  
 
-  <footer class="page-footer teal lighten-3">
+<footer class="page-footer teal lighten-3">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">
-            You can use rows and columns here to organize your footer content.
-          </p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
 
-            <li>
-              <a class="grey-text text-lighten-3" href="#!">Link 1</a>
-            </li>
+                <p class="grey-text text-lighten-4">
+                    You can use rows and columns here to organize your footer content.
+                </p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
 
-          </ul>
+                    <li>
+                        <a class="grey-text text-lighten-3" href="#!">Link 1</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-        © 2015 uniNOTE Group, NJU
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
+        <div class="container">
+            © 2015 uniNOTE Group, NJU
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
     </div>
-  </footer>
+</footer>
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script type="text/javascript">
-  $('.collection-item').click(function(){
-     $(':hidden').attr('value',$(this).parent().attr('title')+'-'+$(this).attr('title'));
-  });
-  </script>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript">
+    $('.collection-item').click(function () {
+        $(':hidden').attr('value', $(this).parent().attr('title') + '-' + $(this).attr('title'));
+    });
+</script>
 
 </body>
 </html>
