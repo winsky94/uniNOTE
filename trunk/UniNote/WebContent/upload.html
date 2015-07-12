@@ -150,8 +150,8 @@
                 软件学院
               </div>
               <div class="collapsible-body">
-                <div class="collection">
-                  <a href="#!" class="collection-item">
+                <div class="collection" title="软件学院">
+                  <a href="#!" class="collection-item" title="软件工程与计算Ⅰ">
                     软件工程与计算Ⅰ
                     <span class="badge">6</span>
                   </a>
@@ -214,7 +214,7 @@
 
           <div class="row">
             <br />
-            <form action="#">
+             <form action='/UniNote/SignUpServlet' method='post' class="col s12">
               <div class="file-field input-field">
                 <div class="btn">
                   <span>选择文件</span>
@@ -224,13 +224,13 @@
                   <input class="file-path validate" type="text"/>
                 </div>
               </div>
-            </form>
           </div>
-          <form action='/UniNote/SignUpServlet' method='post' class="col s12">
+         
             <div class="row">
               <div class="input-field col s12">
-                <input id="nickname" type="text" name="nickname" class="validate">
+                <input type="text" name="tag" class="validate">
                 <label for="last_name">标签</label>
+                <input type="hidden" name="lecture" value="">
               </div>
 
               <div class="input-field col s12">
@@ -239,7 +239,7 @@
               </div>
             </div>
             <div class="col s12">
-              <input type="checkbox" class="filled-in" id="postgraduate" />
+              <input type="checkbox" name="postgraduate" class="filled-in" id="postgraduate" />
               <label for="postgraduate">考研资料</label>
             </div>
             <div class="row">
@@ -286,6 +286,11 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script type="text/javascript">
+  $('.collection-item').click(function(){
+     $(':hidden').attr('value',$(this).parent().attr('title')+'-'+$(this).attr('title'));
+  });
+  </script>
 
 </body>
 </html>
