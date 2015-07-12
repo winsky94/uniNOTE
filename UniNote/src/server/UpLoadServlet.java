@@ -35,7 +35,7 @@ public class UpLoadServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		String file=request.getParameter("upLoadFile");
+		String file=request.getParameter("file");
 		System.out.println(file);
 		
 	}
