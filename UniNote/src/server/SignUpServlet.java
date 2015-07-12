@@ -38,7 +38,7 @@ public class SignUpServlet extends HttpServlet {
 		String school = request.getParameter("school");
 		String phoneNumber = request.getParameter("phonenumber");
 
-//		System.out.println(nickname);
+		// System.out.println(nickname);
 		UserVO vo = new UserVO(nickname, password, email, school, phoneNumber);
 		UserInfo user = new UserInfo();
 		boolean result = user.add(vo);
