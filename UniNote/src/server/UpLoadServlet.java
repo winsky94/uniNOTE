@@ -1,5 +1,6 @@
 package server;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -33,8 +34,10 @@ public class UpLoadServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
-
+		
+		String file=request.getParameter("upLoadFile");
+		System.out.println(file);
+		
 	}
 
 	/**
