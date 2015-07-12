@@ -54,8 +54,8 @@ public class UpLoadServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		   response.setCharacterEncoding("utf-8");
-		   request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		try {
 			// Create a factory for disk-based file items
 			DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -72,7 +72,7 @@ public class UpLoadServlet extends HttpServlet {
 
 			List<FileItem> items = upload.parseRequest(request);// 得到所有的文件
 			Iterator<FileItem> i = items.iterator();
-			
+
 			while (i.hasNext()) {
 				FileItem fi = (FileItem) i.next();
 				String fileName = fi.getName();
@@ -80,14 +80,13 @@ public class UpLoadServlet extends HttpServlet {
 					File fullFile = new File(fi.getName());
 					File savedFile = new File(uploadPath, fullFile.getName());
 					fi.write(savedFile);
-					
-					DocumentInfo documentInfo=new DocumentInfo();
-					DocumentVO vo=new DocumentVO(fileName, uploadPath);
+
+					DocumentInfo documentInfo = new DocumentInfo();
+					DocumentVO vo = new DocumentVO(fileName, uploadPath);
 					documentInfo.add(vo);
 				}
 			}
-//			System.out.print("upload succeed");
-			
+			response.sendRedirect("/UniNote/list.html");
 		} catch (Exception e) {
 			// 可以跳转出错页面
 			e.printStackTrace();
