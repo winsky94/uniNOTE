@@ -152,8 +152,8 @@ public class UserInfo {
 //		ui.createTable();
 		UserVO vo1=new UserVO("1", "1", "1@qq.com", "nju", "13588888888");
 		UserVO vo2=new UserVO("3", "3", "1@qq.com", "nju", "13588888888");
-//		System.out.println(ui.add(vo));
+		System.out.println(ui.add(vo2));
 //		System.out.println(ui.login("1", "1"));
-		System.out.println(ui.delete(vo2));
+//		System.out.println(ui.delete(vo2));
 	}
 }
