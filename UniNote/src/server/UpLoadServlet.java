@@ -40,6 +40,7 @@ public class UpLoadServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
+    	this.doPost(request, response);
     }
 
     /**
