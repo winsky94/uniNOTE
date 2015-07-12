@@ -24,8 +24,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet("/UpLoadServlet")
 public class UpLoadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private String uploadPath = "D:\\temp"; // 上传文件的目录
-    private String tempPath = "d:\\temp\\buffer\\"; // 临时文件目录
+    private String uploadPath = "D:\\web_server_file"; // 上传文件的目录
+    private String tempPath = "d:\\web_server_file\\buffer\\"; // 临时文件目录
     File tempPathFile; 
     /**
      * @see HttpServlet#HttpServlet()
