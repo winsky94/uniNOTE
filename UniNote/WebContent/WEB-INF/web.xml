@@ -21,7 +21,7 @@
 		<servlet-name>LoginHandleServlet</servlet-name>
 		<url-pattern>/LoginHandleServlet</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>SignUpServlet</servlet-name>
 		<servlet-class>server.SignUpServlet</servlet-class>
@@ -30,7 +30,7 @@
 		<servlet-name>SignUpServlet</servlet-name>
 		<url-pattern>/SignUpServlet</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>SearchServlet</servlet-name>
 		<servlet-class>server.SearchServlet</servlet-class>
@@ -39,7 +39,7 @@
 		<servlet-name>SearchServlet</servlet-name>
 		<url-pattern>/SearchServlet</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>UpLoadServlet</servlet-name>
 		<servlet-class>server.UpLoadServlet</servlet-class>
@@ -48,7 +48,7 @@
 		<servlet-name>UpLoadServlet</servlet-name>
 		<url-pattern>/UpLoadServlet</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>DownLoadServlet</servlet-name>
 		<servlet-class>server.DownLoadServlet</servlet-class>
@@ -57,5 +57,14 @@
 		<servlet-name>DownLoadServlet</servlet-name>
 		<url-pattern>/DownLoadServlet</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>DocumentOverViewServlet</servlet-name>
+		<servlet-class>server.DocumentOverViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DocumentOverViewServlet</servlet-name>
+		<url-pattern>/DocumentOverViewServlet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
