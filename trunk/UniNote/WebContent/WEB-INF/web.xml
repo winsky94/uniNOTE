@@ -34,8 +34,7 @@
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/SearchServlet</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>UpLoadServlet</servlet-name>
     <servlet-class>server.UpLoadServlet</servlet-class>
   </servlet>
