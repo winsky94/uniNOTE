@@ -35,7 +35,7 @@ public class DocumentInfo {
 			   statement.setString(2, vo.getName());
 			   statement.setString(3, vo.getPath());
 			   statement.addBatch();
-			   System.out.println(count);
+//			   System.out.println(count);
 
 			   statement.executeBatch();
 			   con.commit();

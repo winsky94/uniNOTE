@@ -82,7 +82,7 @@ public class UpLoadServlet extends HttpServlet {
 					fi.write(savedFile);
 
 					DocumentInfo documentInfo = new DocumentInfo();
-					DocumentVO vo = new DocumentVO(fileName, uploadPath);
+					DocumentVO vo = new DocumentVO(fileName, uploadPath+"\\"+fileName);
 					documentInfo.add(vo);
 				}
 			}
