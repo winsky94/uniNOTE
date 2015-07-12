@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>sign_up</title>
 
-    <script type="text/javascript" src="js/jQuery.js"></script>
-    <script type="text/javascript" src="js/lazyload-min.js"></script>
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -159,12 +157,12 @@
           <div class="row">
             <div class="input-field col s6">
               <input placeholder="必填" id="school" type="text" name="school" class="validate">
-              <label for="school">School</label>
+              <label for="first_name">School</label>
             </div>
 
             <div class="input-field col s6">
               <input id="phonenumber" type="text" name="phonenumber" class="validate">
-              <label for="phonenumber">PhoneNumber</label>
+              <label for="last_name">PhoneNumber</label>
             </div>
 
           </div>
@@ -185,14 +183,7 @@
     </div>
 
   </div><!--main container-->
-<script type="text/javascript">
-        LazyLoad.css(["css/cityStyle.css"], function () {
-            LazyLoad.js(["js/cityScript.js"], function () {
-                var test = new citySelector.cityInit("school");
-                
-            });
-        });
-    </script>
+
 
   <footer class="page-footer teal lighten-3">
     <div class="container">
