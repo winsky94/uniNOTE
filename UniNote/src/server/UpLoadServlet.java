@@ -86,7 +86,8 @@ public class UpLoadServlet extends HttpServlet {
 					documentInfo.add(vo);
 				}
 			}
-			response.sendRedirect("/UniNote/list.html");
+//			response.sendRedirect("/UniNote/list.html");
+			response.sendRedirect("/UniNote/DocumentOverViewServlet");
 		} catch (Exception e) {
 			// 可以跳转出错页面
 			e.printStackTrace();
