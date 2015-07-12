@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javafx.geometry.VPos;
+
 import javax.management.Query;
 
 import object.UserVO;
@@ -88,8 +90,50 @@ public class UserInfo {
 		return isTrue;
 	}
 
-	public boolean modify(UserVO vo) {
-		return true;
+	public boolean modify(UserVO vo,String oldName) {
+		boolean isTrue=true;
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String name1=oldName;
+			name1.replace("'", "''");
+			String query = "select userID from user where nickname='"+name1+"' limit 1";
+			ResultSet resultSet1 = sql.executeQuery(query);
+			int hisID=0;
+			if(!resultSet1.next()){
+				isTrue=false;
+			}
+			else{
+				hisID=resultSet1.getInt("userID");
+				String name2=vo.getNickname();
+				name2.replace("'", "''");
+				query = "select userID from user where nickname='"+name2+"' limit 1";
+				ResultSet resultSet2 = sql.executeQuery(query);
+				if(resultSet2.next()){
+					int hisnextID=resultSet2.getInt("userID");
+				    if(hisnextID!=hisID)
+					    isTrue=false;
+				    else{
+				    	
+				    }
+				}
+				else{
+					query = "update user where nickname='"+name1+"' set nickname='"+name2+"'"+" password";
+					sql.executeUpdate(query);
+				}
+				resultSet2.close();
+			}
+			resultSet1.close();
+			sql.close();
+			con.close();
+		    }catch (java.lang.ClassNotFoundException e) {
+				e.printStackTrace();
+				System.err.println("ClassNotFoundException:" + e.getMessage());
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+				System.err.println("SQLException:" + ex.getMessage());
+			}
+		return isTrue;
 	}
 
 	public UserVO search(String s) {
