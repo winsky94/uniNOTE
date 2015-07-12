@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import object.DocumentVO;
 
@@ -94,6 +95,34 @@ public class DocumentInfo {
 		return file;		
 	}
 	
+	/**
+	 * 得到数据库中全部的文件对象
+	 * @return
+	 */
+	public ArrayList<DocumentVO> getDocuments(){
+		ArrayList<DocumentVO> documents=new ArrayList<DocumentVO>();
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String query = "select * from document";
+			ResultSet resultSet = sql.executeQuery(query);
+			while(resultSet.next()){
+				String name=resultSet.getString("name");
+				String path=resultSet.getString("path");
+				DocumentVO vo=new DocumentVO(name, path);
+				documents.add(vo);
+			}
+			resultSet.close();
+			sql.close();
+			con.close();
+			
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return documents;
+	}
 	
 	public void createTable(){
 		try {
@@ -118,8 +147,9 @@ public class DocumentInfo {
 	public static void main(String[] args) {
 		DocumentInfo ui=new DocumentInfo();
 //		ui.createTable();
-		DocumentVO vo=new DocumentVO("hehe", "C:/1.c");
-		System.out.println(ui.add(vo));
-		System.out.println(ui.search("hehe"));
+//		DocumentVO vo=new DocumentVO("hehe", "C:/1.c");
+//		System.out.println(ui.add(vo));
+//		System.out.println(ui.search("hehe"));
+		System.out.println(ui.getDocuments().size());
 	} 
 }
