@@ -61,7 +61,7 @@ public class UpLoadServlet extends HttpServlet {
            ServletFileUpload upload = new ServletFileUpload(factory);
  
            // Set overall request size constraint
-           upload.setSizeMax(4194304*1024); // 设置最大文件尺寸，这里是4GB
+           upload.setSizeMax(4194304*10); // 设置最大文件尺寸，这里是40MB
 
            List<FileItem> items = upload.parseRequest(request);// 得到所有的文件
            Iterator<FileItem> i = items.iterator();
