@@ -130,8 +130,8 @@ public class DocumentInfo {
 			Statement sql = con.createStatement();
 			sql.execute("drop table if exists document");
 			sql.execute("create table document(documentID int not null auto_increment,"
-					+ "name varchar(40) not null default 'null',"
-					+ "path varchar(40) not null default 'null',"
+					+ "name varchar(100) not null default 'null',"
+					+ "path varchar(100) not null default 'null',"
 					+ "primary key(documentID));");
 			sql.close();
 			con.close();
