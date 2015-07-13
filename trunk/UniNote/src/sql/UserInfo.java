@@ -29,7 +29,7 @@ public class UserInfo {
 			if (!resultSet1.next()) {
 				istrue = true;
 				resultSet1.close();
-				query = "select count(*) as usernum from user";
+				query = "select max(userID) as usernum from user";
 				ResultSet resultSet = sql.executeQuery(query);
 				resultSet.next();
 				count = resultSet.getInt("usernum");
