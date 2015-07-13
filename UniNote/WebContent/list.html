@@ -28,6 +28,7 @@
 
 
 	<script type="text/javascript">
+
 	   function update_list(){
 	   xmlhttp=null;
         if (window.XMLHttpRequest)
@@ -59,14 +60,9 @@
                   //开头
                   txt=txt + "<li class='collection-item avatar'>";
 
-                  //根据文件格式选图片
-                  
-                  
-                  var name=file_elements[i].getElementsByTagName("name").nodeValue;
-                  alert(name);
-                  var str=name.split(".");
-                  if(str.length>1){
-                     var extension=str[1];
+                  //根据文件格式选图片       
+                  var extension=file_elements[i].getElementsByTagName("").nodeValue;
+                  if(extension!=null){
                      txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
                   }else{
                   	txt=txt+"<i class='circle'><span>other</span></i>";
