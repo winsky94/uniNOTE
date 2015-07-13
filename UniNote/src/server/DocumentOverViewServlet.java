@@ -106,7 +106,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 		} catch (Exception e) {
 		}
 		Document doc = builder.newDocument();
-
+        doc.setXmlVersion("1.0");
 		Element root = doc.createElement("documents");
 		doc.appendChild(root); // 将根元素添加到文档上
 
