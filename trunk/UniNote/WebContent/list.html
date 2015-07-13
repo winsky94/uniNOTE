@@ -29,7 +29,7 @@
 
 	<script type="text/javascript">
 	   function update_list(){
-	   	var xmlhttp;
+	   xmlhttp;
         if (window.XMLHttpRequest)
           {// code for IE7+, Firefox, Chrome, Opera, Safari
           xmlhttp=new XMLHttpRequest();
@@ -38,13 +38,13 @@
           {// code for IE6, IE5
           xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
           }
-          if(xmlhttp!=null){
+         if(xmlhttp!=null){
             xmlhttp.onreadystatechange=onResponse;
             xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
             xmlhttp.send(null);
-          }else{
-          	alert("ewx");
-          }
+         }else{
+          	alert("Your browser does not support XMLHttpRequest.");
+         }
 
 	   }//end update_list
 
