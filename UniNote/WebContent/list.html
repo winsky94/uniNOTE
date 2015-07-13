@@ -335,7 +335,7 @@
                   txt=txt + "<li class='collection-item avatar'>";
 
                   //根据文件格式选图片
-                  var name=file_elements[i].getElementsByTagName("name");
+               /*   var name=file_elements[i].getElementsByTagName("name");
                   var str=name.split(".");
                   if(str.length>1){
                      var extension=str[1];
@@ -343,6 +343,7 @@
                   }else{
                   	txt=txt+"<i class='circle'><span>other</span></i>";
                   }
+                  */
                   
                   //文件链接 文件名
                   txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")+"'>"+file_elements[i].getElementsByTagName("name")+"</a>
@@ -358,6 +359,7 @@
                   
                 } //end for
                 document.getElementById("filelist").innerHTML=txt;
+                alert(txt);
               }//end if 
             }//end function
         xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
