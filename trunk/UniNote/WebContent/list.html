@@ -51,7 +51,6 @@
                   txt=txt + "<li class='collection-item avatar'>";
 
                   //根据文件格式选图片
-                  /*
                   var name=file_elements[i].getElementsByTagName("name");
                   var str=name.split(".");
                   if(str.length>1){
@@ -60,19 +59,13 @@
                   }else{
                   	txt=txt+"<i class='circle'><span>other</span></i>";
                   }
-                  */
                   
                   
                   //文件链接 文件名
-                  txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")+"'>"+file_elements[i].getElementsByTagName("name")+"</a>
-							<p>
-							First Line
-							<br>Second Line</p>";
+                  txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")+"'>"+file_elements[i].getElementsByTagName("name")+"</a><p>First Line<br>Second Line</p>";
 
 				  //结尾
-                  txt=txt+"<a href='#!' class='secondary-content' title='not-selected'>
-							<i class='material-icons'>grade</i>
-							</a>";
+                  txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
                   txt=txt +"</li>";
                   
                 } //end for
@@ -86,8 +79,17 @@
         xmlhttp.send(null);
 	   }//end update_list
 
-
-
+       function test(){
+       	var txt="";
+       	//开头
+        txt=txt + "<li class='collection-item avatar'>";    
+        //文件链接 文件名
+        txt=txt+"<a class='title' href='"+"#!"+"'>"+"name"+"</a><p>First Line<br>Second Line</p>";   
+		//结尾
+        txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
+        txt=txt +"</li>";
+        document.getElementById("filelist").innerHTML=txt;
+       }
 	</script>
 
 
@@ -225,7 +227,7 @@
 						</div>
 						<div class="collapsible-body">
 							<div class="collection" title="软件学院">
-								<a href="#!" class="collection-item" title="软件工程与计算Ⅰ" onclick="test()">
+								<a href="#!" class="collection-item" title="软件工程与计算Ⅰ" onclick="update_list()">
 									软件工程与计算Ⅰ
 									<span class="badge">6</span>
 								</a>
