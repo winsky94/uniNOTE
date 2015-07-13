@@ -73,7 +73,7 @@
                   txt=txt+"<i class='circle'><img src='images/document-icons/"+"pdf"+".png'></i>";
                   
                   //文件链接 文件名
-                  txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")+"'>"+file_elements[i].getElementsByTagName("name")+"</a><p>First Line<br>Second Line</p>";
+                  txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path").nodeValue +"'>"+file_elements[i].getElementsByTagName("name").nodeValue +"</a><p>First Line<br>Second Line</p>";
 
 				  //结尾
                   txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
