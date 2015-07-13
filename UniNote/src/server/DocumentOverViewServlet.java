@@ -130,6 +130,12 @@ public class DocumentOverViewServlet extends HttpServlet {
 			file.appendChild(path);
 			Text tage = doc.createTextNode(String.valueOf(vo.getPath()));
 			path.appendChild(tage);
+
+			// 创建文件类型节点
+			Element type = doc.createElement("type");
+			file.appendChild(type);
+			Text tType = doc.createTextNode(String.valueOf(vo.getType()));
+			path.appendChild(tType);
 		}
 		try {
 			String result = callWriteXmlString(doc, "utf-8");
@@ -138,6 +144,10 @@ public class DocumentOverViewServlet extends HttpServlet {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new DocumentInfo().getDocuments());
 	}
 
 }
