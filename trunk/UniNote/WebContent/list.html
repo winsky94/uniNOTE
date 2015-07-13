@@ -60,6 +60,7 @@
                   txt=txt + "<li class='collection-item avatar'>";
 
                   //根据文件格式选图片
+                  /*
                   var name=file_elements[i].getElementsByTagName("name");
                   var str=name.split(".");
                   if(str.length>1){
@@ -68,7 +69,8 @@
                   }else{
                   	txt=txt+"<i class='circle'><span>other</span></i>";
                   }
-                  
+                  */
+                  txt=txt+"<i class='circle'><img src='images/document-icons/"+"pdf"+".png'></i>";
                   
                   //文件链接 文件名
                   txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")+"'>"+file_elements[i].getElementsByTagName("name")+"</a><p>First Line<br>Second Line</p>";
