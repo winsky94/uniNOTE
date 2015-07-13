@@ -327,6 +327,7 @@
             if (xmlhttp.readyState==4 && xmlhttp.status==200)
               {
                 //file_elements是一个数组
+                alert(xmlHttp.responseXML);
                 var file_elements=xmlHttp.responseXML.documentElement.getElementsByTagName("document"); 
                 var txt=" ";
                 for(i=0;i<file_elements.length;i++){
@@ -361,7 +362,6 @@
                   
                 } //end for
                 document.getElementById("filelist").innerHTML=txt;
-                alert(txt);
               }//end if 
               else{
               	alert("xmlhttp.readyState="+xmlhttp.readyState+"  xmlhttp.status="+xmlhttp.status);
