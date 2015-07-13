@@ -31,10 +31,11 @@ public class DocumentInfo {
 			   resultSet.next();
 			   count=resultSet.getInt("documentnum");
 			   PreparedStatement statement = con
-					.prepareStatement("INSERT INTO document VALUES(?, ?,?)");
+					.prepareStatement("INSERT INTO document VALUES(?, ?,?,?)");
 			   statement.setInt(1, ++count);
 			   statement.setString(2, vo.getName());
 			   statement.setString(3, vo.getPath());
+			   statement.setString(4, vo.getType());
 			   statement.addBatch();
 //			   System.out.println(count);
 
@@ -109,7 +110,8 @@ public class DocumentInfo {
 			while(resultSet.next()){
 				String name=resultSet.getString("name");
 				String path=resultSet.getString("path");
-				DocumentVO vo=new DocumentVO(name, path);
+				String type=resultSet.getString("type");
+				DocumentVO vo=new DocumentVO(name, path,type);
 				documents.add(vo);
 			}
 			resultSet.close();
@@ -132,6 +134,7 @@ public class DocumentInfo {
 			sql.execute("create table document(documentID int not null auto_increment,"
 					+ "name varchar(100) not null default 'null',"
 					+ "path varchar(100) not null default 'null',"
+					+ "type varchar(20) not null default 'null',"
 					+ "primary key(documentID));");
 			sql.close();
 			con.close();
@@ -146,9 +149,12 @@ public class DocumentInfo {
 	
 	public static void main(String[] args) {
 		DocumentInfo ui=new DocumentInfo();
-//		ui.createTable();
-//		DocumentVO vo=new DocumentVO("hehe", "C:/1.c");
-//		System.out.println(ui.add(vo));
+		ui.createTable();
+		DocumentVO vo1=new DocumentVO("hehe", "C:/1.c");
+		DocumentVO vo2=new DocumentVO("时机+市场规模.docx", "D:\\web_server_file\\时机+市场规模.docx");
+		
+		System.out.println(ui.add(vo1));
+		System.out.println(ui.add(vo2));
 //		System.out.println(ui.search("hehe"));
 		System.out.println(ui.getDocuments().size());
 	} 
