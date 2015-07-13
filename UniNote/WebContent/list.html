@@ -38,12 +38,21 @@
           {// code for IE6, IE5
           xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
           }
-          xmlhttp.onreadystatechange=function()
-            {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          if(xmlhttp!=null){
+            xmlhttp.onreadystatechange=onResponse;
+            xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
+            xmlhttp.send(null);
+          }else{
+          	alert("ewx");
+          }
+
+	   }//end update_list
+
+	   function onResponse(){
+	   	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
               {
                 //file_elements是一个数组
-                var file_elements=xmlHttp.responseXML.documentElement.getElementsByTagName("document"); 
+                var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("document"); 
                 var txt=" ";
                 for(i=0;i<file_elements.length;i++){
 
@@ -74,10 +83,7 @@
               else{
               	alert("xmlhttp.readyState="+xmlhttp.readyState+"  xmlhttp.status="+xmlhttp.status);
               }
-            }//end onreadystatechange
-        xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
-        xmlhttp.send(null);
-	   }//end update_list
+	   }
 
 	</script>
 
