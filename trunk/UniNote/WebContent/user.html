@@ -20,10 +20,29 @@
 	    h4{
 	    	color: #26A69A;
 	    }
+	    #user-info-container{
+	    	display: table;
+	    	border-spacing: 10px;
+	    }
+	    .table{
+            display: table;
+            border-spacing: 10px;
+	    }
+	    .table-row{
+	    	display: table-row;
+	    }
+	    .property{
+	    	display: table-cell;
+
+	    }
+
+	    .value{
+	    	display: table-cell;
+	    }
 	</style>
 
 	<script type="text/javascript">
-	
+
 	    function getXmlHttp(){
     	    var xmlhttp=null;
             if (window.XMLHttpRequest){
@@ -36,6 +55,50 @@
             }
             return xmlhttp;
     	}
+
+    	function user_documents(type){
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
+            	if(type=="user_info"){
+            		xmlhttp.onreadystatechange=onUserInfoResponse;
+            	}
+                xmlhttp.onreadystatechange=onFileListResponse; 
+                xmlhttp.open("GET","",true);                  //server undefined
+                xmlhttp.send();                               //arguments undefined
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+    	}
+
+        
+    	function onFileListResponse(xmlhttp){
+  	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+
+  	   	    	//tagName undefined
+                var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("");   
+
+                write_document_list(file_elements);
+            }
+	    }
+
+	    function onUserInfoResponse(xmlhttp){
+	    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
+
+	    		//tagName undefined
+                var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName(""); 
+
+                write_user_info(user_info);
+            }
+	    }
+
+	   function write_document_list(file_elements){
+
+	   }
+
+	   function write_user_info(user_info){
+	   	    txt=""
+
+	   }
 
 
 	</script>
@@ -167,8 +230,44 @@
 					<a href="#!"class="collection-item">我的下载</a>
 				</ul>
 			</div>
-			<div class="col s12 l9">
-				<p>这边是内容</p>
+			<div class="col s12 l9" id="right">
+				<div class="card teal lighten-5">
+					<div class="card-content" id="user-info-container">
+
+                        <div class="table-row">
+                        	<div class="property">Nickname</div>
+                        	<div class="value">王宁</div>
+                        </div>
+                        <div class="table-row">
+                        	<div class="property">Email</div>
+                        	<div class="value">wn13@software.nju.edu.cn</div>
+                        </div>
+                        <div class="table-row">
+                        	<div class="property">School</div>
+                        	<div class="value">南京大学</div>
+                        </div>                        
+                        <div class="table-row">
+                            <div class="property">Phonenumber</div>
+                            <div class="value">6465132135494</div>   	
+                        </div>
+                        <div class="table-row">
+                            <div class="property">积分</div>
+                            <div class="value">10</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="property">上传量</div>
+                            <div class="value">10</div>                    	
+                        </div>
+                        <div class="table-row">
+                            <div class="property">下载量</div>
+                            <div class="value">10</div>
+                        </div>
+
+					</div>
+					<div class="card-action">
+						<a href="#">编辑</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -191,7 +290,7 @@
 						</li>
 
 					</ul>
-					
+
 				</div>
 			</div>
 		</div>
