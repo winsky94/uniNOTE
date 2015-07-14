@@ -6169,7 +6169,7 @@ Picker.extend( 'pickadate', DatePicker )
             $(this).css('color','#26A69A'); 
             $(this).attr('title','selected');
     	}else{
-    		$(this).css('color','#777777'); 
+    		$(this).css('color','##e0f2f1'); 
     		$(this).attr('title','not-selected');
     	}
     	
@@ -6178,6 +6178,6 @@ Picker.extend( 'pickadate', DatePicker )
 
     $('a.collection-item').click(function(){
     	$('a.collection-item').css('background-color','#fff');
-    	$(this).css('background-color','#ddd');
+    	$(this).css('background-color','#e0f2f1');
         });
   });
