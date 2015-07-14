@@ -1,9 +1,9 @@
 ﻿var citySelector = {};
 
 citySelector.pc = new Array();
-citySelector.pc[0] = new Array("京", "清华大学|北京大学|中国人民大学|北京师范大学|北京理工大学|中国农业大学|中央民族大学|北京协和医学院|北京大学医学部|北京航空航天大学");
+citySelector.pc[0] = new Array("苏", "南京大学|东南大学|苏州大学|江南大学|河海大学|南京师范大学|南京农业大学|中国矿业大学|南京理工大学|中国药科大学|南京航空航天大学");
 citySelector.pc[1] = new Array("沪", "复旦大学|同济大学|上海大学|东华大学|上海交通大学|华东师范大学|华东理工大学|上海财经大学|上海外国语大学|复旦大学上海医学院|上海交通大学医学院");
-citySelector.pc[2] = new Array("津", "南开大学|天津大学|河北工业大学|天津医科大学");
+citySelector.pc[2] = new Array("京", "清华大学|北京大学|中国人民大学|北京师范大学|北京理工大学|中国农业大学|中央民族大学|北京协和医学院|北京大学医学部|北京航空航天大学");
 citySelector.pc[3] = new Array("渝", "重庆大学|西南大学|西南大学荣昌校区");
 citySelector.pc[4] = new Array("冀", "华北电力大学(保定)");
 citySelector.pc[5] = new Array("晋", "太原理工大学");
@@ -11,7 +11,7 @@ citySelector.pc[6] = new Array("蒙", "内蒙古大学");
 citySelector.pc[7] = new Array("辽", "大连理工大学|东北大学|辽宁大学|大连海事大学|大连理工大学盘锦校区");
 citySelector.pc[8] = new Array("吉", "吉林大学|东北师范大学|延边大学");
 citySelector.pc[9] = new Array("黑", "哈尔滨工业大学|哈尔滨工程大学|东北林业大学|东北农业大学");
-citySelector.pc[10] = new Array("苏", "南京大学|东南大学|苏州大学|江南大学|河海大学|南京师范大学|南京农业大学|中国矿业大学|南京理工大学|中国药科大学|南京航空航天大学");
+citySelector.pc[10] = new Array("津", "南开大学|天津大学|河北工业大学|天津医科大学");
 citySelector.pc[11] = new Array("浙", "浙江大学");
 citySelector.pc[12] = new Array("皖", "中国科学技术大学|合肥工业大学|安徽大学");
 citySelector.pc[13] = new Array("闽", "厦门大学");
