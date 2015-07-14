@@ -1,6 +1,7 @@
 package server;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,15 +31,50 @@ public class LoginHandleServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
 		
-		UserInfo user = new UserInfo();
-		boolean result = user.login(username, password);
-		if (result) {
-			response.sendRedirect("/UniNote/list.html");
+		
+		
+		Integer total = (Integer) request.getSession().getAttribute("total");
+		int temp = 0;
+		if (total == null) {
+			temp = 1;
+			total = 0;
 		} else {
-			response.sendRedirect("/UniNote/index.html");
+			temp = total.intValue() + 1;
+		}
+		request.getSession().setAttribute("total", total.intValue() + temp);
+		try {
+			// 1.取参数
+			PrintWriter out = response.getWriter();
+			StringBuilder builder = new StringBuilder();
+
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			
+			
+			// 2、检查参数是否有问题
+			builder.append("<message>");
+			if ("".equals(username) || username == null) {
+				builder.append("请输入用户名").append("</message>");
+			} else {
+				//检查用户名、密码是否正确
+				UserInfo user = new UserInfo();
+				boolean result = user.login(username, password);
+				if (result) {
+					response.sendRedirect("/UniNote/list.html");
+					out.println("");
+				} else {
+					builder.append("用户名或密码错误").append(
+							"</message>");
+					out.println(builder.toString());
+					response.sendRedirect("/UniNote/index.html");
+				}
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 3.检验操作
 		}
 	}
 
