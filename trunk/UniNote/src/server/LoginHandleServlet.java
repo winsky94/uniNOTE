@@ -56,22 +56,23 @@ public class LoginHandleServlet extends HttpServlet {
 			builder.append("<message>");
 			if ("".equals(username) || username == null) {
 				builder.append("请输入用户名").append("</message>");
+				out.println(builder.toString());
 			} else {
 				//检查用户名、密码是否正确
 				UserInfo user = new UserInfo();
 				boolean result = user.login(username, password);
 				if (result) {
-					response.sendRedirect("/UniNote/list.html");
-					out.println("");
+					builder.append("h").append("</message>");
+					out.println(builder.toString());
+					//response.sendRedirect("/UniNote/list.html");					
 				} else {
 					builder.append("用户名或密码错误").append(
-							"</message>");
+							"</message>");					
 					out.println(builder.toString());
-					response.sendRedirect("/UniNote/index.html");
 				}
 			}
 			
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 3.检验操作

@@ -5,6 +5,7 @@ function verify() {
 	// 使用dom的方式获取文本框中的值
 	// .value可以获取一个元素节点的value属性
 	var userName = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
 
 	// 创建XMLHttprequest对象
 	// 需要针对IE和其他类型的浏览器建议这个对象的不同方式写不同的代码
@@ -55,7 +56,7 @@ function verify() {
 	xmlHttp.setRequestHeader("Content-Type",
 			"application/x-www-form-urlencoded");
 	// post方式发送数据
-	xmlHttp.send("name=" + userName);
+	xmlHttp.send("username=" + userName+"&password="+password);
 	// 4.发送数据，开始和服务器端进行交互
 	// 同步方式下，send这句话全在服务器端数据回来后才执行完
 	// 异步方式下，send这句话会立即完成执行
@@ -73,16 +74,22 @@ function callback() {
 			// <message>ggggg</message>
 			// getElementsByTagName根据标签名获取元素节点,返回的是一个数组
 			var messageNodes = domObj.getElementsByTagName("message");
+			
 			if (messageNodes.length > 0) {
 				// 获取message节点的文本内容
 				var textNode = messageNodes[0].firstChild;
 				var responseMessage = textNode.nodeValue;
-				// 将数据显示在页面上
-				// 通过dom的方式到div标签所对应的元素节点
-				var divNode = document.getElementById("result");
-				// 设置元素节点中的html内容
-				divNode.innerHTML = responseMessage;
-
+				
+				if(responseMessage=='h'){
+				    window.location.href="/UniNote/list.html";
+			    }
+				else{
+					// 将数据显示在页面上
+					// 通过dom的方式到div标签所对应的元素节点
+					var divNode = document.getElementById("result");
+					// 设置元素节点中的html内容
+					divNode.innerHTML = responseMessage;
+				}
 			} else {
 				alert("XML数据格式错误，原始文本内容为：" + xmlHttp.responseText);
 			}
