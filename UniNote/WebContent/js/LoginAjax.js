@@ -50,7 +50,7 @@ function verify() {
 	// xmlHttp.open("GET", "servlet/AjaxServlet?name=" + userName, true);
 
 	// post方式请求的代码并访问servlet
-	xmlHttp.open("POST", "/UniNote/AjaxXmlServlet", true);
+	xmlHttp.open("POST", "/UniNote/LoginHandleServlet", true);
 	// post方式需要自己设置http的请求头
 	xmlHttp.setRequestHeader("Content-Type",
 			"application/x-www-form-urlencoded");
