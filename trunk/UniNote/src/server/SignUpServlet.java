@@ -55,45 +55,22 @@ public class SignUpServlet extends HttpServlet {
 		// System.out.println(nickname);
 		boolean isfull=true;
 		
-		if ("".equals(nickname) || nickname == null) {
-			isfull=false;
-			builder.append("<message>昵称必须输入</message>");
-		}
-//		else{
-//			builder.append("<message></message>");
-//		}
-//		if ("".equals(password) || password == null) {
-//			isfull=false;
-//			builder.append("<message>密码必须输入</message>");
-//		} 
-//		else{
-//			builder.append("<message></message>");
-//		}
-//		if ("".equals(email) || email == null) {
-//			isfull=false;
-//			builder.append("<message>邮箱必须输入</message>");
-//		}
-//		else{
-//			builder.append("<message></message>");
-//		}
-        if(isfull==true){
+		builder.append("<message>");
+		if ("".equals(nickname) || nickname == null||"".equals(password) || password == null||"".equals(email) || email == null||"".equals(school) || school == null||"".equals(phoneNumber) || phoneNumber == null) {
+			builder.append("请输入完整信息").append("</message>");
+		} else {
+			//检查用户名、密码是否正确
+			UserInfo user = new UserInfo();
 			UserVO vo = new UserVO(nickname, password, email, school,
 					phoneNumber);
-			UserInfo user = new UserInfo();
 			boolean result = user.add(vo);
-
 			if (result) {
-				response.sendRedirect("/UniNote/list.html");
+				builder.append("h").append("</message>");				
 			} else {
-				// 提示注册失败
-				builder.delete( 0, builder.length() );
-				builder.append("<message>该昵称已被注册</message>");
-//				builder.append("<message></message>");
-//				builder.append("<message></message>");
+				builder.append("该昵称已被人注册").append(
+						"</message>");					
 			}
-
-		}
-		
+		}     		
 		out.println(builder.toString());  
 
 	}
