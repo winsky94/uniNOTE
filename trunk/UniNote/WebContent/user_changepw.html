@@ -228,45 +228,44 @@
 					<a href="#!"class="collection-item">我的收藏</a>
 					<a href="#!"class="collection-item">我的上传</a>
 					<a href="#!"class="collection-item">我的下载</a>
+					<a href="#!"class="collection-item">修改密码</a>
+
 				</ul>
 			</div>
 			<div class="col s12 l9" id="right">
-				<div class="card teal lighten-5">
-					<div class="card-content" id="user-info-container">
+				<div class="userinfo-con-left">
 
-                        <div class="table-row">
-                        	<div class="property">Nickname</div>
-                        	<div class="value">王宁</div>
-                        </div>
-                        <div class="table-row">
-                        	<div class="property">Email</div>
-                        	<div class="value">wn13@software.nju.edu.cn</div>
-                        </div>
-                        <div class="table-row">
-                        	<div class="property">School</div>
-                        	<div class="value">南京大学</div>
-                        </div>                        
-                        <div class="table-row">
-                            <div class="property">Phonenumber</div>
-                            <div class="value">6465132135494</div>   	
-                        </div>
-                        <div class="table-row">
-                            <div class="property">积分</div>
-                            <div class="value">10</div>
-                        </div>
-                        <div class="table-row">
-                            <div class="property">上传量</div>
-                            <div class="value">10</div>                    	
-                        </div>
-                        <div class="table-row">
-                            <div class="property">下载量</div>
-                            <div class="value">10</div>
-                        </div>
+					<form name="UserInfoForm" action='/UniNote/SignUpServlet' method='post' class="col s12">
+						<div class="row">
+							<div class="input-field col s10 m10 l10">
+								<input id="nickname" type="text" name="nickname" class="validate" value="王宁">
+								<label for="last_name">Nickname</label>
+							</div>
+							<div class="input-field col s2 m2 l2"> <font color="red" size="2"><span id="result" ></span></font> 
+							</div>
 
-					</div>
-					<div class="card-action">
-						<a href="#">编辑</a>
-					</div>
+							<div class="input-field col s10">
+								<input id="password" type="password" name="password" class="validate">
+								<label for="password">当前密码:</label>
+							</div>
+							<div class="input-field col s10">
+								<input id="newpassword" type="password" name="newpassword" class="validate">
+								<label for="newpassword">修改密码:</label>
+							</div>
+							<div class="input-field col s10">
+								<input id="password" type="password" name="confrimpassword" class="validate">
+								<label for="confrimpassword">确认密码:</label>
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="input-field col s6">
+								<input type="submit" value=" 提交 " onclick="verify();" class="btn btn-primary"></div>
+						</div>
+
+					</form>
+
 				</div>
 			</div>
 		</div>
