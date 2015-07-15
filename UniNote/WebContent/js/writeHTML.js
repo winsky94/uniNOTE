@@ -48,6 +48,7 @@ function write_edit_user_info(){
                   <label for="phonenumber">PhoneNumber</label>  \
                 </div>  \
                 <div class="input-field col s6">  \
+                <input type="hidden" name="flag" value="userinfo">\
                   <input type="submit" value=" 保存 " class="btn btn-primary">  \
                 </div>  \
         </form> ';
