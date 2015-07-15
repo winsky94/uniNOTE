@@ -6,10 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javafx.geometry.VPos;
-
-import javax.management.Query;
-
 import object.UserVO;
 
 public class UserInfo {
@@ -62,64 +58,72 @@ public class UserInfo {
 	}
 
 	public boolean delete(UserVO vo) {
-		boolean isTrue=true;
+		boolean isTrue = true;
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String name=vo.getNickname();
+			String name = vo.getNickname();
 			name.replace("'", "''");
 
-			String query = "delete from user where nickname='"+name+"'";
-			int re=sql.executeUpdate(query);
-			if(re==0)
-				isTrue=false;
-			
+			String query = "delete from user where nickname='" + name + "'";
+			int re = sql.executeUpdate(query);
+			if (re == 0)
+				isTrue = false;
+
 			sql.close();
 			con.close();
-		    }catch (java.lang.ClassNotFoundException e) {
-				e.printStackTrace();
-				System.err.println("ClassNotFoundException:" + e.getMessage());
-			} catch (SQLException ex) {
-				ex.printStackTrace();
-				System.err.println("SQLException:" + ex.getMessage());
-			}
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
 		return isTrue;
 	}
 
-	public boolean modify(UserVO vo,String oldName) {
-		boolean isTrue=true;
+	public boolean modify(UserVO vo, String oldName) {
+		boolean isTrue = true;
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String name1=oldName;
+			String name1 = oldName;
 			name1.replace("'", "''");
-			String query = "select userID from user where nickname='"+name1+"' limit 1";
+			String query = "select userID from user where nickname='" + name1
+					+ "' limit 1";
 			ResultSet resultSet1 = sql.executeQuery(query);
-			int hisID=0;
-			if(!resultSet1.next()){
-				isTrue=false;
-			}
-			else{
-				hisID=resultSet1.getInt("userID");
-				String name2=vo.getNickname();
-				String password=vo.getPassword();
-				String email=vo.getEmail();
-				String school=vo.getSchool();
-				String phoneNumber=vo.getPhoneNumber();
+			int hisID = 0;
+			if (!resultSet1.next()) {
+				isTrue = false;
+			} else {
+				hisID = resultSet1.getInt("userID");
+				String name2 = vo.getNickname();
+				String password = vo.getPassword();
+				String email = vo.getEmail();
+				String school = vo.getSchool();
+				String phoneNumber = vo.getPhoneNumber();
 				name2.replace("'", "''");
-				query = "select userID from user where nickname='"+name2+"' limit 1";
+				query = "select userID from user where nickname='" + name2
+						+ "' limit 1";
 				ResultSet resultSet2 = sql.executeQuery(query);
-				if(resultSet2.next()){
-					int hisnextID=resultSet2.getInt("userID");
-				    if(hisnextID!=hisID)
-					    isTrue=false;
-				    else{
-				    	query = "update user where nickname='"+name1+"' set password='"+password+"' and email='"+email+"' and school='"+school+"' and phoneNumber='"+phoneNumber+"'";
+				if (resultSet2.next()) {
+					int hisnextID = resultSet2.getInt("userID");
+					if (hisnextID != hisID)
+						isTrue = false;
+					else {
+						query = "update user where nickname='" + name1
+								+ "' set password='" + password
+								+ "' and email='" + email + "' and school='"
+								+ school + "' and phoneNumber='" + phoneNumber
+								+ "'";
 						sql.executeUpdate(query);
-				    }
-				}
-				else{
-					query = "update user where nickname='"+name1+"' set nickname='"+name2+"'"+"and password='"+password+"' and email='"+email+"' and school='"+school+"' and phoneNumber='"+phoneNumber+"'";
+					}
+				} else {
+					query = "update user where nickname='" + name1
+							+ "' set nickname='" + name2 + "'"
+							+ "and password='" + password + "' and email='"
+							+ email + "' and school='" + school
+							+ "' and phoneNumber='" + phoneNumber + "'";
 					sql.executeUpdate(query);
 				}
 				resultSet2.close();
@@ -127,13 +131,13 @@ public class UserInfo {
 			resultSet1.close();
 			sql.close();
 			con.close();
-		    }catch (java.lang.ClassNotFoundException e) {
-				e.printStackTrace();
-				System.err.println("ClassNotFoundException:" + e.getMessage());
-			} catch (SQLException ex) {
-				ex.printStackTrace();
-				System.err.println("SQLException:" + ex.getMessage());
-			}
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
 		return isTrue;
 	}
 
@@ -192,13 +196,34 @@ public class UserInfo {
 		}
 	}
 
+	public String getPassword(String name) {
+		String password = null;
+		try {
+			Connection connection = SqlManager.getConnection();
+			Statement statement = connection.createStatement();
+			String query = "select password from user where nickname='" + name
+					+ "' limit 1";
+			ResultSet rs = statement.executeQuery(query);
+			while (rs.next()) {
+				password = rs.getString("password");
+			}
+			rs.close();
+			statement.close();
+			connection.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return password;
+	}
+
 	public static void main(String[] args) {
-		UserInfo ui=new UserInfo();
-//		ui.createTable();
-		UserVO vo1=new UserVO("1", "1", "1@qq.com", "nju", "13588888888");
-		UserVO vo2=new UserVO("3", "3", "1@qq.com", "nju", "13588888888");
+		UserInfo ui = new UserInfo();
+		// ui.createTable();
+		UserVO vo1 = new UserVO("1", "1", "1@qq.com", "nju", "13588888888");
+		UserVO vo2 = new UserVO("3", "3", "1@qq.com", "nju", "13588888888");
 		System.out.println(ui.add(vo2));
-//		System.out.println(ui.login("1", "1"));
-//		System.out.println(ui.delete(vo2));
+		// System.out.println(ui.login("1", "1"));
+		// System.out.println(ui.delete(vo2));
 	}
 }
