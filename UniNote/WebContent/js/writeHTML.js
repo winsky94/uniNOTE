@@ -7,7 +7,7 @@
         txt=txt + "<li class='collection-item avatar'>";
 
         //根据文件格式选图片       
-        var extension=file_elements[i].getElementsByTagName("").nodeValue;  //TagName undefined
+        var extension=file_elements[i].getElementsByTagName("path").nodeValue;  //TagName undefined
         if(extension!=null){
            txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
         }else{
