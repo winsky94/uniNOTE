@@ -63,19 +63,32 @@ public class UpLoadServlet extends HttpServlet {
 		String postgraduate="";
 		String school="";
 		String department="";
-		String course="";
+		String course="";		
+		String fileName="";
 		
-		DiskFileItemFactory factory1 = new DiskFileItemFactory();
-		ServletFileUpload upload1 = new ServletFileUpload(factory1);
-		upload1.setHeaderEncoding("UTF-8");
-		List fileItems;
 		try {
-			fileItems = upload1.parseRequest(request);
-			Iterator iter = fileItems.iterator();   
-			while (iter.hasNext()) {   
-			  FileItem item = (FileItem) iter.next();
-			  item.getInputStream();
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+			ServletFileUpload upload = new ServletFileUpload(factory);
+			factory.setSizeThreshold(4096); // 设置缓冲区大小，这里是4kb
+			factory.setRepository(tempPathFile);// 设置缓冲区目录
+
+			// Create a new file upload handler
+
+			// Set overall request size constraint
+			upload.setSizeMax(4194304 * 10); // 设置最大文件尺寸，这里是40MB
+			upload.setHeaderEncoding("UTF-8");
+			List fileItems = upload.parseRequest(request);
+			Iterator iter = fileItems.iterator();
+			while (iter.hasNext()) {
+				FileItem item = (FileItem) iter.next();
+				item.getInputStream();
 			  if (!item.isFormField()) {
+				  fileName = item.getName();
+				  if (fileName != null) {
+						File fullFile = new File(item.getName());
+						File savedFile = new File(uploadPath, fullFile.getName());
+						item.write(savedFile);
+				   }
 			  //文件流
 			  }else{
 			  //非文件流  
@@ -102,9 +115,23 @@ public class UpLoadServlet extends HttpServlet {
 		} catch (FileUploadException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
-
+		
+		if(postgraduate.equals("on")){
+			postgraduate="Y";
+		}
+		else{
+			postgraduate="N";
+		}
+		
+		String[] buffer=department.split("-");
+		department=buffer[0];
+		course=buffer[1];
+		
 		System.out.println("profile:"+profile);
 		System.out.println("tag:"+tag);
 		System.out.println("postgraduate:"+postgraduate);
@@ -112,42 +139,12 @@ public class UpLoadServlet extends HttpServlet {
 		System.out.println("department:"+department);
 		System.out.println("course:"+course);
 		
-		try {
-			// Create a factory for disk-based file items
-			DiskFileItemFactory factory = new DiskFileItemFactory();
-
-			// Set factory constraints
-			factory.setSizeThreshold(4096); // 设置缓冲区大小，这里是4kb
-			factory.setRepository(tempPathFile);// 设置缓冲区目录
-
-			// Create a new file upload handler
-			ServletFileUpload upload = new ServletFileUpload(factory);
-
-			// Set overall request size constraint
-			upload.setSizeMax(4194304 * 10); // 设置最大文件尺寸，这里是40MB
-
-			List<FileItem> items = upload.parseRequest(request);// 得到所有的文件
-			Iterator<FileItem> i = items.iterator();
-
-			while (i.hasNext()) {
-				FileItem fi = (FileItem) i.next();
-				String fileName = fi.getName();
-				if (fileName != null) {
-					File fullFile = new File(fi.getName());
-					File savedFile = new File(uploadPath, fullFile.getName());
-					fi.write(savedFile);
-
-					DocumentInfo documentInfo = new DocumentInfo();
-					DocumentVO vo = new DocumentVO(fileName, uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course);
-					documentInfo.add(vo);
-				}
-			}
-			response.sendRedirect("/UniNote/list.html");
-//			response.sendRedirect("/UniNote/DocumentOverViewServlet");
-		} catch (Exception e) {
-			// 可以跳转出错页面
-			e.printStackTrace();
-		}
+		DocumentInfo documentInfo = new DocumentInfo();
+		DocumentVO vo = new DocumentVO(fileName, uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course);
+		documentInfo.add(vo);
+		response.sendRedirect("/UniNote/list.html");
+//		response.sendRedirect("/UniNote/DocumentOverViewServlet");
+		
 	}
 
 	public void init() throws ServletException {
