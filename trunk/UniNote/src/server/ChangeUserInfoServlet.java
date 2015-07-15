@@ -95,6 +95,7 @@ public class ChangeUserInfoServlet extends HttpServlet {
 					if (!newPassword.equals(confirmpassword)) {
 						builder.append("两次输入的密码不一样").append("</message>");
 					} else {
+						vo.setPassword(newPassword);
 						boolean result = ui.modify(vo, nickname);
 						if (result) {
 							builder.append("h").append("</message>");
