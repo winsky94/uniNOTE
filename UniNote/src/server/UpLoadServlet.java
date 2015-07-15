@@ -132,6 +132,8 @@ public class UpLoadServlet extends HttpServlet {
 		department=buffer[0];
 		course=buffer[1];
 		
+		school="南京大学";
+		
 		System.out.println("profile:"+profile);
 		System.out.println("tag:"+tag);
 		System.out.println("postgraduate:"+postgraduate);
