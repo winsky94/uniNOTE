@@ -39,6 +39,19 @@
 	    .value{
 	    	display: table-cell;
 	    }
+
+	    .table-container{
+	    	display: table;
+	    	border-spacing: 10px;
+	    }
+
+	    .row-container{
+            display: table-row;	    	
+	    }
+
+	    .cell{
+	    	display: table-cell;
+	    }
 	</style>
 	<script src="js/writeHTML.js"></script>
 	<script type="text/javascript" src="js/ChangePWAjax.js"></script>
@@ -147,17 +160,16 @@
 								<input id="confirmpassword" type="password" name="confirmpassword" class="validate">
 								<label for="confirmpassword">确认密码:</label>
 							</div>
-
-						</div>
-
-						<div class="row">
-							<div class="input-field col s4">
-								<input type="hidden" name="flag" value="password">
-								<input type="submit" value=" 提交 " onclick="verify();" class="btn btn-primary">
-						    </div>
-						    <div class="input-field col s4">
-                            	<font color="red" size="2"><span id="result" >hehe</span></font>
-                            </div>
+                        <div class="col s8 table-container">
+    						<div class="row row-container">
+    							<div class="input-field cell">
+    								<input type="hidden" name="flag" value="password">
+    								<input type="submit" value=" 提交 " onclick="verify();" class="btn btn-primary">
+    						    </div>
+    						    <div class="input-field cell">
+                                	<font color="red" size="2"><span id="result" >233333333</span></font>
+                                </div>
+    						</div>
 						</div>
 
 					
