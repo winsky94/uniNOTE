@@ -26,13 +26,13 @@ public class CategoryInfo {
 			String school = vo.getSchool();
 			String department = vo.getDepartment();
 			String course = vo.getCourse();
-			String query = "select id from user where school='" + school
+			String query = "select cid from user where school='" + school
 					+ "' and department='" + department + "' and course='"
 					+ course + "'";
 			resultSet = statement.executeQuery(query);
 			if (!resultSet.next()) {
 				result=true;
-				query = "select max(userID) as categoryNum from user";
+				query = "select max(cid) as categoryNum from user";
 				ResultSet rs = statement.executeQuery(query);
 				rs.next();
 				int count = resultSet.getInt("categoryNum");
@@ -77,13 +77,13 @@ public class CategoryInfo {
 	private void createTable(){
 		try {
 			statement.execute("drop table if exists category");
-			statement.execute("create table category(userID int not null auto_increment,"
+			statement.execute("create table category(cid int not null auto_increment,"
 					+ "nickname varchar(40) not null default 'null',"
 					+ "password varchar(40) not null default 'null',"
 					+ "email varchar(40) not null default 'null',"
 					+ "school varchar(40) not null default 'null',"
 					+ "phoneNumber varchar(40) not null default 'null',"
-					+ "primary key(userID));");
+					+ "primary key(cid));");
 			sql.close();
 			con.close();
 		} catch (java.lang.ClassNotFoundException e) {
@@ -94,11 +94,11 @@ public class CategoryInfo {
 			System.err.println("SQLException:" + ex.getMessage());
 	}
 	
-	public CategoryVO getVoByID(int id){
+	public static CategoryVO getVoByID(int id){
 		
 	}
 	
-	public int getVoID(String school,String department,String course){
+	public static int getVoID(String school,String department,String course){
 		
 	}
 	
