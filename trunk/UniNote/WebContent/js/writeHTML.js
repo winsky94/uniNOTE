@@ -50,11 +50,11 @@ function write_edit_user_info(){
                   <input id="phonenumber" type="text" name="phonenumber" class="validate">  \
                   <label for="phonenumber">PhoneNumber</label>  \
                 </div>  \
-                <div class="input-field col s1">  \
+                <div class="input-field col s2">  \
                 <input id="flag" type="hidden" name="flag" value="userinfo">\
                   <input type="submit" value=" 保存 " onclick="verify();" class="btn btn-primary">  \
                 </div>  \
-                <div class="input-field col s2">\
+                <div class="input-field col s3">\
             	<font color="red" size="2"><span id="result" >hehe</span></font>\
                 </div>\
         ';
