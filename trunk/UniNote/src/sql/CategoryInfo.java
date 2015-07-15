@@ -20,9 +20,9 @@ public class CategoryInfo {
 
 		CategoryVO vo1 = new CategoryVO("南京大学", "软件学院", "计算机与操作系统");
 		CategoryVO vo2 = new CategoryVO("南京大学", "软件学院", "数据库系统");
-		CategoryVO vo3 = new CategoryVO("南京大学", "软件学院", "软件工程与计算1");
-		CategoryVO vo4 = new CategoryVO("南京大学", "软件学院", "软件工程与计算2");
-		CategoryVO vo5 = new CategoryVO("南京大学", "软件学院", "软件工程与计算3");
+		CategoryVO vo3 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅰ");
+		CategoryVO vo4 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅱ");
+		CategoryVO vo5 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅲ");
 		CategoryVO vo6 = new CategoryVO("南京大学", "软件学院", "数据结构与算法");
 		CategoryVO vo7 = new CategoryVO("南京大学", "软件学院", "计算机网络");
 		CategoryVO vo8 = new CategoryVO("南京大学", "软件学院", "离散数学");
