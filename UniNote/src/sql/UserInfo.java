@@ -106,24 +106,19 @@ public class UserInfo {
 				query = "select userID from user where nickname='" + name2
 						+ "' limit 1";
 				ResultSet resultSet2 = sql.executeQuery(query);
-				if (resultSet2.next()) {
-					int hisnextID = resultSet2.getInt("userID");
-					if (hisnextID != hisID)
-						isTrue = false;
-					else {
-						query = "update user where nickname='" + name1
-								+ "' set password='" + password
-								+ "' and email='" + email + "' and school='"
-								+ school + "' and phoneNumber='" + phoneNumber
-								+ "'";
+
+				if(resultSet2.next()){
+					int hisnextID=resultSet2.getInt("userID");
+				    if(hisnextID!=hisID)
+					    isTrue=false;
+				    else{
+				    	query = "update user set password='"+password+"' , email='"+email+"' , school='"+school+"' , phoneNumber='"+phoneNumber+"' where nickname='"+name1+"'";
 						sql.executeUpdate(query);
-					}
-				} else {
-					query = "update user where nickname='" + name1
-							+ "' set nickname='" + name2 + "'"
-							+ "and password='" + password + "' and email='"
-							+ email + "' and school='" + school
-							+ "' and phoneNumber='" + phoneNumber + "'";
+
+				    }
+				}
+				else{
+					query = "update user set nickname='"+name2+"'"+", password='"+password+"' , email='"+email+"' , school='"+school+"' , phoneNumber='"+phoneNumber+"' where nickname='"+name1+"'";
 					sql.executeUpdate(query);
 				}
 				resultSet2.close();
