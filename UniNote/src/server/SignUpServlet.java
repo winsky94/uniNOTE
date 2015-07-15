@@ -41,8 +41,8 @@ public class SignUpServlet extends HttpServlet {
 		request.getSession().setAttribute("total", total.intValue() + temp);
 
 		response.setContentType("text/html;charset=utf-8");
-//		response.setCharacterEncoding("utf-8");
-//		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();  
 		StringBuilder builder = new StringBuilder();  
 		 
