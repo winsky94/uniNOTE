@@ -35,7 +35,9 @@ function write_user_info(user_info){
 
 function write_edit_user_info(){
     var txt="<form action='' method='post' class='col s12'>";   //server undefined
+    var nickname=$("#nickname").html();
     txt = txt + '<div class="input-field col s12">  \
+                    <input type="hidden" name="nickname" value="'+nickname+'"> \
                     <input id="email" type="email" name="email" class="validate">  \
                     <label for="email">Email</label>  \
                   </div>  \
@@ -52,7 +54,7 @@ function write_edit_user_info(){
                   <input type="submit" value=" 保存 " class="btn btn-primary">  \
                 </div>  \
         </form> ';
-    return txt;
+    $("#user-info-container").html(txt);
 }
 
 function write_header(){
