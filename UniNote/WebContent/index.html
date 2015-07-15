@@ -5,6 +5,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 <script type="text/javascript" src="js/LoginAjax.js"></script>
+<script type="text/javascript" src="js/writeHTML.js"></script>
 <title>home</title>
 
 <!-- CSS  -->
@@ -50,7 +51,7 @@ html, body {
 }
 </style>
 </head>
-<body>
+<body onload="write_footer()">
 	<header>
 
 		<!-- Dropdown Structure -->
@@ -181,33 +182,12 @@ label {
 
 	</div>
 
-	<footer class="page-footer teal lighten-3">
-		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text">uniNOTE 优记</h5>
-					<p class="grey-text text-lighten-4">面向全国高校的课程分类式文库。</p>
-				</div>
-				<div class="col l4 offset-l2 s12">
-					<h5 class="white-text">Links</h5>
-					<ul>
+    <div id="footer">
+    	
+    </div>
 
-						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a>
-						</li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a>
-						</li>
 
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				© 2015 uniNOTE Group,software institute, NJU <a
-					class="grey-text text-lighten-4 right" href="#!">Links</a>
-			</div>
-		</div>
-	</footer>
+
 
 
 	<!--  javaScripts -->
