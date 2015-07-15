@@ -12,6 +12,20 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style type="text/css">
+    .table-container{
+      display: table;
+    }
+
+    .row-container{
+      display: table-row;       
+    }
+
+    .cell{
+      display: table-cell;
+    }
+  </style>
    
 </head>
 <body onload='write_header();write_footer()'>
@@ -64,13 +78,15 @@
             </div>
 
           </div>
-          <div class="row">
-            <div class="input-field col s2">
-              <input type="submit" value=" 注册 " onclick="verify();" class="btn btn-primary">
-            </div>
-            <div class="input-field col s4">
-                    <font color="red" size="2"><span id="result" ></span></font>
-            </div>
+          <div class="table-container col s12">
+            <div class="row-container">
+                <div class="input-field cell">
+                  <input type="submit" value=" 注册 " onclick="verify();" class="btn btn-primary">
+                </div>
+                <div class="input-field cell">
+                  <font color="red" size="2"><span id="result" >呵呵呵呵</span></font>
+                </div>
+          </div>
 
       </div>
       <div class="col s12 m4 l2"></div>
