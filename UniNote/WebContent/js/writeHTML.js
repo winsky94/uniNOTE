@@ -54,7 +54,7 @@ function write_edit_user_info(){
                 <input id="flag" type="hidden" name="flag" value="userinfo">\
                   <input type="submit" value=" 保存 " onclick="verify();" class="btn btn-primary">  \
                 </div>  \
-                <div class="input-field col s2">\
+                <div class="input-field col s1">\
             	<font color="red" size="2"><span id="result" >hehe</span></font>\
                 </div>\
         ';
