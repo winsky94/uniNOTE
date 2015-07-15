@@ -26,16 +26,20 @@ public class DocumentInfo {
 			if(!resultSet1.next()){
 			   istrue=true;
 			   resultSet1.close();
-			   query = "select count(*) as documentnum from document";
+			   query = "select max(documentID) as documentnum from document";
 			   ResultSet resultSet = sql.executeQuery(query);
 			   resultSet.next();
 			   count=resultSet.getInt("documentnum");
 			   PreparedStatement statement = con
-					.prepareStatement("INSERT INTO document VALUES(?, ?,?,?)");
+					.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?)");
 			   statement.setInt(1, ++count);
 			   statement.setString(2, vo.getName());
 			   statement.setString(3, vo.getPath());
 			   statement.setString(4, vo.getType());
+			   statement.setString(5, vo.getProfile());
+			   statement.setString(6, vo.getTag());
+			   statement.setString(7, vo.getPostgraduateData());
+			   statement.setInt(8, vo.getCategoryID());
 			   statement.addBatch();
 //			   System.out.println(count);
 
@@ -111,7 +115,11 @@ public class DocumentInfo {
 				String name=resultSet.getString("name");
 				String path=resultSet.getString("path");
 				String type=resultSet.getString("type");
-				DocumentVO vo=new DocumentVO(name, path,type);
+				String profile=resultSet.getString("profile");
+				String tag=resultSet.getString("tag");
+				String postgraduateData=resultSet.getString("postgraduateData");
+				int id=resultSet.getInt("categoryID");
+				DocumentVO vo=new DocumentVO(name, path,type,profile,tag,postgraduateData,id);
 				documents.add(vo);
 			}
 			resultSet.close();
@@ -135,6 +143,10 @@ public class DocumentInfo {
 					+ "name varchar(100) not null default 'null',"
 					+ "path varchar(100) not null default 'null',"
 					+ "type varchar(20) not null default 'null',"
+					+ "profile varchar(600) not null default 'null',"
+					+ "tag varchar(100) not null default 'null',"
+					+ "postgraduateData varchar(10) not null default 'null',"
+					+ "categoryID int not null default 0,"
 					+ "primary key(documentID));");
 			sql.close();
 			con.close();
@@ -150,8 +162,8 @@ public class DocumentInfo {
 	public static void main(String[] args) {
 		DocumentInfo ui=new DocumentInfo();
 		ui.createTable();
-		DocumentVO vo1=new DocumentVO("hehe", "C:/1.c");
-		DocumentVO vo2=new DocumentVO("时机+市场规模.docx", "D:\\web_server_file\\时机+市场规模.docx");
+		DocumentVO vo1=new DocumentVO("hehe", "C:/1.c","这是一个c代码文件","c","N","南京大学","软件学院","计算机与操作系统");
+		DocumentVO vo2=new DocumentVO("时机+市场规模.docx", "D:\\web_server_file\\时机+市场规模.docx","呵呵哒","营销,商业计划书","Y","南京大学","软件学院","数据结构与算法");
 		
 		System.out.println(ui.add(vo1));
 		System.out.println(ui.add(vo2));
