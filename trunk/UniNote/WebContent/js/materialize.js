@@ -6160,6 +6160,7 @@ Picker.extend( 'pickadate', DatePicker )
 }( jQuery ));
 
   $(document).ready(function(){
+  	$(".button-collapse").sideNav();
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     $('.secondary-content').css('color','#777777');
