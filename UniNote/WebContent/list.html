@@ -26,180 +26,50 @@
 	}
 	</style>
 
+	<script src="js/writeHTML.js"></script>
+	<script src="js/xmlhttp.js"></script>
 
 	<script type="text/javascript">
 
-	   function update_list(){
-	   xmlhttp=null;
-        if (window.XMLHttpRequest)
-          {// code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp=new XMLHttpRequest();
-          }
-        else
-          {// code for IE6, IE5
-          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-          }
-         if(xmlhttp!=null){
-            xmlhttp.onreadystatechange=onResponse;
-            xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
-            xmlhttp.send(null);
-         }else{
-          	alert("Your browser does not support XMLHttpRequest.");
-         }
-
-	   }//end update_list
-
-	   function onResponse(){
-	   	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
-              {
+	    function onResponse(xmlhttp){
+  	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 //file_elements是一个数组
                 var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("document"); 
-                var txt=" ";
-                for(i=0;i<file_elements.length;i++){
-
-                  //开头
-                  txt=txt + "<li class='collection-item avatar'>";
-
-                  //根据文件格式选图片       
-                  var extension=file_elements[i].getElementsByTagName("").nodeValue;
-                  if(extension!=null){
-                     txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
-                  }else{
-                  	txt=txt+"<i class='circle'><span>other</span></i>";
-                  }
-                  
-                  
-                  txt=txt+"<i class='circle'><img src='images/document-icons/"+"pdf"+".png'></i>";
-                  
-                  //文件链接 文件名
-                  txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path").nodeValue +"'>"+file_elements[i].getElementsByTagName("name").nodeValue +"</a><p>First Line<br>Second Line</p>";
-
-				  //结尾
-                  txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
-                  txt=txt +"</li>";
-                  
-                } //end for
+                var txt=write_document_list(file_elements);
                 document.getElementById("filelist").innerHTML=txt;
-              }//end if 
-	   }
+            }
+	    }
+
+	    function init_list(){
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
+                xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
+                xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
+                xmlhttp.send(null);
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+	    }//end init_list
+
+	    function get_documents_by_course(courseName){
+        
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
+                xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
+                xmlhttp.open("GET","",true);                     //server undefined
+                xmlhttp.send(null);                              //arguments undefined
+            }else{
+                alert("Your browser does not support XMLHttpRequest.");
+        } 
+}
 
 	</script>
 
-
 </head>
-<body onload='update_list()'>
+<body onload='write_header();init_list()'>
 
 	<header>
-		<!-- Dropdown Structure -->
-		<ul id="dropdown1" class="dropdown-content">
-			<li>
-				<a href="#!">南京大学</a>
-			</li>
-			<li>
-				<a href="#!">切换</a>
-			</li>
 
-			<li class="divider"></li>
-			<li>
-				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
-			</li>
-		</ul>
-		<!-- Dropdown2 Structure -->
-		<ul id="dropdown2" class="dropdown-content">
-			<li>
-				<a href="#!">王宁</a>
-			</li>
-			<li>
-				<a href="#!">个人信息</a>
-			</li>
-
-		</ul>
-		<!-- Dropdown Structure -->
-		<ul id="dropdown3" class="dropdown-content">
-			<li>
-				<a href="#!">南京大学</a>
-			</li>
-			<li>
-				<a href="#!">切换</a>
-			</li>
-
-			<li class="divider"></li>
-			<li>
-				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
-			</li>
-		</ul>
-		<!-- Dropdown2 Structure -->
-		<ul id="dropdown4" class="dropdown-content">
-			<li>
-				<a href="#!">王宁</a>
-			</li>
-			<li>
-				<a href="#!">个人信息</a>
-			</li>
-
-		</ul>
-
-		<nav>
-			<div class="nav-wrapper teal lighten-3">
-				<div class="container">
-					<div class="row">
-						<div class="col l6 s12">
-							<a href="#!" class="brand-logo">uniNOTE</a>
-						</div>
-
-						<ul class="right hide-on-med-and-down">
-							<li>
-								<a href="index.html">首页</a>
-							</li>
-							<li>
-								<a href="list.html">文档</a>
-							</li>
-							<li>
-								<a href="upload.html">上传文档</a>
-							</li>
-							<!-- Dropdown Trigger -->
-							<li>
-								<a class="dropdown-button" href="#!" data-activates="dropdown1">
-									南京大学 <i class="material-icons right">arrow_drop_down</i>
-								</a>
-							</li>
-							<li>
-								<a class="dropdown-button" href="#!" data-activates="dropdown2">
-									王宁 <i class="material-icons right">arrow_drop_down</i>
-								</a>
-							</li>
-						</ul>
-						<ul id="slide-out" class="side-nav">
-							<li>
-								<a href="index.html">首页</a>
-							</li>
-							<li>
-								<a href="list.html">文档</a>
-							</li>
-							<li>
-								<a href="upload.html">上传文档</a>
-							</li>
-							<!-- Dropdown Trigger -->
-							<li>
-								<a class="dropdown-button" href="#!" data-activates="dropdown3">
-									南京大学
-									<i class="material-icons right">arrow_drop_down</i>
-								</a>
-							</li>
-							<li>
-								<a class="dropdown-button" href="#!" data-activates="dropdown4">
-									王宁
-									<i class="material-icons right">arrow_drop_down</i>
-								</a>
-							</li>
-						</ul>
-						<a href="#" data-activates="slide-out" class="button-collapse">
-							<i class="mdi-navigation-menu"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</nav>
 	</header>
 
 	<div class="main container">
@@ -220,31 +90,31 @@
 						</div>
 						<div class="collapsible-body">
 							<div class="collection" title="软件学院">
-								<a href="#!" class="collection-item" title="软件工程与计算Ⅰ" onclick="update_list()">
+								<a href="#!" class="collection-item" title="软件工程与计算Ⅰ" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									软件工程与计算Ⅰ
 									<span class="badge">6</span>
 								</a>
-								<a href="#!" class="collection-item" title="计算机组织结构" onclick="update_list()">
+								<a href="#!" class="collection-item" title="计算机组织结构" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									计算机组织结构
 									<span class="new badge">4</span>
 								</a>
-								<a href="#!" class="collection-item" title="计算机与操作系统" onclick="update_list()">
+								<a href="#!" class="collection-item" title="计算机与操作系统" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									计算机与操作系统
 									<span class="badge">22</span>
 								</a>
-								<a href="#!" class="collection-item" title="数据库系统" onclick="update_list()">
+								<a href="#!" class="collection-item" title="数据库系统" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									数据库系统
 									<span class="badge">14</span>
 								</a>
-								<a href="#!" class="collection-item" title="软件工程与计算Ⅲ" onclick="update_list()">
+								<a href="#!" class="collection-item" title="软件工程与计算Ⅲ" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									软件工程与计算Ⅲ
 									<span class="badge">11</span>
 								</a>
-								<a href="#!" class="collection-item" title="软件工程统计方法" onclick="update_list()">
+								<a href="#!" class="collection-item" title="软件工程统计方法" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									软件工程统计方法
 									<span class="badge">17</span>
 								</a>
-								<a href="#!" class="collection-item" title="计算机网络" onclick="update_list()">
+								<a href="#!" class="collection-item" title="计算机网络" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									计算机网络
 									<span class="badge">32</span>
 								</a>
@@ -259,7 +129,7 @@
 						</div>
 						<div class="collapsible-body">
 							<div class="collection" title="计算机科学与技术系">
-								<a href="#!" class="collection-item" title="编译原理" onclick="update_list()">
+								<a href="#!" class="collection-item" title="编译原理" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									编译原理
 									<span class="badge">32</span>
 								</a>
@@ -274,7 +144,7 @@
 						</div>
 						<div class="collapsible-body">
 							<div class="collection" title="Third">
-								<a href="#!" class="collection-item" title="编译原理" onclick="update_list()">
+								<a href="#!" class="collection-item" title="编译原理" onclick="get_documents_by_course(this.parentNode.title+'-'+this.title)">
 									编译原理
 									<span class="badge">32</span>
 								</a>
@@ -318,8 +188,7 @@
 				</form>
 				<br />
 				<div>
-					<ul class="collection" id="filelist">
-					</ul>
+					<ul class="collection" id="filelist"></ul>
 				</div>
 
 				<div class="bdsharebuttonbox">
@@ -335,13 +204,31 @@
 				<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"分享自uniNOTE的文档:","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 				<div>
 					<ul class="pagination">
-						<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-						<li class="active" ><a href="#!">1</a></li>
-						<li class="waves-effect"><a href="#!">2</a></li>
-						<li class="waves-effect"><a href="#!">3</a></li>
-						<li class="waves-effect"><a href="#!">4</a></li>
-						<li class="waves-effect"><a href="#!">5</a></li>
-						<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+						<li class="disabled">
+							<a href="#!">
+								<i class="material-icons">chevron_left</i>
+							</a>
+						</li>
+						<li class="active" >
+							<a href="#!">1</a>
+						</li>
+						<li class="waves-effect">
+							<a href="#!">2</a>
+						</li>
+						<li class="waves-effect">
+							<a href="#!">3</a>
+						</li>
+						<li class="waves-effect">
+							<a href="#!">4</a>
+						</li>
+						<li class="waves-effect">
+							<a href="#!">5</a>
+						</li>
+						<li class="waves-effect">
+							<a href="#!">
+								<i class="material-icons">chevron_right</i>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -382,8 +269,6 @@
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.js"></script>
-	<script src="js/init.js"></script>
-
 
 </body>
 </html>
