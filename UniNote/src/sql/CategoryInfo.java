@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
+
 import object.CategoryVO;
 
 public class CategoryInfo {
@@ -14,7 +16,10 @@ public class CategoryInfo {
 	private ResultSet resultSet = null;
 
 	public static void main(String[] args) {
-
+		CategoryInfo ci=new CategoryInfo();
+		ci.createTable();
+		CategoryVO vo=new CategoryVO("南京大学", "软件学院", "计算机与操作系统");
+		ci.add(vo);
 	}
 
 	private boolean add(CategoryVO vo) {
@@ -31,29 +36,24 @@ public class CategoryInfo {
 					+ course + "'";
 			resultSet = statement.executeQuery(query);
 			if (!resultSet.next()) {
-				result=true;
+				result = true;
 				query = "select max(cid) as categoryNum from user";
 				ResultSet rs = statement.executeQuery(query);
 				rs.next();
-				int count = resultSet.getInt("categoryNum");
+				int count = rs.getInt("categoryNum");
+				rs.close();
+				
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO user category(?, ?,?,?,?,?)");
+						.prepareStatement("INSERT INTO user category(?,?,?,?)");
 				statement.setInt(1, ++count);
-				statement.setString(2, vo.getNickname());
-				statement.setString(3, vo.getPassword());
-				statement.setString(4, vo.getEmail());
-				statement.setString(5, vo.getSchool());
-				statement.setString(6, vo.getPhoneNumber());
+				statement.setString(2, vo.getSchool());
+				statement.setString(3, vo.getDepartment());
+				statement.setString(4, vo.getCourse());
 				statement.addBatch();
-				// System.out.println(count);
-
 				statement.executeBatch();
-				con.commit();
+				connection.commit();
 				statement.close();
-				resultSet.close();
 			}
-			sql.close();
-			con.close();
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -74,34 +74,47 @@ public class CategoryInfo {
 		return result;
 	}
 
-	private void createTable(){
+	private void createTable() {
 		try {
+			connection=SqlManager.getConnection();
+			statement=connection.createStatement();
 			statement.execute("drop table if exists category");
-			statement.execute("create table category(cid int not null auto_increment,"
-					+ "nickname varchar(40) not null default 'null',"
-					+ "password varchar(40) not null default 'null',"
-					+ "email varchar(40) not null default 'null',"
-					+ "school varchar(40) not null default 'null',"
-					+ "phoneNumber varchar(40) not null default 'null',"
-					+ "primary key(cid));");
-			sql.close();
-			con.close();
-		} catch (java.lang.ClassNotFoundException e) {
-			e.printStackTrace();
-			System.err.println("ClassNotFoundException:" + e.getMessage());
+			statement
+					.execute("create table category(cid int not null auto_increment,"
+							+ "school varchar(40) not null default 'null',"
+							+ "department varchar(40) not null default 'null',"
+							+ "course varchar(40) not null default 'null',"
+							+ "primary key(cid));");
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-			System.err.println("SQLException:" + ex.getMessage());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeMySql();
+		}
 	}
-	
-	public static CategoryVO getVoByID(int id){
-		
+
+	/**
+	 * 根据分类的编号得到该分类对象
+	 * @param id 分类编号
+	 * @return 分类对象，该编号的对象不存在就返回null
+	 */
+	public static CategoryVO getVoByID(int id) {
+		return null;
 	}
-	
-	public static int getVoID(String school,String department,String course){
-		
+
+	/**
+	 * 根据分类的具体信息得到该对象的编号
+	 * @param school 学校
+	 * @param department 院系 
+	 * @param course 课程
+	 * @return 该分类的编号，不存在返回-1 
+	 */
+	public static int getVoID(String school, String department, String course) {
+		return -1;
 	}
-	
+
 	private void closeMySql() {
 		try {
 			if (resultSet != null) {
