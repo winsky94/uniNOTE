@@ -52,7 +52,7 @@ function write_edit_user_info(){
                 </div>  \
                 <div class="input-field col s3">  \
                 <input id="flag" type="hidden" name="flag" value="userinfo">\
-                  <input type="submit" value=" 保存 " class="btn btn-primary">  \
+                  <input type="submit" value=" 保存 " onclick="verify();" class="btn btn-primary">  \
                 </div>  \
                 <div class="input-field col s2">\
             	<font color="red" size="2"><span id="result" >hehe</span></font>\
