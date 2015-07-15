@@ -41,19 +41,50 @@ public class ChangeUserInfoServlet extends HttpServlet {
 		String flag = request.getParameter("flag");
 		if (flag.equals("userinfo")) {
 			// 修改用户信息
-			String oldName = request.getParameter("nickname");
-			String email = request.getParameter("email");
-			String school = request.getParameter("school");
-			String phoneNumber = request.getParameter("phonenumber");
-
-			UserInfo ui = new UserInfo();
-			String password = ui.getPassword(oldName);
-			if (password != null) {
-				UserVO vo = new UserVO(oldName, password, email, school,
-						phoneNumber);
-				ui.modify(vo, oldName);
+			Integer total = (Integer) request.getSession()
+					.getAttribute("total");
+			int temp = 0;
+			if (total == null) {
+				temp = 1;
+				total = 0;
+			} else {
+				temp = total.intValue() + 1;
 			}
-			response.sendRedirect("/UniNote/user_edit_info.html");
+			request.getSession().setAttribute("total", total.intValue() + temp);
+			try {
+				// 1.取参数
+				PrintWriter out = response.getWriter();
+				StringBuilder builder = new StringBuilder();
+
+				String nickname = request.getParameter("nickname");
+				String email = request.getParameter("email");
+				String school = request.getParameter("school");
+				String phoneNumber = request.getParameter("phonenumber");
+				
+				builder.append("<message>");
+				
+				// 2、检查参数是否有问题
+				if (email==null||email.equals("")) {
+					builder.append("请输入邮箱").append("</message>");
+				}else if (school==null||school.equals("")) {
+					builder.append("请输入学校").append("</message>");
+				}else if (phoneNumber==null||phoneNumber.equals("")) {
+					builder.append("请输入联系电话").append("</message>");
+				} else {
+					UserInfo ui = new UserInfo();
+					String password = ui.getPassword(nickname);
+					if (password != null) {
+						UserVO vo = new UserVO(nickname, password, email, school,
+								phoneNumber);
+						ui.modify(vo, nickname);
+					}
+				}
+				out.println(builder.toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+				// 3.检验操作
+			}
+			
 		} else if (flag.equals("password")) {
 			// 修改用户密码
 			Integer total = (Integer) request.getSession()
