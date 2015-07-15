@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import object.DocumentVO;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -54,14 +55,56 @@ public class UpLoadServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		String profile=request.getParameter("profile");
-		String tag=request.getParameter("tag");
-		String postgraduate=request.getParameter("postgraduate");
-		String school=request.getParameter("university");
-		String department=request.getParameter("department");
-		String course=request.getParameter("course");
+		String profile="";
+		String tag="";
+		String postgraduate="";
+		String school="";
+		String department="";
+		String course="";
+		
+		DiskFileItemFactory factory1 = new DiskFileItemFactory();
+		ServletFileUpload upload1 = new ServletFileUpload(factory1);
+		upload1.setHeaderEncoding("UTF-8");
+		List fileItems;
+		try {
+			fileItems = upload1.parseRequest(request);
+			Iterator iter = fileItems.iterator();   
+			while (iter.hasNext()) {   
+			  FileItem item = (FileItem) iter.next();
+			  item.getInputStream();
+			  if (!item.isFormField()) {
+			  //文件流
+			  }else{
+			  //非文件流  
+				 if(item.getFieldName().equals("profile")){
+					  profile = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+				 }	
+				 if(item.getFieldName().equals("tag")){
+					  tag = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+				 }
+				 if(item.getFieldName().equals("postgraduate")){
+					  postgraduate = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+				 }
+				 if(item.getFieldName().equals("university")){
+					  school = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+				 }
+				 if(item.getFieldName().equals("department")){
+					  department = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+				 }
+				 if(item.getFieldName().equals("course")){
+					  course = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+				 }
+			  }
+			}
+		} catch (FileUploadException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+
 		System.out.println("profile:"+profile);
 		System.out.println("tag:"+tag);
 		System.out.println("postgraduate:"+postgraduate);
