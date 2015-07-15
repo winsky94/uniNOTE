@@ -34,11 +34,22 @@ function write_user_info(user_info){
 
 }
 
-function write_edit_user_info(){
-    var txt="";   
+function write_edit_user_info(){  
     var nickname=$("#nickname").html();
-    txt = '<div class="input-field col s12">  \
-                    <input id="nickname" type="hidden" name="nickname" value="'+nickname+'"> \
+    var txt ='<style type="text/css">\
+        .table-container{ \
+            display: table; \
+            border-spacing: 10px; \
+        } \
+        .row-container{ \
+            display: table-row;  \
+        } \
+        .cell{ \
+            display: table-cell; \
+        } \
+    </style> \
+    <div class="input-field col s12">  \
+                    <input id="nickname" type="hidden" name="nickname" value=""> \
                     <input id="email" type="email" name="email" class="validate">  \
                     <label for="email">Email</label>  \
                   </div>  \
@@ -50,14 +61,17 @@ function write_edit_user_info(){
                   <input id="phonenumber" type="text" name="phonenumber" class="validate">  \
                   <label for="phonenumber">PhoneNumber</label>  \
                 </div>  \
-                <div class="input-field col s2">  \
-                <input id="flag" type="hidden" name="flag" value="userinfo">\
-                  <input type="submit" value=" 保存 " onclick="verify();" class="btn btn-primary">  \
-                </div>  \
-                <div class="input-field col s3">\
-            	<font color="red" size="2"><span id="result" >hehe</span></font>\
-                </div>\
-        ';
+                <div class="col s8 table-container"> \
+                    <div class="row-container"> \
+                        <div class="input-field cell">  \
+                            <input id="flag" type="hidden" name="flag" value="userinfo"> \
+                            <input type="submit" value=" 保存 " onclick="verify();" class="btn btn-primary">  \
+                        </div>  \
+                        <div class="input-field cell"> \
+            	            <font color="red" size="2"><span id="result" >hehe</span></font> \
+                        </div> \
+                    </div> \
+                </div>';
     $("#user-info-container").html(txt);
 }
 
