@@ -136,8 +136,26 @@ public class UserInfo {
 		return isTrue;
 	}
 
-	public UserVO search(String s) {
-		return null;
+	public UserVO getVoByName(String name) {
+		UserVO vo=null;
+		try {
+			Connection connection=SqlManager.getConnection();
+			Statement statement=connection.createStatement();
+			String query="select * from user where nickname='"+name+"' limit 1";
+			ResultSet rs=statement.executeQuery(query);
+			while(rs.next()){
+				String nickname=rs.getString("nickname");
+				String password=rs.getString("password");
+				String email=rs.getString("email");
+				String school=rs.getString("school");
+				String phoneNumber=rs.getString("phonenumber");
+				vo=new UserVO(nickname, password, email, school, phoneNumber);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return vo;
 	}
 
 	public boolean login(String nickName, String password) {
