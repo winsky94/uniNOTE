@@ -38,7 +38,7 @@ function write_edit_user_info(){
     var txt="<form action='/UniNote/ChangeUserInfoServlet' method='post' class='col s12'>";   //server undefined
     var nickname=$("#nickname").html();
     txt = txt + '<div class="input-field col s12">  \
-                    <input type="hidden" name="nickname" value="'+nickname+'"> \
+                    <input id="nickname" type="hidden" name="nickname" value="'+nickname+'"> \
                     <input id="email" type="email" name="email" class="validate">  \
                     <label for="email">Email</label>  \
                   </div>  \
@@ -51,7 +51,7 @@ function write_edit_user_info(){
                   <label for="phonenumber">PhoneNumber</label>  \
                 </div>  \
                 <div class="input-field col s6">  \
-                <input type="hidden" name="flag" value="userinfo">\
+                <input id="flag" type="hidden" name="flag" value="userinfo">\
                   <input type="submit" value=" 保存 " class="btn btn-primary">  \
                 </div>  \
         </form> ';
