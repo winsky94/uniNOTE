@@ -68,16 +68,12 @@ public class UserInfo {
 			Statement sql = con.createStatement();
 			String name=vo.getNickname();
 			name.replace("'", "''");
-			String query = "select userID from user where nickname='"+name+"' limit 1";
-			ResultSet resultSet1 = sql.executeQuery(query);
-			if(!resultSet1.next()){
+
+			String query = "delete from user where nickname='"+name+"'";
+			int re=sql.executeUpdate(query);
+			if(re==0)
 				isTrue=false;
-			}
-			else{
-				query = "delete from user where nickname='"+name+"'";
-				sql.executeUpdate(query);
-			}
-			resultSet1.close();
+			
 			sql.close();
 			con.close();
 		    }catch (java.lang.ClassNotFoundException e) {
@@ -106,6 +102,10 @@ public class UserInfo {
 			else{
 				hisID=resultSet1.getInt("userID");
 				String name2=vo.getNickname();
+				String password=vo.getPassword();
+				String email=vo.getEmail();
+				String school=vo.getSchool();
+				String phoneNumber=vo.getPhoneNumber();
 				name2.replace("'", "''");
 				query = "select userID from user where nickname='"+name2+"' limit 1";
 				ResultSet resultSet2 = sql.executeQuery(query);
@@ -114,11 +114,12 @@ public class UserInfo {
 				    if(hisnextID!=hisID)
 					    isTrue=false;
 				    else{
-				    	
+				    	query = "update user where nickname='"+name1+"' set password='"+password+"' and email='"+email+"' and school='"+school+"' and phoneNumber='"+phoneNumber+"'";
+						sql.executeUpdate(query);
 				    }
 				}
 				else{
-					query = "update user where nickname='"+name1+"' set nickname='"+name2+"'"+" password";
+					query = "update user where nickname='"+name1+"' set nickname='"+name2+"'"+"and password='"+password+"' and email='"+email+"' and school='"+school+"' and phoneNumber='"+phoneNumber+"'";
 					sql.executeUpdate(query);
 				}
 				resultSet2.close();
