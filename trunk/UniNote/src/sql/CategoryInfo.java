@@ -18,35 +18,33 @@ public class CategoryInfo {
 		CategoryInfo ci = new CategoryInfo();
 //		ci.createTable();
 
-//		CategoryVO vo1 = new CategoryVO("南京大学", "软件学院", "计算机与操作系统");
-//		CategoryVO vo2 = new CategoryVO("南京大学", "软件学院", "数据库系统");
-//		CategoryVO vo3 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅰ");
-//		CategoryVO vo4 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅱ");
-//		CategoryVO vo5 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅲ");
-//		CategoryVO vo6 = new CategoryVO("南京大学", "软件学院", "数据结构与算法");
-//		CategoryVO vo7 = new CategoryVO("南京大学", "软件学院", "计算机网络");
-//		CategoryVO vo8 = new CategoryVO("南京大学", "软件学院", "离散数学");
-//		CategoryVO vo9 = new CategoryVO("南京大学", "软件学院", "计算机组成原理");
-//		CategoryVO vo10 = new CategoryVO("南京大学", "软件学院", "计算系统基础");
-//		ArrayList<CategoryVO> categorys = new ArrayList<CategoryVO>();
-//		categorys.add(vo1);
-//		categorys.add(vo2);
-//		categorys.add(vo3);
-//		categorys.add(vo4);
-//		categorys.add(vo5);
-//		categorys.add(vo6);
-//		categorys.add(vo7);
-//		categorys.add(vo8);
-//		categorys.add(vo9);
-//		categorys.add(vo10);
-//
-//		for (int i = 0; i < categorys.size(); i++) {
-//			CategoryVO vo = categorys.get(i);
-//			System.out.println(i + " " + ci.add(vo));
-//		}
+		CategoryVO vo1 = new CategoryVO("南京大学", "软件学院", "计算机与操作系统");
+		CategoryVO vo2 = new CategoryVO("南京大学", "软件学院", "数据库系统");
+		CategoryVO vo3 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅰ");
+		CategoryVO vo4 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅱ");
+		CategoryVO vo5 = new CategoryVO("南京大学", "软件学院", "软件工程与计算Ⅲ");
+		CategoryVO vo6 = new CategoryVO("南京大学", "软件学院", "数据结构与算法");
+		CategoryVO vo7 = new CategoryVO("南京大学", "软件学院", "计算机网络");
+		CategoryVO vo8 = new CategoryVO("南京大学", "软件学院", "离散数学");
+		CategoryVO vo9 = new CategoryVO("南京大学", "软件学院", "计算机组成原理");
+		CategoryVO vo10 = new CategoryVO("南京大学", "软件学院", "计算系统基础");
+		ArrayList<CategoryVO> categorys = new ArrayList<CategoryVO>();
+		categorys.add(vo1);
+		categorys.add(vo2);
+		categorys.add(vo3);
+		categorys.add(vo4);
+		categorys.add(vo5);
+		categorys.add(vo6);
+		categorys.add(vo7);
+		categorys.add(vo8);
+		categorys.add(vo9);
+		categorys.add(vo10);
+
+		for (int i = 0; i < categorys.size(); i++) {
+			CategoryVO vo = categorys.get(i);
+			System.out.println(i + " " + ci.add(vo));
+		}
 		
-		int id=CategoryInfo.getVoID("南京大学", "软件学院", "计算机组成原理");
-		System.out.println(id);
 	}
 
 	private boolean add(CategoryVO vo) {
