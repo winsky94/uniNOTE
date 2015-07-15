@@ -1,4 +1,5 @@
  
+
  function write_document_list(file_elements){
 	var txt=" ";
     for(i=0;i<file_elements.length;i++){
@@ -59,7 +60,11 @@ function write_edit_user_info(){
 
 function write_header(){
 
-    var txt='<!-- Dropdown Structure -->\
+
+
+    var txt='<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
+    <script src="js/materialize.js"></script> \
+    <!-- Dropdown Structure -->\
 		<ul id="dropdown1" class="dropdown-content">\
 			<li><a href="#!">南京大学</a></li>\
 			<li><a href="#!">切换</a></li>\
