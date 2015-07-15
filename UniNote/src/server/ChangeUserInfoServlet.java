@@ -76,7 +76,12 @@ public class ChangeUserInfoServlet extends HttpServlet {
 					if (password != null) {
 						UserVO vo = new UserVO(nickname, password, email, school,
 								phoneNumber);
-						ui.modify(vo, nickname);
+						boolean result=ui.modify(vo, nickname);
+						if (result) {
+							builder.append("h").append("</message>");
+						} else {
+							builder.append("修改用户信息失败").append("</message>");
+						}
 					}
 				}
 				out.println(builder.toString());
