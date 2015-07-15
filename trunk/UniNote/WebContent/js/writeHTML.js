@@ -56,28 +56,30 @@ function write_edit_user_info(){
 
 function write_header(){
 
-    var txt='<!-- Dropdown Structure --> \
-        <ul id="dropdown1" class="dropdown-content"> \
-            <li> \
-                <a href="#!">南京大学</a> \
-            </li> \
-            <li> \
-                <a href="#!">切换</a> \
-            </li> \
-           <li class="divider"></li> \
-            <li> \
-                <a href="http://www.nju.edu.cn" target="_blank">主页</a> \
-            </li> \
-        </ul> \
-        <!-- Dropdown2 Structure --> \
-        <ul id="dropdown2" class="dropdown-content"> \
-            <li> \
-                <a href="#!">王宁</a> \
-            </li> \
-            <li> \
-                <a href="#!">个人信息</a> \
-            </li> \
-        </ul> \
+    var txt='<!-- Dropdown Structure -->\
+		<ul id="dropdown1" class="dropdown-content">\
+			<li><a href="#!">南京大学</a></li>\
+			<li><a href="#!">切换</a></li>\
+			<li class="divider"></li>\
+			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
+		</ul>\
+		<!-- Dropdown2 Structure -->\
+		<ul id="dropdown2" class="dropdown-content">\
+			<li><a href="#!">王宁</a></li>\
+			<li><a href="#!">个人信息</a></li>\
+		</ul>\
+		<!-- Dropdown Structure -->\
+		<ul id="dropdown3" class="dropdown-content">\
+			<li><a href="#!">南京大学</a></li>\
+			<li><a href="#!">切换</a></li>\
+			<li class="divider"></li>\
+			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
+		</ul>\
+		<!-- Dropdown2 Structure -->\
+		<ul id="dropdown4" class="dropdown-content">\
+			<li><a href="#!">王宁</a></li>\
+			<li><a href="#!">个人信息</a></li>\
+		</ul>\
         <nav> \
             <div class="nav-wrapper teal lighten-3"> \
                 <div class="container"> \
@@ -99,8 +101,7 @@ function write_header(){
                             <li> \
                                 <a class="dropdown-button" href="#!" data-activates="dropdown1" name="university"> \
                                     南京大学 <i class="material-icons right">arrow_drop_down</i> \
-                                </a> \
-                            </li> \
+                                </a></li> \
                             <li> \
                                 <a class="dropdown-button" href="#!" data-activates="dropdown2"> \
                                     王宁 <i class="material-icons right">arrow_drop_down</i> \
@@ -108,12 +109,10 @@ function write_header(){
                             </li> \
                         </ul> \
                         <a href="#" data-activates="slide-out" class="button-collapse"> \
-                            <i class="mdi-navigation-menu"></i> \
-                        </a> \
+                            <i class="mdi-navigation-menu"></i></a> \
                     </div> \
                 </div> \
-            </div> \
-        </nav>';
+            </div></nav>';
     $("header").html(txt);
 }
 
