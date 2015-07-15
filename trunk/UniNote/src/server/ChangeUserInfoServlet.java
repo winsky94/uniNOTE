@@ -36,7 +36,8 @@ public class ChangeUserInfoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-
+		request.setCharacterEncoding("utf-8");
+		
 		String flag = request.getParameter("flag");
 		if (flag.equals("userinfo")) {
 			// 修改用户信息
@@ -88,7 +89,7 @@ public class ChangeUserInfoServlet extends HttpServlet {
 				// 2、检查参数是否有问题
 				if (!pw.equals(oldPassword)) {
 					builder.append("当前密码错误").append("</message>");
-				} else if (newPassword == null) {
+				} else if (newPassword == null||newPassword.equals("")) {
 					builder.append("请输入新密码").append("</message>");
 				} else {
 					if (!newPassword.equals(confirmpassword)) {
