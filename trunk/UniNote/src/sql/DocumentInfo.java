@@ -162,12 +162,13 @@ public class DocumentInfo {
 	public static void main(String[] args) {
 		DocumentInfo ui=new DocumentInfo();
 		ui.createTable();
-		DocumentVO vo1=new DocumentVO("hehe", "C:/1.c","这是一个c代码文件","c","N","南京大学","软件学院","计算机与操作系统");
-		DocumentVO vo2=new DocumentVO("时机+市场规模.docx", "D:\\web_server_file\\时机+市场规模.docx","呵呵哒","营销,商业计划书","Y","南京大学","软件学院","数据结构与算法");
+		System.out.println("hehe");
+//		DocumentVO vo1=new DocumentVO("hehe", "C:/1.c","这是一个c代码文件","c","N","南京大学","软件学院","计算机与操作系统");
+//		DocumentVO vo2=new DocumentVO("时机+市场规模.docx", "D:\\web_server_file\\时机+市场规模.docx","呵呵哒","营销,商业计划书","Y","南京大学","软件学院","数据结构与算法");
 		
-		System.out.println(ui.add(vo1));
-		System.out.println(ui.add(vo2));
+//		System.out.println(ui.add(vo1));
+//		System.out.println(ui.add(vo2));
 //		System.out.println(ui.search("hehe"));
-		System.out.println(ui.getDocuments().size());
+//		System.out.println(ui.getDocuments().size());
 	} 
 }
