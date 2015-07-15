@@ -55,7 +55,7 @@ function write_edit_user_info(){
                   <input type="submit" value=" 保存 " class="btn btn-primary">  \
                 </div>  \
                 <div class="input-field col s4">\
-            	<font color="red" size="2"><span id="result" ></span></font>\
+            	<font color="red" size="2"><span id="result" >hehe</span></font>\
                 </div>\
         ';
     $("#user-info-container").html(txt);
