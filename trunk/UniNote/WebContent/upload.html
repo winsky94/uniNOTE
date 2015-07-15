@@ -27,9 +27,18 @@
     function set_course(department,course){
       $("#department").attr('value',department);
       $("#course").attr('value',course);
-      alert($("#department").attr('value'));
-      alert($("#course").attr('value'));
+  }
+
+    function check(){
+        
+      var course=$("#course").attr('value');
+      if(course==null){
+         alert("请选择课程");
+         return false;
+      }
+      return true;
     }
+    
 
     </script>
 
@@ -102,7 +111,7 @@
 
             <br/>
 
-            <form action='/UniNote/UpLoadServlet' method='post' enctype="multipart/form-data" class="col s12">
+            <form action='/UniNote/UpLoadServlet' method='post' enctype="multipart/form-data" class="col s12" onsubmit="return check()">
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>选择文件</span>
@@ -123,8 +132,8 @@
                     <div class="input-field col s12">
                         <input type="text" id="tag" name="tag" class="validate">
                         <label for="tag">标签</label>
-                        <input type="hidden" id="department" name="department" value="">
-                        <input type="hidden" id="course" name="course" value="">
+                        <input type="hidden" id="department" name="department">
+                        <input type="hidden" id="course" name="course">
                     </div>
 
                 </div>
