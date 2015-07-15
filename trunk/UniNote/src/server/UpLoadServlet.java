@@ -56,6 +56,19 @@ public class UpLoadServlet extends HttpServlet {
 			throws IOException, ServletException {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
+		String profile=request.getParameter("profile");
+		String tag=request.getParameter("tag");
+		String postgraduate=request.getParameter("postgraduate");
+		String school=request.getParameter("university");
+		String department=request.getParameter("department");
+		String course=request.getParameter("course");
+		System.out.println("profile:"+profile);
+		System.out.println("tag:"+tag);
+		System.out.println("postgraduate:"+postgraduate);
+		System.out.println("school:"+school);
+		System.out.println("department:"+department);
+		System.out.println("course:"+course);
+		
 		try {
 			// Create a factory for disk-based file items
 			DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -82,7 +95,7 @@ public class UpLoadServlet extends HttpServlet {
 					fi.write(savedFile);
 
 					DocumentInfo documentInfo = new DocumentInfo();
-					DocumentVO vo = new DocumentVO(fileName, uploadPath+"\\"+fileName);
+					DocumentVO vo = new DocumentVO(fileName, uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course);
 					documentInfo.add(vo);
 				}
 			}
