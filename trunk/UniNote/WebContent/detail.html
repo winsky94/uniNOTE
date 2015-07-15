@@ -24,9 +24,67 @@
 	<script src="js/writeHTML.js"></script>
 
 </head>
-<body onload="write_header();write_footer()">
+<body onload="write_footer()">
 
 	<header>
+	<!-- Dropdown Structure --> 
+        <ul id="dropdown1" class="dropdown-content"> 
+            <li> 
+                <a href="#!">南京大学</a> 
+            </li> 
+            <li> 
+                <a href="#!">切换</a> 
+            </li> 
+           <li class="divider"></li> 
+            <li> 
+                <a href="http://www.nju.edu.cn" target="_blank">主页</a> 
+            </li> 
+        </ul> 
+        <!-- Dropdown2 Structure --> 
+        <ul id="dropdown2" class="dropdown-content"> 
+            <li> 
+                <a href="#!">王宁</a> 
+            </li> 
+            <li> 
+                <a href="#!">个人信息</a> 
+            </li> 
+        </ul> 
+        <nav> 
+            <div class="nav-wrapper teal lighten-3"> 
+                <div class="container"> 
+                    <div class="row"> 
+                        <div class="col l6 s12"> 
+                            <a href="#!" class="brand-logo">uniNOTE</a> 
+                        </div> 
+                        <ul class="right hide-on-med-and-down"> 
+                            <li> 
+                                <a href="index.html">首页</a> 
+                            </li> 
+                            <li> 
+                                <a href="list.html">文档</a> 
+                            </li> 
+                            <li> 
+                                <a href="upload.html">上传文档</a> 
+                            </li> 
+                            <!-- Dropdown Trigger --> 
+                            <li> 
+                                <a class="dropdown-button" href="#!" data-activates="dropdown1" name="university"> 
+                                    南京大学 <i class="material-icons right">arrow_drop_down</i> 
+                                </a> 
+                            </li> 
+                            <li> 
+                                <a class="dropdown-button" href="#!" data-activates="dropdown2"> 
+                                    王宁 <i class="material-icons right">arrow_drop_down</i> 
+                                </a> 
+                            </li> 
+                        </ul> 
+                        <a href="#" data-activates="slide-out" class="button-collapse"> 
+                            <i class="mdi-navigation-menu"></i> 
+                        </a> 
+                    </div> 
+                </div> 
+            </div> 
+        </nav>
 	</header>
 
 	<div class="main" id="container">
