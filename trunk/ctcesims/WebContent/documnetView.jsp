@@ -148,7 +148,7 @@
 		</nav>
 	</header>
 
-	<div class="main">
+	<div class="main container">
 	<div class="row">
 	<h3 class="col s12 l8" align="center">文件名</h3>
 	</div>
