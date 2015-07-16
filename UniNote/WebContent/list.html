@@ -33,9 +33,9 @@
 
 	    function onResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
-                text=xmlhttp.responseText;
                 xmlDoc=xmlhttp.responseXML;
                 //file_elements是一个数组
+                alert(xmlDoc.getElementsByTagName("document")[0].childNode[2].childNode[0].nodeValue);
                 var file_elements=xmlDoc.getElementsByTagName("document"); 
                 var txt=write_document_list(file_elements);
                 document.getElementById("filelist").innerHTML=txt;
