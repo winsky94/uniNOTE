@@ -26,7 +26,7 @@
 				display:block;
 			}
 			.main{
-				margin-top: 100px;
+				margin-top: 10px;
 			}
         </style>
 
