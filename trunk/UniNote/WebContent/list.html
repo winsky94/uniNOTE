@@ -35,7 +35,7 @@
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 //file_elements是一个数组
                 var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("document"); 
-                alert(xmlhttp.responseXML);
+                alert(xmlhttp.responseXML.documentElement);
                 var txt=write_document_list(file_elements);
                 document.getElementById("filelist").innerHTML=txt;
             }
@@ -58,7 +58,7 @@
             if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
                 xmlhttp.open("GET","",true);                     //server undefined
-                xmlhttp.send(arguments);                              //arguments undefined
+                xmlhttp.send(arguments);                            
             }else{
                 alert("Your browser does not support XMLHttpRequest.");
         } 
