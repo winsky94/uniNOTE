@@ -31,15 +31,16 @@ public class DocumentInfo {
 			   resultSet.next();
 			   count=resultSet.getInt("documentnum");
 			   PreparedStatement statement = con
-					.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?)");
+					.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?,?)");
 			   statement.setInt(1, ++count);
 			   statement.setString(2, vo.getName());
-			   statement.setString(3, vo.getPath());
-			   statement.setString(4, vo.getType());
-			   statement.setString(5, vo.getProfile());
-			   statement.setString(6, vo.getTag());
-			   statement.setString(7, vo.getPostgraduateData());
-			   statement.setInt(8, vo.getCategoryID());
+			   statement.setString(3, vo.getCustomName());
+			   statement.setString(4, vo.getPath());
+			   statement.setString(5, vo.getType());
+			   statement.setString(6, vo.getProfile());
+			   statement.setString(7, vo.getTag());
+			   statement.setString(8, vo.getPostgraduateData());
+			   statement.setInt(9, vo.getCategoryID());
 			   statement.addBatch();
 //			   System.out.println(count);
 
@@ -113,13 +114,14 @@ public class DocumentInfo {
 			ResultSet resultSet = sql.executeQuery(query);
 			while(resultSet.next()){
 				String name=resultSet.getString("name");
+				String customName=resultSet.getString("customname");
 				String path=resultSet.getString("path");
 				String type=resultSet.getString("type");
 				String profile=resultSet.getString("profile");
 				String tag=resultSet.getString("tag");
 				String postgraduateData=resultSet.getString("postgraduateData");
 				int id=resultSet.getInt("categoryID");
-				DocumentVO vo=new DocumentVO(name, path,type,profile,tag,postgraduateData,id);
+				DocumentVO vo=new DocumentVO(name,customName, path,type,profile,tag,postgraduateData,id);
 				documents.add(vo);
 			}
 			resultSet.close();
@@ -141,6 +143,7 @@ public class DocumentInfo {
 			sql.execute("drop table if exists document");
 			sql.execute("create table document(documentID int not null auto_increment,"
 					+ "name varchar(100) not null default 'null',"
+					+ "customName varchar(100) not null default 'null',"
 					+ "path varchar(100) not null default 'null',"
 					+ "type varchar(20) not null default 'null',"
 					+ "profile varchar(600) not null default 'null',"
@@ -162,11 +165,11 @@ public class DocumentInfo {
 	public static void main(String[] args) {
 		DocumentInfo ui=new DocumentInfo();
 		ui.createTable();
-//		DocumentVO vo1=new DocumentVO("hehe", "C:/1.c","这是一个c代码文件","c","N","南京大学","软件学院","计算机与操作系统");
-//		DocumentVO vo2=new DocumentVO("时机+市场规模.docx", "D:\\web_server_file\\时机+市场规模.docx","呵呵哒","营销,商业计划书","Y","南京大学","软件学院","数据结构与算法");
+		DocumentVO vo1=new DocumentVO("hehe", "哼！","C:/1.c","这是一个c代码文件","c","N","南京大学","软件学院","计算机与操作系统");
+		DocumentVO vo2=new DocumentVO("时机+市场规模.docx","23333", "D:\\web_server_file\\时机+市场规模.docx","呵呵哒","营销,商业计划书","Y","南京大学","软件学院","数据结构与算法");
 		
-//		System.out.println(ui.add(vo1));
-//		System.out.println(ui.add(vo2));
+		System.out.println(ui.add(vo1));
+		System.out.println(ui.add(vo2));
 		System.out.println(ui.search("hehe"));
 		System.out.println(ui.getDocuments().size());
 	} 
