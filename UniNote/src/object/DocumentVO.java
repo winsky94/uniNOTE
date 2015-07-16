@@ -1,13 +1,12 @@
 package object;
 
-import java.util.ArrayList;
-
 import sql.CategoryInfo;
 
 
 public class DocumentVO {
      private String name;
-     private String path;
+     private String customName;
+	 private String path;
      private String type;
      private String profile;
      private String tag;
@@ -17,8 +16,9 @@ public class DocumentVO {
      private String department;
      private String course;
      
-     public DocumentVO(String name,String path,String profile,String tag,String postgraduateData,String school,String dapartment,String course) {
+     public DocumentVO(String name,String customeName,String path,String profile,String tag,String postgraduateData,String school,String dapartment,String course) {
  		this.name=name;
+ 		this.customName=customeName;
  		this.path=path;
  		String[] buffer=path.split("\\.");
  		if(buffer.length>1){
@@ -33,8 +33,9 @@ public class DocumentVO {
  		this.categoryID=CategoryInfo.getVoID(school, dapartment, course);
  	 }
      
-     public DocumentVO(String name,String path,String type,String profile,String tag,String postgraduateData,int id) {
+     public DocumentVO(String name,String customName,String path,String type,String profile,String tag,String postgraduateData,int id) {
   		this.name=name;
+  		this.customName=customName;
   		this.path=path;
   		this.type=type;
   		this.profile=profile;
@@ -88,6 +89,12 @@ public class DocumentVO {
     	 return categoryID;
      }
      
+     public String getCustomName() {
+ 		return customName;
+ 	}
+
+
+     
      
      
      
@@ -118,6 +125,10 @@ public class DocumentVO {
      public void setCategoryID(int id){
     	 this.categoryID=id;
      }
+     
+     public void setCustomName(String customName) {
+  		this.customName = customName;
+  	}
      
     
 }
