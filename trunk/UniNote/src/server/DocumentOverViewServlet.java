@@ -135,43 +135,43 @@ public class DocumentOverViewServlet extends HttpServlet {
 			Element type = doc.createElement("type");
 			file.appendChild(type);
 			Text tType = doc.createTextNode(String.valueOf(vo.getType()));
-			tType.appendChild(tType);
+			type.appendChild(tType);
 			
 			//创建文件简介节点
 			Element profile = doc.createElement("profile");
 			file.appendChild(profile);
 			Text tProfile = doc.createTextNode(String.valueOf(vo.getProfile()));
-			tProfile.appendChild(tProfile);
+			profile.appendChild(tProfile);
 			
 			//创建文件标签节点
 			Element tag = doc.createElement("tag");
 			file.appendChild(tag);
 			Text tTag= doc.createTextNode(String.valueOf(vo.getTag()));
-			tTag.appendChild(tTag);
+			tag.appendChild(tTag);
 			
 			//创建文件是否是考研资料节点
 			Element pg = doc.createElement("postgraduate");
 			file.appendChild(pg);
 			Text tPg= doc.createTextNode(String.valueOf(vo.getPostgraduateData()));
-			tPg.appendChild(tPg);
+			pg.appendChild(tPg);
 			
 			//创建文件学校节点
 			Element school = doc.createElement("school");
 			file.appendChild(school);
 			Text tSchool= doc.createTextNode(String.valueOf(vo.getSchool()));
-			tSchool.appendChild(tSchool);
+			school.appendChild(tSchool);
 			
 			//创建文件学院节点
 			Element department = doc.createElement("department");
 			file.appendChild(department);
 			Text tDepartment= doc.createTextNode(String.valueOf(vo.getDepartment()));
-			tDepartment.appendChild(tDepartment);
+			department.appendChild(tDepartment);
 			
 			//创建文件课程节点
 			Element course = doc.createElement("course");
 			file.appendChild(course);
 			Text tCourse= doc.createTextNode(String.valueOf(vo.getCourse()));
-			tCourse.appendChild(tCourse);
+			course.appendChild(tCourse);
 			
 		}
 		try {
