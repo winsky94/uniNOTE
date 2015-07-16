@@ -124,6 +124,12 @@ public class DocumentOverViewServlet extends HttpServlet {
 			file.appendChild(name);
 			Text tname = doc.createTextNode(vo.getName());
 			name.appendChild(tname);
+			
+			//创建自定义文件名节点
+			Element customName = doc.createElement("filename");
+			file.appendChild(customName);
+			Text tCustomName = doc.createTextNode(String.valueOf(vo.getCustomName()));
+			customName.appendChild(tCustomName);
 
 			// 创建文本存放路径节点
 			Element path = doc.createElement("path");

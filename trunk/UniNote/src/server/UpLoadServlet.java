@@ -65,6 +65,7 @@ public class UpLoadServlet extends HttpServlet {
 		String department="";
 		String course="";		
 		String fileName="";
+		String cuntomName="";
 		
 		try {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -92,6 +93,9 @@ public class UpLoadServlet extends HttpServlet {
 			  //文件流
 			  }else{
 			  //非文件流  
+				 if(item.getFieldName().equals("filename")){
+					  cuntomName = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+				 }
 				 if(item.getFieldName().equals("profile")){
 					  profile = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
 				 }	
@@ -142,7 +146,7 @@ public class UpLoadServlet extends HttpServlet {
 		System.out.println("course:"+course);
 		
 		DocumentInfo documentInfo = new DocumentInfo();
-		DocumentVO vo = new DocumentVO(fileName, uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course);
+		DocumentVO vo = new DocumentVO(fileName, cuntomName,uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course);
 		documentInfo.add(vo);
 		response.sendRedirect("/UniNote/list.html");
 //		response.sendRedirect("/UniNote/DocumentOverViewServlet");
