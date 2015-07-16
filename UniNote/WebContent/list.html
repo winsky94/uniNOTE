@@ -46,7 +46,8 @@
             if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
                 xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
-                xmlhttp.send(null);
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+ 								xmlhttp.send("/UniNote/DocumentOverViewServlet"); 
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
@@ -69,9 +70,7 @@
 </head>
 <body onload='write_header();write_footer();init_list()'>
 
-	<header>
-
-	</header>
+	<header></header>
 
 	<div class="main container">
 		<div class="row">
@@ -85,8 +84,7 @@
 
 				<ul class="collapsible" data-collapsible="expandable">
 					<li>
-						<div class="collapsible-header">
-							<i class="material-icons">list</i>
+						<div class="collapsible-header"> <i class="material-icons">list</i>
 							软件学院
 						</div>
 						<div class="collapsible-body">
@@ -124,8 +122,7 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header">
-							<i class="material-icons">list</i>
+						<div class="collapsible-header"> <i class="material-icons">list</i>
 							计算机科学与技术系
 						</div>
 						<div class="collapsible-body">
@@ -238,10 +235,7 @@
 	</div>
 	<!--main container-->
 
-		<div id="footer">
-
-		</div>
-
+	<div id="footer"></div>
 
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
