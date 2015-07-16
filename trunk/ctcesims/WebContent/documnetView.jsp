@@ -189,7 +189,7 @@
 			<div class="col s12 l4">
 				<div class="card">
 					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="images/office.jpg"></div>
+						<img class="activator" src="images/kuan.jpg"></div>
 					<div class="card-content">
 						<span class="card-title activator grey-text text-darken-4">
 							Card Title
