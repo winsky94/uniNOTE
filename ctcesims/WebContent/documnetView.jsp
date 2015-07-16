@@ -31,7 +31,9 @@
 				margin-top: 100px;
 				margin-left: 8%;
 				margin-right: 8%;
-				
+				min-width: 84%;
+				max-width: 84%;
+
 			}
         </style> 
 
