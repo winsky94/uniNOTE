@@ -198,6 +198,15 @@
 						<a href="#">上传的其他文件</a>
 					</div>
 				</div>
+				<a class="waves-effect waves-light btn">
+					<i class="material-icons left"></i>
+					赞
+				</a>
+				<a class="waves-effect waves-light btn">
+					<i class="material-icons right"></i>
+					踩
+				</a>
+				<a class="waves-effect waves-light btn-large">下载</a>
 			</div>
 		</div>
 	</div>
