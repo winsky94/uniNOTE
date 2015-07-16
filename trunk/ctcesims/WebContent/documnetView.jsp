@@ -27,8 +27,11 @@
 				height:650px;
 				display:block;
 			}
-			.main{
-				margin-top: 50px;
+			.main-container{
+				margin-top: 100px;
+				margin-left: 8%;
+				margin-right: 8%;
+				
 			}
         </style> 
 
@@ -149,7 +152,7 @@
 		</nav>
 	</header>
 
-        <div class="main">
+        <div class="main-container">
 	        <a id="viewerPlaceHolder" ></a>
 	        
 	        <script type="text/javascript"> 
