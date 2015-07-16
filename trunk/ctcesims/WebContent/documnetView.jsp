@@ -186,22 +186,16 @@
 	        </script>
 			</div>
 			<div class="col s12 l4">
-				<div class="row">
-					<div class="col s12 m7">
-						<div class="card">
-							<div class="card-image">
-								<img src="images/kuan.jpg">
-								<span class="card-title">宽哥</span>
-							</div>
-							<div class="card-content">
-								<p>
-									文件介绍
-								</p>
-							</div>
-							<div class="card-action">
-								<a href="#">上传的其他文件</a>
-							</div>
-						</div>
+				<div class="card">
+					<div class="card-image">
+						<img src="images/kuan.jpg">
+						<span class="card-title">宽哥</span>
+					</div>
+					<div class="card-content">
+						<p>文件介绍</p>
+					</div>
+					<div class="card-action">
+						<a href="#">上传的其他文件</a>
 					</div>
 				</div>
 			</div>
