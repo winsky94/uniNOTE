@@ -150,7 +150,7 @@
 
 	<div class="main container">
 	<div class="row">
-	<h3 class="col s12 l8" align="center">文件名</h3>
+	<h5 class="col s12 l8">文件名</h5>
 	</div>
 		<div class="row">
 
