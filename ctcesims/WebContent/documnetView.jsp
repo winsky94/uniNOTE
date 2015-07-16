@@ -25,6 +25,10 @@
 				height:650px;
 				display:block;
 			}
+			h3{
+				display: relative;
+				margin:auto;
+			}
         </style>
 
 	<title>文档在线预览系统</title>
