@@ -149,7 +149,9 @@
 	</header>
 
 	<div class="main">
-	<h3>文件名</h3>
+	<div class="row">
+	<h3 class="col s12 l8" align="center">文件名</h3>
+	</div>
 		<div class="row">
 
 			<div class="col s12 l8">
