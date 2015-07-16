@@ -3,6 +3,7 @@ package server;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +36,8 @@ public class DownLoadServlet extends HttpServlet {
 		// 演示下载文件
 		//!!!!!!!!!!!!!注意网页页面上的参数名称是什么!!!!!!!!!!!!!!
 		String filename = request.getParameter("filename");
-		response.setHeader("Content-Disposition", "attachment;filename="+filename);
+		String temp=URLEncoder.encode(filename, "utf-8");
+		response.setHeader("Content-Disposition", "attachment;filename="+temp);
 
 		// 说明一下web站点下载文件的原理
 		// 1.把文件读入到内存
@@ -43,7 +45,7 @@ public class DownLoadServlet extends HttpServlet {
 
 		// 打开文件
 		// (1)获取到要下载文件的全路径
-		String path = this.getServletContext().getRealPath("D:/web_server_file/"+filename);
+		String path = this.getServletContext().getRealPath("D:/web_server_file/"+temp);
 		// (2)创建文件输入流
 		FileInputStream fis = new FileInputStream(path);
 		// 做一个缓冲字节数组
