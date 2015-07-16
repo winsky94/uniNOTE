@@ -150,7 +150,7 @@
 
 	<div class="main container">
 	<div class="row">
-	<font size="18"><p class="col s12 l8">文件名</p></font>
+	<font size="18"><span>文件名</span></font>
 	</div>
 		<div class="row">
 
