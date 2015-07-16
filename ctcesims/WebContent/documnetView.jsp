@@ -154,7 +154,7 @@
 		</nav>
 	</header>
 
-        <div class="main-container">
+        <div class="main-container col s12">
 	        <a id="viewerPlaceHolder" ></a>
 	        
 	        <script type="text/javascript"> 
