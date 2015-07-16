@@ -35,7 +35,7 @@
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 //file_elements是一个数组
                 var file_elements=xmlhttp.responseXML.getElementsByTagName("document"); 
-                alert(xmlhttp.responseXML.getElementsByTagName("document")[0].childNodes[0].nodeValue);
+                alert(xmlhttp.responseXML.getElementsByTagName("document")[0].childNodes[0].data);
                 var txt=write_document_list(file_elements);
                 document.getElementById("filelist").innerHTML=txt;
             }
