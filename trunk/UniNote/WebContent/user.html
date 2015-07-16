@@ -1,0 +1,307 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+	<title>user</title>
+
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<style type="text/css">
+	    .row{
+	        margin-left: 9%;
+	        margin-right: 9%;
+	    }
+	    .main{
+            margin-top: 80px;
+	    }
+	    h4{
+	    	color: #26A69A;
+	    }
+	    #user-info-container{
+	    	display: table;
+	    	border-spacing: 10px;
+	    }
+	    .table{
+            display: table;
+            border-spacing: 10px;
+	    }
+	    .table-row{
+	    	display: table-row;
+	    }
+	    .property{
+	    	display: table-cell;
+
+	    }
+
+	    .value{
+	    	display: table-cell;
+	    }
+	</style>
+
+	<script type="text/javascript">
+
+	    function getXmlHttp(){
+    	    var xmlhttp=null;
+            if (window.XMLHttpRequest){
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else{
+                // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            return xmlhttp;
+    	}
+
+    	function user_documents(type){
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
+            	if(type=="user_info"){
+            		xmlhttp.onreadystatechange=onUserInfoResponse;
+            	}
+                xmlhttp.onreadystatechange=onFileListResponse; 
+                xmlhttp.open("GET","",true);                  //server undefined
+                xmlhttp.send();                               //arguments undefined
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+    	}
+
+        
+    	function onFileListResponse(xmlhttp){
+  	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+
+  	   	    	//tagName undefined
+                var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("");   
+
+                write_document_list(file_elements);
+            }
+	    }
+
+	    function onUserInfoResponse(xmlhttp){
+	    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
+
+	    		//tagName undefined
+                var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName(""); 
+
+                write_user_info(user_info);
+            }
+	    }
+
+	   function write_document_list(file_elements){
+
+	   }
+
+	   function write_user_info(user_info){
+	   	    txt=""
+
+	   }
+
+
+	</script>
+</head>
+<body>
+	<header>
+		<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content">
+			<li>
+				<a href="#!">南京大学</a>
+			</li>
+			<li>
+				<a href="#!">切换</a>
+			</li>
+
+			<li class="divider"></li>
+			<li>
+				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
+			</li>
+		</ul>
+		<!-- Dropdown2 Structure -->
+		<ul id="dropdown2" class="dropdown-content">
+			<li>
+				<a href="#!">王宁</a>
+			</li>
+			<li>
+				<a href="#!">个人信息</a>
+			</li>
+
+		</ul>
+		<!-- Dropdown Structure -->
+		<ul id="dropdown3" class="dropdown-content">
+			<li>
+				<a href="#!">南京大学</a>
+			</li>
+			<li>
+				<a href="#!">切换</a>
+			</li>
+
+			<li class="divider"></li>
+			<li>
+				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
+			</li>
+		</ul>
+		<!-- Dropdown2 Structure -->
+		<ul id="dropdown4" class="dropdown-content">
+			<li>
+				<a href="#!">王宁</a>
+			</li>
+			<li>
+				<a href="#!">个人信息</a>
+			</li>
+
+		</ul>
+
+		<nav>
+			<div class="nav-wrapper teal lighten-3">
+				<div class="container">
+					<div class="row">
+						<div class="col l6 s12">
+							<a href="#!" class="brand-logo">uniNOTE</a>
+						</div>
+
+						<ul class="right hide-on-med-and-down">
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="list.html">文档</a>
+							</li>
+							<li>
+								<a href="upload.html">上传文档</a>
+							</li>
+							<!-- Dropdown Trigger -->
+							<li>
+								<a class="dropdown-button" href="#!" data-activates="dropdown1">
+									南京大学 <i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-button" href="#!" data-activates="dropdown2">
+									王宁 <i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
+						</ul>
+						<ul id="slide-out" class="side-nav">
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="list.html">文档</a>
+							</li>
+							<li>
+								<a href="upload.html">上传文档</a>
+							</li>
+							<!-- Dropdown Trigger -->
+							<li>
+								<a class="dropdown-button" href="#!" data-activates="dropdown3">
+									南京大学
+									<i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-button" href="#!" data-activates="dropdown4">
+									王宁
+									<i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
+						</ul>
+						<a href="#" data-activates="slide-out" class="button-collapse">
+							<i class="mdi-navigation-menu"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="main">
+		<div class="row">
+			<div class="col s12 l3">
+				<ul class="collection with-header">
+					<li class="collection-header">
+						<h4>王宁</h4>
+					</li>
+					<a href="#!"class="collection-item">个人资料</a>
+					<a href="#!"class="collection-item">我的收藏</a>
+					<a href="#!"class="collection-item">我的上传</a>
+					<a href="#!"class="collection-item">我的下载</a>
+					<a href="#!"class="collection-item">修改密码</a>
+
+				</ul>
+			</div>
+			<div class="col s12 l9" id="right">
+				<div class="userinfo-con-left">
+
+					<form name="UserInfoForm" action='/UniNote/SignUpServlet' method='post' class="col s12">
+						<div class="row">
+							<div class="input-field col s10 m10 l10">
+								<input id="nickname" type="text" name="nickname" class="validate" value="王宁">
+								<label for="last_name">Nickname</label>
+							</div>
+							<div class="input-field col s2 m2 l2"> <font color="red" size="2"><span id="result" ></span></font> 
+							</div>
+
+							<div class="input-field col s10">
+								<input id="password" type="password" name="password" class="validate">
+								<label for="password">当前密码:</label>
+							</div>
+							<div class="input-field col s10">
+								<input id="newpassword" type="password" name="newpassword" class="validate">
+								<label for="newpassword">修改密码:</label>
+							</div>
+							<div class="input-field col s10">
+								<input id="password" type="password" name="confrimpassword" class="validate">
+								<label for="confrimpassword">确认密码:</label>
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="input-field col s6">
+								<input type="submit" value=" 提交 " onclick="verify();" class="btn btn-primary"></div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="page-footer teal lighten-3">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">
+						You can use rows and columns here to organize your footer content.
+					</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+
+						<li>
+							<a class="grey-text text-lighten-3" href="#!">Link 1</a>
+						</li>
+
+					</ul>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2015 uniNOTE Group, NJU
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+</body>
+</html>
