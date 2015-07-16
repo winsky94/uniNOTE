@@ -21,8 +21,8 @@ public class DocumentVO {
  		this.name=name;
  		this.path=path;
  		String[] buffer=path.split("\\.");
- 		if(buffer.length==2){
- 			this.type=buffer[1];
+ 		if(buffer.length>1){
+ 			this.type=buffer[buffer.length-1];
  		}
  		else{
  			this.type="";
