@@ -23,7 +23,7 @@
 			body { margin:0; padding:0; overflow:auto; }   
 			#flashContent { display:none; }
 			#viewerPlaceHolder{
-				width:820px;
+				width:84%;
 				height:650px;
 				display:block;
 			}
