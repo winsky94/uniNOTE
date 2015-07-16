@@ -22,6 +22,14 @@
 			html, body	{ height:100%; }
 			body { margin:0; padding:0; overflow:auto; }   
 			#flashContent { display:none; }
+			#viewerPlaceHolder{
+				width:820px;
+				height:650px;
+				display:block;
+			}
+			.main{
+				margin-top: 50px;
+			}
         </style> 
 
 <title>文档在线预览系统</title>
@@ -142,7 +150,7 @@
 	</header>
 
         <div class="main">
-	        <a id="viewerPlaceHolder" style="width:820px;height:650px;display:block"></a>
+	        <a id="viewerPlaceHolder" ></a>
 	        
 	        <script type="text/javascript"> 
 				var fp = new FlexPaperViewer(	
