@@ -149,13 +149,12 @@
 	</header>
 
 	<div class="main container">
-	<div class="row">
-	<font size="15"><span class="col s12 l8">文件名</span></font>
-	</div>
+		<div class="row"> <font size="15"><span class="col s12 l8">文件名</span></font> 
+		</div>
 		<div class="row">
 
 			<div class="col s12 l8">
-				
+
 				<a id="viewerPlaceHolder" ></a>
 
 				<script type="text/javascript"> 
@@ -187,26 +186,22 @@
 	        </script>
 			</div>
 			<div class="col s12 l4">
-				<div class="card">
-					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="images/kuan.jpg"></div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">
-							Card Title
-							<i class="material-icons right">more_vert</i>
-						</span>
-						<p>
-							<a href="#">This is a link</a>
-						</p>
-					</div>
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">
-							Card Title
-							<i class="material-icons right">close</i>
-						</span>
-						<p>
-							Here is some more information about this product that is only revealed once clicked on.
-						</p>
+				<div class="row">
+					<div class="col s12 m7">
+						<div class="card">
+							<div class="card-image">
+								<img src="images/kuan.jpg">
+								<span class="card-title">宽哥</span>
+							</div>
+							<div class="card-content">
+								<p>
+									文件介绍
+								</p>
+							</div>
+							<div class="card-action">
+								<a href="#">上传的其他文件</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
