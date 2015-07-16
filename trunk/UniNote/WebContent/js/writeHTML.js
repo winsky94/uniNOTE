@@ -8,7 +8,7 @@
         txt=txt + "<li class='collection-item avatar'>";
 
         //根据文件格式选图片       
-        var extension=file_elements[i].getElementsByTagName("path")[0].nodeValue; 
+        var extension=file_elements[i].getElementsByTagName("path")[0].firstChild.nodeValue; 
         if(extension!=null){
            txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
         }else{
@@ -18,7 +18,7 @@
         txt=txt+"<i class='circle'><img src='images/document-icons/"+"pdf"+".png'></i>";
                 
         //文件链接 文件名
-        txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")[0].nodeValue +"'>"+file_elements[i].getElementsByTagName("name")[0].nodeValue +"</a><p>First Line<br>Second Line</p>";
+        txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")[0].firstChild.nodeValue +"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
