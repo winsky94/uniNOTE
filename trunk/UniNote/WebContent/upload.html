@@ -38,7 +38,11 @@
       }
       return true;
     }
-    
+    function create_default_title(){
+        var fullname=$('input[type=file]').val().split('\\').pop();
+        var filename=fullname.split('.')[0];
+        $('#filename').attr('value',filename);
+    }
 
     </script>
 
@@ -115,17 +119,18 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>选择文件</span>
-                        <input type="file" name="file"/>
+                        <input type="file" id="file" name="file"/>
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" name="file-path"/>
+                        <input class="file-path validate" id="filePath" type="text" name="file-path"
+                        />
                     </div>
                 </div>
 
 
                 <div class="row">
                 <div class="input-field col s12">
-                        <input type="text" id="filename" name="filename" class="validate">
+                        <input type="text" id="filename" name="filename" class="validate" onclick="create_default_title()">
                         <label for="filename">标题</label>
                     </div>
                     <div class="input-field col s12">
