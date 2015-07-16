@@ -8,8 +8,9 @@
         txt=txt + "<li class='collection-item avatar'>";
 
         //根据文件格式选图片       
-        var extension=file_elements[i].getElementsByTagName("path")[0].firstChild.nodeValue; 
+        var extension=file_elements[i].getElementsByTagName("type")[0].firstChild.nodeValue; 
         if(extension!=null){
+           alert(extension);
            txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
         }else{
         	txt=txt+"<i class='circle'><span>other</span></i>";
@@ -34,7 +35,7 @@ function write_user_info(user_info){
 
 function write_edit_user_info(){  
     var nickname=$("#nickname").html();
-    var txt ='<style type="text/css">\
+    var txt ='<style type="text/css"> \
         .table-container{ \
             display: table; \
             border-spacing: 10px; \
