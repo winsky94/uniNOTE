@@ -19,21 +19,19 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 <style type="text/css" media="screen"> 
-			html, body	{ height:100%; }
-			body { margin:0; padding:0; overflow:auto; }   
+  
 			#flashContent { display:none; }
 			#viewerPlaceHolder{
 				width:84%;
 				height:650px;
 				display:block;
 			}
-			.main-container{
+			.main{
 				margin-top: 100px;
 				margin-left: 8%;
 				margin-right: 8%;
 				min-width: 84%;
 				max-width: 84%;
-
 			}
         </style> 
 
@@ -154,7 +152,7 @@
 		</nav>
 	</header>
 
-        <div class="main-container col s12">
+        <div class="main">
 	        <a id="viewerPlaceHolder" ></a>
 	        
 	        <script type="text/javascript"> 
