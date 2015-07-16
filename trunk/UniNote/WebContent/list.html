@@ -33,20 +33,8 @@
 
 	    function onResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
-  	   	    	var text=xmlhttp.responseText;
-    	   	    try{
-                  xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-                  xmlDoc.async="false";
-                  xmlDoc.loadXML(text);
-                }catch(e){
-                    try{
-                        parser=new DOMParser();
-                        xmlDoc=parser.parseFromString(text,"text/xml");
-                    }catch(e) {
-              	        alert(e.message)
-                    }
-                }
-                alert(xmlDoc.getElementsByTagName("document"));
+
+                xmlDoc=xmlHttp.responseXML;
                 //file_elements是一个数组
                 var file_elements=xmlDoc.getElementsByTagName("document"); 
                 var txt=write_document_list(file_elements);
