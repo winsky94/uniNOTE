@@ -12,7 +12,7 @@
             var extension=file_elements[i].getElementsByTagName("type")[0].firstChild.nodeValue; 
             txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
         }catch(e){
-            txt=txt+"<i class='circle'><span>other</span></i>";
+            txt=txt+"<i class='circle teal'><font size='5'><span>other</span></font></i>";
         }
                        
                 
