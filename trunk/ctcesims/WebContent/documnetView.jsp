@@ -6,19 +6,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/flexpaper_flash.js"></script>
-    <script type="text/javascript" src="js/flexpaper_flash_debug.js"></script>
-    <script src="js/materialize.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/flexpaper_flash.js"></script>
+	<script type="text/javascript" src="js/flexpaper_flash_debug.js"></script>
+	<script src="js/materialize.js"></script>
 
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-<style type="text/css" media="screen"> 
+	<style type="text/css" media="screen"> 
   
 			#flashContent { display:none; }
 			#viewerPlaceHolder{
@@ -33,11 +33,11 @@
 				min-width: 84%;
 				max-width: 84%;
 			}
-        </style> 
+        </style>
 
-<title>文档在线预览系统</title>
+	<title>文档在线预览系统</title>
 </head>
-<body> 
+<body>
 
 	<header>
 		<!-- Dropdown Structure -->
@@ -152,39 +152,68 @@
 		</nav>
 	</header>
 
-        <div class="main">
-	        <a id="viewerPlaceHolder" ></a>
-	        
-	        <script type="text/javascript"> 
-				var fp = new FlexPaperViewer(	
-						 'FlexPaperViewer',
-						 'viewerPlaceHolder', { config : {
-						 SwfFile : encodeURI('<%=swfFilePath%>'),
-						 Scale : 0.6, 
-						 ZoomTransition : 'easeOut',
-						 ZoomTime : 0.5,
-						 ZoomInterval : 0.2,
-						 FitPageOnLoad : true,
-						 FitWidthOnLoad : false,
-						 FullScreenAsMaxWindow : false,
-						 ProgressiveLoading : false,
-						 MinZoomSize : 0.2,
-						 MaxZoomSize : 5,
-						 SearchMatchAll : false,
-						 InitViewMode : 'SinglePage',
-						 
-						 ViewModeToolsVisible : true,
-						 ZoomToolsVisible : true,
-						 NavToolsVisible : true,
-						 CursorToolsVisible : true,
-						 SearchToolsVisible : true,
-  						
-  						 localeChain: 'zh_CN'
-						 }});
-	        </script>            
-        </div>
+	<div class="main">
+		<div class="row">
+			<div class="col s12 l8">
+				<h3>文件名</h3>
+				<a id="viewerPlaceHolder" ></a>
 
-    <footer class="page-footer teal lighten-3">
+				<script type="text/javascript"> 
+				var fp = new FlexPaperViewer(	
+					 'FlexPaperViewer',
+					 'viewerPlaceHolder', { config : {
+					 SwfFile : encodeURI('<%=swfFilePath%>'),
+					 Scale : 0.6, 
+					 ZoomTransition : 'easeOut',
+					 ZoomTime : 0.5,
+					 ZoomInterval : 0.2,
+					 FitPageOnLoad : true,
+					 FitWidthOnLoad : false,
+					 FullScreenAsMaxWindow : false,
+					 ProgressiveLoading : false,
+					 MinZoomSize : 0.2,
+					 MaxZoomSize : 5,
+					 SearchMatchAll : false,
+					 InitViewMode : 'SinglePage',
+					 
+					 ViewModeToolsVisible : true,
+					 ZoomToolsVisible : true,
+					 NavToolsVisible : true,
+					 CursorToolsVisible : true,
+					 SearchToolsVisible : true,
+  					
+  					 localeChain: 'zh_CN'
+					 }});
+	        </script>
+			</div>
+			<div class="col s12 l4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/office.jpg"></div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">
+							Card Title
+							<i class="material-icons right">more_vert</i>
+						</span>
+						<p>
+							<a href="#">This is a link</a>
+						</p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">
+							Card Title
+							<i class="material-icons right">close</i>
+						</span>
+						<p>
+							Here is some more information about this product that is only revealed once clicked on.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="page-footer teal lighten-3">
 		<div class="container">
 			<div class="row">
 				<div class="col l6 s12">
