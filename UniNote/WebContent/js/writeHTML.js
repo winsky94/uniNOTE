@@ -8,13 +8,13 @@
         txt=txt + "<li class='collection-item avatar'>";
 
         //根据文件格式选图片       
-        var extension=file_elements[i].getElementsByTagName("type")[0].firstChild.nodeValue; 
-        if(extension!=null){
-           alert(extension);
-           txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
-        }else{
-        	txt=txt+"<i class='circle'><span>other</span></i>";
-        }                  
+        try{
+            var extension=file_elements[i].getElementsByTagName("type")[0].firstChild.nodeValue; 
+            txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
+        }catch(e){
+            txt=txt+"<i class='circle'><span>other</span></i>";
+        }
+                       
                 
         //文件链接 文件名
         txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")[0].firstChild.nodeValue +"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
