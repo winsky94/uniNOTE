@@ -25,9 +25,6 @@
 				height:650px;
 				display:block;
 			}
-			.main{
-				margin-top: 10px;
-			}
         </style>
 
 	<title>文档在线预览系统</title>
