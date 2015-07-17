@@ -44,6 +44,10 @@
         	$('#ID').attr("value","<%=id%>");
         	alert($('#ID').attr('value'));
         });
+
+        function check(){
+        	alert($('#ID').attr('value'));
+        }
     </script>
 
 	<title>detail</title>
@@ -229,7 +233,7 @@
 				</div>
 				<form method="post" enctype="multipart/form-data" action="/UniNote/DownLoadServlet">
 					<input type="hidden" id="ID" name="ID" value="">
-					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
+					<input type="submit" value=" 下载 " onsubmit="check()" class="btn btn-primary"></form>
 			</div>
 		</div>
 	</div>
