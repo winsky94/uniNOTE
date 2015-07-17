@@ -72,6 +72,7 @@ public class CategoryServlet extends HttpServlet {
 
 		Map<String, ArrayList<String>> categorys = new HashMap<String, ArrayList<String>>();
 		CategoryInfo ci = new CategoryInfo();
+		System.out.println(school);
 		categorys = ci.getCategorysBySchool(school);
 
 		// 创建XML文件
