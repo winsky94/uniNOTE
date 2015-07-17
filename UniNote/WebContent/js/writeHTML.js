@@ -17,8 +17,9 @@
      
         //文件名 文件id 
         try{
-           txt=txt+'<form name="viewForm" id="'+file_elements[i].getElementsByTagName("id")[0].firstChild.nodeValue+'" action="documnetView.jsp" method="POST"> \
-                     <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"/> \
+           txt=txt+'<form name="viewForm" id="form_swf" action="documnetView.jsp" method="POST"> \
+                     <input type="hidden" name="file-id" value="'+file_elements[i].getElementsByTagName("id")[0].firstChild.nodeValue+'"> \
+                     <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"> \
                  </form>';        
         }catch(e){
             
