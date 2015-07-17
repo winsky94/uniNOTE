@@ -3,7 +3,6 @@ package server;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,33 +10,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import object.DocumentVO;
+import sql.DocumentInfo;
+
 /**
  * Servlet implementation class DownLoadServlet
  */
 @WebServlet("/DownLoadServlet")
 public class DownLoadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DownLoadServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public DownLoadServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		// 演示下载文件
-		//!!!!!!!!!!!!!注意网页页面上的参数名称是什么!!!!!!!!!!!!!!
-		String filename = request.getParameter("filename");
-		String temp=URLEncoder.encode(filename, "utf-8");
-		response.setHeader("Content-Disposition", "attachment;filename="+temp);
+		// !!!!!!!!!!!!!注意网页页面上的参数名称是什么!!!!!!!!!!!!!!
+		int id=Integer.parseInt(request.getParameter("ID"));
+		
+		DocumentInfo di = new DocumentInfo();
+		DocumentVO vo=di.getDocumentByID(id);
+		
+		String fileName = vo.getCustomName();
+//		String temp = URLEncoder.encode(filename, "utf-8");
+		response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
 
 		// 说明一下web站点下载文件的原理
 		// 1.把文件读入到内存
@@ -45,7 +54,8 @@ public class DownLoadServlet extends HttpServlet {
 
 		// 打开文件
 		// (1)获取到要下载文件的全路径
-		String path = this.getServletContext().getRealPath("D:/web_server_file/"+temp);
+		// String path = this.getServletContext().getRealPath("D:/web_server_file/"+temp);
+		String path = vo.getPath();
 		// (2)创建文件输入流
 		FileInputStream fis = new FileInputStream(path);
 		// 做一个缓冲字节数组
@@ -62,9 +72,11 @@ public class DownLoadServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		this.doGet(request, response);
 	}
