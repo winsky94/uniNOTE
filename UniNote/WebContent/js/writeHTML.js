@@ -30,7 +30,7 @@
         }
         */
 
-        txt=txt+"<a class='title' onclick='alert('hehe')' href='" +"documnetView.jsp"+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
+        txt=txt+"<a class='title' onclick='alert("+"hehe"+")' href='" +"documnetView.jsp"+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
