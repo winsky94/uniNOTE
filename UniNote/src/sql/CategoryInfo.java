@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import object.CategoryVO;
 
@@ -16,7 +20,7 @@ public class CategoryInfo {
 
 	public static void main(String[] args) {
 		CategoryInfo ci = new CategoryInfo();
-//		ci.createTable();
+		// ci.createTable();
 
 		CategoryVO vo1 = new CategoryVO("南京大学", "软件学院", "计算机与操作系统");
 		CategoryVO vo2 = new CategoryVO("南京大学", "软件学院", "数据库系统");
@@ -44,12 +48,25 @@ public class CategoryInfo {
 		categorys.add(vo11);
 		categorys.add(vo12);
 
-//		for (int i = 0; i < categorys.size(); i++) {
-//			CategoryVO vo = categorys.get(i);
-//			System.out.println(i + " " + ci.add(vo));
-//		}
-		ci.add(vo12);
-		
+		// for (int i = 0; i < categorys.size(); i++) {
+		// CategoryVO vo = categorys.get(i);
+		// System.out.println(i + " " + ci.add(vo));
+		// }
+		//ci.add(vo12);
+		Map<String, ArrayList<String>> category=new HashMap<String, ArrayList<String>>();
+		category=ci.getCategorysBySchool("南京大学");
+		Iterator<Entry<String, ArrayList<String>>> iter = category.entrySet().iterator();
+		while (iter.hasNext()) {
+			Map.Entry<String, ArrayList<String>> entry = (Map.Entry<String, ArrayList<String>>) iter.next();
+			String key = entry.getKey();
+			System.out.println(key);
+			ArrayList<String> val = entry.getValue();
+			for (String s:val){
+				System.out.println(s);
+			}
+			System.out.println("---------------------------------------");
+		}
+
 	}
 
 	private boolean add(CategoryVO vo) {
@@ -224,6 +241,42 @@ public class CategoryInfo {
 			e.printStackTrace();
 		}
 		return id;
+	}
+
+	/**
+	 * 得到某一学校的全部院系和院系下设的课程
+	 * 
+	 * @param school
+	 *            学校
+	 * @return 该校的院系和院系开设的课程
+	 */
+	public Map<String, ArrayList<String>> getCategorysBySchool(String school) {
+		Map<String, ArrayList<String>> category = new HashMap<String, ArrayList<String>>();
+		try {
+			connection = SqlManager.getConnection();
+			statement = connection.createStatement();
+			String query = "select department,course from category where school='"
+					+ school + "'";
+			resultSet = statement.executeQuery(query);
+			while (resultSet.next()) {
+				String department = resultSet.getString("department");
+				String course = resultSet.getString("course");
+				ArrayList<String> courses = category.get(department);
+				if (courses == null) {
+					courses = new ArrayList<String>();
+					courses.add(course);
+				} else {
+					courses.add(course);
+				}
+				category.put(department, courses);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			closeMySql();
+		}
+		return category;
 	}
 
 	private void closeMySql() {
