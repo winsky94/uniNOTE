@@ -16,6 +16,7 @@
         }
      
         //文件名 文件id 
+        /*
         try{
            txt=txt+'<form name="viewForm" id="form_swf" action="documnetView.jsp" method="POST"> \
                      <input type="hidden" name="file-id" value="'+file_elements[i].getElementsByTagName("id")[0].firstChild.nodeValue+'"> \
@@ -27,10 +28,9 @@
                      <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"/> \
                  </form>'; 
         }
+        */
 
-
-
-        //txt=txt+"<a class='title' href='" +"file_elements[i].getElementsByTagName('id')[0].firstChild.nodeValue"+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
+        txt=txt+"<a class='title' href='" +"documnetView.jsp"+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
