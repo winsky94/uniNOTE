@@ -37,7 +37,7 @@ public class DownLoadServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-		// 演示下载文件
+		// 下载文件
 		// !!!!!!!!!!!!!注意网页页面上的参数名称是什么!!!!!!!!!!!!!!
 		int id=Integer.parseInt(request.getParameter("ID"));
 		
