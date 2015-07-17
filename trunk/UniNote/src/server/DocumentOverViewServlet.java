@@ -185,6 +185,12 @@ public class DocumentOverViewServlet extends HttpServlet {
 			Text tCourse= doc.createTextNode(String.valueOf(vo.getCourse()));
 			course.appendChild(tCourse);
 			
+			//创建文件上传者节点
+			Element uploader = doc.createElement("uploader");
+			file.appendChild(uploader);
+			Text tUploader= doc.createTextNode(String.valueOf(vo.getUploader()));
+			uploader.appendChild(tUploader);
+			
 		}
 		try {
 			String result = callWriteXmlString(doc, "utf-8");
