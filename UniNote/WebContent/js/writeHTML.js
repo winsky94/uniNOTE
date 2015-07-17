@@ -14,10 +14,19 @@
         }catch(e){
             txt=txt+"<i class='circle teal'><font size='2'><span>other</span></font></i>";
         }
-                       
-                
-        //文件链接 文件名
-        txt=txt+"<a class='title' href='"+file_elements[i].getElementsByTagName("path")[0].firstChild.nodeValue +"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
+     
+        //文件名 文件id 
+        try{
+           txt=txt+'<form name="viewForm" id="'+file_elements[i].getElementsByTagName("id")[0].firstChild.nodeValue+'" action="documnetView.jsp" method="POST"> \
+                     <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"/> \
+                 </form>';        
+        }catch(e){
+            alert(e);
+        }
+
+
+
+        //txt=txt+"<a class='title' href='" +"file_elements[i].getElementsByTagName('id')[0].firstChild.nodeValue"+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
