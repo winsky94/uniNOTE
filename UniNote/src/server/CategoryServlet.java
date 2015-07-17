@@ -71,8 +71,9 @@ public class CategoryServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String parameter = request.getParameter("school");
-		String school = new String(parameter.getBytes("ISO-8859-1"),"utf-8");
-
+//		String school = new String(parameter.getBytes("ISO-8859-1"),"utf-8");
+		String school = parameter;
+		
 		Map<String, ArrayList<String>> categorys = new HashMap<String, ArrayList<String>>();
 		CategoryInfo ci = new CategoryInfo();
 		System.out.println(school);
