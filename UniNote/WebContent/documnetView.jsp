@@ -4,7 +4,7 @@
 	String id=request.getParameter("ID");
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
-	String uploader=request.getParameter("uploader");
+	//String uploader=request.getParameter("uploader");
 	String swfFilePath=id;
 %>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
     <script type="text/javascript">
         function init(){
         	$('#file-name').innerHTML=filename;
-        	$('#file-uploader').innerHTML=uploader;
+        	//$('#file-uploader').innerHTML=uploader;
         	$('#file-profile').innerHTML=profile;
         	$('#file-id').attr('value',id);
         }
