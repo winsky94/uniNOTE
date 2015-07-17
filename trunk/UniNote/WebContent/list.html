@@ -61,7 +61,7 @@
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
                 xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
- 				xmlhttp.send("unversity="university);
+ 				xmlhttp.send("unversity="+university);
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
@@ -73,7 +73,7 @@
             if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
                 xmlhttp.open("GET","",true);                     //server undefined
-                xmlhttp.send("university="university+"&"+arguments);                            
+                xmlhttp.send("university="+university+"&"+arguments);                            
             }else{
                 alert("Your browser does not support XMLHttpRequest.");
         } 
