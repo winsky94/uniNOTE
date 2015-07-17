@@ -18,26 +18,12 @@
         }catch(e){
             txt=txt+"<i class='circle teal'><font size='2'><span>other</span></font></i>";
         }
-     
-        //文件名 文件id 
-        /*
-        try{
-           txt=txt+'<form name="viewForm" id="form_swf" action="documnetView.jsp" method="POST"> \
-                     <input type="hidden" name="file-id" value="'+file_elements[i].getElementsByTagName("id")[0].firstChild.nodeValue+'"> \
-                     <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"> \
-                 </form>';        
-        }catch(e){
-            
-            txt=txt+'<form name="viewForm" action="documnetView.jsp" method="POST"> \
-                     <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"/> \
-                 </form>'; 
-        }
-        */
+      
+
         var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
         var filename=file_elements[i].getElementsByTagName("filename")[0].firstChild.nodeValue;
        // var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue;  // undefined
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
-
 
         txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"'>"+filename+"</a><p>First Line<br>Second Line</p>";
 
