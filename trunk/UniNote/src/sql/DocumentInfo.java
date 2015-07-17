@@ -32,7 +32,7 @@ public class DocumentInfo {
 				resultSet.next();
 				count = resultSet.getInt("documentnum");
 				PreparedStatement statement = con
-						.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?,?)");
+						.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?,?,?)");
 				statement.setInt(1, ++count);
 				statement.setString(2, vo.getName());
 				statement.setString(3, vo.getCustomName());
@@ -42,6 +42,7 @@ public class DocumentInfo {
 				statement.setString(7, vo.getTag());
 				statement.setString(8, vo.getPostgraduateData());
 				statement.setInt(9, vo.getCategoryID());
+				statement.setString(10, vo.getUploader());
 				statement.addBatch();
 				// System.out.println(count);
 
@@ -126,8 +127,9 @@ public class DocumentInfo {
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
 				int id = resultSet.getInt("categoryID");
+				String uploader=resultSet.getString("uploader");
 				DocumentVO vo = new DocumentVO(idi, name, customName, path,
-						type, profile, tag, postgraduateData, id);
+						type, profile, tag, postgraduateData, id,uploader);
 				documents.add(vo);
 			}
 			resultSet.close();
@@ -167,8 +169,9 @@ public class DocumentInfo {
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
 				int categoryID = resultSet.getInt("categoryID");
+				String uploader=resultSet.getString("uploader");
 				document = new DocumentVO(id, name, customName, path, type,
-						profile, tag, postgraduateData, categoryID);
+						profile, tag, postgraduateData, categoryID,uploader);
 			}
 			resultSet.close();
 			sql.close();
@@ -196,6 +199,7 @@ public class DocumentInfo {
 					+ "tag varchar(100) not null default 'null',"
 					+ "postgraduateData varchar(10) not null default 'null',"
 					+ "categoryID int not null default 0,"
+					+ "uploader varchar(100) not null default 'null',"
 					+ "primary key(documentID));");
 			sql.close();
 			con.close();
@@ -212,10 +216,10 @@ public class DocumentInfo {
 		DocumentInfo ui = new DocumentInfo();
 		ui.createTable();
 		DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
-				"c", "N", "南京大学", "软件学院", "计算机与操作系统");
+				"c", "N", "南京大学", "软件学院", "计算机与操作系统","王宁");
 		DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
 				"D:\\web_server_file\\时机+市场规模.docx", "呵呵哒", "营销,商业计划书", "Y",
-				"南京大学", "软件学院", "数据结构与算法");
+				"南京大学", "软件学院", "数据结构与算法","严顺宽");
 
 		System.out.println(ui.add(vo1));
 		System.out.println(ui.add(vo2));

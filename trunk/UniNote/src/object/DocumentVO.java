@@ -5,7 +5,7 @@ import sql.CategoryInfo;
 
 public class DocumentVO {
 	 private int ID;
-	private String name;
+	 private String name;
      private String customName;
 	 private String path;
      private String type;
@@ -16,8 +16,9 @@ public class DocumentVO {
      private String school;
      private String department;
      private String course;
-     
-     public DocumentVO(String name,String customeName,String path,String profile,String tag,String postgraduateData,String school,String dapartment,String course) {
+     private String uploader;
+   
+	public DocumentVO(String name,String customeName,String path,String profile,String tag,String postgraduateData,String school,String dapartment,String course,String uploader) {
  		this.name=name;
  		this.customName=customeName;
  		this.path=path;
@@ -32,9 +33,10 @@ public class DocumentVO {
  		this.tag=tag;
  		this.postgraduateData=postgraduateData;
  		this.categoryID=CategoryInfo.getVoID(school, dapartment, course);
+ 		this.uploader=uploader;
  	 }
      
-     public DocumentVO(int i,String name,String customName,String path,String type,String profile,String tag,String postgraduateData,int id) {
+     public DocumentVO(int i,String name,String customName,String path,String type,String profile,String tag,String postgraduateData,int id,String uploader) {
   		this.ID=i;
     	 this.name=name;
   		this.customName=customName;
@@ -46,7 +48,8 @@ public class DocumentVO {
   		CategoryVO temp=CategoryInfo.getVoByID(id);
   		this.school=temp.getSchool();
   		this.department=temp.getDepartment();
-  		this.course=temp.getCourse(); 		
+  		this.course=temp.getCourse(); 
+  		this.uploader=uploader;
   	 }
      
     
@@ -98,6 +101,14 @@ public class DocumentVO {
      public int getID() {
  		return ID;
  	}
+     
+     
+     public String getUploader() {
+		return uploader;
+	}
+
+	
+
 
  	
 
@@ -141,6 +152,10 @@ public class DocumentVO {
      public void setID(int iD) {
   		ID = iD;
   	}
+     
+     public void setUploader(String uploader) {
+ 		this.uploader = uploader;
+ 	}
      
     
 }
