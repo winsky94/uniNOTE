@@ -27,6 +27,7 @@
     function set_course(department,course){
       $("#department").attr('value',department);
       $("#course").attr('value',course);
+      $("#university").attr('value',$('#university-info').attr('title'));
   }
 
     function check(){
@@ -142,8 +143,8 @@
                         <label for="tag">标签</label>
                         <input type="hidden" id="department" name="department">
                         <input type="hidden" id="course" name="course">
+                        <input type="hidden" id="university" name="university">
                     </div>
-
                 </div>
                 <div class="col s12">
                     <input type="checkbox" name="postgraduate" class="filled-in" id="postgraduate"/>
