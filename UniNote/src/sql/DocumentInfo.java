@@ -263,8 +263,7 @@ public class DocumentInfo {
 					+ "postgraduateData varchar(10) not null default 'null',"
 					+ "categoryID int not null default 0,"
 					+ "uploader varchar(100) not null default 'null',"
-					+ "praise int not null default 0,"
-					+ "praise int not null default 0,"					
+					+ "praise int not null default 0,"				
 					+ "criticism int not null default 0,"
 					+ "downloadNum int not null default 0,"
 					+ "primary key(documentID));");
