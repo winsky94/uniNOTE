@@ -29,6 +29,7 @@ public class CategoryInfo {
 		CategoryVO vo9 = new CategoryVO("南京大学", "软件学院", "计算机组织结构");
 		CategoryVO vo10 = new CategoryVO("南京大学", "软件学院", "计算系统基础");
 		CategoryVO vo11 = new CategoryVO("南京大学", "软件学院", "软件工程统计方法");
+		CategoryVO vo12 = new CategoryVO("南京大学", "计算机科学与技术系", "编译原理");
 		ArrayList<CategoryVO> categorys = new ArrayList<CategoryVO>();
 		categorys.add(vo1);
 		categorys.add(vo2);
@@ -41,11 +42,13 @@ public class CategoryInfo {
 		categorys.add(vo9);
 		categorys.add(vo10);
 		categorys.add(vo11);
+		categorys.add(vo12);
 
-		for (int i = 0; i < categorys.size(); i++) {
-			CategoryVO vo = categorys.get(i);
-			System.out.println(i + " " + ci.add(vo));
-		}
+//		for (int i = 0; i < categorys.size(); i++) {
+//			CategoryVO vo = categorys.get(i);
+//			System.out.println(i + " " + ci.add(vo));
+//		}
+		ci.add(vo12);
 		
 	}
 
