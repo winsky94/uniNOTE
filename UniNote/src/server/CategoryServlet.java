@@ -81,6 +81,7 @@ public class CategoryServlet extends HttpServlet {
 		// 创建XML文件
 		String xmlStr = writeXMLString(categorys);
 		out.println(xmlStr);
+		
 
 	}
 
