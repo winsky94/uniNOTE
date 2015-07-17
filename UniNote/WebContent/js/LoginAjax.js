@@ -80,8 +80,11 @@ function callback() {
 				var textNode = messageNodes[0].firstChild;
 				var responseMessage = textNode.nodeValue;
 				
-				if(responseMessage=='h'){
-				    window.location.href="/UniNote/list.html";
+				var strs= new Array(); //定义一数组 
+				strs=str.split("&"); //字符分割
+				
+				if(strs[0]=='h'){
+				    window.location.href="/UniNote/list.html?school="+strs[1];
 			    }
 				else{
 					// 将数据显示在页面上
