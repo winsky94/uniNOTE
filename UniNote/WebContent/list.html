@@ -68,12 +68,12 @@
 	    }//end init_list
 
 	    function get_documents_by_course(arguments){
-        
+            var university=$('#university-info').attr('title');
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
                 xmlhttp.open("GET","",true);                     //server undefined
-                xmlhttp.send(arguments);                            
+                xmlhttp.send("university="university+"&"+arguments);                            
             }else{
                 alert("Your browser does not support XMLHttpRequest.");
         } 
