@@ -150,7 +150,7 @@ function write_header_login(username,university){
 
 function write_header_not_login(){
 
-}
+} 
 
 function write_footer(){
     var txt='<footer class="page-footer teal lighten-3"> \
