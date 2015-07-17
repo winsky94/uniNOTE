@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String swfFilePath=request.getParameter("swfpath");
+	out.print(swfFilePath);
     // swfFilePath=swfpath;
 %>
 <!DOCTYPE html>
