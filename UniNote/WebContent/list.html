@@ -34,7 +34,6 @@
 	    function onResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 //file_elements是一个数组
-
                 var text=xmlhttp.responseText;
             try{
                 xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
@@ -49,10 +48,6 @@
                 }
             }
                 var file_elements=xmlDoc.getElementsByTagName("document"); 
-                alert(xmlDoc.getElementsByTagName("document")[0].childNodes[0].nodeValue);
-
-                var file_elements=xmlhttp.responseXML.getElementsByTagName("document"); 
-                alert(xmlhttp.responseText);
 
                 var txt=write_document_list(file_elements);
                 document.getElementById("filelist").innerHTML=txt;
@@ -83,7 +78,7 @@
         } 
 
         function request_document_view(){
-        	
+
         }
 }
 
