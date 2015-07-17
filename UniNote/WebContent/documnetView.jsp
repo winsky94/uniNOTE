@@ -5,6 +5,7 @@
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
 	String uploader=request.getParameter("uploader");
+	String swfFilePath=id;
 %>
 <!DOCTYPE html>
 <html>
