@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String swfFilePath=session.getAttribute("swfpath").toString();
+	String swfFilePath=request.getParameter("swfpath");
     // swfFilePath=swfpath;
 %>
 <!DOCTYPE html>
