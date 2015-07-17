@@ -34,7 +34,7 @@
         }
         */
         var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
-        var filename=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
+        var filename=file_elements[i].getElementsByTagName("filename")[0].firstChild.nodeValue;
        // var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue;  // undefined
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
 
