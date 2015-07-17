@@ -28,11 +28,12 @@
       $("#department").attr('value',department);
       $("#course").attr('value',course);
       $("#university").attr('value',$('#university-info').attr('title'));
+      alert($("#university").attr("value"));
       $("#uploader").attr('value',$('user-name').attr('title'));
   }
 
     function check(){
-        
+      alert($("#university").attr("value"));
       var course=$("#course").attr('value');
       if(course==null){
          alert("请选择课程");
@@ -40,6 +41,7 @@
       }
       return true;
     }
+
     function create_default_title(){
         var fullname=$('input[type=file]').val().split('\\').pop();
         var filename=fullname.split('.')[0];
@@ -173,11 +175,6 @@
 
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
-<script type="text/javascript">
-    $('.collection-item').click(function () {
-        $(':hidden').attr('value', $(this).parent().attr('title') + '-' + $(this).attr('title'));
-    });
-</script>
 
 </body>
 </html>
