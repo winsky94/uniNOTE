@@ -222,9 +222,9 @@
 						踩
 					</a>
 				</div>
-				<form name="downloadForm" method="post" enctype="multipart/form-data" action="">
+				<form method="post" enctype="multipart/form-data" action="">
 					<input type="hidden" id="file-id" name="ID" value="">
-				    <input type="submit" name="download" value="下载" class="waves-effect waves-light btn-large">
+				    <input type="submit" value="下载" class="btn btn-primary">
 				</form>
 			</div>
 		</div>
