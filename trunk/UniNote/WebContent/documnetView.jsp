@@ -41,7 +41,8 @@
         	$('#file-name').html("<%=filename%>");
         	
         	$('#file-profile').html("<%=profile%>");
-        	$('#file-id').attr("value","<%=id%>");
+        	$('#ID').attr("value","<%=id%>");
+        	alert($('#ID').attr('value'));
         });
     </script>
 
@@ -227,7 +228,7 @@
 					</div>
 				</div>
 				<form method="post" enctype="multipart/form-data" action="/UniNote/DownLoadServlet">
-					<input type="hidden" id="ID" name="ID" value=id>
+					<input type="hidden" id="ID" name="ID" value="">
 					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
 			</div>
 		</div>
