@@ -163,7 +163,7 @@
 	</header>
 
 	<div class="main container">
-		<div class="row"> <font size="15"><span class="col s12 l8 file-name">文件名</span></font> 
+		<div class="row"> <font size="15"><span class="col s12 l8" id="file-name">文件名</span></font> 
 		</div>
 		<div class="row">
 
@@ -203,7 +203,7 @@
 				<div class="card">
 					<div class="card-image">
 						<img src="images/kuan.jpg">
-						<span class="card-title file-uploader">宽哥</span>
+						<span class="card-title" id="file-uploader">宽哥</span>
 					</div>
 					<div class="card-content">
 						<p id="file-profile">文件介绍</p>
