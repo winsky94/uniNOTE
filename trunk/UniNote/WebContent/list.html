@@ -30,18 +30,37 @@
 	<script src="js/xmlhttp.js"></script>
 
 	<script type="text/javascript">
+		function get_course_list(){
+			 if (xmlhttp_course.readyState==4 && xmlhttp_course.status==200){
+                //file_elements是一个数组
+                var text=xmlhttp_course.responseText;
+            try{
+                var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async="false";
+                xmlDoc.loadXML(text);
+            }catch(e){
+                try{
+                    var parser=new DOMParser();
+                    xmlDoc=parser.parseFromString(text,"text/xml");
+                }catch(e) {
+            	    alert(e.message);
+                }
+            }
+                alert(xmlDoc);
+            }
+		}
 
 	    function onResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 //file_elements是一个数组
                 var text=xmlhttp.responseText;
             try{
-                xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
                 xmlDoc.async="false";
                 xmlDoc.loadXML(text);
             }catch(e){
                 try{
-                    parser=new DOMParser();
+                    var parser=new DOMParser();
                     xmlDoc=parser.parseFromString(text,"text/xml");
                 }catch(e) {
             	    alert(e.message);
@@ -64,6 +83,15 @@
  				xmlhttp.send("/UniNote/DocumentOverViewServlet?unversity="+university);
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
+            }
+            var xmlhttp_course=getXmlHttp();
+            if(xmlhttp_course!=null){
+            	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
+                xmlhttp_course.open("GET","/UniNote/CategoryServlet",true);
+ 				xmlhttp_course.send("/UniNote/CategoryServlet?school="+university);
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }	
             }
 	    }//end init_list
 
