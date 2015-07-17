@@ -33,8 +33,12 @@
                  </form>'; 
         }
         */
+        var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
+        var filename=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
+        var uploader=file_elements[i].getElementsByTagName("")[0].firstChild.nodeValue;  // undefined
+        var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
 
-        txt=txt+"<a class='title' href='" +"documnetView.jsp?swfpath="+file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?swfpath="++"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
@@ -146,7 +150,7 @@ function write_header(){
                                     南京大学 <i class="material-icons right">arrow_drop_down</i> \
                                 </a></li> \
                             <li> \
-                                <a class="dropdown-button" href="#!" data-activates="dropdown2"> \
+                                <a class="dropdown-button" id="user-name" title="王宁" href="#!" data-activates="dropdown2"> \
                                     王宁 <i class="material-icons right">arrow_drop_down</i> \
                                 </a> \
                             </li> \
