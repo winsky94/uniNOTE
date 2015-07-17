@@ -84,7 +84,7 @@
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
-            var xmlhttp_course=xmlhttp;
+            var xmlhttp_course=getXmlHttp();
             if(xmlhttp_course!=null){
             	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
                 xmlhttp_course.open("GET","/UniNote/CategoryServlet",true);
