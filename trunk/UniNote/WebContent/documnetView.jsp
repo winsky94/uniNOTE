@@ -36,7 +36,7 @@
 		}
     </style>
 
-    <script type="text/javascript">
+	<script type="text/javascript">
         $(document).ready(function(){
         	$('#file-name').html("<%=filename%>");
         	
@@ -213,19 +213,22 @@
 					</div>
 				</div>
 				<div class="row">
-					<a class="waves-effect waves-light btn">
-						<i class="material-icons left"></i>
-						赞
-					</a>
-					<a class="waves-effect waves-light btn">
-						<i class="material-icons right"></i>
-						踩
-					</a>
+					<div class="s6 l2">
+						<a class="waves-effect waves-light btn">
+							<i class="material-icons left"></i>
+							赞
+						</a>
+					</div>
+					<div class="s6 l2">
+						<a class="waves-effect waves-light btn">
+							<i class="material-icons right"></i>
+							踩
+						</a>
+					</div>
 				</div>
 				<form method="post" enctype="multipart/form-data" action="">
 					<input type="hidden" id="file-id" name="ID" value="">
-				    <input type="submit" value="下载" class="btn btn-primary">
-				</form>
+					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
 			</div>
 		</div>
 	</div>
