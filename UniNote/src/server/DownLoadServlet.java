@@ -46,8 +46,9 @@ public class DownLoadServlet extends HttpServlet {
 		DocumentVO vo=di.getDocumentByID(id);
 		
 		String fileName = vo.getCustomName();
+		String type=vo.getType();
 //		String temp = URLEncoder.encode(filename, "utf-8");
-		response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+		response.setHeader("Content-Disposition", "attachment;filename=" + fileName+"."+type);
 
 		// 说明一下web站点下载文件的原理
 		// 1.把文件读入到内存
