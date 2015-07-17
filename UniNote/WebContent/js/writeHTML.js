@@ -84,9 +84,7 @@ function write_edit_user_info(){
     $("#user-info-container").html(txt);
 }
 
-function write_header(){
-
-
+function write_header_login(username,university){
 
     var txt='<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
     <script src="js/materialize.js"></script> \
@@ -104,7 +102,7 @@ function write_header(){
 		</ul>\
 		<!-- Dropdown Structure -->\
 		<ul id="dropdown3" class="dropdown-content">\
-			<li><a id="university-info" href="#!" title="南京大学">南京大学</a></li>\
+			<li><a  href="#!">南京大学</a></li>\
 			<li><a href="#!">切换</a></li>\
 			<li class="divider"></li>\
 			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
@@ -133,12 +131,12 @@ function write_header(){
                             </li> \
                             <!-- Dropdown Trigger --> \
                             <li> \
-                                <a class="dropdown-button" href="#!" data-activates="dropdown1" name="university"> \
-                                    南京大学 <i class="material-icons right">arrow_drop_down</i> \
+                                <a class="dropdown-button" href="#!" id="university-info" title="'+university+'" data-activates="dropdown1" name="university"> \
+                                    '+university+' <i class="material-icons right">arrow_drop_down</i> \
                                 </a></li> \
                             <li> \
-                                <a class="dropdown-button" id="user-name" title="王宁" href="#!" data-activates="dropdown2"> \
-                                    王宁 <i class="material-icons right">arrow_drop_down</i> \
+                                <a class="dropdown-button" id="user-name" title="'+username+'" href="#!" data-activates="dropdown2"> \
+                                    '+username+' <i class="material-icons right">arrow_drop_down</i> \
                                 </a> \
                             </li> \
                         </ul> \
@@ -148,6 +146,10 @@ function write_header(){
                 </div> \
             </div></nav>';
     $("header").html(txt);
+}
+
+function write_header_not_login(){
+
 }
 
 function write_footer(){

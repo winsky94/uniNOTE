@@ -28,14 +28,14 @@ function deletecookie(name){
 }
 
 function checkCookie(){
-  username=getCookie('username');
-  if (username!=null && username!=""){
-    alert('Welcome again '+username+'!');
+  username=getcookie('username');
+  university=getcookie('university');
+  if (username!=null && username!="" && university!=null && university!=""){
+    alert('Welcome again '+username+" from "+university+'!');
+    write_header_login(username,university);
   }
   else {
-    username=prompt('Please enter your name:',"");
-    if (username!=null && username!=""){
-      setCookie('username',username,3000000);
-    }
+    alert("not login");
+    write_header_not_login();
   }
 }
