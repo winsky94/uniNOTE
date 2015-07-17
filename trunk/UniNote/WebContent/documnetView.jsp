@@ -38,10 +38,10 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-        	$('#file-name').innerHTML=filename;
+        	$('#file-name').innerHTML= <%=filename%>;
         	//$('#file-uploader').innerHTML=uploader;
-        	$('#file-profile').innerHTML=profile;
-        	$('#file-id').attr('value',id);
+        	$('#file-profile').innerHTML= <%=profile%>;
+        	$('#file-id').attr('value',<%=id%>);
         });
     </script>
 
