@@ -70,7 +70,8 @@ public class CategoryServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		
-		String school = request.getParameter("school");
+		String parameter = request.getParameter("school");
+		String school = new String(parameter.getBytes("ISO-8859-1"),"utf-8");
 
 		Map<String, ArrayList<String>> categorys = new HashMap<String, ArrayList<String>>();
 		CategoryInfo ci = new CategoryInfo();
