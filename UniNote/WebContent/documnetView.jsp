@@ -42,7 +42,7 @@
         	//$('#file-uploader').innerHTML=uploader;
         	$('#file-profile').innerHTML=profile;
         	$('#file-id').attr('value',id);
-        }
+        });
     </script>
 
 	<title>detail</title>
