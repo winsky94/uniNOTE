@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%
 	String id=request.getParameter("ID");
-	System.out.println("hehe "+id);
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
 	//String uploader=request.getParameter("uploader");
