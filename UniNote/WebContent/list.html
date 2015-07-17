@@ -30,7 +30,7 @@
 	<script src="js/xmlhttp.js"></script>
 
 	<script type="text/javascript">
-		function get_course_list(){
+		function get_course_list(xmlhttp_course){
 			 if (xmlhttp_course.readyState==4 && xmlhttp_course.status==200){
                 //file_elements是一个数组
                 var text=xmlhttp_course.responseText;
