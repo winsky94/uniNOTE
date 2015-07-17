@@ -212,7 +212,7 @@
 				</div>
 				<form name="download" method="post" enctype="multipart/form-data" action="">
 					<input type="hidden" name="ID" value="">
-				    <input type="submit" class="waves-effect waves-light btn-large">下载</a>
+				    <input type="submit" name="提交" value="下载" class="waves-effect waves-light btn-large">
 				</form>
 			</div>
 		</div>
