@@ -210,7 +210,10 @@
 						踩
 					</a>
 				</div>
-				<a class="waves-effect waves-light btn-large">下载</a>
+				<form name="download" method="post" enctype="multipart/form-data" action="">
+					<input type="hidden" name="ID" value="">
+				    <input type="submit" class="waves-effect waves-light btn-large">下载</a>
+				</form>
 			</div>
 		</div>
 	</div>
