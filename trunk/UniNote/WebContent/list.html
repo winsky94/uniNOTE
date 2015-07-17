@@ -88,6 +88,7 @@
             if(xmlhttp_course!=null){
             	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
                 xmlhttp_course.open("GET","/UniNote/CategoryServlet",true);
+                alert(university);
  				xmlhttp_course.send("/UniNote/CategoryServlet?school="+university);
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
