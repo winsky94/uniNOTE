@@ -51,8 +51,11 @@ public class DocumentOverViewServlet extends HttpServlet {
 			temp = total.intValue() + 1;
 		}
 		request.getSession().setAttribute("total", total.intValue() + temp);
+		
 		response.setContentType("application/xml;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
+		
+		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
