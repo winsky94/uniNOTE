@@ -38,10 +38,10 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-        	$('#file-name').innerHTML="<%=filename%>" ;
-        	//$('#file-uploader').innerHTML=uploader;
-        	$('#file-profile').innerHTML= "<%=profile%>";
-        	$('#file-id').attr('value',"<%=id%>");
+        	$('#file-name').html("<%=filename%>") ;
+        	//$('#file-uploader').html("<%=uploader%>");
+        	$('#file-profile').html("<%=profile%>");
+        	$('#file-id').attr("value","<%=id%>");
         });
     </script>
 
@@ -203,10 +203,10 @@
 				<div class="card">
 					<div class="card-image">
 						<img src="images/kuan.jpg">
-						<span class="card-title" id="file-uploader">宽哥</span>
+						<span class="card-title" id="file-uploader"></span>
 					</div>
 					<div class="card-content">
-						<p id="file-profile">文件介绍</p>
+						<p id="file-profile"></p>
 					</div>
 					<div class="card-action">
 						<a href="#">上传的其他文件</a>
@@ -222,9 +222,9 @@
 						踩
 					</a>
 				</div>
-				<form name="download" method="post" enctype="multipart/form-data" action="">
+				<form name="downloadForm" method="post" enctype="multipart/form-data" action="">
 					<input type="hidden" id="file-id" name="ID" value="">
-				    <input type="submit" name="提交" value="下载" class="waves-effect waves-light btn-large">
+				    <input type="submit" name="download" value="下载" class="waves-effect waves-light btn-large">
 				</form>
 			</div>
 		</div>
