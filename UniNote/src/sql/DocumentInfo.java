@@ -32,7 +32,7 @@ public class DocumentInfo {
 				resultSet.next();
 				count = resultSet.getInt("documentnum");
 				PreparedStatement statement = con
-						.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?,?,?)");
+						.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,?)");
 				statement.setInt(1, ++count);
 				statement.setString(2, vo.getName());
 				statement.setString(3, vo.getCustomName());
@@ -43,6 +43,9 @@ public class DocumentInfo {
 				statement.setString(8, vo.getPostgraduateData());
 				statement.setInt(9, vo.getCategoryID());
 				statement.setString(10, vo.getUploader());
+				statement.setInt(11, 0);
+				statement.setInt(12, 0);
+				statement.setInt(13, 0);
 				statement.addBatch();
 				// System.out.println(count);
 
@@ -128,8 +131,11 @@ public class DocumentInfo {
 						.getString("postgraduateData");
 				int id = resultSet.getInt("categoryID");
 				String uploader=resultSet.getString("uploader");
+				int praise=resultSet.getInt("praise");
+				int criticism=resultSet.getInt("criticism");
+				int downloadNum=resultSet.getInt("downloadNum");
 				DocumentVO vo = new DocumentVO(idi, name, customName, path,
-						type, profile, tag, postgraduateData, id,uploader);
+						type, profile, tag, postgraduateData, id,uploader,praise,criticism,downloadNum);
 				documents.add(vo);
 			}
 			resultSet.close();
@@ -170,8 +176,11 @@ public class DocumentInfo {
 						.getString("postgraduateData");
 				int categoryID = resultSet.getInt("categoryID");
 				String uploader=resultSet.getString("uploader");
+				int praise=resultSet.getInt("praise");
+				int criticism=resultSet.getInt("criticism");
+				int downloadNum=resultSet.getInt("downloadNum");
 				document = new DocumentVO(id, name, customName, path, type,
-						profile, tag, postgraduateData, categoryID,uploader);
+						profile, tag, postgraduateData, categoryID,uploader,praise,criticism,downloadNum);
 			}
 			resultSet.close();
 			sql.close();
@@ -183,6 +192,60 @@ public class DocumentInfo {
 			ex.printStackTrace();
 		}
 		return document;
+	}
+	
+	public void addPraise(int id){
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String query = "update document set praise=praise+1 where documentID="
+					+ id;
+			sql.executeUpdate(query);
+			sql.close();
+			con.close();
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
+	}
+	
+	public void addCriticism(int id){
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String query = "update document set criticism=criticism+1 where documentID="
+					+ id;
+			sql.executeUpdate(query);
+			sql.close();
+			con.close();
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
+	}
+	
+	public void addDownloadNum(int id){
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String query = "update document set downloadNum=downloadNum+1 where documentID="
+					+ id;
+			sql.executeUpdate(query);
+			sql.close();
+			con.close();
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
 	}
 
 	public void createTable() {
@@ -200,6 +263,10 @@ public class DocumentInfo {
 					+ "postgraduateData varchar(10) not null default 'null',"
 					+ "categoryID int not null default 0,"
 					+ "uploader varchar(100) not null default 'null',"
+					+ "praise int not null default 0,"
+					+ "praise int not null default 0,"					
+					+ "criticism int not null default 0,"
+					+ "downloadNum int not null default 0,"
 					+ "primary key(documentID));");
 			sql.close();
 			con.close();

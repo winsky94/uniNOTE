@@ -17,6 +17,9 @@ public class DocumentVO {
      private String department;
      private String course;
      private String uploader;
+     private int praise;
+	 private int criticism;
+     private int downloadNum;
    
 	public DocumentVO(String name,String customeName,String path,String profile,String tag,String postgraduateData,String school,String dapartment,String course,String uploader) {
  		this.name=name;
@@ -36,7 +39,7 @@ public class DocumentVO {
  		this.uploader=uploader;
  	 }
      
-     public DocumentVO(int i,String name,String customName,String path,String type,String profile,String tag,String postgraduateData,int id,String uploader) {
+     public DocumentVO(int i,String name,String customName,String path,String type,String profile,String tag,String postgraduateData,int id,String uploader,int praise,int criticism,int downloadNum) {
   		this.ID=i;
     	 this.name=name;
   		this.customName=customName;
@@ -50,6 +53,9 @@ public class DocumentVO {
   		this.department=temp.getDepartment();
   		this.course=temp.getCourse(); 
   		this.uploader=uploader;
+  		this.praise=praise;
+  		this.criticism=criticism;
+  		this.downloadNum=downloadNum;
   	 }
      
     
@@ -101,11 +107,24 @@ public class DocumentVO {
      public int getID() {
  		return ID;
  	}
-     
-     
+          
      public String getUploader() {
 		return uploader;
 	}
+     
+     public int getPraise() {
+ 		return praise;
+ 	}
+
+ 	public int getCriticism() {
+ 		return criticism;
+ 	}
+
+ 	public int getDownloadNum() {
+ 		return downloadNum;
+ 	}
+
+ 	
 
 	
 
@@ -156,6 +175,18 @@ public class DocumentVO {
      public void setUploader(String uploader) {
  		this.uploader = uploader;
  	}
+     
+     public void setPraise(int praise) {
+  		this.praise = praise;
+  	}
+     
+     public void setCriticism(int criticism) {
+  		this.criticism = criticism;
+  	}
+     
+     public void setDownloadNum(int downloadNum) {
+  		this.downloadNum = downloadNum;
+  	}
      
     
 }

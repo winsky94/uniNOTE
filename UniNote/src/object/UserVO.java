@@ -8,6 +8,15 @@ public class UserVO {
      private String phoneNumber;
      private int point;
      
+     public UserVO(String nickname,String password,String email,String school,String phoneNumber){
+    	 this.nickname=nickname;
+    	 this.password=password;
+    	 this.email=email;
+    	 this.school=school;
+    	 this.phoneNumber=phoneNumber;
+    	 this.point=0;
+     }
+     
      public UserVO(String nickname,String password,String email,String school,String phoneNumber,int point){
     	 this.nickname=nickname;
     	 this.password=password;
