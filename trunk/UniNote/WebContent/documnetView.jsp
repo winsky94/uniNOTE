@@ -227,7 +227,7 @@
 					</div>
 				</div>
 				<form method="post" enctype="multipart/form-data" action="/UniNote/DownLoadServlet">
-					<input type="hidden" id="file-id" name="ID" value="">
+					<input type="hidden" id="ID" name="ID" value=id>
 					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
 			</div>
 		</div>
