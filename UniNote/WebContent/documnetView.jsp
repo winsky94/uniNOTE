@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String swfFilePath=request.getParameter("swfpath");
-	out.print(swfFilePath);
-    // swfFilePath=swfpath;
+	String id=request.getParameter("ID");
+	String filename=request.getParameter("filename");
+	String profile=request.getParameter("profile");
+	String uploader=request.getParameter("uploader");
 %>
 <!DOCTYPE html>
 <html>
@@ -21,21 +22,31 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 	<style type="text/css" media="screen"> 
-  
-			#flashContent { display:none; }
-			#viewerPlaceHolder{
-				height:650px;
-				display:block;
-			}
-			h3{
-				display: relative;
-				margin:auto;
-			}
+		#flashContent { 
+			display:none; 
+		}
+		#viewerPlaceHolder{
+			height:650px;
+			display:block;
+		}
+		h3{
+			display: relative;
+			margin:auto;
+		}
     </style>
+
+    <script type="text/javascript">
+        function init(){
+        	$('#file-name').innerHTML=filename;
+        	$('#file-uploader').innerHTML=uploader;
+        	$('#file-profile').innerHTML=profile;
+        	$('#file-id').attr('value',id);
+        }
+    </script>
 
 	<title>detail</title>
 </head>
-<body>
+<body onload="init()">
 
 	<header>
 		<!-- Dropdown Structure -->
@@ -151,7 +162,7 @@
 	</header>
 
 	<div class="main container">
-		<div class="row"> <font size="15"><span class="col s12 l8">文件名</span></font> 
+		<div class="row"> <font size="15"><span class="col s12 l8 file-name">文件名</span></font> 
 		</div>
 		<div class="row">
 
@@ -191,10 +202,10 @@
 				<div class="card">
 					<div class="card-image">
 						<img src="images/kuan.jpg">
-						<span class="card-title">宽哥</span>
+						<span class="card-title file-uploader">宽哥</span>
 					</div>
 					<div class="card-content">
-						<p>文件介绍</p>
+						<p id="file-profile">文件介绍</p>
 					</div>
 					<div class="card-action">
 						<a href="#">上传的其他文件</a>
@@ -211,7 +222,7 @@
 					</a>
 				</div>
 				<form name="download" method="post" enctype="multipart/form-data" action="">
-					<input type="hidden" name="ID" value="">
+					<input type="hidden" id="file-id" name="ID" value="">
 				    <input type="submit" name="提交" value="下载" class="waves-effect waves-light btn-large">
 				</form>
 			</div>
