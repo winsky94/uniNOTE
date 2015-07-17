@@ -191,6 +191,25 @@ public class DocumentOverViewServlet extends HttpServlet {
 			Text tUploader= doc.createTextNode(String.valueOf(vo.getUploader()));
 			uploader.appendChild(tUploader);
 			
+			//创建文件点赞数节点
+			Element praise = doc.createElement("praise");
+			file.appendChild(praise);
+			Text tPraise= doc.createTextNode(String.valueOf(vo.getPraise()));
+			praise.appendChild(tPraise);
+			
+			//创建文件被踩数节点
+			Element criticism = doc.createElement("criticism");
+			file.appendChild(criticism);
+			Text tCriticism= doc.createTextNode(String.valueOf(vo.getCriticism()));
+			criticism.appendChild(tCriticism);
+			
+			//创建文件下载量节点
+			Element downloadNum = doc.createElement("downloadNum");
+			file.appendChild(downloadNum);
+			Text tDownloadNum= doc.createTextNode(String.valueOf(vo.getDownloadNum()));
+			downloadNum.appendChild(tDownloadNum);
+
+			
 		}
 		try {
 			String result = callWriteXmlString(doc, "utf-8");
