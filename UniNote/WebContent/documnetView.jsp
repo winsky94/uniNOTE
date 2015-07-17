@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String swfFilePath=session.getAttribute("swfpath").toString();
+    // swfFilePath=swfpath;
 %>
 <!DOCTYPE html>
 <html>
