@@ -1,4 +1,4 @@
-//用户名检验方法
+//修改密码检验方法
 //这个方法将使用XMLHTTPRequest对象进行AJAX的异步数据交互
 var xmlHttp;
 function verify() {
