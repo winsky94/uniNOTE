@@ -66,6 +66,7 @@ public class UpLoadServlet extends HttpServlet {
 		String course="";		
 		String fileName="";
 		String cuntomName="";
+		String uploader="";
 		
 		try {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -94,25 +95,28 @@ public class UpLoadServlet extends HttpServlet {
 			  }else{
 			  //非文件流  
 				 if(item.getFieldName().equals("filename")){
-					  cuntomName = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+					  cuntomName = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
 				 }
 				 if(item.getFieldName().equals("profile")){
-					  profile = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+					  profile = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
 				 }	
 				 if(item.getFieldName().equals("tag")){
-					  tag = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+					  tag = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
 				 }
 				 if(item.getFieldName().equals("postgraduate")){
-					  postgraduate = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+					  postgraduate = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
 				 }
 				 if(item.getFieldName().equals("university")){
-					  school = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+					  school = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
 				 }
 				 if(item.getFieldName().equals("department")){
-					  department = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+					  department = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
 				 }
 				 if(item.getFieldName().equals("course")){
-					  course = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
+					  course = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
+				 }
+				 if(item.getFieldName().equals("uploader")){
+					 uploader = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
 				 }
 			  }
 			}
@@ -135,9 +139,7 @@ public class UpLoadServlet extends HttpServlet {
 		String[] buffer=department.split("-");
 		department=buffer[0];
 		course=buffer[1];
-		
-		school="南京大学";
-		
+				
 		System.out.println("profile:"+profile);
 		System.out.println("tag:"+tag);
 		System.out.println("postgraduate:"+postgraduate);
@@ -146,7 +148,7 @@ public class UpLoadServlet extends HttpServlet {
 		System.out.println("course:"+course);
 		
 		DocumentInfo documentInfo = new DocumentInfo();
-		DocumentVO vo = new DocumentVO(fileName, cuntomName,uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course);
+		DocumentVO vo = new DocumentVO(fileName, cuntomName,uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course,uploader);
 		documentInfo.add(vo);
 		response.sendRedirect("/UniNote/list.html");
 //		response.sendRedirect("/UniNote/DocumentOverViewServlet");
