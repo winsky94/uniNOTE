@@ -119,6 +119,12 @@ public class DocumentOverViewServlet extends HttpServlet {
 			// file.setAttribute("编号", "1");
 			root.appendChild(file);// 添加属性
 
+			// 创建文本ID节点
+			Element ID = doc.createElement("ID");
+			file.appendChild(ID);
+			Text tID = doc.createTextNode(vo.getID()+"");
+			ID.appendChild(tID);
+
 			// 创建文本姓名节点
 			Element name = doc.createElement("name");
 			file.appendChild(name);
