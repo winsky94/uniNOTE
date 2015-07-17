@@ -39,6 +39,7 @@ public class DownLoadServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		// 下载文件
 		// !!!!!!!!!!!!!注意网页页面上的参数名称是什么!!!!!!!!!!!!!!
+		System.out.println(request.getParameter("ID"));
 		int id=Integer.parseInt(request.getParameter("ID"));
 		
 		DocumentInfo di = new DocumentInfo();
