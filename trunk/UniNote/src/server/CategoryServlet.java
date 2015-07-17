@@ -66,8 +66,10 @@ public class CategoryServlet extends HttpServlet {
 		request.getSession().setAttribute("total", total.intValue() + temp);
 		response.setContentType("application/xml;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
+		
+		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-
+		
 		String school = request.getParameter("school");
 
 		Map<String, ArrayList<String>> categorys = new HashMap<String, ArrayList<String>>();
