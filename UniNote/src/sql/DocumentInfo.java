@@ -113,6 +113,7 @@ public class DocumentInfo {
 			String query = "select * from document";
 			ResultSet resultSet = sql.executeQuery(query);
 			while(resultSet.next()){
+				int idi=resultSet.getInt("documentID");
 				String name=resultSet.getString("name");
 				String customName=resultSet.getString("customname");
 				String path=resultSet.getString("path");
@@ -121,7 +122,7 @@ public class DocumentInfo {
 				String tag=resultSet.getString("tag");
 				String postgraduateData=resultSet.getString("postgraduateData");
 				int id=resultSet.getInt("categoryID");
-				DocumentVO vo=new DocumentVO(name,customName, path,type,profile,tag,postgraduateData,id);
+				DocumentVO vo=new DocumentVO(idi,name,customName, path,type,profile,tag,postgraduateData,id);
 				documents.add(vo);
 			}
 			resultSet.close();

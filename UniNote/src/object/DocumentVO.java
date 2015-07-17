@@ -4,7 +4,8 @@ import sql.CategoryInfo;
 
 
 public class DocumentVO {
-     private String name;
+	 private int ID;
+	private String name;
      private String customName;
 	 private String path;
      private String type;
@@ -33,8 +34,9 @@ public class DocumentVO {
  		this.categoryID=CategoryInfo.getVoID(school, dapartment, course);
  	 }
      
-     public DocumentVO(String name,String customName,String path,String type,String profile,String tag,String postgraduateData,int id) {
-  		this.name=name;
+     public DocumentVO(int i,String name,String customName,String path,String type,String profile,String tag,String postgraduateData,int id) {
+  		this.ID=i;
+    	 this.name=name;
   		this.customName=customName;
   		this.path=path;
   		this.type=type;
@@ -92,6 +94,12 @@ public class DocumentVO {
      public String getCustomName() {
  		return customName;
  	}
+     
+     public int getID() {
+ 		return ID;
+ 	}
+
+ 	
 
 
      
@@ -128,6 +136,10 @@ public class DocumentVO {
      
      public void setCustomName(String customName) {
   		this.customName = customName;
+  	}
+     
+     public void setID(int iD) {
+  		ID = iD;
   	}
      
     
