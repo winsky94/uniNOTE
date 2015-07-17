@@ -30,13 +30,14 @@ public class UserInfo {
 				resultSet.next();
 				count = resultSet.getInt("usernum");
 				PreparedStatement statement = con
-						.prepareStatement("INSERT INTO user VALUES(?, ?,?,?,?,?)");
+						.prepareStatement("INSERT INTO user VALUES(?, ?,?,?,?,?,?)");
 				statement.setInt(1, ++count);
 				statement.setString(2, vo.getNickname());
 				statement.setString(3, vo.getPassword());
 				statement.setString(4, vo.getEmail());
 				statement.setString(5, vo.getSchool());
 				statement.setString(6, vo.getPhoneNumber());
+				statement.setInt(7, vo.getPoint());
 				statement.addBatch();
 				// System.out.println(count);
 
@@ -102,6 +103,7 @@ public class UserInfo {
 				String email = vo.getEmail();
 				String school = vo.getSchool();
 				String phoneNumber = vo.getPhoneNumber();
+				int point=vo.getPoint();
 				name2.replace("'", "''");
 				query = "select userID from user where nickname='" + name2
 						+ "' limit 1";
@@ -149,7 +151,8 @@ public class UserInfo {
 				String email=rs.getString("email");
 				String school=rs.getString("school");
 				String phoneNumber=rs.getString("phonenumber");
-				vo=new UserVO(nickname, password, email, school, phoneNumber);
+				int point=rs.getInt("point");
+				vo=new UserVO(nickname, password, email, school, phoneNumber,point);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -185,6 +188,44 @@ public class UserInfo {
 		}
 		return isTrue;
 	}
+	
+	public void addPoint(String nickname,int point){
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String name=nickname.replace("'", "''");
+			String query = "update user set point=point+"+point + " where nickname='"
+					+ name + "'";
+			sql.executeUpdate(query);
+			sql.close();
+			con.close();
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
+	}
+	
+	public void minusPoint(String nickname,int point){
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String name=nickname.replace("'", "''");
+			String query = "update user set point=point-"+point + " where nickname='"
+					+ name + "'";
+			sql.executeUpdate(query);
+			sql.close();
+			con.close();
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
+	}
 
 	public void createTable() {
 		try {
@@ -197,6 +238,7 @@ public class UserInfo {
 					+ "email varchar(40) not null default 'null',"
 					+ "school varchar(40) not null default 'null',"
 					+ "phoneNumber varchar(40) not null default 'null',"
+					+ "point int not null default 0,"
 					+ "primary key(userID));");
 			sql.close();
 			con.close();
@@ -233,8 +275,8 @@ public class UserInfo {
 	public static void main(String[] args) {
 		UserInfo ui = new UserInfo();
 	    ui.createTable();
-		UserVO vo1 = new UserVO("1", "1", "1@qq.com", "nju", "13588888888");
-		UserVO vo2 = new UserVO("3", "3", "1@qq.com", "nju", "13588888888");
+		UserVO vo1 = new UserVO("1", "1", "1@qq.com", "nju", "13588888888",10);
+		UserVO vo2 = new UserVO("3", "3", "1@qq.com", "nju", "13588888888",20);
 		System.out.println(ui.add(vo1));
 		System.out.println(ui.add(vo2));
 		// System.out.println(ui.login("1", "1"));

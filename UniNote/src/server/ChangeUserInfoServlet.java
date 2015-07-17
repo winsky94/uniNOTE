@@ -75,7 +75,7 @@ public class ChangeUserInfoServlet extends HttpServlet {
 					String password = ui.getPassword(nickname);
 					if (password != null) {
 						UserVO vo = new UserVO(nickname, password, email, school,
-								phoneNumber);
+								phoneNumber,0);
 						boolean result=ui.modify(vo, nickname);
 						if (result) {
 							builder.append("h").append("</message>");
@@ -121,7 +121,7 @@ public class ChangeUserInfoServlet extends HttpServlet {
 				String school = oldVo.getSchool();
 				String phoneNumber = oldVo.getPhoneNumber();
 
-				UserVO vo = new UserVO(nickname, pw, email, school, phoneNumber);
+				UserVO vo = new UserVO(nickname, pw, email, school, phoneNumber,0);
 				// 2、检查参数是否有问题
 				if (!pw.equals(oldPassword)) {
 					builder.append("当前密码错误").append("</message>");

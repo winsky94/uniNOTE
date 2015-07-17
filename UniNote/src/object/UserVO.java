@@ -6,16 +6,19 @@ public class UserVO {
      private String email;
      private String school;
      private String phoneNumber;
+     private int point;
      
-     public UserVO(String nickname,String password,String email,String school,String phoneNumber){
+     public UserVO(String nickname,String password,String email,String school,String phoneNumber,int point){
     	 this.nickname=nickname;
     	 this.password=password;
     	 this.email=email;
     	 this.school=school;
     	 this.phoneNumber=phoneNumber;
+    	 this.point=point;
      }
      
-     public String getNickname(){
+
+	public String getNickname(){
     	 return nickname;
      }
      
@@ -34,6 +37,15 @@ public class UserVO {
      public String getPhoneNumber(){
     	 return phoneNumber;
      }
+     
+     public int getPoint() {
+ 		return point;
+ 	}
+
+ 	
+     
+     
+     
      
      public void setNickname(String nickname){
     	this.nickname=nickname;
@@ -54,4 +66,8 @@ public class UserVO {
      public void setPhoneNumber(String phoneNumber){
     	 this.phoneNumber=phoneNumber;
      }
+     
+     public void setPoint(int point) {
+  		this.point = point;
+  	}
 }

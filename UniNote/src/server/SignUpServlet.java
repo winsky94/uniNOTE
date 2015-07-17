@@ -53,7 +53,6 @@ public class SignUpServlet extends HttpServlet {
 		String phoneNumber = request.getParameter("phonenumber");
 
 		// System.out.println(nickname);
-		boolean isfull=true;
 		
 		builder.append("<message>");
 		if ("".equals(nickname) || nickname == null||"".equals(password) || password == null||"".equals(email) || email == null||"".equals(school) || school == null||"".equals(phoneNumber) || phoneNumber == null) {
@@ -62,7 +61,7 @@ public class SignUpServlet extends HttpServlet {
 			//检查用户名、密码是否正确
 			UserInfo user = new UserInfo();
 			UserVO vo = new UserVO(nickname, password, email, school,
-					phoneNumber);
+					phoneNumber,0);
 			boolean result = user.add(vo);
 			if (result) {
 				builder.append("h").append("</message>");				
