@@ -23,7 +23,9 @@
         }
     </style>
     <script src="js/writeHTML.js"></script>
+    <script src="js/cookie.js"></script>
     <script>
+
     function set_course(department,course){
       $("#department").attr('value',department);
       $("#course").attr('value',course);
@@ -51,7 +53,7 @@
     </script>
 
 </head>
-<body onload='write_header();write_footer()'>
+<body onload='write_header_login("严顺宽","南京大学");write_footer()'>
 
 <header>
    
