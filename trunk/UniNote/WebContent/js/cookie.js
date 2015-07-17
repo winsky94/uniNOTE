@@ -35,7 +35,6 @@ function checkCookie(){
     write_header_login(username,university);
   }
   else {
-    alert("not login");
     write_header_not_login();
   }
 }
