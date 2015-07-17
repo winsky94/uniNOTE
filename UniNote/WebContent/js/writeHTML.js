@@ -21,7 +21,10 @@
                      <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"/> \
                  </form>';        
         }catch(e){
-            alert(e);
+            
+            txt=txt+'<form name="viewForm" action="documnetView.jsp" method="POST"> \
+                     <input type="submit" value="'+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue+'"/> \
+                 </form>'; 
         }
 
 
@@ -103,7 +106,7 @@ function write_header(){
 		</ul>\
 		<!-- Dropdown Structure -->\
 		<ul id="dropdown3" class="dropdown-content">\
-			<li><a href="#!">南京大学</a></li>\
+			<li><a id="university-info" href="#!" title="南京大学">南京大学</a></li>\
 			<li><a href="#!">切换</a></li>\
 			<li class="divider"></li>\
 			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
