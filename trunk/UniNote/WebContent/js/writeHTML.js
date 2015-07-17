@@ -34,7 +34,7 @@
         }
         */
 
-        txt=txt+"<a class='title' onclick='func()' href='" +"documnetView.jsp?swfpath="+file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?swfpath="+file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue+"'>"+file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue +"</a><p>First Line<br>Second Line</p>";
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
