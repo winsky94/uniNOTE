@@ -37,7 +37,7 @@
     </style>
 
     <script type="text/javascript">
-        function init(){
+        $(document).ready(function(){
         	$('#file-name').innerHTML=filename;
         	//$('#file-uploader').innerHTML=uploader;
         	$('#file-profile').innerHTML=profile;
@@ -47,7 +47,7 @@
 
 	<title>detail</title>
 </head>
-<body onload="init()">
+<body>
 
 	<header>
 		<!-- Dropdown Structure -->
