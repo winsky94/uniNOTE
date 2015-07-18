@@ -29,10 +29,10 @@ function delete_cookie(name){
 
 function check_cookie(){
   username=get_cookie('username');
-  university=get_cookie('university');
-  if (username!=null && username!="" && university!=null && university!=""){
-    alert('Welcome again '+username+" from "+university+'!');
-    write_header_login(username,university);
+  my_school=get_cookie('my_school');
+  if (username!=null && username!="" && my_school!=null && my_school!=""){
+    alert('Welcome again '+username+" from "+my_school+'!');
+    write_header_login(username,my_school);
   }
   else {
     write_header_not_login();
