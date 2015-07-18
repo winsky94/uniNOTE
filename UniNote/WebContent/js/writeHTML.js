@@ -273,7 +273,7 @@ function write_course_list(departments){
         for(j=0;j<courses.length;j++){
             txt=txt+"<a href='#!' class='collection-item' title='"
             +courses[j].firstChild.nodeValue+
-            "' onclick='get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)'>"
+            "'>"
             +courses[j].firstChild.nodeValue+"</a>";
         }
         txt=txt +" </div></div></li>";           
