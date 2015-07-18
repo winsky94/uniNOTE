@@ -260,6 +260,23 @@ function write_footer(){
     $("#footer").html(txt);
 }
 
-function write_course_list(){
-    
+function write_course_list(departments){
+    var txt=" ";
+    for(i=0;i<departments.length;i++){
+        //开头
+        txt=txt + "<li>";
+        txt=txt+ "<div class='collapsible-header'> <i class='material-icons'>list</i>"+
+        departments[i].getAttribute("院系")+"</div>\
+        <div class='collapsible-body'>\
+    <div class='collection' title="+departments[i].getAttribute("院系")+">";
+        var courses=departments[i].getElementsByTagName("course");
+        for(j=0;j<courses.length;j++){
+            txt=txt+"<a href='#!' class='collection-item' title="
+            +courses[j].firstChild.nodeValue+
+            " onclick='get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)'>"
+            +courses[j].firstChild.nodeValue+"</a>";
+        }
+        txt=txt +" </div></div></li>";           
+    } //end for
+    return txt;
 }
