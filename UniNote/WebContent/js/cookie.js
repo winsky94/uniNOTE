@@ -28,6 +28,8 @@ function delete_cookie(name){
 }
 
 function check_cookie(){
+  delete_cookie('username');
+  delete_cookie('my_school');
   username=get_cookie('username');
   my_school=get_cookie('my_school');
   if (username!=null && username!="" && my_school!=null && my_school!=""){
