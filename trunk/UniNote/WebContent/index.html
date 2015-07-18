@@ -42,13 +42,17 @@ html, body {
 #input {
 	padding-bottom: 150px; /*这个是关键，处理页面高度超出屏幕可视范围时，控制内容和底部高度之间距离*/
 }
-</style>
-<style>
 * {
 	margin: 0;
 	padding: 0;
 }
+
 </style>
+<script>
+	function set_cookie(){
+		add_cookie('username','1',30*24);
+	}
+</script>
 </head>
 <body>
 	<header>
@@ -141,7 +145,7 @@ html, body {
 											<span id="result"> </span></font><br/><br/>
 									</p>
 									<DIV class="span1">
-										<input type="submit" value=" 登录 " onclick="verify();"
+										<input type="submit" value=" 登录 " onclick="set_cookie()"
 											class="btn btn-primary"> <a href="sign_up.html">
 											<input type="button" value=" 注册 " class="btn btn-primary">
 										</a>
