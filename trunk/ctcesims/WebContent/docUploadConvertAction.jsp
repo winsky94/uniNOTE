@@ -43,7 +43,7 @@ Enumeration files = multi.getFileNames();
      	 //生成swf相对路径，以便传递给flexpaper播放器
          String swfpath = "upload"+d.getswfPath().substring(d.getswfPath().lastIndexOf("/"));
          System.out.println(swfpath);
-         //将相对路径放入sessio中保存
+         //将相对路径放入session中保存
          session.setAttribute("swfpath", swfpath);
          out.println("上传的文件:"+lastFileName);
          out.println("文件类型"+extName);
