@@ -15,48 +15,48 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 	<style type="text/css">
-#input {
-	position: relative;
-	max-width: 40%;
-	margin: auto;
-	margin-top: 100px;
-}
+		#input {
+			position: relative;
+			max-width: 40%;
+			margin: auto;
+			margin-top: 100px;
+		}		
 
-input {
-	max-width: 80%;
-}
+		input {
+			max-width: 80%;
+		}		
 
-html, body {
-	height: 100%;
-}
+		html, body {
+			height: 100%;
+		}		
 
-.btn {
-	max-width: 30%;
-}
+		.btn {
+			max-width: 30%;
+		}		
 
-#container {
-	min-height: 50%; /*使内容高度和body一样*/
-	margin-bottom: 70px; /*向上缩减70像素，不至于footer超出屏幕可视范围*/
-}
+		#container {
+			min-height: 50%; /*使内容高度和body一样*/
+			margin-bottom: 70px; /*向上缩减70像素，不至于footer超出屏幕可视范围*/
+		}		
 
-#input {
-	padding-bottom: 150px; /*这个是关键，处理页面高度超出屏幕可视范围时，控制内容和底部高度之间距离*/
-}
-* {
-	margin: 0;
-	padding: 0;
-}
+		#input {
+			padding-bottom: 150px; /*这个是关键，处理页面高度超出屏幕可视范围时，控制内容和底部高度之间距离*/
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}		
 
-label {
-	margin: 5px;
-}
-</style>
-
+		label {
+			margin: 5px;
+		}
+	</style>
+    <script src="js/cookie.js"></script>
 	<script>
 	function set_cookie(){
 		add_cookie('username','1',30*24);
 	}
-</script>
+    </script>
 </head>
 <body onload="check_cookie()">
 	<header>
