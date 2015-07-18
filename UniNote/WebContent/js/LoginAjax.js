@@ -87,13 +87,21 @@ function callback() {
 		// 判断http的交互是否成功
 		if (xmlHttp.status == 200) {
 			// 使用responseXML的方式来接收xml数据对象的DOM对象
-			var domObj = xmlHttp.responseXML;
 			var text=xmlHttp.responseText;
-			alert("text="+text);
-			alert("xml="+xml);
-			// <message>ggggg</message>
-			// getElementsByTagName根据标签名获取元素节点,返回的是一个数组
-			var messageNodes = domObj.getElementsByTagName("message");
+            try{
+                var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async="false";
+                xmlDoc.loadXML(text);
+            }catch(e){
+                try{
+                    var parser=new DOMParser();
+                    xmlDoc=parser.parseFromString(text,"text/xml");
+                }catch(e) {
+            	    alert(e.message);
+                }
+            }
+
+			var messageNodes = xmlDoc.getElementsByTagName("message");
 			
 			if (messageNodes.length > 0) {
 				// 获取message节点的文本内容
