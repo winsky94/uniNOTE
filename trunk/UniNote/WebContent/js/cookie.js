@@ -55,7 +55,6 @@ function write_header_login(username,university){
     <ul id="dropdown2" class="dropdown-content">\
       <li><a href="#!">王宁</a></li>\
       <li><a href="user_edit_info.html">个人信息</a></li>\
-      <li><a href="#!">退出登录</a></li> \
     </ul>\
     <!-- Dropdown Structure -->\
     <ul id="dropdown3" class="dropdown-content">\
@@ -68,7 +67,6 @@ function write_header_login(username,university){
     <ul id="dropdown4" class="dropdown-content">\
       <li><a href="#!">王宁</a></li>\
       <li><a href="user_edit_info.html">个人信息</a></li>\
-      <li><a href="#!" onclick="delete_cookie()">退出登录</a></li> \
     </ul>\
         <nav> \
             <div class="nav-wrapper teal lighten-3"> \
