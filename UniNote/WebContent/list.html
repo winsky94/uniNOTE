@@ -86,7 +86,7 @@
             }
             var xmlhttp_course=getXmlHttp();
             if(xmlhttp_course!=null){
-            	xmlhttp_course.open("GET","/UniNote/CategoryServlet?school=NJU",true);
+            	xmlhttp_course.open("GET","/UniNote/CategoryServlet?school=南京大学",true);
             	xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
             	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
             	xmlhttp_course.send();
