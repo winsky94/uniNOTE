@@ -4,7 +4,7 @@ var xmlHttp;
 function verify() {
 	// 使用dom的方式获取文本框中的值
 	// .value可以获取一个元素节点的value属性
-	var userName = document.getElementById("username").value;
+	userName = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 
 	// 创建XMLHttprequest对象
@@ -84,7 +84,11 @@ function callback() {
 				strs=str.split("&"); //字符分割
 				
 				if(strs[0]=='h'){
-				    window.location.href="/UniNote/list.html?school="+strs[1];
+					var my_school=strs[1];
+				    //登陆成功，写入cookie
+				    add_cookie('username',username,30*24);
+				    add_cookie('my_school',my_school,30*24);
+				    window.location.href="/UniNote/list.html";
 			    }
 				else{
 					// 将数据显示在页面上

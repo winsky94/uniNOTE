@@ -1,6 +1,6 @@
 
 //函数返回名称为name的cookie值，如果不存在则返回空
-function getcookie(name){
+function get_cookie(name){
       var strcookie=document.cookie;
       var arrcookie=strcookie.split("; ");
       for(var i=0;i<arrcookie.length;i++){
@@ -10,7 +10,7 @@ function getcookie(name){
       return "";
 }
 
-function addcookie(name,value,expireHours){
+function add_cookie(name,value,expireHours){
       var cookieString=name+"="+escape(value);
       //判断是否设置过期时间
       if(expireHours>0){
@@ -21,13 +21,13 @@ function addcookie(name,value,expireHours){
       document.cookie=cookieString;
 }
 
-function deletecookie(name){
+function delete_cookie(name){
        var date=new Date();
        date.setTime(date.getTime()-10000);
        document.cookie=name+"=v; expire="+date.toGMTString();
 }
 
-function checkCookie(){
+function check_cookie(){
   username=getcookie('username');
   university=getcookie('university');
   if (username!=null && username!="" && university!=null && university!=""){
