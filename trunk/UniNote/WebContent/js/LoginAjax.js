@@ -102,11 +102,11 @@ function callback() {
             }
 
 			var messageNodes = xmlDoc.getElementsByTagName("message");
-			alert("xmlDoc="+xmlDoc+"   messageNodes.length="+messageNodes.length);
 			
 			if (messageNodes.length > 0) {
 				// 获取message节点的文本内容
-				var responseMessage = messageNodes[0].nodeValue;
+				var responseMessage = messageNodes[0].firstChild.nodeValue;
+				alert("nodeValue="+responseMessage);
 				var strs= new Array(); //定义一数组 
 				strs=responseMessage.split("&"); //字符分割
 				
