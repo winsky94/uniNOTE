@@ -102,7 +102,7 @@ function callback() {
             }
 
 			var messageNodes = xmlDoc.getElementsByTagName("message");
-			alert("xmlDoc="+xmlDoc+"   messageNodes="+messageNodes);
+			alert("xmlDoc="+xmlDoc+"   messageNodes.length="+messageNodes.length);
 			
 			if (messageNodes.length > 0) {
 				// 获取message节点的文本内容
