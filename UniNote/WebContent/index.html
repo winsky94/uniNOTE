@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport"
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-<script type="text/javascript" src="js/LoginAjax.js"></script>
-<title>home</title>
+	<script type="text/javascript" src="js/LoginAjax.js"></script>
+	<title>home</title>
 
-<!-- CSS  -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link href="css/materialize.css" type="text/css" rel="stylesheet"
+	<link href="css/materialize.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
-<link href="css/style.css" type="text/css" rel="stylesheet"
+	<link href="css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
-<style type="text/css">
+	<style type="text/css">
 #input {
 	position: relative;
 	max-width: 40%;
@@ -47,8 +47,12 @@ html, body {
 	padding: 0;
 }
 
+label {
+	margin: 5px;
+}
 </style>
-<script>
+
+	<script>
 	function set_cookie(){
 		add_cookie('username','1',30*24);
 	}
@@ -59,27 +63,47 @@ html, body {
 
 		<!-- Dropdown Structure -->
 		<ul id="dropdown1" class="dropdown-content">
-			<li><a href="#!">南京大学</a></li>
-			<li><a href="#!">切换</a></li>
+			<li>
+				<a href="#!">南京大学</a>
+			</li>
+			<li>
+				<a href="#!">切换</a>
+			</li>
 			<li class="divider"></li>
-			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>
+			<li>
+				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
+			</li>
 		</ul>
 		<!-- Dropdown2 Structure -->
 		<ul id="dropdown2" class="dropdown-content">
-			<li><a href="#!">王宁</a></li>
-			<li><a href="#!">个人信息</a></li>
+			<li>
+				<a href="#!">王宁</a>
+			</li>
+			<li>
+				<a href="#!">个人信息</a>
+			</li>
 		</ul>
 		<!-- Dropdown Structure -->
 		<ul id="dropdown3" class="dropdown-content">
-			<li><a href="#!">南京大学</a></li>
-			<li><a href="#!">切换</a></li>
+			<li>
+				<a href="#!">南京大学</a>
+			</li>
+			<li>
+				<a href="#!">切换</a>
+			</li>
 			<li class="divider"></li>
-			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>
+			<li>
+				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
+			</li>
 		</ul>
 		<!-- Dropdown2 Structure -->
 		<ul id="dropdown4" class="dropdown-content">
-			<li><a href="#!">王宁</a></li>
-			<li><a href="#!">个人信息</a></li>
+			<li>
+				<a href="#!">王宁</a>
+			</li>
+			<li>
+				<a href="#!">个人信息</a>
+			</li>
 		</ul>
 		<nav>
 			<div class="nav-wrapper teal lighten-3">
@@ -89,29 +113,52 @@ html, body {
 							<a href="#!" class="brand-logo">uniNOTE</a>
 						</div>
 						<ul class="right hide-on-med-and-down">
-							<li><a href="index.html">首页</a></li>
-							<li><a href="list.html">文档</a></li>
-							<li><a href="upload.html">上传文档</a></li>
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="list.html">文档</a>
+							</li>
+							<li>
+								<a href="upload.html">上传文档</a>
+							</li>
 							<!-- Dropdown Trigger -->
-							<li><a class="dropdown-button" href="#!"
-								data-activates="dropdown1"> 南京大学 <i
+							<li>
+								<a class="dropdown-button" href="#!"
+								data-activates="dropdown1">
+									南京大学
+									<i
 									class="material-icons right">arrow_drop_down</i>
-							</a></li>
-							<li><a class="modal-trigger" href="#modal1">登录/注册</a></li>
+								</a>
+							</li>
+							<li>
+								<a class="modal-trigger" href="#modal1">登录/注册</a>
+							</li>
 						</ul>
 						<ul id="slide-out" class="side-nav">
-							<li><a href="index.html">首页</a></li>
-							<li><a href="list.html">文档</a></li>
-							<li><a href="upload.html">上传文档</a></li>
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="list.html">文档</a>
+							</li>
+							<li>
+								<a href="upload.html">上传文档</a>
+							</li>
 							<!-- Dropdown Trigger -->
-							<li><a class="dropdown-button" href="#!"
-								data-activates="dropdown3"> 南京大学 <i
+							<li>
+								<a class="dropdown-button" href="#!"
+								data-activates="dropdown3">
+									南京大学
+									<i
 									class="material-icons right">arrow_drop_down</i>
-							</a></li>
-							<li><a class="modal-trigger" href="#modal1">登录/注册</a></li>
+								</a>
+							</li>
+							<li>
+								<a class="modal-trigger" href="#modal1">登录/注册</a>
+							</li>
 						</ul>
-						<a href="#" data-activates="slide-out" class="button-collapse">
-							<i class="mdi-navigation-menu"></i>
+						<a href="#" data-activates="slide-out" class="button-collapse"> <i class="mdi-navigation-menu"></i>
 						</a>
 					</div>
 				</div>
@@ -122,30 +169,32 @@ html, body {
 			<div class="modal-content">
 				<section class="loginBox row-fluid">
 					<div class="tabbable" id="tabs-634549">
-							<div class="tab-content">
-								<div class="tab-pane" id="panel-60560"></div>
-								<div class="tab-pane active" id="panel-549981">
-									<DIV>
-										<input id="username" type="text" name="username"
+						<div class="tab-content">
+							<div class="tab-pane" id="panel-60560"></div>
+							<div class="tab-pane active" id="panel-549981">
+								<div>
+									<input id="username" type="text" name="username"
 											placeholder="用户名" />
-									</DIV>
-									<DIV>
-										<input id="password" type="password" name="password"
+								</div>
+								<div>
+									<input id="password" type="password" name="password"
 											placeholder="密码" />
-									</DIV>
-									<p>
-										<input type="checkbox" class="filled-in" id="test1" /> <label
-											for="test1">下次自动登录</label><font color="red" size="2">
-											<span id="result"> </span></font><br/><br/>
-									</p>
-									<DIV class="span1">
-										<input type="submit" value=" 登录 " onclick="set_cookie()"
-											class="btn btn-primary"> <a href="sign_up.html">
-											<input type="button" value=" 注册 " class="btn btn-primary">
-										</a>
-									</DIV>
+								</div>
+								<p>
+									<input type="checkbox" class="filled-in" id="test1" />
+									<label
+											for="test1">下次自动登录</label> <font color="red" size="2"><span id="result"></span></font> 
+									<br/>
+									<br/>
+								</p>
+								<div class="span1">
+									<input type="submit" value=" 登录 " onclick="set_cookie()"
+											class="btn btn-primary">
+									<a href="sign_up.html">
+										<input type="button" value=" 注册 " class="btn btn-primary"></a>
 								</div>
 							</div>
+						</div>
 					</div>
 				</section>
 			</div>
@@ -154,61 +203,65 @@ html, body {
 	</header>
 	<div id="container">
 		<form class="form" id="input">
-			<input type="text" data-provide="typeahead"> <a
+			<input type="text" data-provide="typeahead">
+			<a
 				class="waves-effect waves-light btn">搜索</a>
-				<style type="text/css">
-label {
-	margin: 5px;
-}
-</style>
-				<input type="radio" name="document" id="all-radio" value="all"
-					checked /> <label for="all-radio">all</label> <input type="radio"
-					name="document" id="doc-radio" value="doc" /> <label
-					for="doc-radio">doc</label> <input type="radio" name="document"
-					id="ppt-radio" value="ppt" /> <label for="ppt-radio">ppt</label> <input
-					type="radio" name="document" id="xls-radio" value="xls" /> <label
-					for="xls-radio">xls</label> <input type="radio" name="document"
-					id="pdf-radio" value="pdf" /> <label for="pdf-radio">pdf</label> <input
-					type="radio" name="document" id="other-radio" value="other" /> <label
+
+			<input type="radio" name="document" id="all-radio" value="all"
+					checked />
+			<label for="all-radio">all</label>
+			<input type="radio"
+					name="document" id="doc-radio" value="doc" />
+			<label
+					for="doc-radio">doc</label>
+			<input type="radio" name="document"
+					id="ppt-radio" value="ppt" />
+			<label for="ppt-radio">ppt</label>
+			<input
+					type="radio" name="document" id="xls-radio" value="xls" />
+			<label
+					for="xls-radio">xls</label>
+			<input type="radio" name="document"
+					id="pdf-radio" value="pdf" />
+			<label for="pdf-radio">pdf</label>
+			<input
+					type="radio" name="document" id="other-radio" value="other" />
+			<label
 					for="other-radio">other</label>
-			</form>
 		</form>
+</div>
 
+<footer class="page-footer teal lighten-3">
+	<div class="container">
+		<div class="row">
+			<div class="col l6 s12">
+				<h5 class="white-text">uniNOTE 优记</h5>
+				<p class="grey-text text-lighten-4">面向全国高校的课程分类式文库。</p>
+			</div>
+			<div class="col l4 offset-l2 s12">
+				<h5 class="white-text">Links</h5>
+				<ul>
+					<li>
+						<a class="grey-text text-lighten-3" href="#!">Link 1</a>
+					</li>
+					<li>
+						<a class="grey-text text-lighten-3" href="#!">Link 2</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-
-	<footer class="page-footer teal lighten-3">
+	<div class="footer-copyright">
 		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text">uniNOTE 优记</h5>
-					<p class="grey-text text-lighten-4">面向全国高校的课程分类式文库。</p>
-				</div>
-				<div class="col l4 offset-l2 s12">
-					<h5 class="white-text">Links</h5>
-					<ul>
-
-						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a>
-						</li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a>
-						</li>
-
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				© 2015 uniNOTE Group,software institute, NJU <a
+			© 2015 uniNOTE Group,software institute, NJU
+			<a
 					class="grey-text text-lighten-4 right" href="#!">Links</a>
-			</div>
 		</div>
-	</footer>
+	</div>
+</footer>
 
-
-	<!--  javaScripts -->
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="js/materialize.js"></script>
-	<script src="js/init.js"></script>
-
+<!--  javaScripts -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
 </body>
 </html>
