@@ -4,8 +4,10 @@ function verify() {
 	/*
 	// 使用dom的方式获取文本框中的值
 	// .value可以获取一个元素节点的value属性
+	*/
 	userName = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
+	/*
 
 	// 创建XMLHttprequest对象
 	// 需要针对IE和其他类型的浏览器建议这个对象的不同方式写不同的代码
