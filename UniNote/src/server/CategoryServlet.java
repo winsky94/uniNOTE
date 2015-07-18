@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -72,7 +73,8 @@ public class CategoryServlet extends HttpServlet {
 		
 		String parameter = request.getParameter("school");
 //		String school = new String(parameter.getBytes("ISO-8859-1"),"utf-8");
-		String school = parameter;
+//		String school = parameter;
+		String school = URLDecoder.decode(parameter,"utf-8");
 		
 		Map<String, ArrayList<String>> categorys = new HashMap<String, ArrayList<String>>();
 		CategoryInfo ci = new CategoryInfo();
