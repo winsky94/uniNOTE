@@ -263,6 +263,7 @@ function write_footer(){
 function write_course_list(departments){
     var txt="<ul class='collapsible' data-collapsible='expandable'>";
     for(i=0;i<departments.length;i++){
+        alert(departments[i].getAttribute("院系"));
         //开头
         txt=txt + "<li>";
         txt=txt+ "<div class='collapsible-header'> <i class='material-icons'>list</i>"+
