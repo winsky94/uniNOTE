@@ -92,7 +92,7 @@ function callback() {
 
 			//var messageNodes = xmlDoc.getElementsByTagName("message");
 			//alert("messageNode="+(new XMLSerializer()).serializeToString(messageNodes[0]));
-			var message=text.substring(9,text.length-9);
+			var message=text.substring(9,text.length-12);
             alert("message="+message);
 			
 			if (message.length > 0) {
