@@ -47,6 +47,9 @@
             	    alert(e.message);
                 }
             }
+            var departments=xmlDoc.getElementsByTagName("department");
+            var txt=write_course_list(departments);
+            document.getElementById("course_list").innerHTML=txt;
             }
 		}
 
@@ -77,10 +80,11 @@
             var xmlhttp=getXmlHttp();
             var university=$('#university-info').attr('title');
             if(xmlhttp!=null){
-            	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
+            	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet?school="+encodeURI(encodeURI("南京大学")),true);
+            	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
-                xmlhttp.send("/UniNote/DocumentOverViewServlet?unversity="+university);
-                //xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+                xmlhttp.send();
+                
  				
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
@@ -124,73 +128,8 @@
 				<br />
 				<h4>选择课程</h4>
 				<!--左边的内容-->
-				<ul class="collapsible" data-collapsible="expandable">
-					<li>
-						<div class="collapsible-header"> <i class="material-icons">list</i>
-							软件学院
-						</div>
-						<div class="collapsible-body">
-							<div class="collection" title="软件学院">
-								<a href="#!" class="collection-item" title="软件工程与计算Ⅰ" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									软件工程与计算Ⅰ
-									<span class="badge">6</span>
-								</a>
-								<a href="#!" class="collection-item" title="计算机组织结构" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									计算机组织结构
-									<span class="new badge">4</span>
-								</a>
-								<a href="#!" class="collection-item" title="计算机与操作系统" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									计算机与操作系统
-									<span class="badge">22</span>
-								</a>
-								<a href="#!" class="collection-item" title="数据库系统" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									数据库系统
-									<span class="badge">14</span>
-								</a>
-								<a href="#!" class="collection-item" title="软件工程与计算Ⅲ" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									软件工程与计算Ⅲ
-									<span class="badge">11</span>
-								</a>
-								<a href="#!" class="collection-item" title="软件工程统计方法" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									软件工程统计方法
-									<span class="badge">17</span>
-								</a>
-								<a href="#!" class="collection-item" title="计算机网络" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									计算机网络
-									<span class="badge">32</span>
-								</a>
-
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="collapsible-header"> <i class="material-icons">list</i>
-							计算机科学与技术系
-						</div>
-						<div class="collapsible-body">
-							<div class="collection" title="计算机科学与技术系">
-								<a href="#!" class="collection-item" title="编译原理" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									编译原理
-									<span class="badge">32</span>
-								</a>
-
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="collapsible-header">
-							<i class="material-icons">list</i>
-							Third
-						</div>
-						<div class="collapsible-body">
-							<div class="collection" title="Third">
-								<a href="#!" class="collection-item" title="编译原理" onclick="get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)">
-									编译原理
-									<span class="badge">32</span>
-								</a>
-							</div>
-						</div>
-					</li>
+				<ul class="collapsible" data-collapsible="expandable" id="course_list">
+					
 				</ul>
 				<!-- 左边l4END -->
 			</div>
