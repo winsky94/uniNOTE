@@ -261,7 +261,7 @@ function write_footer(){
 }
 
 function write_course_list(departments){
-    var txt=" ";
+    var txt="<ul class='collapsible' data-collapsible='expandable'>";
     for(i=0;i<departments.length;i++){
         //开头
         txt=txt + "<li>";
@@ -278,6 +278,7 @@ function write_course_list(departments){
         }
         txt=txt +" </div></div></li>";           
     } //end for
+    txt=txt+"</ul>";
     alert(txt);
     return txt;
 }
