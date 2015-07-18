@@ -106,7 +106,7 @@ function callback() {
 			
 			if (messageNodes.length > 0) {
 				// 获取message节点的文本内容
-				var responseMessage = messageNodes[0].firstChild.nodeValue;
+				var responseMessage = messageNodes[0].nodeValue;
 				var strs= new Array(); //定义一数组 
 				strs=responseMessage.split("&"); //字符分割
 				
