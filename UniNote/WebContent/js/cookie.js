@@ -34,9 +34,6 @@ function check_cookie(){
     alert('Welcome again '+username+" from "+my_school+'!');
     write_header_login(username,my_school);
   }
-  else {
-    write_header_not_login();
-  }
 }
 
 
