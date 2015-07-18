@@ -73,7 +73,7 @@
 	    }
 
 	    function init_list(){
-            /*var xmlhttp=getXmlHttp();
+            var xmlhttp=getXmlHttp();
             var university=$('#university-info').attr('title');
             if(xmlhttp!=null){
             	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet",true);
@@ -83,12 +83,12 @@
  				
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
-            }*/
+            }
             var xmlhttp_course=getXmlHttp();
             if(xmlhttp_course!=null){
             	xmlhttp_course.open("GET","/UniNote/CategoryServlet",true);
             	//xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            	xmlhttp_course.send("/UniNote/CategoryServlet?school=南京大学");
+            	xmlhttp_course.send("/UniNote/CategoryServlet?school=NJU");
             	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
  				
             }else{
