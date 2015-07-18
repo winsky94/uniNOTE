@@ -24,8 +24,8 @@ function add_cookie(name,value,expireHours){
 function delete_cookie(){
     var date=new Date();
     date.setTime(date.getTime()-10000);
-    document.cookie='username'+'=v; expire'=+date.toGMTString();
-    document.cookie='my_school'+='v; expire='+date.toGMTString();
+    document.cookie='username'+'=v; expire='+date.toGMTString();
+    document.cookie='my_school'+'=v; expire='+date.toGMTString();
 }
 
 
