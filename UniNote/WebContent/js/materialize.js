@@ -6160,10 +6160,15 @@ Picker.extend( 'pickadate', DatePicker )
 }( jQuery ));
 
   $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+
+  $(document).ready(function(){
   	$(".button-collapse").sideNav();
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
-    $('.collapsible').collapsible();
     $('.secondary-content').css('color','#777777');
     $('.secondary-content').click(function(){ 
     	var title=$(this).attr('title');
