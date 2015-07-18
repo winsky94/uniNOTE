@@ -43,7 +43,7 @@ function verify() {
 	// 2.注册回调函数
 	// 注册回调函数时，只需要函数名，不要加括号
 	// 我们需要将函数名注册，如果加上括号，就会把函数的返回值注册上，这是错误的
-	xmlhttp=getXmlHttp();
+	xmlHttp=getXmlHttp();
 	xmlHttp.onreadystatechange = callback;
 	// 3.设置连接信息
 	// 第一个参数表示http的请求方式，支持所有http的请求方式，主要是get和post
