@@ -46,26 +46,26 @@ function write_header_login(username,university){
     <!-- Dropdown Structure -->\
     <ul id="dropdown1" class="dropdown-content">\
       <li><a href="#!">南京大学</a></li>\
-      <li><a href="#!">切换</a></li>\
+      <li><a href="changeschool.html">切换</a></li>\
       <li class="divider"></li>\
       <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
     </ul>\
     <!-- Dropdown2 Structure -->\
     <ul id="dropdown2" class="dropdown-content">\
       <li><a href="#!">王宁</a></li>\
-      <li><a href="#!">个人信息</a></li>\
+      <li><a href="user.html">个人信息</a></li>\
     </ul>\
     <!-- Dropdown Structure -->\
     <ul id="dropdown3" class="dropdown-content">\
       <li><a  href="#!">南京大学</a></li>\
-      <li><a href="#!">切换</a></li>\
+      <li><a href="changeschool.html">切换</a></li>\
       <li class="divider"></li>\
       <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
     </ul>\
     <!-- Dropdown2 Structure -->\
     <ul id="dropdown4" class="dropdown-content">\
       <li><a href="#!">王宁</a></li>\
-      <li><a href="#!">个人信息</a></li>\
+      <li><a href="user.html">个人信息</a></li>\
     </ul>\
         <nav> \
             <div class="nav-wrapper teal lighten-3"> \
@@ -107,14 +107,14 @@ function write_header_not_login(){
     var txt=' <!-- Dropdown Structure --> \
         <ul id="dropdown1" class="dropdown-content"> \
             <li><a href="#!">南京大学</a></li> \
-            <li><a href="#!">切换</a></li> \
+            <li><a href="changeschool.html">切换</a></li> \
             <li class="divider"></li> \
             <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li> \
         </ul> \
         <!-- Dropdown Structure --> \
         <ul id="dropdown2" class="dropdown-content"> \
             <li><a href="#!">南京大学</a></li> \
-            <li><a href="#!">切换</a></li> \
+            <li><a href="changeschool.html">切换</a></li> \
             <li class="divider"></li> \
             <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li> \
         </ul> \

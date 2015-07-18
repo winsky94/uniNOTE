@@ -279,6 +279,5 @@ function write_course_list(departments){
         txt=txt +" </div></div></li>";           
     } //end for
     txt=txt+"</ul>";
-    alert(txt);
     return txt;
 }
