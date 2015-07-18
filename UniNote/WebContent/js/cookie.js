@@ -28,8 +28,8 @@ function delete_cookie(name){
 }
 
 function check_cookie(){
-  username=getcookie('username');
-  university=getcookie('university');
+  username=get_cookie('username');
+  university=get_cookie('university');
   if (username!=null && username!="" && university!=null && university!=""){
     alert('Welcome again '+username+" from "+university+'!');
     write_header_login(username,university);
