@@ -1,7 +1,7 @@
 //用户名检验方法
 //这个方法将使用XMLHTTPRequest对象进行AJAX的异步数据交互
-var xmlHttp;
 function verify() {
+	/*
 	// 使用dom的方式获取文本框中的值
 	// .value可以获取一个元素节点的value属性
 	userName = document.getElementById("username").value;
@@ -39,10 +39,11 @@ function verify() {
 	 * if(!xmlHttp){ alert("xmlhttprequest对象创建失败"); return; }else{
 	 * alert(xmlHttp); }
 	 */
-
+   
 	// 2.注册回调函数
 	// 注册回调函数时，只需要函数名，不要加括号
 	// 我们需要将函数名注册，如果加上括号，就会把函数的返回值注册上，这是错误的
+	xmlhttp=getXmlHttp();
 	xmlHttp.onreadystatechange = callback;
 	// 3.设置连接信息
 	// 第一个参数表示http的请求方式，支持所有http的请求方式，主要是get和post
@@ -62,6 +63,20 @@ function verify() {
 	// 异步方式下，send这句话会立即完成执行
 	// xmlHttp.send(null);
 }
+
+function getXmlHttp(){
+    var xmlhttp=null;
+    if (window.XMLHttpRequest){
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else{
+        // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return xmlhttp;
+}
+
 // 回调函数
 function callback() {
 	// 5.接收响应数据
