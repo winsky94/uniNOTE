@@ -268,12 +268,12 @@ function write_course_list(departments){
         txt=txt+ "<div class='collapsible-header'> <i class='material-icons'>list</i>"+
         departments[i].getAttribute("院系")+"</div>\
         <div class='collapsible-body'>\
-    <div class='collection' title="+departments[i].getAttribute("院系")+">";
+    <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
         var courses=departments[i].getElementsByTagName("course");
         for(j=0;j<courses.length;j++){
-            txt=txt+"<a href='#!' class='collection-item' title="
+            txt=txt+"<a href='#!' class='collection-item' title='"
             +courses[j].firstChild.nodeValue+
-            " onclick='get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)'>"
+            "' onclick='get_documents_by_course('department='+this.parentNode.title+'&course='+this.title)'>"
             +courses[j].firstChild.nodeValue+"</a>";
         }
         txt=txt +" </div></div></li>";           
