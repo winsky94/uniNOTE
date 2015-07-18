@@ -265,4 +265,6 @@ function write_footer(){
     $("#footer").html(txt);
 }
 
-function write_course_list()
+function write_course_list(){
+    
+}
