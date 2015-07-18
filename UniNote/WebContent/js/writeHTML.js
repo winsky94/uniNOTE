@@ -264,3 +264,5 @@ function write_footer(){
             </footer>';
     $("#footer").html(txt);
 }
+
+function write_course_list()
