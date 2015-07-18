@@ -128,8 +128,7 @@
 				<br />
 				<h4>选择课程</h4>
 				<!--左边的内容-->
-				<div id="course_list">
-				</div>
+				<div id="course_list"></div>
 				<!-- 左边l4END -->
 			</div>
 			<!-- 右边l8 -->
@@ -181,8 +180,7 @@
 				<div>
 					<ul class="pagination">
 						<li class="disabled">
-							<a href="#!">
-								<i class="material-icons">chevron_left</i>
+							<a href="#!"> <i class="material-icons">chevron_left</i>
 							</a>
 						</li>
 						<li class="active" >
@@ -201,8 +199,7 @@
 							<a href="#!">5</a>
 						</li>
 						<li class="waves-effect">
-							<a href="#!">
-								<i class="material-icons">chevron_right</i>
+							<a href="#!"> <i class="material-icons">chevron_right</i>
 							</a>
 						</li>
 					</ul>
@@ -218,6 +215,13 @@
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+        $('.collapsible').collapsible({
+        accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+	</script>
 
 </body>
 </html>
