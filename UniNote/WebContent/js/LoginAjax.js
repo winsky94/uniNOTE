@@ -90,7 +90,7 @@ function callback() {
 			var text=xmlHttp.responseText;
 			alert("text="+text);
             try{
-                var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
                 xmlDoc.async="false";
                 xmlDoc.loadXML(text);
             }catch(e){
@@ -103,6 +103,7 @@ function callback() {
             }
 
 			var messageNodes = xmlDoc.getElementsByTagName("message");
+			alert("messageNode="+(new XMLSerializer()).serializeToString(messageNodes[0]));
 			
 			if (messageNodes.length > 0) {
 				// 获取message节点的文本内容
