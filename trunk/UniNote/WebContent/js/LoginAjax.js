@@ -88,6 +88,7 @@ function callback() {
 		if (xmlHttp.status == 200) {
 			// 使用responseXML的方式来接收xml数据对象的DOM对象
 			var text=xmlHttp.responseText;
+			alert("text="+text);
             try{
                 var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
                 xmlDoc.async="false";
