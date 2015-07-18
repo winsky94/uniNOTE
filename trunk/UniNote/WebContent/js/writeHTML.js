@@ -1,9 +1,4 @@
  
- function func(){
-    alert("hehe");
-
- }
-
  function write_document_list(file_elements){
 	var txt=" ";
     for(i=0;i<file_elements.length;i++){

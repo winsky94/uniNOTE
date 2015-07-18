@@ -28,6 +28,7 @@
 
 	<script src="js/writeHTML.js"></script>
 	<script src="js/xmlhttp.js"></script>
+	<script src="js/cookie.js"></script>
 
 	<script type="text/javascript">
 		function get_course_list(xmlhttp_course){
@@ -112,7 +113,7 @@
 	</script>
 
 </head>
-<body onload='write_header_not_login();write_footer();init_list()'>
+<body onload='write_header_not_login();write_footer();check_cookie();init_list()'>
 
 	<header></header>
 
@@ -190,7 +191,6 @@
 							</div>
 						</div>
 					</li>
-
 				</ul>
 				<!-- 左边l4END -->
 			</div>
