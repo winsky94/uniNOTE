@@ -93,7 +93,7 @@ function callback() {
 			//var messageNodes = xmlDoc.getElementsByTagName("message");
 			//alert("messageNode="+(new XMLSerializer()).serializeToString(messageNodes[0]));
 			var message=text.substring(9,text.length-9);
-
+            alert("message="+message);
 			
 			if (message.length > 0) {
 				// 获取message节点的文本内容
