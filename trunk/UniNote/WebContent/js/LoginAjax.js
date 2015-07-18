@@ -89,25 +89,15 @@ function callback() {
 			// 使用responseXML的方式来接收xml数据对象的DOM对象
 			var text=xmlHttp.responseText;
 			alert("text="+text);
-            try{
-                xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-                xmlDoc.async="false";
-                xmlDoc.loadXML(text);
-            }catch(e){
-                try{
-                    var parser=new DOMParser();
-                    xmlDoc=parser.parseFromString(text,"text/xml");
-                }catch(e) {
-            	    alert(e.message);
-                }
-            }
 
-			var messageNodes = xmlDoc.getElementsByTagName("message");
-			alert("messageNode="+(new XMLSerializer()).serializeToString(messageNodes[0]));
+			//var messageNodes = xmlDoc.getElementsByTagName("message");
+			//alert("messageNode="+(new XMLSerializer()).serializeToString(messageNodes[0]));
+			var message=text.substring(9,text.length-9);
+
 			
-			if (messageNodes.length > 0) {
+			if (message.length > 0) {
 				// 获取message节点的文本内容
-				var responseMessage = messageNodes[0].firstChild.nodeValue;
+				var responseMessage = message;
 				alert("nodeValue="+responseMessage);
 				var strs= new Array(); //定义一数组 
 				strs=responseMessage.split("&"); //字符分割
