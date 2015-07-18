@@ -109,7 +109,7 @@ function callback() {
 				var responseMessage = textNode.nodeValue;
 				
 				var strs= new Array(); //定义一数组 
-				strs=str.split("&"); //字符分割
+				strs=responseMessage.split("&"); //字符分割
 				
 				if(strs[0]=='h'){
 					var my_school=strs[1];
