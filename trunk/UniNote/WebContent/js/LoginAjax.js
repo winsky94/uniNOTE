@@ -93,19 +93,18 @@ function callback() {
 			//var messageNodes = xmlDoc.getElementsByTagName("message");
 			//alert("messageNode="+(new XMLSerializer()).serializeToString(messageNodes[0]));
 			var message=text.substring(9,text.length-12);
-            alert("message="+message);
 			
 			if (message.length > 0) {
 				// 获取message节点的文本内容
 				var responseMessage = message;
-				alert("nodeValue="+responseMessage);
 				var strs= new Array(); //定义一数组 
 				strs=responseMessage.split("&"); //字符分割
 				
 				if(strs[0]=='h'){
 					var my_school=strs[1];
 				    //登陆成功，写入cookie
-				    add_cookie('username',username,30*24);
+				    alert("username="+userName+" school="+my_school);
+				    add_cookie('username',userName,30*24);
 				    add_cookie('my_school',my_school,30*24);
 				    window.location.href="/UniNote/list.html";
 			    }
