@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="js/flexpaper_flash_debug.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/LoginAjax.js"></script>
+	<script src="js/cookie.js"></script>
 
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
