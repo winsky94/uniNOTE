@@ -33,11 +33,11 @@ function check_cookie(){
   username=get_cookie('username');
   my_school=get_cookie('my_school');
   if (username!=null && username!="" && my_school!=null && my_school!="" &&username!='v'){
-      //write_header_login(username,my_school);
+      write_header_login(username,my_school);
       $('#login-trigger').
       return true;
   }else{
-    //write_header_not_login();
+    write_header_not_login();
     return false;
   }
 }
