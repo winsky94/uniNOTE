@@ -2,6 +2,7 @@ package server;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
@@ -54,11 +55,13 @@ public class UpLoadServlet extends HttpServlet {
 	 *      response)
 	 */
 
+	@SuppressWarnings("null")
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();  
 		String profile="";
 		String tag="";
 		String postgraduate="";
@@ -69,6 +72,46 @@ public class UpLoadServlet extends HttpServlet {
 		String cuntomName="";
 		String uploader="";
 		
+		String isAJAX=request.getHeader("content-type");
+//		System.out.println(isAJAX);
+				
+	if(isAJAX.equals("application/x-www-form-urlencoded")){
+		
+		Integer total = (Integer) request.getSession().getAttribute("total");
+		int temp = 0;
+		if (total == null) {
+			temp = 1;
+			total = 0;
+		} else {
+			temp = total.intValue() + 1;
+		}
+		request.getSession().setAttribute("total", total.intValue() + temp);
+				
+		
+		String filename = request.getParameter("fileName");
+		
+		StringBuilder builder = new StringBuilder();  
+		builder.append("<message>");
+		
+		DocumentInfo documentInfo = new DocumentInfo();
+		
+		boolean isOK=documentInfo.isFileNameOK(filename);
+		
+		if(isOK){
+			builder.append("您可以上传该文件").append("</message>");	
+			out.println(builder.toString());  
+//			System.out.println("shide:"+filename);
+		}
+		else{
+			builder.append("您已上传过该文件").append(
+					"</message>");	
+			out.println(builder.toString());  
+		}
+				
+		
+	}
+		
+	else{
 		try {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			ServletFileUpload upload = new ServletFileUpload(factory);
@@ -87,11 +130,14 @@ public class UpLoadServlet extends HttpServlet {
 				item.getInputStream();
 			  if (!item.isFormField()) {
 				  fileName = item.getName();
-				  if (fileName != null) {
+				  if (fileName != null||!fileName.equals("")) {
 						File fullFile = new File(item.getName());
 						File savedFile = new File(uploadPath, fullFile.getName());
 						item.write(savedFile);
 				   }
+				  else{
+					  return;
+				  }
 			  //文件流
 			  }else{
 			  //非文件流  
@@ -139,26 +185,32 @@ public class UpLoadServlet extends HttpServlet {
 			postgraduate="N";
 		}
 		
-//		String[] buffer=department.split("-");
-//		if(buffer.length==2){
-//		  department=buffer[0];
-//		  course=buffer[1];
-//		}
-//		else{
-//		  course=buffer[0];
-//		}
-				
+		String[] buffer=department.split("-");
+		if(buffer.length==2){
+		    department=buffer[0];
+		    course=buffer[1];
+		}
+		else{
+			course=buffer[0];
+		}
+		
+		System.out.println("fileName:"+fileName);
+		System.out.println("customName:"+cuntomName);
 		System.out.println("profile:"+profile);
 		System.out.println("tag:"+tag);
 		System.out.println("postgraduate:"+postgraduate);
 		System.out.println("school:"+school);
 		System.out.println("department:"+department);
 		System.out.println("course:"+course);
-		
 		DocumentInfo documentInfo = new DocumentInfo();
 		DocumentVO vo = new DocumentVO(fileName, cuntomName,uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course,uploader);
 		documentInfo.add(vo);
+		
 		response.sendRedirect("/UniNote/list.html");
+		
+		
+	}
+		
 //		response.sendRedirect("/UniNote/DocumentOverViewServlet");
 		
 	}

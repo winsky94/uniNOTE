@@ -11,6 +11,33 @@ import java.util.ArrayList;
 import object.DocumentVO;
 
 public class DocumentInfo {
+	
+	public boolean isFileNameOK(String filename){
+		boolean istrue = true;
+		try {
+			Connection con = SqlManager.getConnection();
+			con.setAutoCommit(false);
+			Statement sql = con.createStatement();
+			String name = filename;
+			name.replace("'", "''");
+			String query = "select documentID from document where name='"
+					+ name + "'";
+			ResultSet resultSet1 = sql.executeQuery(query);
+			if (resultSet1.next()) {
+				istrue = false;
+			}
+			resultSet1.close();
+			sql.close();
+			con.close();
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
+	     return istrue;
+	}
 
 	public boolean add(DocumentVO vo) {
 		int count = 0;
