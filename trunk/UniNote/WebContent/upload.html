@@ -25,6 +25,7 @@
     <script src="js/writeHTML.js"></script>
     <script src="js/cookie.js"></script>
     <script src="js/LoginAjax.js"></script>
+     <script type="text/javascript" src="js/UpLoad.js"></script> 
     <script>
 
     function set_course(department,course){
@@ -132,14 +133,14 @@
 
             <br/>
 
-            <form action='/UniNote/UpLoadServlet' method='post' enctype="multipart/form-data" class="col s12" onsubmit="return check()">
+           <form action='/UniNote/UpLoadServlet' method='post' enctype="multipart/form-data" class="col s12" onsubmit="return check()">    
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>选择文件</span>
                         <input type="file" id="file" name="file" />
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" id="filePath" type="text" name="file-path"
+                        <input class="file-path validate" id="filePath" type="text" name="file-path" onchange="verify();"
                         />
                     </div>
                 </div>
@@ -170,6 +171,8 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input type="submit" value=" 提交 " class="btn btn-primary"></div>
+                    <div class="input-field col s6">
+                        <font color="red" size="2"><span id="result" >呵呵呵呵</span></font></div>
                 </div>
             </form>
         </div>
