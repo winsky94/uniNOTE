@@ -188,8 +188,8 @@ public class DocConverter {
 		} else {
 			return "";
 		}
-
 	}
+	
 	/**
 	 * 设置输出路径
 	 */
