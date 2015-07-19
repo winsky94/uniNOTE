@@ -16,7 +16,6 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 	<script type="text/javascript" src="js/jQuery.js"></script>
 	<script type="text/javascript" src="js/flexpaper_flash.js"></script>
 	<script type="text/javascript" src="js/flexpaper_flash_debug.js"></script>
