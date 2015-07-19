@@ -243,8 +243,8 @@ public class CategoryInfo {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		// System.out.println(school + "_" + department + "_" + course + "_"
-		// + "分类编号=" + id);
+//		System.out.println(school + "_" + department + "_" + course + "_"
+//				+ "分类编号=" + id);
 		return id;
 	}
 
