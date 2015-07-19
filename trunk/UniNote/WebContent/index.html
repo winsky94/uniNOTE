@@ -52,7 +52,7 @@
 	</style>
     <script src="js/cookie.js"></script>
 </head>
-<body onload="write_header_not_login()">
+<body onload="check_cookie()">
 	<header>
 		<!-- Dropdown Structure -->
 		<ul id="dropdown1" class="dropdown-content">
@@ -265,7 +265,8 @@
             hover: true, // Activate on hover
             gutter: 0, // Spacing from edge
             belowOrigin: false // Displays dropdown below the button
-        });
+        }
+        );
         $('.modal-trigger').leanModal();
 	});
 </script>
