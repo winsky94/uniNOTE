@@ -11,7 +11,6 @@
 	String[] str=origin_filename.split("\\.");
 	//String uploader=request.getParameter("uploader");
 	String swfFilePath="swfFile/"+str[0]+".swf";
-    out.print(swfFilePath);
 	String filePath="D:/web_server_file/"+origin_filename;
 	DocConverter c=new DocConverter(filePath);
 	c.conver();
