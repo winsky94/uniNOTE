@@ -22,8 +22,8 @@ public class DocConverter {
 	private File swfFile;
 	private File docFile;
 	
-	public DocConverter(String fileString) {
-		ini(fileString);
+	public DocConverter(String fileString,String name) {
+		ini(fileString,name);
 	}
 
 	/**
@@ -31,8 +31,8 @@ public class DocConverter {
 	 * 
 	 * @param fileString
 	 */
-	public void setFile(String fileString) {
-		ini(fileString);
+	public void setFile(String fileString,String name) {
+		ini(fileString,name);
 	}
 
 	/**
@@ -40,12 +40,13 @@ public class DocConverter {
 	 * 
 	 * @param fileString
 	 */
-	private void ini(String fileString) {
+	private void ini(String fileString,String name) {
 		this.fileString = fileString;
 		fileName = fileString.substring(0, fileString.lastIndexOf("."));
 		docFile = new File(fileString);
 		pdfFile = new File(fileName + ".pdf");
-		swfFile = new File(fileName + ".swf");
+//		swfFile = new File(fileName + ".swf");
+		swfFile=new File("/swfFile/"+name+".swf");
 	}
 	
 	/**
@@ -207,7 +208,7 @@ public class DocConverter {
 	}
 	
 	public static void main(String[] args) {
-		DocConverter docConverter=new DocConverter("C:/Users/Administrator/Desktop/test测试.doc");
+		DocConverter docConverter=new DocConverter("C:/Users/Administrator/Desktop/test测试.doc","test测试");
 		docConverter.conver();
 	}
 }
