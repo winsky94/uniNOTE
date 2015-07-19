@@ -20,6 +20,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import sql.DocumentInfo;
 
+
 /**
  * Servlet implementation class Upload
  */
@@ -138,9 +139,14 @@ public class UpLoadServlet extends HttpServlet {
 			postgraduate="N";
 		}
 		
-		//String[] buffer=department.split("-");
-		//department=buffer[0];
-		//course=buffer[1];
+		String[] buffer=department.split("-");
+		if(buffer.length==2){
+		  department=buffer[0];
+		  course=buffer[1];
+		}
+		else{
+		  course=buffer[0];
+		}
 				
 		System.out.println("profile:"+profile);
 		System.out.println("tag:"+tag);
