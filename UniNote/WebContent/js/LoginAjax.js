@@ -60,7 +60,8 @@ function callback() {
 				    alert("username="+userName+" school="+my_school);
 				    add_cookie('username',userName,30*24);
 				    add_cookie('my_school',my_school,30*24);
-				    window.location.href="/UniNote/list.html";
+				    //window.location.href="/UniNote/list.html";
+				    window.location.reload(true);
 			    }
 				else{
 					// 将数据显示在页面上
