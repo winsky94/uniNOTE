@@ -3,12 +3,11 @@
     pageEncoding="UTF-8"%>
     
 <%
-
 	String id=request.getParameter("ID");
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
 	//String uploader=request.getParameter("uploader");
-	String swfFilePath="../WebContent/"+filename+".swf";
+	String swfFilePath=filename+".swf";
 	String filePath="D:/web_server_file/"+filename+".doc";
 	DocConverter c=new DocConverter(filePath);
 	c.conver();
