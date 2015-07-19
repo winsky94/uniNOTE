@@ -136,9 +136,9 @@ public class UpLoadServlet extends HttpServlet {
 			postgraduate="N";
 		}
 		
-		String[] buffer=department.split("-");
-		department=buffer[0];
-		course=buffer[1];
+		//String[] buffer=department.split("-");
+		//department=buffer[0];
+		//course=buffer[1];
 				
 		System.out.println("profile:"+profile);
 		System.out.println("tag:"+tag);
