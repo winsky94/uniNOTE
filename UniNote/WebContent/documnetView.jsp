@@ -224,13 +224,13 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col s6 l2">
+					<div class="col s12">
 						<a class="waves-effect waves-light btn">
 							<i class="material-icons left"></i>
 							赞
 						</a>
 					</div>
-					<div class="col s6 l2">
+					<div class="col s12">
 						<a class="waves-effect waves-light btn">
 							<i class="material-icons right"></i>
 							踩
