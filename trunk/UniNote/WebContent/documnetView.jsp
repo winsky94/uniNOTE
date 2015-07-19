@@ -1,13 +1,16 @@
+<%@page import="server.DocConverter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%
+
 	String id=request.getParameter("ID");
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
 	//String uploader=request.getParameter("uploader");
 	String swfFilePath="D:/web_server_file/"+id+".swf";
 	String filePath="D:/web_server_file/"+filename+".doc";
-	DocConventer c=new (filePath);
+	DocConverter c=new DocConverter(filePath);
 	c.conver();
 %>
 <!DOCTYPE html>
