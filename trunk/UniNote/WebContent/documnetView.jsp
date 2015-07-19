@@ -6,9 +6,10 @@
 	String id=request.getParameter("ID");
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
+	String origin_filename=request.getParameter("name");
 	//String uploader=request.getParameter("uploader");
 	String swfFilePath="D:/web_server_file/"+filename+".swf";
-	String filePath="D:/web_server_file/"+filename+".doc";
+	String filePath="D:/web_server_file/"+origin_filename;
 	DocConverter c=new DocConverter(filePath);
 	c.conver();
 %>
