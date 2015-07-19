@@ -53,7 +53,9 @@
     function check_login(){
         login=check_cookie();
         if(!login){
-           alert("请登录");
+            $(document).ready(function(){
+                $('#modal1').openModal();
+            });        
         }
     }
 
