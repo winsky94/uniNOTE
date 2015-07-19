@@ -36,7 +36,7 @@ function check_cookie(){
       write_header_login(username,my_school);
       return true;
   }else{
-    write_header_not_login();
+    //write_header_not_login();
     return false;
   }
 }

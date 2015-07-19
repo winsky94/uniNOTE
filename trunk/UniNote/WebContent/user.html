@@ -69,11 +69,9 @@
             	alert("Your browser does not support XMLHttpRequest.");
             }
     	}
-
         
     	function onFileListResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
-
   	   	    	//tagName undefined
                 var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("");   
                 write_document_list(file_elements);
@@ -82,7 +80,6 @@
 
 	    function onUserInfoResponse(xmlhttp){
 	    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
-
 	    		//tagName undefined
                 var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName(""); 
                 write_user_info(user_info);
