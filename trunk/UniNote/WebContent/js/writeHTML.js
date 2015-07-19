@@ -17,10 +17,11 @@
 
         var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
         var filename=file_elements[i].getElementsByTagName("filename")[0].firstChild.nodeValue;
+        var name=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
        // var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue;  // undefined
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
 
-        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"'>"+filename+"</a><p>First Line<br>Second Line</p>";
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+'>"+filename+"</a><p>First Line<br>Second Line</p>";
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
