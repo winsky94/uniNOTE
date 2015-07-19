@@ -36,7 +36,8 @@
   }
 
     function check(){
-      alert("学校="+$("#university").attr("value"));
+      alert("学校="+$("#university").attr("value")+" course="+$('#course').attr('value'));
+
       var course=$("#course").attr('value');
       if(course==null){
          alert("请选择课程");
