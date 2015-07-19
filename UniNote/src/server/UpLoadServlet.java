@@ -185,15 +185,6 @@ public class UpLoadServlet extends HttpServlet {
 			postgraduate="N";
 		}
 		
-		String[] buffer=department.split("-");
-		if(buffer.length==2){
-		    department=buffer[0];
-		    course=buffer[1];
-		}
-		else{
-			course=buffer[0];
-		}
-		
 		System.out.println("fileName:"+fileName);
 		System.out.println("customName:"+cuntomName);
 		System.out.println("profile:"+profile);
