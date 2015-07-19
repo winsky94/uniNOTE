@@ -54,7 +54,6 @@ public class DocumentOverViewServlet extends HttpServlet {
 		
 		response.setContentType("application/xml;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-		
 		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 
