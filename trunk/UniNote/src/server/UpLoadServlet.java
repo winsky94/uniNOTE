@@ -108,9 +108,11 @@ public class UpLoadServlet extends HttpServlet {
 				 }
 				 if(item.getFieldName().equals("university")){
 					  school = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
+					  System.out.println("school="+school);
 				 }
 				 if(item.getFieldName().equals("department")){
 					  department = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
+					  System.out.println("department="+department);
 				 }
 				 if(item.getFieldName().equals("course")){
 					  course = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
