@@ -16,6 +16,7 @@
 	<script type="text/javascript" src="js/flexpaper_flash.js"></script>
 	<script type="text/javascript" src="js/flexpaper_flash_debug.js"></script>
 	<script src="js/materialize.js"></script>
+	<script src="js/LoginAjax.js"></script>
 
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -39,14 +40,17 @@
 	<script type="text/javascript">
         $(document).ready(function(){
         	$('#file-name').html("<%=filename%>");
-        	
         	$('#file-profile').html("<%=profile%>");
         	$('#ID').attr("value","<%=id%>");
-        	alert($('#ID').attr('value'));
         });
 
-        function check(){
-        	alert($('#ID').attr('value'));
+        function check_login(){
+        	login=check_cookie();
+            if(!login){
+                $(document).ready(function(){
+                    $('#modal1').openModal();
+                });        
+        }
         }
     </script>
 
@@ -233,7 +237,7 @@
 				</div>
 				<form method="post" action="/UniNote/DownLoadServlet">
 					<input type="hidden" id="ID" name="ID" value="456">
-					<input type="submit" value=" 下载 " onclick="check()" class="btn btn-primary"></form>
+					<input type="submit" value=" 下载 " onclick="check_login()" class="btn btn-primary"></form>
 			</div>
 		</div>
 	</div>
@@ -250,13 +254,10 @@
 				<div class="col l4 offset-l2 s12">
 					<h5 class="white-text">Links</h5>
 					<ul>
-
 						<li>
 							<a class="grey-text text-lighten-3" href="#!">Link 1</a>
 						</li>
-
 					</ul>
-
 				</div>
 			</div>
 		</div>
