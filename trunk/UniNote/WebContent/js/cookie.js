@@ -145,11 +145,11 @@ function write_header_not_login(){
                             <li><a href="list.html">文档</a></li> \
                             <li><a href="upload.html">上传文档</a></li> \
                             <!-- Dropdown Trigger --> \
-                            <li><a class="dropdown-button" href="#!" \
+                            <li><a class="dropdown-button" id="school-dropdown" href="#!" \
                                 data-activates="dropdown2"> 南京大学 <i \
                                     class="material-icons right">arrow_drop_down</i> \
                             </a></li> \
-                            <li><a class="modal-trigger" href="#modal1">登录/注册</a></li> \
+                            <li><a class="modal-trigger" id="login-trigger" href="#modal1">登录/注册</a></li> \
                         </ul> \
                         <a href="#" data-activates="slide-out" class="button-collapse"> \
                             <i class="mdi-navigation-menu"></i> \
