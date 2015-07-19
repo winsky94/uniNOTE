@@ -52,16 +52,18 @@ public class CategoryInfo {
 		// CategoryVO vo = categorys.get(i);
 		// System.out.println(i + " " + ci.add(vo));
 		// }
-		//ci.add(vo12);
-		Map<String, ArrayList<String>> category=new HashMap<String, ArrayList<String>>();
-		category=ci.getCategorysBySchool("南京大学");
-		Iterator<Entry<String, ArrayList<String>>> iter = category.entrySet().iterator();
+		// ci.add(vo12);
+		Map<String, ArrayList<String>> category = new HashMap<String, ArrayList<String>>();
+		category = ci.getCategorysBySchool("南京大学");
+		Iterator<Entry<String, ArrayList<String>>> iter = category.entrySet()
+				.iterator();
 		while (iter.hasNext()) {
-			Map.Entry<String, ArrayList<String>> entry = (Map.Entry<String, ArrayList<String>>) iter.next();
+			Map.Entry<String, ArrayList<String>> entry = (Map.Entry<String, ArrayList<String>>) iter
+					.next();
 			String key = entry.getKey();
 			System.out.println(key);
 			ArrayList<String> val = entry.getValue();
-			for (String s:val){
+			for (String s : val) {
 				System.out.println(s);
 			}
 			System.out.println("---------------------------------------");
@@ -69,6 +71,7 @@ public class CategoryInfo {
 
 	}
 
+	@SuppressWarnings("unused")
 	private boolean add(CategoryVO vo) {
 		boolean result = false;
 		try {
@@ -240,6 +243,8 @@ public class CategoryInfo {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+		// System.out.println(school + "_" + department + "_" + course + "_"
+		// + "分类编号=" + id);
 		return id;
 	}
 
@@ -273,7 +278,7 @@ public class CategoryInfo {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}finally{
+		} finally {
 			closeMySql();
 		}
 		return category;
