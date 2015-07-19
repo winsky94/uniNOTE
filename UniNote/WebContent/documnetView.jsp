@@ -5,7 +5,7 @@
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
 	//String uploader=request.getParameter("uploader");
-	String swfFilePath=id;
+	String swfFilePath="D:/web_server_file/"+id+".swf";
 %>
 <!DOCTYPE html>
 <html>
@@ -57,10 +57,10 @@
 
 	<title>detail</title>
 </head>
-<body>
+<body onload="check_cookie()">
 
 	<header>
-		<!-- Dropdown Structure -->
+		<!-- Dropdown Structure 
 		<ul id="dropdown1" class="dropdown-content">
 			<li>
 				<a href="#!">南京大学</a>
@@ -74,7 +74,7 @@
 				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
 			</li>
 		</ul>
-		<!-- Dropdown2 Structure -->
+		<!-- Dropdown2 Structure 
 		<ul id="dropdown2" class="dropdown-content">
 			<li>
 				<a href="#!">王宁</a>
@@ -84,7 +84,7 @@
 			</li>
 
 		</ul>
-		<!-- Dropdown Structure -->
+		<!-- Dropdown Structure 
 		<ul id="dropdown3" class="dropdown-content">
 			<li>
 				<a href="#!">南京大学</a>
@@ -98,7 +98,7 @@
 				<a href="http://www.nju.edu.cn" target="_blank">主页</a>
 			</li>
 		</ul>
-		<!-- Dropdown2 Structure -->
+		<!-- Dropdown2 Structure 
 		<ul id="dropdown4" class="dropdown-content">
 			<li>
 				<a href="#!">王宁</a>
@@ -127,7 +127,7 @@
 							<li>
 								<a href="upload.html">上传文档</a>
 							</li>
-							<!-- Dropdown Trigger -->
+							<!-- Dropdown Trigger 
 							<li>
 								<a class="dropdown-button" href="#!" data-activates="dropdown1">
 									南京大学 <i class="material-icons right">arrow_drop_down</i>
@@ -149,7 +149,7 @@
 							<li>
 								<a href="upload.html">上传文档</a>
 							</li>
-							<!-- Dropdown Trigger -->
+							<!-- Dropdown Trigger 
 							<li>
 								<a class="dropdown-button" href="#!" data-activates="dropdown3">
 									南京大学
@@ -170,6 +170,7 @@
 				</div>
 			</div>
 		</nav>
+		-->
 	</header>
 
 	<div class="main container">
@@ -236,9 +237,10 @@
 						</a>
 					</div>
 				</div>
-				<form method="post" action="/UniNote/DownLoadServlet">
+				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="
+check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
-					<input type="submit" value=" 下载 " onclick="check_login()" class="btn btn-primary"></form>
+					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
 			</div>
 		</div>
 	</div>
