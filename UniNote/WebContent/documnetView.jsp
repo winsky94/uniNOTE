@@ -12,7 +12,7 @@
 	//String uploader=request.getParameter("uploader");
 	String swfFilePath="./swfFile/"+str[0]+".swf";
 	String filePath="D:/web_server_file/"+origin_filename;
-	DocConverter c=new DocConverter(filePath);
+	DocConverter c=new DocConverter(filePath,str[0]);
 	c.conver();
 
 %>
