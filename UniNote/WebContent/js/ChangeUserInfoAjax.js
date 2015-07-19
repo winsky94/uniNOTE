@@ -74,6 +74,8 @@ function callback() {
 		if (xmlHttp.status == 200) {
 			// 使用responseXML的方式来接收xml数据对象的DOM对象
 			var domObj = xmlHttp.responseXML;
+			var text = xmlhttp.responseText;
+			alert("text="+text+"  xml="+domObj);
 			// <message>ggggg</message>
 			// getElementsByTagName根据标签名获取元素节点,返回的是一个数组
 			var messageNodes = domObj.getElementsByTagName("message");
