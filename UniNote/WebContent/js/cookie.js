@@ -44,7 +44,9 @@ function check_cookie(){
 
 function write_header_login(username,university){
 
-    var txt='<!-- Dropdown Structure -->\
+    var txt='<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
+    <script src="js/materialize.js"></script> \
+    <!-- Dropdown Structure -->\
     <ul id="dropdown1" class="dropdown-content">\
       <li><a href="#!">'+my_school+'</a></li>\
       <li><a href="changeschool.html">切换</a></li>\
@@ -136,7 +138,7 @@ function write_header_not_login(){
                                 data-activates="dropdown1"> 南京大学 <i \
                                     class="material-icons right">arrow_drop_down</i> \
                             </a></li> \
-                            <li><a class="modal-trigger" href="#modal1" onclick="'+'$("#modal1").openModal()'+'">登录/注册</a></li> \
+                            <li><a class="modal-trigger" href="#modal1">登录/注册</a></li> \
                         </ul> \
                         <ul class="side-nav" id="mobile-demo"> \
                             <li><a href="index.html">首页</a></li> \
@@ -147,7 +149,7 @@ function write_header_not_login(){
                                 data-activates="dropdown2"> 南京大学 <i \
                                     class="material-icons right">arrow_drop_down</i> \
                             </a></li> \
-                            <li><a class="modal-trigger" id="login-trigger" href="#modal1" onclick="'+'$("#modal1").openModal()'+'">登录/注册</a></li> \
+                            <li><a class="modal-trigger" id="login-trigger" href="#modal1">登录/注册</a></li> \
                         </ul> \
                         <a href="#" data-activates="slide-out" class="button-collapse"> \
                             <i class="mdi-navigation-menu"></i> \
