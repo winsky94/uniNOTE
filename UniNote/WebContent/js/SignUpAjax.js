@@ -80,7 +80,7 @@ function callback(){
     if(xmlHttp.readyState == 4){  
         //判断http的交互是否成功  
     	//alert("4");  
-        if(xmlHttp.status == 200||xmlHttp.status == 0){  
+        if(xmlHttp.status == 200){  
             //使用responseXML的方式来接收xml数据对象的DOM对象  
             var domObj = xmlHttp.responseXML;  
             //<message>ggggg</message>  
