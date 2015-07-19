@@ -6,7 +6,9 @@
 	String profile=request.getParameter("profile");
 	//String uploader=request.getParameter("uploader");
 	String swfFilePath="D:/web_server_file/"+id+".swf";
-	out.print(swfFilePath);
+	String filePath="D:/web_server_file/"+filename+".doc";
+	DocConventer c=new (filePath);
+	c.conver();
 %>
 <!DOCTYPE html>
 <html>
