@@ -50,10 +50,17 @@
         $('#filename').attr('value',filename);
     }
 
+    function check_login(){
+        login=check_cookie();
+        if(!login){
+           alert("请登录");
+        }
+    }
+
     </script>
 
 </head>
-<body onload='check_cookie();write_footer()'>
+<body onload='check_login();write_footer()'>
 
 <header>
    
