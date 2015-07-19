@@ -46,7 +46,7 @@ public class DocConverter {
 		docFile = new File(fileString);
 		pdfFile = new File(fileName + ".pdf");
 //		swfFile = new File(fileName + ".swf");
-		swfFile=new File("/swfFile/"+name+".swf");
+		swfFile=new File("../webapps/UniNote/swfFile/"+name+".swf");
 	}
 	
 	/**
