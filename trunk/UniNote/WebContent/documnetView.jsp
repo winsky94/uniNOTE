@@ -10,7 +10,7 @@
 
 	String[] str=origin_filename.split("\\.");
 	//String uploader=request.getParameter("uploader");
-	String swfFilePath="WebContent/swfFile/"+str[0]+".swf";
+	String swfFilePath="swfFile/"+str[0]+".swf";
 	String filePath="D:/web_server_file/"+origin_filename;
 	DocConverter c=new DocConverter(filePath,str[0]);
 	c.conver();
