@@ -48,7 +48,7 @@ function write_header_login(username,university){
     <script src="js/materialize.js"></script> \
     <!-- Dropdown Structure -->\
     <ul id="dropdown1" class="dropdown-content">\
-      <li><a href="#!">'+my_school'</a></li>\
+      <li><a href="#!">'+my_school+'</a></li>\
       <li><a href="changeschool.html">切换</a></li>\
       <li class="divider"></li>\
       <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
@@ -67,7 +67,7 @@ function write_header_login(username,university){
     </ul>\
     <!-- Dropdown2 Structure -->\
     <ul id="dropdown4" class="dropdown-content">\
-      <li><a href="#!">'+username'</a></li>\
+      <li><a href="#!">'+username+'</a></li>\
       <li><a href="user_edit_info.html">个人信息</a></li>\
     </ul>\
         <nav> \
