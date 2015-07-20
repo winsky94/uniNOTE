@@ -32,7 +32,8 @@ public class LoginHandleServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-
+		request.setCharacterEncoding("utf-8");
+		
 		Integer total = (Integer) request.getSession().getAttribute("total");
 		int temp = 0;
 		if (total == null) {
