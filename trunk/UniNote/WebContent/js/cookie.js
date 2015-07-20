@@ -11,6 +11,7 @@ function get_cookie(name){
 }
 
 function add_cookie(name,value,expireHours){
+  
       var cookieString=name+"="+escape(value);
       //判断是否设置过期时间
       if(expireHours>0){
@@ -36,7 +37,7 @@ function check_cookie(){
       write_header_login(username,my_school);
       return true;
   }else{
-    //write_header_not_login();
+    write_header_not_login();
     return false;
   }
 }
