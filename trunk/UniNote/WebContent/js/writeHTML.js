@@ -1,6 +1,6 @@
  function collapsible_initialization(){
-    alert("click collapsible header parent="+$(this).parent().attr('title'));
-    $(this).parent().attr('class','active');
+    alert("click collapsible header parent="+$(this).parentNode.attr('title');
+    $(this).parentNode.attr('class','active');
  }
 
 
