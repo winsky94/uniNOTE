@@ -22,6 +22,11 @@ public class DocConverter {
 	private File swfFile;
 	private File docFile;
 	
+	/**
+	 * 
+	 * @param fileString 要转换的文件的地址
+	 * @param name swf文件名，不含后缀
+	 */
 	public DocConverter(String fileString,String name) {
 		ini(fileString,name);
 	}
