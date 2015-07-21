@@ -80,160 +80,6 @@ function write_edit_user_info(){
     $("#user-info-container").html(txt);
 }
 
-/*
-function write_header_login(username,university){
-
-    var txt='<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
-    <script src="js/materialize.js"></script> \
-    <!-- Dropdown Structure -->\
-		<ul id="dropdown1" class="dropdown-content">\
-			<li><a href="#!">南京大学</a></li>\
-			<li><a href="#!">切换</a></li>\
-			<li class="divider"></li>\
-			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
-		</ul>\
-		<!-- Dropdown2 Structure -->\
-		<ul id="dropdown2" class="dropdown-content">\
-			<li><a href="#!">王宁</a></li>\
-			<li><a href="#!">个人信息</a></li>\
-		</ul>\
-		<!-- Dropdown Structure -->\
-		<ul id="dropdown3" class="dropdown-content">\
-			<li><a  href="#!">南京大学</a></li>\
-			<li><a href="#!">切换</a></li>\
-			<li class="divider"></li>\
-			<li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
-		</ul>\
-		<!-- Dropdown2 Structure -->\
-		<ul id="dropdown4" class="dropdown-content">\
-			<li><a href="#!">王宁</a></li>\
-			<li><a href="#!">个人信息</a></li>\
-		</ul>\
-        <nav> \
-            <div class="nav-wrapper teal lighten-3"> \
-                <div class="container"> \
-                    <div class="row"> \
-                        <div class="col l6 s12"> \
-                            <a href="#!" class="brand-logo">uniNOTE</a> \
-                        </div> \
-                        <ul class="right hide-on-med-and-down"> \
-                            <li> \
-                                <a href="index.html">首页</a> \
-                            </li> \
-                            <li> \
-                                <a href="list.html">文档</a> \
-                            </li> \
-                            <li> \
-                                <a href="upload.html">上传文档</a> \
-                            </li> \
-                            <!-- Dropdown Trigger --> \
-                            <li> \
-                                <a class="dropdown-button" href="#!" id="university-info" title="'+university+'" data-activates="dropdown1" name="university"> \
-                                    '+university+' <i class="material-icons right">arrow_drop_down</i> \
-                                </a></li> \
-                            <li> \
-                                <a class="dropdown-button" id="user-name" title="'+username+'" href="#!" data-activates="dropdown2"> \
-                                    '+username+' <i class="material-icons right">arrow_drop_down</i> \
-                                </a> \
-                            </li> \
-                        </ul> \
-                        <a href="#" data-activates="slide-out" class="button-collapse"> \
-                            <i class="mdi-navigation-menu"></i></a> \
-                    </div> \
-                </div> \
-            </div></nav>';
-    $("header").html(txt);
-}
-
-function write_header_not_login(){
-    var txt=' <!-- Dropdown Structure --> \
-        <ul id="dropdown1" class="dropdown-content"> \
-            <li><a href="#!">南京大学</a></li> \
-            <li><a href="#!">切换</a></li> \
-            <li class="divider"></li> \
-            <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li> \
-        </ul> \
-        <!-- Dropdown Structure --> \
-        <ul id="dropdown2" class="dropdown-content"> \
-            <li><a href="#!">南京大学</a></li> \
-            <li><a href="#!">切换</a></li> \
-            <li class="divider"></li> \
-            <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li> \
-        </ul> \
-        <nav> \
-            <div class="nav-wrapper teal lighten-3"> \
-                <div class="container"> \
-                    <div class="row"> \
-                        <div class="col l6 s12"> \
-                            <a href="#!" class="brand-logo">uniNOTE</a> \
-                            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> \
-                        </div> \
-                        <ul class="right hide-on-med-and-down"> \
-                            <li><a href="index.html">首页</a></li> \
-                            <li><a href="list.html">文档</a></li> \
-                            <li><a href="upload.html">上传文档</a></li> \
-                            <!-- Dropdown Trigger --> \
-                            <li><a class="dropdown-button" href="#!" \
-                                data-activates="dropdown1"> 南京大学 <i \
-                                    class="material-icons right">arrow_drop_down</i> \
-                            </a></li> \
-                            <li><a class="modal-trigger" href="#modal1" onclick="$(\'#modal1\').openModal();">登录/注册</a></li> \
-                        </ul> \
-                        <ul class="side-nav" id="mobile-demo"> \
-                            <li><a href="index.html">首页</a></li> \
-                            <li><a href="list.html">文档</a></li> \
-                            <li><a href="upload.html">上传文档</a></li> \
-                            <!-- Dropdown Trigger --> \
-                            <li><a class="dropdown-button" href="#!" \
-                                data-activates="dropdown2"> 南京大学 <i \
-                                    class="material-icons right">arrow_drop_down</i> \
-                            </a></li> \
-                            <li><a class="modal-trigger" href="#modal1">登录/注册</a></li> \
-                        </ul> \
-                        <a href="#" data-activates="slide-out" class="button-collapse"> \
-                            <i class="mdi-navigation-menu"></i> \
-                        </a> \
-                    </div> \
-                </div> \
-            </div> \
-        </nav> \
-        <!-- Modal Structure --> \
-        <div id="modal1" class="modal"> \
-            <div class="modal-content"> \
-                <section class="loginBox row-fluid"> \
-                    <div class="tabbable" id="tabs-634549"> \
-                            <div class="tab-content"> \
-                                <div class="tab-pane" id="panel-60560"></div> \
-                                <div class="tab-pane active" id="panel-549981"> \
-                                    <div> \
-                                        <input id="username" type="text" name="username" \
-                                            placeholder="用户名" /> \
-                                    </div> \
-                                    <div> \
-                                        <input id="password" type="password" name="password" \
-                                            placeholder="密码" /> \
-                                    </div> \
-                                    <p> \
-                                        <input type="checkbox" class="filled-in" id="test1" /> <label \
-                                            for="test1">下次自动登录</label><font color="red" size="2"> \
-                                            <span id="result"> </span></font><br/><br/> \
-                                    </p> \
-                                    <div class="span1"> \
-                                        <input type="submit" value=" 登录 " onclick="verify();" \
-                                            class="btn btn-primary"> <a href="sign_up.html"> \
-                                            <input type="button" value=" 注册 " class="btn btn-primary"> \
-                                        </a> \
-                                    </div> \
-                                </div> \
-                            </div> \
-                    </div> \
-                </section> \
-            </div> \
-        </div>';
-        $("header").html(txt);
-} 
-*/
-
 function write_footer(){
     var txt='<footer class="page-footer teal lighten-3"> \
     <div class="container"> \
@@ -263,18 +109,17 @@ function write_footer(){
     $("#footer").html(txt);
 }
 
+/*
 function write_course_list(departments){
     var txt="<ul class='collapsible' data-collapsible='expandable'>";
     for(i=0;i<departments.length;i++){
         //开头
-        txt=txt + "<li>";
-        txt=txt+ "<div class='collapsible-header'> <i class='material-icons'>list</i>"+
-        departments[i].getAttribute("院系")+"</div>\
-        <div class='collapsible-body'><p>sdhkaskdj aksjdha aksjdha asd asd asd </p></div> ";
-        txt = txt+ "</li>";
-        /*
-        <div class='collapsible-body'> \
-            <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
+        txt=txt+"<li>";
+        txt=txt+"<div class='collapsible-header'> <i class='material-icons'>list</i>"+
+                           departments[i].getAttribute("院系")+
+                "</div>\
+                 <div class='collapsible-body'> \
+                    <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
             var courses=departments[i].getElementsByTagName("course");
             for(j=0;j<courses.length;j++){
                 txt=txt+"<a href='#!' class='collection-item' title='"
@@ -284,9 +129,29 @@ function write_course_list(departments){
             }
 
             txt=txt +" </div></div></li>";       
-            */    
+               
 
     } //end for
     txt=txt+"</ul>";
+    return txt;
+}
+*/
+
+function write_course_list(departments){
+    var txt='  <ul class="collapsible" data-collapsible="accordion">  \
+    <li> \
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div> \
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
+    </li> \
+    <li> \
+      <div class="collapsible-header"><i class="material-icons">place</i>Second</div> \
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
+    </li> \
+    <li> \
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div> \
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
+    </li> \
+  </ul>';
+
     return txt;
 }
