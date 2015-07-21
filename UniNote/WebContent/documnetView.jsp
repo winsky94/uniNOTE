@@ -2,14 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
-	response.setContentType("text/html;charset=utf-8");
-	response.setCharacterEncoding("utf-8");
-	request.setCharacterEncoding("utf-8");
+<%	
 	String id=request.getParameter("ID");
-	String filename=request.getParameter("filename");
-	String profile=request.getParameter("profile");
-	String origin_filename=request.getParameter("name");
+	String filename=new String(request.getParameter("filename").getBytes("iso-8859-1"), "utf-8");
+	String profile=new String(request.getParameter("profile").getBytes("iso-8859-1"), "utf-8");
+	String origin_filename=new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");
 
 	String[] str=origin_filename.split("\\.");
 	//String uploader=request.getParameter("uploader");
