@@ -138,7 +138,8 @@ function write_course_list(departments){
 */
 
 function write_course_list(departments){
-    var txt='  <ul class="collapsible" data-collapsible="accordion">  \
+
+    var txt='<ul class="collapsible" data-collapsible="accordion">  \
     <li> \
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div> \
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
@@ -151,7 +152,16 @@ function write_course_list(departments){
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div> \
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
-  </ul>';
+  </ul>  \
+  <script> \
+     $(document).ready(function(){ \
+    $(".collapsible").collapsible({ \
+      accordion : false ; \
+    }); \
+  }); \
+  </script>
+
+  ;
 
     return txt;
 }
