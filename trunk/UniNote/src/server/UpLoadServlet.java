@@ -195,7 +195,11 @@ public class UpLoadServlet extends HttpServlet {
 		System.out.println("course:"+course);
 		DocumentInfo documentInfo = new DocumentInfo();
 		DocumentVO vo = new DocumentVO(fileName, cuntomName,uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course,uploader);
-		documentInfo.add(vo);
+		int id = documentInfo.add(vo);
+		
+		//将文档转成swf备份
+		DocConverter dc = new DocConverter(uploadPath+"\\"+fileName, id+"");
+		dc.conver();
 		
 		response.sendRedirect("/UniNote/list.html");
 		
