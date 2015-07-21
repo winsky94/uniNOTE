@@ -1,4 +1,4 @@
- collapsible_initialization(){
+ function collapsible_initialization(){
     $('.collapsible').collapsible();
  }
 
