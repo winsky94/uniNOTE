@@ -1,7 +1,7 @@
  function collapsible_initialization(parent){
     //alert("click collapsible header parent="+$(this).parent().attr('title'));
     //$(this).parent().attr('class','active');
-    alert(parent.attr('class'));
+    alert(parent);
  }
 
 
@@ -147,7 +147,7 @@ function write_course_list(departments){
 
     var txt='<ul class="collapsible" data-collapsible="accordion">  \
     <li class="active"> \
-      <div class="collapsible-header" onclick="collapsible_initialization(this.parent)"><i class="material-icons">filter_drama</i>First</div> \
+      <div class="collapsible-header" onclick="collapsible_initialization(this.parent.class)"><i class="material-icons">filter_drama</i>First</div> \
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li> \
