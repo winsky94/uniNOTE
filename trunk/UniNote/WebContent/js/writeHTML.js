@@ -80,6 +80,7 @@ function write_edit_user_info(){
     $("#user-info-container").html(txt);
 }
 
+/*
 function write_header_login(username,university){
 
     var txt='<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
@@ -231,6 +232,7 @@ function write_header_not_login(){
         </div>';
         $("header").html(txt);
 } 
+*/
 
 function write_footer(){
     var txt='<footer class="page-footer teal lighten-3"> \
