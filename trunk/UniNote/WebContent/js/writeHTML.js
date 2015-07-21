@@ -159,9 +159,7 @@ function write_course_list(departments){
       accordion : false ; \
     }); \
   }); \
-  </script>
-
-  ;
+  </script>';
 
     return txt;
 }
