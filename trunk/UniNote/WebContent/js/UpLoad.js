@@ -75,22 +75,28 @@ function callback(){
     	//alert("4");  
         if(xmlHttp.status == 200||xmlHttp.status == 0){  
             //使用responseXML的方式来接收xml数据对象的DOM对象  
-            var domObj = xmlHttp.responseXML;  
+            //var domObj = xmlHttp.responseXML;  
             //<message>ggggg</message>  
             //getElementsByTagName根据标签名获取元素节点,返回的是一个数组  
-            var messageNodes = domObj.getElementsByTagName("message"); 
-            if(messageNodes.length >0){  
+            //var messageNodes = domObj.getElementsByTagName("message");
+
+            var text=xmlHttp.responseText;
+            alert("text="+text);
+            var message=text.substring(9,text.length-12);
+
+            if(message.length >0){  
+
               
             //获取message节点的文本内容  
-            var textNode = messageNodes[0].firstChild;  
-            var responseMessage = textNode.nodeValue;  
+            //var textNode = messageNodes[0].firstChild;  
+           // var responseMessage = textNode.nodeValue;  
 
-            if(responseMessage=="您可以上传该文件"){
+            if(message=="您可以上传该文件"){
             	// 将数据显示在页面上
 				// 通过dom的方式到div标签所对应的元素节点
 				var divNode = document.getElementById("result");
 				// 设置元素节点中的html内容
-				divNode.innerHTML = responseMessage;
+				divNode.innerHTML = message;
 //			    window.location.href="/UniNote/list.html";
 		    }
 			else{
@@ -98,7 +104,7 @@ function callback(){
 				// 通过dom的方式到div标签所对应的元素节点
 				var divNode = document.getElementById("result");
 				// 设置元素节点中的html内容
-				divNode.innerHTML = responseMessage;
+				divNode.innerHTML = message;
 			}
                       
           
