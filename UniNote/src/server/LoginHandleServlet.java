@@ -33,7 +33,7 @@ public class LoginHandleServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		
+
 		Integer total = (Integer) request.getSession().getAttribute("total");
 		int temp = 0;
 		if (total == null) {
@@ -61,15 +61,21 @@ public class LoginHandleServlet extends HttpServlet {
 				UserInfo user = new UserInfo();
 				boolean result = user.login(username, password);
 				UserVO vo = user.getVoByName(username);
-				String school = vo.getSchool();
-				
-				if (result) {
-					builder.append("h&"+school).append("</message>");
+				if (vo == null) {
+					builder.append("您输入的用户名不存在").append("</message>");
 					out.println(builder.toString());
-					// response.sendRedirect("/UniNote/list.html");
 				} else {
-					builder.append("用户名或密码错误").append("</message>");
-					out.println(builder.toString());
+
+					if (result) {
+						String school = vo.getSchool();
+						builder.append("h&" + school).append("</message>");
+						out.println(builder.toString());
+						// response.sendRedirect("/UniNote/list.html");
+					} else {
+						builder.append("用户名或密码错误").append("</message>");
+						out.println(builder.toString());
+					}
+
 				}
 			}
 
