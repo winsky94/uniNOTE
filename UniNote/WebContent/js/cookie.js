@@ -79,51 +79,48 @@ function write_header_login(username,university){
             <div class="nav-wrapper teal lighten-3"> \
                 <div class="container"> \
                     <div class="row"> \
-                        <div class="col l6 s12"> \
                             <a href="#!" class="brand-logo">uniNOTE</a> \
-                        </div> \
-                        <ul class="right hide-on-med-and-down"> \
-                            <li> \
-                                <a href="index.html">首页</a> \
-                            </li> \
-                            <li> \
-                                <a href="list.html">文档</a> \
-                            </li> \
-                            <li> \
-                                <a href="upload.html">上传文档</a> \
-                            </li> \
-                            <!-- Dropdown Trigger --> \
-                            <li> \
-                                <a class="dropdown-button" href="#!" id="university-info" title="'+my_school+'" data-activates="dropdown1" name="university"> \
-                                    '+my_school+' <i class="material-icons right">arrow_drop_down</i> \
-                                </a></li> \
-                            <li> \
-                                <a class="dropdown-button" id="user-name" title="'+username+'" href="#!" data-activates="dropdown2">'+username+'<i class="material-icons right">arrow_drop_down</i> \
-                                </a> \
-                            </li> \
-                        </ul> \
-                        <ul class="side-nav" id="mobile-demo"> \
-                            <li> \
-                                <a href="index.html">首页</a> \
-                            </li> \
-                            <li> \
-                                <a href="list.html">文档</a> \
-                            </li> \
-                            <li> \
-                                <a href="upload.html">上传文档</a> \
-                            </li> \
-                            <!-- Dropdown Trigger --> \
-                            <li> \
-                                <a class="dropdown-button" href="#!" title="'+my_school+'" data-activates="dropdown3" name="university">'
-                                +my_school+' <i class="material-icons right">arrow_drop_down</i> \
-                                </a></li> \
-                            <li> \
-                                <a class="dropdown-button" title="'+username+'" href="#!" data-activates="dropdown4">'+username+'<i class="material-icons right">arrow_drop_down</i> \
-                                </a> \
-                            </li>  \
-                        </ul> \
-                        <a href="#" data-activates="slide-out" class="button-collapse"> \
-                            <i class="mdi-navigation-menu"></i></a> \
+                            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> \
+                            <ul class="right hide-on-med-and-down"> \
+                                <li> \
+                                    <a href="index.html">首页</a> \
+                                </li> \
+                                <li> \
+                                    <a href="list.html">文档</a> \
+                                </li> \
+                                <li> \
+                                    <a href="upload.html">上传文档</a> \
+                                </li> \
+                                <!-- Dropdown Trigger --> \
+                                <li> \
+                                    <a class="dropdown-button" href="#!" id="university-info" title="'+my_school+'" data-activates="dropdown1" name="university"> \
+                                        '+my_school+' <i class="material-icons right">arrow_drop_down</i> \
+                                    </a></li> \
+                                <li> \
+                                    <a class="dropdown-button" id="user-name" title="'+username+'" href="#!" data-activates="dropdown2">'+username+'<i class="material-icons right">arrow_drop_down</i> \
+                                    </a> \
+                                </li> \
+                            </ul> \
+                            <ul class="side-nav" id="mobile-demo"> \
+                                <li> \
+                                    <a href="index.html">首页</a> \
+                                </li> \
+                                <li> \
+                                    <a href="list.html">文档</a> \
+                                </li> \
+                                <li> \
+                                    <a href="upload.html">上传文档</a> \
+                                </li> \
+                                <!-- Dropdown Trigger --> \
+                                <li> \
+                                    <a class="dropdown-button" href="#!" title="'+my_school+'" data-activates="dropdown3" name="university">'
+                                    +my_school+' <i class="material-icons right">arrow_drop_down</i> \
+                                    </a></li> \
+                                <li> \
+                                    <a class="dropdown-button" title="'+username+'" href="#!" data-activates="dropdown4">'+username+'<i class="material-icons right">arrow_drop_down</i> \
+                                    </a> \
+                                </li>  \
+                            </ul> \
                     </div> \
                 </div> \
             </div></nav>';
