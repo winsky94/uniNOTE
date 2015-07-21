@@ -146,8 +146,8 @@ function write_course_list(departments){
 function write_course_list(departments){
 
     var txt='<ul class="collapsible" data-collapsible="accordion">  \
-    <li class="active"> \
-      <div class="collapsible-header active" onclick="collapsible_initialization(this.parentNode.class)"><i class="material-icons">filter_drama</i>First</div> \
+    <li> \
+      <div class="collapsible-header" onclick="collapsible_initialization(this.parentNode.class)"><i class="material-icons">filter_drama</i>First</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li class="not-active"> \
