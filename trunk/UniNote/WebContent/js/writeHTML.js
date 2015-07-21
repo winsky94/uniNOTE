@@ -270,16 +270,20 @@ function write_course_list(departments){
         txt=txt + "<li>";
         txt=txt+ "<div class='collapsible-header'> <i class='material-icons'>list</i>"+
         departments[i].getAttribute("院系")+"</div>\
-        <div class='collapsible-body'>\
-    <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
-        var courses=departments[i].getElementsByTagName("course");
-        for(j=0;j<courses.length;j++){
-            txt=txt+"<a href='#!' class='collection-item' title='"
-            +courses[j].firstChild.nodeValue+
-            "'>"
-            +courses[j].firstChild.nodeValue+"</a>";
-        }
-        txt=txt +" </div></div></li>";           
+        <div class='collapsible-body'><p>sdhkaskdj aksjdha aksjdha asd asd asd </p></div> ";
+        /*
+        <div class='collapsible-body'> \
+            <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
+            var courses=departments[i].getElementsByTagName("course");
+            for(j=0;j<courses.length;j++){
+                txt=txt+"<a href='#!' class='collection-item' title='"
+                +courses[j].firstChild.nodeValue+
+                "'>"
+                +courses[j].firstChild.nodeValue+"</a>";
+            }
+
+            txt=txt +" </div></div></li>";       
+            */    
     } //end for
     txt=txt+"</ul>";
     return txt;
