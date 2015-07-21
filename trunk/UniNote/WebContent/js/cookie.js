@@ -139,7 +139,7 @@ function write_header_not_login(){
                                 data-activates="dropdown1"> 南京大学 <i \
                                     class="material-icons right">arrow_drop_down</i> \
                             </a></li> \
-                            <li><a class="modal-trigger" href="#modal1">登录/注册</a></li> \
+                            <li><a class="modal-trigger" href="#modal1" onclick="$('+'"#modal1"'+').openModal();">登录/注册</a></li> \
                         </ul> \
                         <ul class="side-nav" id="mobile-demo"> \
                             <li><a href="index.html">首页</a></li> \
