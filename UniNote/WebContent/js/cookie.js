@@ -63,14 +63,14 @@ function write_header_login(username,university){
       <li><a href="#!">'+username+'</a></li>\
       <li><a href="user_edit_info.html">个人信息</a></li>\
     </ul>\
-    <!-- Dropdown Structure -->\
+    <!-- Dropdown3 Structure -->\
     <ul id="dropdown3" class="dropdown-content">\
       <li><a  href="#!">'+my_school+'</a></li>\
       <li><a href="changeschool.html">切换</a></li>\
       <li class="divider"></li>\
       <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li>\
     </ul>\
-    <!-- Dropdown2 Structure -->\
+    <!-- Dropdown4 Structure -->\
     <ul id="dropdown4" class="dropdown-content">\
       <li><a href="#!">'+username+'</a></li>\
       <li><a href="user_edit_info.html">个人信息</a></li>\
@@ -102,6 +102,27 @@ function write_header_login(username,university){
                                     '+username+' <i class="material-icons right">arrow_drop_down</i> \
                                 </a> \
                             </li> \
+                        </ul> \
+                        <ul class="side-nav" id="mobile-demo"> \
+                            <li> \
+                                <a href="index.html">首页</a> \
+                            </li> \
+                            <li> \
+                                <a href="list.html">文档</a> \
+                            </li> \
+                            <li> \
+                                <a href="upload.html">上传文档</a> \
+                            </li> \
+                            <!-- Dropdown Trigger --> \
+                            <li> \
+                                <a class="dropdown-button" href="#!" id="university-info" title="'+my_school+'" data-activates="dropdown3" name="university"> \
+                                    '+my_school+' <i class="material-icons right">arrow_drop_down</i> \
+                                </a></li> \
+                            <li> \
+                                <a class="dropdown-button" id="user-name" title="'+username+'" href="#!" data-activates="dropdown4"> \
+                                    '+username+' <i class="material-icons right">arrow_drop_down</i> \
+                                </a> \
+                            </li> \                        
                         </ul> \
                         <a href="#" data-activates="slide-out" class="button-collapse"> \
                             <i class="mdi-navigation-menu"></i></a> \
