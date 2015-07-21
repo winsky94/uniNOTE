@@ -21,7 +21,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import sql.DocumentInfo;
 
-
 /**
  * Servlet implementation class Upload
  */
@@ -61,153 +60,160 @@ public class UpLoadServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();  
-		String profile="";
-		String tag="";
-		String postgraduate="";
-		String school="";
-		String department="";
-		String course="";		
-		String fileName="";
-		String cuntomName="";
-		String uploader="";
-		
-		String isAJAX=request.getHeader("content-type");
-//		System.out.println(isAJAX);
-				
-	if(isAJAX.equals("application/x-www-form-urlencoded")){
-		
-		Integer total = (Integer) request.getSession().getAttribute("total");
-		int temp = 0;
-		if (total == null) {
-			temp = 1;
-			total = 0;
-		} else {
-			temp = total.intValue() + 1;
-		}
-		request.getSession().setAttribute("total", total.intValue() + temp);
-				
-		
-		String filename = request.getParameter("fileName");
-		
-		StringBuilder builder = new StringBuilder();  
-		builder.append("<message>");
-		
-		DocumentInfo documentInfo = new DocumentInfo();
-		
-		boolean isOK=documentInfo.isFileNameOK(filename);
-		
-		if(isOK){
-			builder.append("您可以上传该文件").append("</message>");	
-			out.println(builder.toString());  
-//			System.out.println("shide:"+filename);
-		}
-		else{
-			builder.append("您已上传过该文件").append(
-					"</message>");	
-			out.println(builder.toString());  
-		}
-				
-		
-	}
-		
-	else{
-		try {
-			DiskFileItemFactory factory = new DiskFileItemFactory();
-			ServletFileUpload upload = new ServletFileUpload(factory);
-			factory.setSizeThreshold(4096); // 设置缓冲区大小，这里是4kb
-			factory.setRepository(tempPathFile);// 设置缓冲区目录
+		PrintWriter out = response.getWriter();
+		String profile = "";
+		String tag = "";
+		String postgraduate = "";
+		String school = "";
+		String department = "";
+		String course = "";
+		String fileName = "";
+		String cuntomName = "";
+		String uploader = "";
 
-			// Create a new file upload handler
+		String isAJAX = request.getHeader("content-type");
+		// System.out.println(isAJAX);
 
-			// Set overall request size constraint
-			upload.setSizeMax(4194304 * 10); // 设置最大文件尺寸，这里是40MB
-			upload.setHeaderEncoding("UTF-8");
-			List fileItems = upload.parseRequest(request);
-			Iterator iter = fileItems.iterator();
-			while (iter.hasNext()) {
-				FileItem item = (FileItem) iter.next();
-				item.getInputStream();
-			  if (!item.isFormField()) {
-				  fileName = item.getName();
-				  if (fileName != null||!fileName.equals("")) {
-						File fullFile = new File(item.getName());
-						File savedFile = new File(uploadPath, fullFile.getName());
-						item.write(savedFile);
-				   }
-				  else{
-					  return;
-				  }
-			  //文件流
-			  }else{
-			  //非文件流  
-				 if(item.getFieldName().equals("filename")){
-					  cuntomName = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
-				 }
-				 if(item.getFieldName().equals("profile")){
-					  profile = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
-				 }	
-				 if(item.getFieldName().equals("tag")){
-					  tag = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
-				 }
-				 if(item.getFieldName().equals("postgraduate")){
-					  postgraduate = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
-				 }
-				 if(item.getFieldName().equals("university")){
-					  school = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
-					  System.out.println("school="+school);
-				 }
-				 if(item.getFieldName().equals("department")){
-					  department = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
-					  System.out.println("department="+department);
-				 }
-				 if(item.getFieldName().equals("course")){
-					  course = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");
-				 }
-				 if(item.getFieldName().equals("uploader")){
-					 uploader = new String(item.getString().getBytes("ISO-8859-1"),"utf-8");;
-				 }
-			  }
+		if (isAJAX.equals("application/x-www-form-urlencoded")) {
+
+			Integer total = (Integer) request.getSession()
+					.getAttribute("total");
+			int temp = 0;
+			if (total == null) {
+				temp = 1;
+				total = 0;
+			} else {
+				temp = total.intValue() + 1;
 			}
-		} catch (FileUploadException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("total", total.intValue() + temp);
+
+			String filename = request.getParameter("fileName");
+
+			StringBuilder builder = new StringBuilder();
+			builder.append("<message>");
+
+			DocumentInfo documentInfo = new DocumentInfo();
+
+			boolean isOK = documentInfo.isFileNameOK(filename);
+
+			if (isOK) {
+				builder.append("您可以上传该文件").append("</message>");
+				out.println(builder.toString());
+				// System.out.println("shide:"+filename);
+			} else {
+				builder.append("您已上传过该文件").append("</message>");
+				out.println(builder.toString());
+			}
+
 		}
 
-		
-		if(postgraduate.equals("on")){
-			postgraduate="Y";
+		else {
+			try {
+				DiskFileItemFactory factory = new DiskFileItemFactory();
+				ServletFileUpload upload = new ServletFileUpload(factory);
+				factory.setSizeThreshold(4096); // 设置缓冲区大小，这里是4kb
+				factory.setRepository(tempPathFile);// 设置缓冲区目录
+
+				// Create a new file upload handler
+
+				// Set overall request size constraint
+				upload.setSizeMax(4194304 * 10); // 设置最大文件尺寸，这里是40MB
+				upload.setHeaderEncoding("UTF-8");
+				List<?> fileItems = upload.parseRequest(request);
+				Iterator<?> iter = fileItems.iterator();
+				while (iter.hasNext()) {
+					FileItem item = (FileItem) iter.next();
+					item.getInputStream();
+					if (!item.isFormField()) {
+						fileName = item.getName();
+						if (fileName != null || !fileName.equals("")) {
+							File fullFile = new File(item.getName());
+							File savedFile = new File(uploadPath,
+									fullFile.getName());
+							item.write(savedFile);
+						} else {
+							return;
+						}
+						// 文件流
+					} else {
+						// 非文件流
+						if (item.getFieldName().equals("filename")) {
+							cuntomName = new String(item.getString().getBytes(
+									"ISO-8859-1"), "utf-8");
+						}
+						if (item.getFieldName().equals("profile")) {
+							profile = new String(item.getString().getBytes(
+									"ISO-8859-1"), "utf-8");
+						}
+						if (item.getFieldName().equals("tag")) {
+							tag = new String(item.getString().getBytes(
+									"ISO-8859-1"), "utf-8");
+						}
+						if (item.getFieldName().equals("postgraduate")) {
+							postgraduate = new String(item.getString()
+									.getBytes("ISO-8859-1"), "utf-8");
+						}
+						if (item.getFieldName().equals("university")) {
+							school = new String(item.getString().getBytes(
+									"ISO-8859-1"), "utf-8");
+							System.out.println("school=" + school);
+						}
+						if (item.getFieldName().equals("department")) {
+							department = new String(item.getString().getBytes(
+									"ISO-8859-1"), "utf-8");
+							System.out.println("department=" + department);
+						}
+						if (item.getFieldName().equals("course")) {
+							course = new String(item.getString().getBytes(
+									"ISO-8859-1"), "utf-8");
+						}
+						if (item.getFieldName().equals("uploader")) {
+							uploader = new String(item.getString().getBytes(
+									"ISO-8859-1"), "utf-8");
+							;
+						}
+					}
+				}
+			} catch (FileUploadException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			if (postgraduate.equals("on")) {
+				postgraduate = "Y";
+			} else {
+				postgraduate = "N";
+			}
+
+			System.out.println("fileName:" + fileName);
+			System.out.println("customName:" + cuntomName);
+			System.out.println("profile:" + profile);
+			System.out.println("tag:" + tag);
+			System.out.println("postgraduate:" + postgraduate);
+			System.out.println("school:" + school);
+			System.out.println("department:" + department);
+			System.out.println("course:" + course);
+			DocumentInfo documentInfo = new DocumentInfo();
+			DocumentVO vo = new DocumentVO(fileName, cuntomName, uploadPath
+					+ "\\" + fileName, profile, tag, postgraduate, school,
+					department, course, uploader);
+			int id = documentInfo.add(vo);
+
+			if (id != -1) {
+				// 将文档转成swf备份
+				DocConverter dc = new DocConverter(
+						uploadPath + "\\" + fileName, id + "");
+				dc.conver();
+			}
+			response.sendRedirect("/UniNote/list.html");
+
 		}
-		else{
-			postgraduate="N";
-		}
-		
-		System.out.println("fileName:"+fileName);
-		System.out.println("customName:"+cuntomName);
-		System.out.println("profile:"+profile);
-		System.out.println("tag:"+tag);
-		System.out.println("postgraduate:"+postgraduate);
-		System.out.println("school:"+school);
-		System.out.println("department:"+department);
-		System.out.println("course:"+course);
-		DocumentInfo documentInfo = new DocumentInfo();
-		DocumentVO vo = new DocumentVO(fileName, cuntomName,uploadPath+"\\"+fileName,profile,tag,postgraduate,school,department,course,uploader);
-		int id = documentInfo.add(vo);
-		
-		//将文档转成swf备份
-		DocConverter dc = new DocConverter(uploadPath+"\\"+fileName, id+"");
-		dc.conver();
-		
-		response.sendRedirect("/UniNote/list.html");
-		
-		
-	}
-		
-//		response.sendRedirect("/UniNote/DocumentOverViewServlet");
-		
+
+		// response.sendRedirect("/UniNote/DocumentOverViewServlet");
+
 	}
 
 	public void init() throws ServletException {
