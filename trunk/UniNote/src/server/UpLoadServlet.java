@@ -204,9 +204,11 @@ public class UpLoadServlet extends HttpServlet {
 
 			if (id != -1) {
 				// 将文档转成swf备份
-				DocConverter dc = new DocConverter(
-						uploadPath + "\\" + fileName, id + "");
-				dc.conver();
+				// DocConverter dc = new DocConverter(
+				// uploadPath + "\\" + fileName, id + "");
+				// dc.conver();
+				new SwitchThread(uploader, fileName, id).start();
+
 			}
 			response.sendRedirect("/UniNote/list.html");
 
@@ -225,5 +227,24 @@ public class UpLoadServlet extends HttpServlet {
 		if (!tempPathFile.exists()) {
 			tempPathFile.mkdirs();
 		}
+	}
+}
+
+class SwitchThread extends Thread {
+	private String name;
+	private int id;
+	private String uploadPath;
+
+	SwitchThread(String uploadPath, String name, int id) {
+		this.uploadPath = uploadPath;
+		this.name = name;
+		this.id = id;
+	}
+
+	public void run() {
+		DocConverter dc = new DocConverter(uploadPath + "\\" + name, id + "");
+		dc.conver();
+
+		this.interrupt();
 	}
 }
