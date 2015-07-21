@@ -601,9 +601,6 @@ else {
    });
   }; // End dropdown plugin
 
-  $(document).ready(function(){
-    $('.dropdown-button').dropdown();
-  });
 }( jQuery ));
 ;(function($) {
     var _stack = 0,
@@ -6169,7 +6166,6 @@ Picker.extend( 'pickadate', DatePicker )
   	$(".button-collapse").sideNav();
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
-    $(".dropdown-button").dropdown();
     $('.secondary-content').css('color','#777777');
     $('.secondary-content').click(function(){ 
     	var title=$(this).attr('title');
