@@ -39,7 +39,7 @@ public class DocumentInfo {
 	     return istrue;
 	}
 
-	public boolean add(DocumentVO vo) {
+	public int add(DocumentVO vo) {
 		int count = 0;
 		boolean istrue = false;
 		try {
@@ -90,7 +90,9 @@ public class DocumentInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
-		return istrue;
+		if(istrue==false)
+			return -1;
+		return count;
 	}
 
 	public boolean delete(DocumentVO vo) {
@@ -307,7 +309,7 @@ public class DocumentInfo {
 
 	public static void main(String[] args) {
 		DocumentInfo ui = new DocumentInfo();
-		ui.createTable();
+//		ui.createTable();
 		DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
 				"c", "N", "南京大学", "软件学院", "计算机与操作系统","王宁");
 		DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
