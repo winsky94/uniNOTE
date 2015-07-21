@@ -271,6 +271,7 @@ function write_course_list(departments){
         txt=txt+ "<div class='collapsible-header'> <i class='material-icons'>list</i>"+
         departments[i].getAttribute("院系")+"</div>\
         <div class='collapsible-body'><p>sdhkaskdj aksjdha aksjdha asd asd asd </p></div> ";
+        txt = txt+ "</li>";
         /*
         <div class='collapsible-body'> \
             <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
@@ -284,6 +285,7 @@ function write_course_list(departments){
 
             txt=txt +" </div></div></li>";       
             */    
+
     } //end for
     txt=txt+"</ul>";
     return txt;
