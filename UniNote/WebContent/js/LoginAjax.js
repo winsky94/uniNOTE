@@ -9,7 +9,7 @@ function verify_login() {
 	var password = document.getElementById("password").value;
    
 	xmlHttp=getXmlHttp();
-	xmlHttp.onreadystatechange = callback;
+	xmlHttp.onreadystatechange = login_callback;
 
 	// post方式请求的代码并访问servlet
 	xmlHttp.open("POST", "/UniNote/LoginHandleServlet", true);
@@ -37,7 +37,7 @@ function getXmlHttp(){
 }
 
 // 回调函数
-function callback() {
+function login_callback() {
 	// 5.接收响应数据
 	// 判断对象的状态 是交互完成
 	if (xmlHttp.readyState == 4) {
