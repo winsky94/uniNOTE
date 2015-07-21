@@ -98,8 +98,7 @@ function write_header_login(username,university){
                                     '+my_school+' <i class="material-icons right">arrow_drop_down</i> \
                                 </a></li> \
                             <li> \
-                                <a class="dropdown-button" id="user-name" title="'+username+'" href="#!" data-activates="dropdown2"> \
-                                    '+username+' <i class="material-icons right">arrow_drop_down</i> \
+                                <a class="dropdown-button" id="user-name" title="'+username+'" href="#!" data-activates="dropdown2">'+username+'<i class="material-icons right">arrow_drop_down</i> \
                                 </a> \
                             </li> \
                         </ul> \
@@ -119,8 +118,7 @@ function write_header_login(username,university){
                                     '+my_school+' <i class="material-icons right">arrow_drop_down</i> \
                                 </a></li> \
                             <li> \
-                                <a class="dropdown-button" title="'+username+'" href="#!" data-activates="dropdown4"> \
-                                    '+username+' <i class="material-icons right">arrow_drop_down</i> \
+                                <a class="dropdown-button" title="'+username+'" href="#!" data-activates="dropdown4">'+username+'<i class="material-icons right">arrow_drop_down</i> \
                                 </a> \
                             </li> \                        
                         </ul> \
