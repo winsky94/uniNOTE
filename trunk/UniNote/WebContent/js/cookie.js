@@ -2,6 +2,7 @@ function open_modal(){
     $('#modal1').openModal();
 }
 
+
 //函数返回名称为name的cookie值，如果不存在则返回空
 function get_cookie(name){
       var strcookie=document.cookie;
@@ -153,7 +154,7 @@ function write_header_not_login(){
                                 data-activates="dropdown2"> 南京大学 <i \
                                     class="material-icons right">arrow_drop_down</i> \
                             </a></li> \
-                            <li><a class="modal-trigger" id="login-trigger" href="#modal1">登录/注册</a></li> \
+                            <li><a class="modal-trigger" id="login-trigger" href="#modal1" onclick="open_modal()">登录/注册</a></li> \
                         </ul> \
                         <a href="#" data-activates="slide-out" class="button-collapse"> \
                             <i class="mdi-navigation-menu"></i> \
