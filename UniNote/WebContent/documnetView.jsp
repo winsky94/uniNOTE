@@ -3,6 +3,9 @@
     pageEncoding="UTF-8"%>
     
 <%
+	response.setContentType("text/html;charset=utf-8");
+	response.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 	String id=request.getParameter("ID");
 	String filename=request.getParameter("filename");
 	String profile=request.getParameter("profile");
