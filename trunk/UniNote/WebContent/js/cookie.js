@@ -49,6 +49,7 @@ function check_cookie(){
 function exit(){
    delete_cookie('usernme');
    delete_cookie('my_school');
+   window.location.reload(true);
 }
 
 function write_header_login(username,university){
