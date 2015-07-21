@@ -50,9 +50,8 @@ function callback() {
 			
 			if (message.length > 0) {
 	
-				var responseMessage = message;
 				var strs= new Array(); //定义一数组 
-				strs=responseMessage.split("&"); //字符分割
+				strs=message.split("&"); //字符分割
 				
 				if(strs[0]=='h'){
 					var my_school=strs[1];
@@ -68,7 +67,7 @@ function callback() {
 					// 通过dom的方式到div标签所对应的元素节点
 					var divNode = document.getElementById("result");
 					// 设置元素节点中的html内容
-					divNode.innerHTML = responseMessage;
+					divNode.innerHTML = message;
 				}
 			} else {
 				alert("XML数据格式错误，原始文本内容为：" + xmlHttp.responseText);
