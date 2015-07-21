@@ -145,7 +145,7 @@ function write_course_list(departments){
       accordion : false ; \
     }); \
   }); \
-  </script>
+  </script> \
     <ul class="collapsible" data-collapsible="accordion">  \
     <li> \
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div> \
