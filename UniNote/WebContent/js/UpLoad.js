@@ -81,7 +81,7 @@ function callback(){
             //var messageNodes = domObj.getElementsByTagName("message");
 
             var text=xmlHttp.responseText;
-            alert("text="+text);
+            alert("upload_text="+text);
             var message=text.substring(9,text.length-12);
 
             if(message.length >0){  
