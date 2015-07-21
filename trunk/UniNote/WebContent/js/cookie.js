@@ -114,13 +114,13 @@ function write_header_login(username,university){
                             </li> \
                             <!-- Dropdown Trigger --> \
                             <li> \
-                                <a class="dropdown-button" href="#!" title="'+my_school+'" data-activates="dropdown3" name="university"> \
-                                    '+my_school+' <i class="material-icons right">arrow_drop_down</i> \
+                                <a class="dropdown-button" href="#!" title="'+my_school+'" data-activates="dropdown3" name="university">'
+                                +my_school+' <i class="material-icons right">arrow_drop_down</i> \
                                 </a></li> \
                             <li> \
                                 <a class="dropdown-button" title="'+username+'" href="#!" data-activates="dropdown4">'+username+'<i class="material-icons right">arrow_drop_down</i> \
                                 </a> \
-                            </li> \                        
+                            </li>  \
                         </ul> \
                         <a href="#" data-activates="slide-out" class="button-collapse"> \
                             <i class="mdi-navigation-menu"></i></a> \
