@@ -185,7 +185,7 @@ function write_header_not_login(){
                                             <span id="result"> </span></font><br/><br/> \
                                     </p> \
                                     <div class="span1"> \
-                                        <input type="submit" value=" 登录 " onclick="verify()" \
+                                        <input type="submit" value=" 登录 " onclick="verify_login()" \
                                             class="btn btn-primary"> <a href="sign_up.html"> \
                                             <input type="button" value=" 注册 " class="btn btn-primary"> \
                                         </a> \
