@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import object.DocumentVO;
 
 public class DocumentInfo {
-	
-	public boolean isFileNameOK(String filename){
+
+	public boolean isFileNameOK(String filename) {
 		boolean istrue = true;
 		try {
 			Connection con = SqlManager.getConnection();
@@ -36,7 +36,7 @@ public class DocumentInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
-	     return istrue;
+		return istrue;
 	}
 
 	public int add(DocumentVO vo) {
@@ -52,34 +52,37 @@ public class DocumentInfo {
 					+ name + "'";
 			ResultSet resultSet1 = sql.executeQuery(query);
 			if (!resultSet1.next()) {
-				istrue = true;
-				resultSet1.close();
-				query = "select max(documentID) as documentnum from document";
-				ResultSet resultSet = sql.executeQuery(query);
-				resultSet.next();
-				count = resultSet.getInt("documentnum");
-				PreparedStatement statement = con
-						.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,?)");
-				statement.setInt(1, ++count);
-				statement.setString(2, vo.getName());
-				statement.setString(3, vo.getCustomName());
-				statement.setString(4, vo.getPath());
-				statement.setString(5, vo.getType());
-				statement.setString(6, vo.getProfile());
-				statement.setString(7, vo.getTag());
-				statement.setString(8, vo.getPostgraduateData());
-				statement.setInt(9, vo.getCategoryID());
-				statement.setString(10, vo.getUploader());
-				statement.setInt(11, 0);
-				statement.setInt(12, 0);
-				statement.setInt(13, 0);
-				statement.addBatch();
-				// System.out.println(count);
+				int categoryID = vo.getCategoryID();
+				if (categoryID != -1) {
+					istrue = true;
+					resultSet1.close();
+					query = "select max(documentID) as documentnum from document";
+					ResultSet resultSet = sql.executeQuery(query);
+					resultSet.next();
+					count = resultSet.getInt("documentnum");
+					PreparedStatement statement = con
+							.prepareStatement("INSERT INTO document VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,?)");
+					statement.setInt(1, ++count);
+					statement.setString(2, vo.getName());
+					statement.setString(3, vo.getCustomName());
+					statement.setString(4, vo.getPath());
+					statement.setString(5, vo.getType());
+					statement.setString(6, vo.getProfile());
+					statement.setString(7, vo.getTag());
+					statement.setString(8, vo.getPostgraduateData());
+					statement.setInt(9, categoryID);
+					statement.setString(10, vo.getUploader());
+					statement.setInt(11, 0);
+					statement.setInt(12, 0);
+					statement.setInt(13, 0);
+					statement.addBatch();
+					// System.out.println(count);
 
-				statement.executeBatch();
-				con.commit();
-				statement.close();
-				resultSet.close();
+					statement.executeBatch();
+					con.commit();
+					statement.close();
+					resultSet.close();
+				}
 			}
 			sql.close();
 			con.close();
@@ -90,7 +93,7 @@ public class DocumentInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
-		if(istrue==false)
+		if (istrue == false)
 			return -1;
 		return count;
 	}
@@ -159,12 +162,13 @@ public class DocumentInfo {
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
 				int id = resultSet.getInt("categoryID");
-				String uploader=resultSet.getString("uploader");
-				int praise=resultSet.getInt("praise");
-				int criticism=resultSet.getInt("criticism");
-				int downloadNum=resultSet.getInt("downloadNum");
+				String uploader = resultSet.getString("uploader");
+				int praise = resultSet.getInt("praise");
+				int criticism = resultSet.getInt("criticism");
+				int downloadNum = resultSet.getInt("downloadNum");
 				DocumentVO vo = new DocumentVO(idi, name, customName, path,
-						type, profile, tag, postgraduateData, id,uploader,praise,criticism,downloadNum);
+						type, profile, tag, postgraduateData, id, uploader,
+						praise, criticism, downloadNum);
 				documents.add(vo);
 			}
 			resultSet.close();
@@ -204,12 +208,13 @@ public class DocumentInfo {
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
 				int categoryID = resultSet.getInt("categoryID");
-				String uploader=resultSet.getString("uploader");
-				int praise=resultSet.getInt("praise");
-				int criticism=resultSet.getInt("criticism");
-				int downloadNum=resultSet.getInt("downloadNum");
+				String uploader = resultSet.getString("uploader");
+				int praise = resultSet.getInt("praise");
+				int criticism = resultSet.getInt("criticism");
+				int downloadNum = resultSet.getInt("downloadNum");
 				document = new DocumentVO(id, name, customName, path, type,
-						profile, tag, postgraduateData, categoryID,uploader,praise,criticism,downloadNum);
+						profile, tag, postgraduateData, categoryID, uploader,
+						praise, criticism, downloadNum);
 			}
 			resultSet.close();
 			sql.close();
@@ -222,8 +227,8 @@ public class DocumentInfo {
 		}
 		return document;
 	}
-	
-	public void addPraise(int id){
+
+	public void addPraise(int id) {
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
@@ -240,8 +245,8 @@ public class DocumentInfo {
 			System.err.println("SQLException:" + ex.getMessage());
 		}
 	}
-	
-	public void addCriticism(int id){
+
+	public void addCriticism(int id) {
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
@@ -258,8 +263,8 @@ public class DocumentInfo {
 			System.err.println("SQLException:" + ex.getMessage());
 		}
 	}
-	
-	public void addDownloadNum(int id){
+
+	public void addDownloadNum(int id) {
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
@@ -292,7 +297,7 @@ public class DocumentInfo {
 					+ "postgraduateData varchar(10) not null default 'null',"
 					+ "categoryID int not null default 0,"
 					+ "uploader varchar(100) not null default 'null',"
-					+ "praise int not null default 0,"				
+					+ "praise int not null default 0,"
 					+ "criticism int not null default 0,"
 					+ "downloadNum int not null default 0,"
 					+ "primary key(documentID));");
@@ -309,12 +314,12 @@ public class DocumentInfo {
 
 	public static void main(String[] args) {
 		DocumentInfo ui = new DocumentInfo();
-//		ui.createTable();
+		// ui.createTable();
 		DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
-				"c", "N", "南京大学", "软件学院", "计算机与操作系统","王宁");
+				"c", "N", "南京大学", "软件学院", "计算机与操作系统", "王宁");
 		DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
 				"D:\\web_server_file\\时机+市场规模.docx", "呵呵哒", "营销,商业计划书", "Y",
-				"南京大学", "软件学院", "数据结构与算法","严顺宽");
+				"南京大学", "软件学院", "数据结构与算法", "严顺宽");
 
 		System.out.println(ui.add(vo1));
 		System.out.println(ui.add(vo2));
