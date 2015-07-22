@@ -54,8 +54,11 @@ function exit(){
 
 function write_header_login(username,university){
 
-    var txt='<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
-    <script src="js/materialize.js"></script> \
+    var txt='<script>  \
+       $(document).ready(function(){  \
+         $(".dropdown-button").dropdown();  \
+       }); \
+    </script> \
     <!-- Dropdown Structure -->\
     <ul id="dropdown1" class="dropdown-content">\
       <li><a href="#!">'+my_school+'</a></li>\
