@@ -224,11 +224,12 @@ function write_course_list(departments){
         $(this).css('background-color','#e0f2f1');\
         });\
     function get_documents_by_course(department_chosen,course_chosen){\
+        alert('start');\
             var xmlhttp=getXmlHttp();\
             var university=$('#university-info').attr('title');\
             alert(university);\
             if(xmlhttp!=null){\
-                xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+encodeURI(encodeURI(university))+'&department='+encodeURI(encodeURI(department_chosen))+\
+                xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+university+'&department='+encodeURI(encodeURI(department_chosen))+\
                     '&course='+encodeURI(encodeURI(course_chosen)),true);\
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};\
