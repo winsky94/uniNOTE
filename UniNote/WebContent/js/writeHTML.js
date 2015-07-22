@@ -249,10 +249,9 @@ function write_course_list(departments){
                     <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
             var courses=departments[i].getElementsByTagName("course");
             for(j=0;j<courses.length;j++){
-                var click_instruction="get_documents_by_course('"+departments[i].getAttribute('院系')+"','"+courses[j].firstChild.nodeValue+"')";
                 txt=txt+"<a href='#!' class='collection-item' title='"
                 +courses[j].firstChild.nodeValue+
-                "' onclick='"+click_instruction+"'>"
+                "' onclick='get_documents_by_course(\'"+departments[i].getAttribute('院系')+"\',\'"+courses[j].firstChild.nodeValue+"\')'>"
                 +courses[j].firstChild.nodeValue+"</a>";
             }
 
