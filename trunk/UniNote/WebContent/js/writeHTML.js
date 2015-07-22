@@ -1,13 +1,4 @@
 
-function collapsible_open(message){
-    alert(message);
-    alert($(this).next().attr('title'));
-    $(this).parent().addClass('active');
-    $(this).addClass('active');
-    $(this).next().css('display','block');
-}
-
-
  function write_document_list(file_elements){
 	var txt=" <script> \
     $(document).ready(function(){ \
@@ -69,38 +60,44 @@ function collapsible_open(message){
 
 
 function write_user_info(user_info){
-    var txt='<div class="table-row"> \
-                <div class="property">Nickname</div> \
-                <div class="value" id="nickname">王宁</div> \
-            </div> \
-            <div class="table-row"> \
-                <div class="property">Email</div> \
-                <div class="value" id="email">wn13@software.nju.edu.cn</div> \
-            </div> \
-            <div class="table-row"> \
-                <div class="property">School</div> \
-                <div class="value" id="school">南京大学</div> \
-            </div> \
-            <div class="table-row"> \
-                <div class="property">Phonenumber</div> \
-                <div class="value" id="phonenumber">6465132135494</div> \
-            </div> \
-            <div class="table-row"> \
-                <div class="property">积分</div> \
-                <div class="value">10</div> \
-            </div> \
-            <div class="table-row"> \
-                <div class="property">上传量</div> \
-                <div class="value">10</div> \
-            </div> \
-            <div class="table-row"> \
-                <div class="property">下载量</div> \
-                <div class="value">10</div> \
-            </div> \
-            <div class="card-action"> \
-                <a href="#" onclick="write_edit_user_info()">编辑</a> \
+    //var nickname=user_info.getElementsByTagName("")
+
+    var txt='<div class="card teal lighten-5"> \
+                <div class="card-content" id="user-info-container"> \
+                    <div class="table-row"> \
+                        <div class="property">Nickname</div> \
+                        <div class="value" id="nickname">呵呵</div> \
+                    </div> \
+                    <div class="table-row"> \
+                        <div class="property">Email</div> \
+                        <div class="value" id="email">wn13@software.nju.edu.cn</div> \
+                    </div> \
+                    <div class="table-row"> \
+                        <div class="property">School</div> \
+                        <div class="value" id="school">南京大学</div> \
+                    </div> \
+                    <div class="table-row"> \
+                        <div class="property">Phonenumber</div> \
+                        <div class="value" id="phonenumber">6465132135494</div> \
+                    </div> \
+                    <div class="table-row"> \
+                        <div class="property">积分</div> \
+                        <div class="value">10</div> \
+                    </div> \
+                    <div class="table-row"> \
+                        <div class="property">上传量</div> \
+                        <div class="value">10</div> \
+                    </div> \
+                    <div class="table-row"> \
+                        <div class="property">下载量</div> \
+                        <div class="value">10</div> \
+                    </div> \
+                    <div class="card-action"> \
+                        <a href="#" onclick="write_edit_user_info()">编辑</a> \
+                    </div>
+                </div>
             </div>';
-    $("#user-info-container").html(txt);
+    return txt;
 
 }
 
