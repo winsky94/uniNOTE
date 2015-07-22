@@ -50,6 +50,8 @@ public class DownLoadServlet extends HttpServlet {
 		String fileName = vo.getCustomName();
 		String type = vo.getType();
 		String temp = URLEncoder.encode(fileName, "utf-8");
+		temp = temp.replace("+", "%20");
+
 		response.setHeader("Content-Disposition", "attachment;filename*=utf-8''" + temp
 				+ "." + type);
 
