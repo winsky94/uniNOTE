@@ -62,7 +62,7 @@
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
-                xmlhttp.open("GET","UniNode/UserUpLoadServlet?nickname="+nickname,true);   
+                xmlhttp.open("GET","UserUpLoadServlet?nickname="+nickname,true);   
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');   
                 xmlhttp.send();                             
             }else{
@@ -75,7 +75,7 @@
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
-                xmlhttp.open("GET","UniNode/UserDownloadServlet?nickname="+nickname,true);            
+                xmlhttp.open("GET","UserDownloadServlet?nickname="+nickname,true);            
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');       
                 xmlhttp.send();                               
             }else{
@@ -88,7 +88,7 @@
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
-                xmlhttp.open("GET","UniNode/UserCollectionsServelet?nickname="+nickname,true); 
+                xmlhttp.open("GET","UserCollectionsServelet?nickname="+nickname,true); 
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');                 
                 xmlhttp.send();                               
             }else{

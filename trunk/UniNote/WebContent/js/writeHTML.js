@@ -60,7 +60,8 @@
 
 
 function write_user_info(user_info){
-    //var nickname=user_info.getElementsByTagName("")
+    var nickname=user_info.getElementsByTagName("nickname")[0].firstChild.nodeValue;
+    var email=user_info.getElementsByTagName("email")[0].firstChild.nodeValue;
 
     var txt='<div class="card teal lighten-5"> \
                 <div class="card-content" id="user-info-container"> \
