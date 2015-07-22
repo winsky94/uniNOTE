@@ -98,21 +98,43 @@
 
     	function onFileListResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
-  	   	    	//tagName undefined
-                var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("document");   
+                var text=xmlhttp.responseText;
+                try{
+                    var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                    xmlDoc.async="false";
+                    xmlDoc.loadXML(text);
+                }catch(e){
+                    try{
+                        var parser=new DOMParser();
+                        xmlDoc=parser.parseFromString(text,"text/xml");
+                    }catch(e) {
+                	    alert(e.message);
+                    }
+                }  
+                var file_elements=xmlDoc.getElementsByTagName("document"); 
                 var txt=write_document_list(file_elements);
                 $("#content-on-right").html(txt);
             }
 	    }
 
 	    function onUserInfoResponse(xmlhttp){
-	    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
-	    		//tagName undefined
-                var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName("user")[0];
-                alert(xmlhttp.responseXML.documentElement.getElementsByTagName("user").length);
-                var txt=write_user_info(user_info);
-                $("#content-on-right").html(txt);
-            }
+  	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                var text=xmlhttp.responseText;
+                try{
+                    var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                    xmlDoc.async="false";
+                    xmlDoc.loadXML(text);
+                }catch(e){
+                    try{
+                        var parser=new DOMParser();
+                        xmlDoc=parser.parseFromString(text,"text/xml");
+                    }catch(e) {
+                	    alert(e.message);
+                    }
+                }  
+                var user_info=xmlDoc.getElementsByTagName("user")[0]; 
+                var txt=write_document_list(user_info);
+                 $("#content-on-right").html(txt);
 	    }
 
 	</script>
