@@ -239,7 +239,7 @@ function write_course_list(departments){
             var nickname=$('#user-name').attr('title');\
             if(xmlhttp!=null){\
                 xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+university+'&department='+department_chosen+\
-                    '&course='+course_chosen,true);\
+                    '&course='+course_chosen+'&nickname='+nickname,true);\
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};\
                 xmlhttp.send();\
