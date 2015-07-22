@@ -311,7 +311,7 @@ public class DocumentInfo {
 				String tag = resultSet.getString("tag");
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
-				int categaryID = resultSet.getInt("categaryID");
+				int categaryID = resultSet.getInt("categoryID");
 				String uploader = resultSet.getString("uploader");
 				int praise = resultSet.getInt("praise");
 				int criticism = resultSet.getInt("criticism");
