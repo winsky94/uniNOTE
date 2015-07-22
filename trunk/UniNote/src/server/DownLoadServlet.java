@@ -50,7 +50,7 @@ public class DownLoadServlet extends HttpServlet {
 		String fileName = vo.getCustomName();
 		String type = vo.getType();
 		String temp = URLEncoder.encode(fileName, "utf-8");
-		response.setHeader("Content-Disposition", "attachment;filename=" + temp
+		response.setHeader("Content-Disposition", "attachment;filename*=utf-8''" + temp
 				+ "." + type);
 
 		// 说明一下web站点下载文件的原理
