@@ -34,7 +34,7 @@ import sql.DocumentInfo;
 /**
  * Servlet implementation class DocumentServlet
  */
-@WebServlet("/DocumentServlet")
+@WebServlet("/DocumentOverViewServlet")
 public class DocumentOverViewServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
