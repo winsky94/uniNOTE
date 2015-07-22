@@ -58,7 +58,38 @@ function collapsible_open(message){
 
 
 function write_user_info(user_info){
-    var txt=""
+    var txt='<div class="table-row"> \
+                <div class="property">Nickname</div> \
+                <div class="value" id="nickname">王宁</div> \
+            </div> \
+            <div class="table-row"> \
+                <div class="property">Email</div> \
+                <div class="value">wn13@software.nju.edu.cn</div> \
+            </div> \
+            <div class="table-row"> \
+                <div class="property">School</div> \
+                <div class="value">南京大学</div> \
+            </div> \
+            <div class="table-row"> \
+                <div class="property">Phonenumber</div> \
+                <div class="value">6465132135494</div> \
+            </div> \
+            <div class="table-row"> \
+                <div class="property">积分</div> \
+                <div class="value">10</div> \
+            </div> \
+            <div class="table-row"> \
+                <div class="property">上传量</div> \
+                <div class="value">10</div> \
+            </div> \
+            <div class="table-row"> \
+                <div class="property">下载量</div> \
+                <div class="value">10</div> \
+            </div> \
+            <div class="card-action"> \
+                <a href="#" onclick="write_edit_user_info()">编辑</a> \
+            </div>';
+    $("#user-info-container").html(txt);
 
 }
 
