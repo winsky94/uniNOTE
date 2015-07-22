@@ -62,11 +62,12 @@
 function write_user_info(user_info){
 
     var nickname=$("#user-name").attr("title");
-    alert("user_info="+user_info);
     var email=user_info.getElementsByTagName("email")[0].firstChild.nodeValue;
     var school=user_info.getElementsByTagName("school")[0].firstChild.nodeValue;
     var phonenumber=user_info.getElementsByTagName("phonenumber")[0].firstChild.nodeValue;
     var point=user_info.getElementsByTagName("point")[0].firstChild.nodeValue;
+
+    alert(email+" "+school+" "+phonenumber+" "+point);
 
 
     var txt='<div class="card teal lighten-5"> \
