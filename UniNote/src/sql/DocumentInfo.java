@@ -293,6 +293,45 @@ public class DocumentInfo {
 		return document;
 	}
 
+	public ArrayList<DocumentVO> getUpLoadList(String nickname) {
+		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
+		try {
+			Connection connection = SqlManager.getConnection();
+			Statement statement = connection.createStatement();
+			String query = "select * from document where uploader='" + nickname
+					+ "'";
+			ResultSet resultSet = statement.executeQuery(query);
+			while (resultSet.next()) {
+				String dname = resultSet.getString("name");
+				String customeName = resultSet.getString("customeName");
+				String path = resultSet.getString("path");
+				String profile = resultSet.getString("profile");
+				String tag = resultSet.getString("tag");
+				String postgraduateData = resultSet
+						.getString("postgraduateData");
+
+				// 根据分类编号可以得到学校、院系、课程，暂时先不要
+				// int categaryID = resultSet.getInt("categaryID");
+				String school = null;
+				String department = null;
+				String course = null;
+
+				String uploader = resultSet.getString("uploader");
+				DocumentVO vo = new DocumentVO(dname, customeName, path,
+						profile, tag, postgraduateData, school, department,
+						course, uploader);
+				documents.add(vo);
+			}
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return documents;
+	}
+
 	public void addPraise(int id) {
 		try {
 			Connection con = SqlManager.getConnection();
@@ -379,16 +418,16 @@ public class DocumentInfo {
 
 	public static void main(String[] args) {
 		DocumentInfo ui = new DocumentInfo();
-//		 ui.createTable();
-//		 DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
-//		 "c", "N", "南京大学", "软件学院", "计算机与操作系统", "王宁");
-//		 DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
-//		 "D:\\web_server_file\\时机+市场规模.docx", "呵呵哒", "营销,商业计划书", "Y",
-//		 "南京大学", "软件学院", "数据结构与算法", "严顺宽");
-//		
-//		 System.out.println(ui.add(vo1));
-//		 System.out.println(ui.add(vo2));
-//		 System.out.println(ui.search("hehe"));
+		// ui.createTable();
+		// DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
+		// "c", "N", "南京大学", "软件学院", "计算机与操作系统", "王宁");
+		// DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
+		// "D:\\web_server_file\\时机+市场规模.docx", "呵呵哒", "营销,商业计划书", "Y",
+		// "南京大学", "软件学院", "数据结构与算法", "严顺宽");
+		//
+		// System.out.println(ui.add(vo1));
+		// System.out.println(ui.add(vo2));
+		// System.out.println(ui.search("hehe"));
 		ArrayList<DocumentVO> vos = ui.getDocuments("all", "all", "all");
 		for (DocumentVO vo : vos) {
 			System.out.println(vo.getID());
@@ -397,19 +436,19 @@ public class DocumentInfo {
 			System.out.println(vo.getTag());
 			System.out.println("-----------------------------");
 		}
-//		DocumentVO vo = vos.get(0);
-//		vo.setProfile("呵呵哒");
-//		vo.setTag("喵喵哒");
-//		System.out.println(ui.modify(vo));
-//		vos = ui.getDocuments("南京大学", "软件学院", "all");
-//		for (DocumentVO vo3 : vos) {
-//			System.out.println(vo3.getID());
-//			System.out.println(vo3.getName());
-//			System.out.println(vo3.getProfile());
-//			System.out.println(vo3.getTag());
-//			System.out.println("-----------------------------");
-//		}
-//
-//		System.out.println(ui.delete(vo));
+		// DocumentVO vo = vos.get(0);
+		// vo.setProfile("呵呵哒");
+		// vo.setTag("喵喵哒");
+		// System.out.println(ui.modify(vo));
+		// vos = ui.getDocuments("南京大学", "软件学院", "all");
+		// for (DocumentVO vo3 : vos) {
+		// System.out.println(vo3.getID());
+		// System.out.println(vo3.getName());
+		// System.out.println(vo3.getProfile());
+		// System.out.println(vo3.getTag());
+		// System.out.println("-----------------------------");
+		// }
+		//
+		// System.out.println(ui.delete(vo));
 	}
 }
