@@ -82,6 +82,7 @@ function write_header_login(username,university){
       <li><a href="user_edit_info.html">个人信息</a></li>\
       <li><a href="#!" onclick="exit()">退出登录</a></li>\
     </ul>\
+    <div class="navbar-fixed"> \
         <nav> \
             <div class="nav-wrapper teal lighten-3"> \
                 <div class="container"> \
@@ -130,12 +131,14 @@ function write_header_login(username,university){
                             </ul> \
                     </div> \
                 </div> \
-            </div></nav>';
+                </div></nav></div>';
     $("header").html(txt);
 }
 
 function write_header_not_login(){
-    var txt=' <!-- Dropdown Structure --> \
+    var txt=' <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
+    <script src="js/materialize.js"></script> \
+    <!-- Dropdown Structure --> \
         <ul id="dropdown1" class="dropdown-content"> \
             <li><a href="#!">南京大学</a></li> \
             <li><a href="changeschool.html">切换</a></li> \
@@ -149,6 +152,7 @@ function write_header_not_login(){
             <li class="divider"></li> \
             <li><a href="http://www.nju.edu.cn" target="_blank">主页</a></li> \
         </ul> \
+        <div class="navbar-fixed"> \
         <nav> \
             <div class="nav-wrapper teal lighten-3"> \
                 <div class="container"> \
@@ -186,6 +190,7 @@ function write_header_not_login(){
                 </div> \
             </div> \
         </nav> \
+        </div> \
         <!-- Modal Structure --> \
         <div id="modal1" class="modal"> \
             <div class="modal-content"> \
