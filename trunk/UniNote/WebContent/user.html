@@ -133,9 +133,8 @@
                     }
                 }  
                 var user_info=xmlDoc.getElementsByTagName("user")[0]; 
-                alert("length="+xmlDoc.getElementsByTagName("user").length);
                 var txt=write_user_info(user_info);
-                 $("#content-on-right").html(txt);
+                $("#user-info-container").html(txt);
             }
 	    }
 
@@ -159,7 +158,10 @@
 				</ul>
 			</div>
 			<div class="col s12 l9" id="content-on-right">
-               
+                <div class="card teal lighten-5"> 
+                    <div class="card-content" id="user-info-container"> 
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>
