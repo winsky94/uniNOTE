@@ -148,8 +148,7 @@ function write_course_list(departments){
 
 function write_course_list(departments){
 
-    var txt='
-    <script>\
+    var txt='<script>\
     $(document).ready(function(){\
     $(".collapsible").collapsible({\
       accordion : false \
