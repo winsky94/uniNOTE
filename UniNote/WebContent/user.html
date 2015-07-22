@@ -120,6 +120,7 @@
 	    function onUserInfoResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 var text=xmlhttp.responseText;
+                alert(text);
                 try{
                     var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
                     xmlDoc.async="false";
@@ -158,43 +159,7 @@
 				</ul>
 			</div>
 			<div class="col s12 l9" id="content-on-right">
-                <!--
-				<div class="card teal lighten-5">
-					<div class="card-content" id="user-info-container">
-						<div class="table-row">
-							<div class="property">Nickname</div>
-							<div class="value" id="nickname">王宁</div>
-						</div>
-						<div class="table-row">
-							<div class="property">Email</div>
-							<div class="value" id="email">wn13@software.nju.edu.cn</div>
-						</div>
-						<div class="table-row">
-							<div class="property">School</div>
-							<div class="value" id="school">南京大学</div>
-						</div>
-						<div class="table-row">
-							<div class="property">Phonenumber</div>
-							<div class="value" id="phonenumber">6465132135494</div>
-						</div>
-						<div class="table-row">
-							<div class="property">积分</div>
-							<div class="value">10</div>
-						</div>
-						<div class="table-row">
-							<div class="property">上传量</div>
-							<div class="value">10</div>
-						</div>
-						<div class="table-row">
-							<div class="property">下载量</div>
-							<div class="value">20</div>
-						</div>
-					    <div class="card-action">
-						    <a href="#" onclick="write_edit_user_info()" class="edit_info">编辑</a>
-						    <a href="#" onclick="write_changepw()" class="changepw">修改密码</a>
-					    </div>
-					</div>
-				</div> -->
+               
 			</div>
 		</div>
 	</div>
