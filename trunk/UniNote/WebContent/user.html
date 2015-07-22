@@ -38,7 +38,7 @@
 	    	display: table-cell;
 	    }
 	</style>
-
+    <script src="js/xmlhttp.js"></script>
 	<script src="js/writeHTML.js"></script>
 	<script src="js/ChangeUserInfoAjax.js"></script>
 	<script src="js/cookie.js"></script>
@@ -117,10 +117,10 @@
 					<li class="collection-header">
 						<h4>王宁</h4>
 					</li>
-					<a href="#!"class="collection-item">个人资料</a>
-					<a href="#!"class="collection-item">我的收藏</a>
-					<a href="#!"class="collection-item">我的上传</a>
-					<a href="#!"class="collection-item">我的下载</a>
+					<a href="#!"class="collection-item" onclick="get_user_info()">个人资料</a>
+					<a href="#!"class="collection-item" onclick="get_user_collect_docs()">我的收藏</a>
+					<a href="#!"class="collection-item" onclick="get_user_upload_docs()">我的上传</a>
+					<a href="#!"class="collection-item" onclick="get_user_download_docs()">我的下载</a>
 				</ul>
 			</div>
 			<div class="col s12 l9" id="user-info">
