@@ -331,6 +331,5 @@ public class DocumentInfo {
 		System.out.println(ui.add(vo1));
 		System.out.println(ui.add(vo2));
 		System.out.println(ui.search("hehe"));
-		System.out.println(ui.getDocuments().size());
 	}
 }
