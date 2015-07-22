@@ -52,7 +52,9 @@ public class DownLoadServlet extends HttpServlet {
 		String temp = URLEncoder.encode(fileName, "utf-8");
 		temp = temp.replace("+", "%20");
 
-		response.setHeader("Content-Disposition", "attachment;filename*=utf-8''" + temp
+//		response.setHeader("Content-Disposition", "attachment;filename*=utf-8''" + temp
+//				+ "." + type);
+		response.setHeader("Content-Disposition", "attachment;filename" + temp
 				+ "." + type);
 
 		// 说明一下web站点下载文件的原理
