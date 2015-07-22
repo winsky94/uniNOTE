@@ -10,6 +10,8 @@ import object.UserVO;
 
 public class UserInfo {
 
+	//个人资料、上传的文档、下载的文档、收藏的文档
+	
 	public boolean add(UserVO vo) {
 		int count = 0;
 		boolean istrue = false;
