@@ -51,7 +51,7 @@
             }
             var departments=xmlDoc.getElementsByTagName("department");
             var txt=write_course_list(departments);
-            document.getElementById("course_list").innerHTML=txt;
+            $("#course_list").html(txt);
             }
 		}
 
