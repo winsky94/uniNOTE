@@ -75,12 +75,12 @@
     <url-pattern>/CategoryServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>GetCollectionsServlet</servlet-name>
-    <servlet-class>server.GetCollectionsServlet</servlet-class>
+    <servlet-name>UserCollectionsServlet</servlet-name>
+    <servlet-class>server.UserCollectionsServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GetCollectionsServlet</servlet-name>
-    <url-pattern>/GetCollectionsServlet</url-pattern>
+    <servlet-name>UserCollectionsServlet</servlet-name>
+    <url-pattern>/UserCollectionsServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>UserInfoServlet</servlet-name>
