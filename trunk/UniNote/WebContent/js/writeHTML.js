@@ -60,30 +60,34 @@
 
 
 function write_user_info(user_info){
-    var nickname=user_info.getElementsByTagName("nickname")[0].firstChild.nodeValue;
+    var nickname=$("#user-name").attr("title");
     var email=user_info.getElementsByTagName("email")[0].firstChild.nodeValue;
+    var school=user_info.getElementsByTagName("school")[0].firstChild.nodeValue;
+    var phonenumber=user_info.getElementsByTagName("phonenumber")[0].firstChild.nodeValue;
+    var point=user_info.getElementsByTagName("point")[0].firstChild.nodeValue;
+
 
     var txt='<div class="card teal lighten-5"> \
                 <div class="card-content" id="user-info-container"> \
                     <div class="table-row"> \
                         <div class="property">Nickname</div> \
-                        <div class="value" id="nickname">呵呵</div> \
+                        <div class="value" id="nickname">'+nickname+'</div> \
                     </div> \
                     <div class="table-row"> \
                         <div class="property">Email</div> \
-                        <div class="value" id="email">wn13@software.nju.edu.cn</div> \
+                        <div class="value" id="email">'+email+'</div> \
                     </div> \
                     <div class="table-row"> \
                         <div class="property">School</div> \
-                        <div class="value" id="school">南京大学</div> \
+                        <div class="value" id="school">'+school+'</div> \
                     </div> \
                     <div class="table-row"> \
                         <div class="property">Phonenumber</div> \
-                        <div class="value" id="phonenumber">6465132135494</div> \
+                        <div class="value" id="phonenumber">'+phonenumber+'</div> \
                     </div> \
                     <div class="table-row"> \
                         <div class="property">积分</div> \
-                        <div class="value">10</div> \
+                        <div class="value">'+point+'</div> \
                     </div> \
                     <div class="table-row"> \
                         <div class="property">上传量</div> \
