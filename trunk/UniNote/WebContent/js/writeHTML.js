@@ -1,14 +1,7 @@
- /*
- function collapsible_initialization(class){
-    //alert("click collapsible header parent="+$(this).parent().attr('title'));
-    //$(this).parent().attr('class','active');
-    alert(class);
-    $(this).parent().attr('class','active');
-    $(this).attr('class','collapsible-header active');
- }
- */
 
-
+function collapsible_open(message){
+    alert(message);
+}
 
 
  function write_document_list(file_elements){
@@ -153,15 +146,15 @@ function write_course_list(departments){
 
     var txt='<ul class="collapsible" data-collapsible="expandable">  \
     <li class="active"> \
-      <div class="collapsible-header" id="1"><i class="material-icons">filter_drama</i>First</div> \
+      <div class="collapsible-header" id="1" onclick="collapsible_open(this.id)"><i class="material-icons">filter_drama</i>First</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li class="active"> \
-      <div class="collapsible-header" title="2"><i class="material-icons">place</i>Second</div> \
+      <div class="collapsible-header" title="2" onclick="collapsible_open(this.title)"><i class="material-icons">place</i>Second</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li class="active"> \
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div> \
+      <div class="collapsible-header" onclick="collapsible_open(this.class)"><i class="material-icons">whatshot</i>Third</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
   </ul>';
