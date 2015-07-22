@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +31,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
+import sql.CollectionInfo;
 import sql.DocumentInfo;
 
 /**
@@ -64,19 +67,19 @@ public class DocumentOverViewServlet extends HttpServlet {
 		String department = new String(tempD.getBytes("iso-8859-1"), "utf-8");
 		String tempC = request.getParameter("course");
 		String course = new String(tempC.getBytes("iso-8859-1"), "utf-8");
+		String name = request.getParameter("nickname");
+		String nickname = new String(name.getBytes("iso-8859-1"), "utf-8");
 
-		System.out.println("传来的参数：");
-		System.out.println(school);
-		System.out.println(department);
-		System.out.println(course);
-		System.out.println("over");
-		
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		DocumentInfo documentInfo = new DocumentInfo();
 		documents = documentInfo.getDocuments(school, department, course);
 
+		CollectionInfo ci = new CollectionInfo();
+		Map<Integer, Byte> maps = new HashMap<Integer, Byte>();
+		maps = ci.getCollections(nickname);
+
 		// 创建XML文件
-		String xmlStr = writeXMLString(documents);
+		String xmlStr = writeXMLString(documents, maps);
 		out.println(xmlStr);
 
 	}
@@ -114,7 +117,8 @@ public class DocumentOverViewServlet extends HttpServlet {
 	/**
 	 * 功能：生成XML格式的字符串
 	 */
-	public String writeXMLString(ArrayList<DocumentVO> documents) {
+	public String writeXMLString(ArrayList<DocumentVO> documents,
+			Map<Integer, Byte> maps) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try {
@@ -230,6 +234,17 @@ public class DocumentOverViewServlet extends HttpServlet {
 			Text tDownloadNum = doc.createTextNode(String.valueOf(vo
 					.getDownloadNum()));
 			downloadNum.appendChild(tDownloadNum);
+
+			// 创建文件是否被收藏节点，Y表示被收藏，N表示没有被收藏
+			Element bookmark = doc.createElement("bookmark");
+			file.appendChild(downloadNum);
+			String collection = "N";
+			Byte test = maps.get(vo.getID());
+			if (test != null) {
+				collection = "Y";
+			}
+			Text tBookmark = doc.createTextNode(collection);
+			bookmark.appendChild(tBookmark);
 
 		}
 		try {
