@@ -125,11 +125,11 @@ public class UpLoadServlet extends HttpServlet {
 					FileItem item = (FileItem) iter.next();
 					item.getInputStream();
 					if (!item.isFormField()) {
-						fileName = item.getName();
+						fileName = item.getName().replaceAll(" ", "");
 						if (fileName != null || !fileName.equals("")) {
 							File fullFile = new File(item.getName());
 							File savedFile = new File(uploadPath,
-									fullFile.getName());
+									fullFile.getName().replaceAll(" ", ""));
 							item.write(savedFile);
 						} else {
 							return;
