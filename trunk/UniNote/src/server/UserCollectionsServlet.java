@@ -34,7 +34,7 @@ import sql.CollectionInfo;
 /**
  * Servlet implementation class GetCollectionsServlet
  */
-@WebServlet("/GetCollectionsServlet")
+@WebServlet("/UserCollectionsServlet")
 public class UserCollectionsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
