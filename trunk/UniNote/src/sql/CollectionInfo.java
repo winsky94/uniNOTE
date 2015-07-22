@@ -16,7 +16,7 @@ public class CollectionInfo {
 	private Statement statement = null;
 	private ResultSet resultSet = null;
 
-	private void changeState(String nickname, int documentID) {
+	public void changeState(String nickname, int documentID) {
 		try {
 			connection = SqlManager.getConnection();
 			statement = connection.createStatement();
