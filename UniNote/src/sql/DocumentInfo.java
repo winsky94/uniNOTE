@@ -99,11 +99,46 @@ public class DocumentInfo {
 	}
 
 	public boolean delete(DocumentVO vo) {
-		return true;
+		boolean result = false;
+		try {
+			Connection connection = SqlManager.getConnection();
+			Statement statement = connection.createStatement();
+			String query = "delete from document where documentID="
+					+ vo.getID();
+			int res = statement.executeUpdate(query);
+			if (res != 0) {
+				result = true;
+			}
+			statement.close();
+			connection.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	public boolean modify(DocumentVO vo) {
-		return true;
+		boolean result = false;
+		try {
+			Connection connection = SqlManager.getConnection();
+			Statement statement = connection.createStatement();
+
+			String profile = vo.getProfile();
+			String tag = vo.getTag();
+
+			String query = "update document set profile='" + profile
+					+ "' , tag='" + tag + "' where documentID=" + vo.getID();
+			int res = statement.executeUpdate(query);
+			if (res != 0) {
+				result = true;
+			}
+			statement.close();
+			connection.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return result;
 	}
 
 	public File search(String s) {
@@ -153,34 +188,33 @@ public class DocumentInfo {
 	public ArrayList<DocumentVO> getDocuments(String school, String department,
 			String course) {
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
-		String s="";
-	    boolean isHasBegin=false;
-		if(!school.equals("all")){
-			s+="category.school='"+school+"' ";
-			isHasBegin=true;
+		String s = "";
+		boolean isHasBegin = false;
+		if (!school.equals("all")) {
+			s += "category.school='" + school + "' ";
+			isHasBegin = true;
 		}
-		if(!department.equals("all")){
-			if(isHasBegin==false){
-			   s+="category.department='"+department+"' ";
-			   isHasBegin=true;
+		if (!department.equals("all")) {
+			if (isHasBegin == false) {
+				s += "category.department='" + department + "' ";
+				isHasBegin = true;
+			} else {
+				s += "and category.department='" + department + "' ";
 			}
-			else{
-			   s+="and category.department='"+department+"' ";
-			}		
 		}
-		if(!course.equals("all")){
-			if(isHasBegin==false){
-			    s+="category.course='"+course+"' ";
-			   isHasBegin=true;
+		if (!course.equals("all")) {
+			if (isHasBegin == false) {
+				s += "category.course='" + course + "' ";
+				isHasBegin = true;
+			} else {
+				s += "and category.course='" + course + "' ";
 			}
-			else{
-				s+="and category.course='"+course+"' ";
-			}			
 		}
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String query = "select * from document,category where document.categoryID=category.cid and "+s;
+			String query = "select * from document,category where document.categoryID=category.cid and "
+					+ s;
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
 				int idi = resultSet.getInt("documentID");
@@ -345,19 +379,37 @@ public class DocumentInfo {
 
 	public static void main(String[] args) {
 		DocumentInfo ui = new DocumentInfo();
-		// ui.createTable();
-//		DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
-//				"c", "N", "南京大学", "软件学院", "计算机与操作系统", "王宁");
-//		DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
-//				"D:\\web_server_file\\时机+市场规模.docx", "呵呵哒", "营销,商业计划书", "Y",
-//				"南京大学", "软件学院", "数据结构与算法", "严顺宽");
-//
-//		System.out.println(ui.add(vo1));
-//		System.out.println(ui.add(vo2));
-//		System.out.println(ui.search("hehe"));
-		ArrayList<DocumentVO> vos=ui.getDocuments("南京大学", "软件学院", "数据结构与算法");
-		for(DocumentVO vo:vos){
+//		 ui.createTable();
+//		 DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
+//		 "c", "N", "南京大学", "软件学院", "计算机与操作系统", "王宁");
+//		 DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
+//		 "D:\\web_server_file\\时机+市场规模.docx", "呵呵哒", "营销,商业计划书", "Y",
+//		 "南京大学", "软件学院", "数据结构与算法", "严顺宽");
+//		
+//		 System.out.println(ui.add(vo1));
+//		 System.out.println(ui.add(vo2));
+//		 System.out.println(ui.search("hehe"));
+		ArrayList<DocumentVO> vos = ui.getDocuments("南京大学", "软件学院", "all");
+		for (DocumentVO vo : vos) {
+			System.out.println(vo.getID());
 			System.out.println(vo.getName());
+			System.out.println(vo.getProfile());
+			System.out.println(vo.getTag());
+			System.out.println("-----------------------------");
 		}
+		DocumentVO vo = vos.get(0);
+		vo.setProfile("呵呵哒");
+		vo.setTag("喵喵哒");
+		System.out.println(ui.modify(vo));
+		vos = ui.getDocuments("南京大学", "软件学院", "all");
+		for (DocumentVO vo3 : vos) {
+			System.out.println(vo3.getID());
+			System.out.println(vo3.getName());
+			System.out.println(vo3.getProfile());
+			System.out.println(vo3.getTag());
+			System.out.println("-----------------------------");
+		}
+
+		System.out.println(ui.delete(vo));
 	}
 }
