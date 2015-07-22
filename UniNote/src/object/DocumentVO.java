@@ -22,7 +22,7 @@ public class DocumentVO {
 
 	public DocumentVO(String name, String customeName, String path,
 			String profile, String tag, String postgraduateData, String school,
-			String dapartment, String course, String uploader) {
+			String department, String course, String uploader) {
 		this.name = name;
 		this.customName = customeName;
 		this.path = path;
@@ -35,7 +35,7 @@ public class DocumentVO {
 		this.profile = profile;
 		this.tag = tag;
 		this.postgraduateData = postgraduateData;
-		this.categoryID = CategoryInfo.getVoID(school, dapartment, course);
+		this.categoryID = CategoryInfo.getVoID(school, department, course);
 		this.uploader = uploader;
 	}
 
