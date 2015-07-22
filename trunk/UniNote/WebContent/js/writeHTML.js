@@ -126,6 +126,10 @@ function write_course_list(departments){
       accordion : false \
     });\
   });\
+$('a.collection-item').click(function(){\
+        $('a.collection-item').css('background-color','#fff');\
+        $(this).css('background-color','#e0f2f1');\
+        });\
     </script>\
     <ul class='collapsible' data-collapsible='expandable'>";
     for(i=0;i<departments.length;i++){
