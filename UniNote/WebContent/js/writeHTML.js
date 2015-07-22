@@ -9,7 +9,8 @@ function collapsible_open(message){
 
 
  function write_document_list(file_elements){
-	var txt="  $(document).ready(function(){ \
+	var txt=" <script> \
+     $(document).ready(function(){ \
     $('.secondary-content').css('color','#777777'); \
     $('.secondary-content').click(function(){  \
         var title=$(this).attr('title'); \
@@ -21,7 +22,8 @@ function collapsible_open(message){
             $(this).attr('title','not-selected'); \
         }   \
      }); \
-});";
+}); \
+    </script>";
     for(i=0;i<file_elements.length;i++){
 
         //开头
