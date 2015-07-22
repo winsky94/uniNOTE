@@ -35,6 +35,9 @@ public class DownloadInfo {
 				statement1.execute();
 				statement1.close();
 			}
+			query = "update document set downloadNum=downloadNum+1 where documentID="
+					+ documentID;
+			statement.executeUpdate(query);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
