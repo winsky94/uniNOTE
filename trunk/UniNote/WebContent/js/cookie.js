@@ -182,7 +182,7 @@ function write_header_not_login(){
                             </a></li> \
                             <li><a class="modal-trigger" href="#modal1">登录/注册</a></li> \
                         </ul> \
-                        <ul class="side-nav" id="slide-out"> \
+                        <ul class="side-nav" id="mobile-demo"> \
                             <li><a href="index.html">首页</a></li> \
                             <li><a href="list.html">文档</a></li> \
                             <li><a href="upload.html">上传文档</a></li> \
@@ -193,9 +193,6 @@ function write_header_not_login(){
                             </a></li> \
                             <li><a class="modal-trigger" id="login-trigger" href="#modal1">登录/注册</a></li> \
                         </ul> \
-                        <a href="#" data-activates="slide-out" class="button-collapse"> \
-                            <i class="mdi-navigation-menu"></i> \
-                        </a> \
                     </div> \
                 </div> \
             </div> \
