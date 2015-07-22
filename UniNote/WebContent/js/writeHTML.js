@@ -153,11 +153,11 @@ function write_course_list(departments){
     </li> \
     <li class="active"> \
       <div class="collapsible-header" title="2" onclick="collapsible_open(this.title)"><i class="material-icons">place</i>Second</div> \
-      <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li> \
       <div class="collapsible-header" onclick="collapsible_open(this.class)"><i class="material-icons">whatshot</i>Third</div> \
-      <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
   </ul>';
 
