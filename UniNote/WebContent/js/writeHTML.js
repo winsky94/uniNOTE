@@ -213,7 +213,7 @@ function write_course_list(departments){
         $('a.collection-item').css('background-color','#fff');\
         $(this).css('background-color','#e0f2f1');\
         });\
-    function init_list(department_chosen,course_chosen){\
+    function get_documents_by_course(department_chosen,course_chosen){\
             var xmlhttp=getXmlHttp();\
             var university=$('#university-info').attr('title');\
             alert(university);\
@@ -241,7 +241,7 @@ function write_course_list(departments){
             for(j=0;j<courses.length;j++){
                 txt=txt+"<a href='#!' class='collection-item' title='"
                 +courses[j].firstChild.nodeValue+
-                "' onclick='init_list(departments[i].getAttribute('院系'),courses[j].firstChild.nodeValue)'>"
+                "' onclick='get_documents_by_course("+departments[i].getAttribute('院系')+","+courses[j].firstChild.nodeValue+")'>"
                 +courses[j].firstChild.nodeValue+"</a>";
             }
 
