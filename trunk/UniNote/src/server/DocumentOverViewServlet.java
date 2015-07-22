@@ -51,16 +51,23 @@ public class DocumentOverViewServlet extends HttpServlet {
 			temp = total.intValue() + 1;
 		}
 		request.getSession().setAttribute("total", total.intValue() + temp);
-		
+
 		response.setContentType("application/xml;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-		
+
 		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 
+		String tempS = request.getParameter("school");
+		String school = new String(tempS.getBytes("iso-8859-1"), "utf-8");
+		String tempD = request.getParameter("department");
+		String department = new String(tempD.getBytes("iso-8859-1"), "utf-8");
+		String tempC = request.getParameter("course");
+		String course = new String(tempC.getBytes("iso-8859-1"), "utf-8");
+
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		DocumentInfo documentInfo = new DocumentInfo();
-		documents = documentInfo.getDocuments();
+		documents = documentInfo.getDocuments(school, department, course);
 
 		// 创建XML文件
 		String xmlStr = writeXMLString(documents);
@@ -109,7 +116,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 		} catch (Exception e) {
 		}
 		Document doc = builder.newDocument();
-        doc.setXmlVersion("1.0");
+		doc.setXmlVersion("1.0");
 		Element root = doc.createElement("documents");
 		doc.appendChild(root); // 将根元素添加到文档上
 
@@ -125,7 +132,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 			// 创建文本ID节点
 			Element ID = doc.createElement("ID");
 			file.appendChild(ID);
-			Text tID = doc.createTextNode(vo.getID()+"");
+			Text tID = doc.createTextNode(vo.getID() + "");
 			ID.appendChild(tID);
 
 			// 创建文本姓名节点
@@ -133,11 +140,12 @@ public class DocumentOverViewServlet extends HttpServlet {
 			file.appendChild(name);
 			Text tname = doc.createTextNode(vo.getName());
 			name.appendChild(tname);
-			
-			//创建自定义文件名节点
+
+			// 创建自定义文件名节点
 			Element customName = doc.createElement("filename");
 			file.appendChild(customName);
-			Text tCustomName = doc.createTextNode(String.valueOf(vo.getCustomName()));
+			Text tCustomName = doc.createTextNode(String.valueOf(vo
+					.getCustomName()));
 			customName.appendChild(tCustomName);
 
 			// 创建文本存放路径节点
@@ -151,68 +159,72 @@ public class DocumentOverViewServlet extends HttpServlet {
 			file.appendChild(type);
 			Text tType = doc.createTextNode(String.valueOf(vo.getType()));
 			type.appendChild(tType);
-			
-			//创建文件简介节点
+
+			// 创建文件简介节点
 			Element profile = doc.createElement("profile");
 			file.appendChild(profile);
 			Text tProfile = doc.createTextNode(String.valueOf(vo.getProfile()));
 			profile.appendChild(tProfile);
-			
-			//创建文件标签节点
+
+			// 创建文件标签节点
 			Element tag = doc.createElement("tag");
 			file.appendChild(tag);
-			Text tTag= doc.createTextNode(String.valueOf(vo.getTag()));
+			Text tTag = doc.createTextNode(String.valueOf(vo.getTag()));
 			tag.appendChild(tTag);
-			
-			//创建文件是否是考研资料节点
+
+			// 创建文件是否是考研资料节点
 			Element pg = doc.createElement("postgraduate");
 			file.appendChild(pg);
-			Text tPg= doc.createTextNode(String.valueOf(vo.getPostgraduateData()));
+			Text tPg = doc.createTextNode(String.valueOf(vo
+					.getPostgraduateData()));
 			pg.appendChild(tPg);
-			
-			//创建文件学校节点
+
+			// 创建文件学校节点
 			Element school = doc.createElement("school");
 			file.appendChild(school);
-			Text tSchool= doc.createTextNode(String.valueOf(vo.getSchool()));
+			Text tSchool = doc.createTextNode(String.valueOf(vo.getSchool()));
 			school.appendChild(tSchool);
-			
-			//创建文件学院节点
+
+			// 创建文件学院节点
 			Element department = doc.createElement("department");
 			file.appendChild(department);
-			Text tDepartment= doc.createTextNode(String.valueOf(vo.getDepartment()));
+			Text tDepartment = doc.createTextNode(String.valueOf(vo
+					.getDepartment()));
 			department.appendChild(tDepartment);
-			
-			//创建文件课程节点
+
+			// 创建文件课程节点
 			Element course = doc.createElement("course");
 			file.appendChild(course);
-			Text tCourse= doc.createTextNode(String.valueOf(vo.getCourse()));
+			Text tCourse = doc.createTextNode(String.valueOf(vo.getCourse()));
 			course.appendChild(tCourse);
-			
-			//创建文件上传者节点
+
+			// 创建文件上传者节点
 			Element uploader = doc.createElement("uploader");
 			file.appendChild(uploader);
-			Text tUploader= doc.createTextNode(String.valueOf(vo.getUploader()));
+			Text tUploader = doc
+					.createTextNode(String.valueOf(vo.getUploader()));
 			uploader.appendChild(tUploader);
-			
-			//创建文件点赞数节点
+
+			// 创建文件点赞数节点
 			Element praise = doc.createElement("praise");
 			file.appendChild(praise);
-			Text tPraise= doc.createTextNode(String.valueOf(vo.getPraise()));
+			Text tPraise = doc.createTextNode(String.valueOf(vo.getPraise()));
 			praise.appendChild(tPraise);
-			
-			//创建文件被踩数节点
+
+			// 创建文件被踩数节点
 			Element criticism = doc.createElement("criticism");
 			file.appendChild(criticism);
-			Text tCriticism= doc.createTextNode(String.valueOf(vo.getCriticism()));
+			Text tCriticism = doc.createTextNode(String.valueOf(vo
+					.getCriticism()));
 			criticism.appendChild(tCriticism);
-			
-			//创建文件下载量节点
+
+			// 创建文件下载量节点
 			Element downloadNum = doc.createElement("downloadNum");
 			file.appendChild(downloadNum);
-			Text tDownloadNum= doc.createTextNode(String.valueOf(vo.getDownloadNum()));
+			Text tDownloadNum = doc.createTextNode(String.valueOf(vo
+					.getDownloadNum()));
 			downloadNum.appendChild(tDownloadNum);
 
-			
 		}
 		try {
 			String result = callWriteXmlString(doc, "utf-8");
@@ -222,9 +234,10 @@ public class DocumentOverViewServlet extends HttpServlet {
 			return null;
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		System.out.println(new DocumentInfo().getDocuments());
+		System.out
+				.println(new DocumentInfo().getDocuments("all", "all", "all"));
 	}
 
 }
