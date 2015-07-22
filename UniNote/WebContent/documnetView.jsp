@@ -32,7 +32,7 @@
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-	<style type="text/css" media="screen"> 
+	<style media="screen"> 
 		#flashContent { 
 			display:none; 
 		}
@@ -47,6 +47,7 @@
     </style>
 
 	<script type="text/javascript">
+
         $(document).ready(function(){
         	$('#file-name').html("<%=filename%>");
         	$('#file-profile').html("<%=profile%>");
@@ -58,8 +59,11 @@
             if(!login){
                 $(document).ready(function(){
                     $('#modal1').openModal();
-                });        
-        }
+            });        
+            }else{
+            	$("#nickname").attr("value",$("#user-name").attr("title"));
+            	alert($("#nickname").attr("value"));
+            }
         }
     </script>
 
@@ -134,10 +138,11 @@
 						</a>
 					</div>
 				</div>
-				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="
-check_login()">
+				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
-					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
+					<input type="hidden" id="nickname" name="nickname" value="">
+					<input type="submit" value=" 下载 " class="btn btn-primary">
+				</form>
 			</div>
 		</div>
 	</div>
