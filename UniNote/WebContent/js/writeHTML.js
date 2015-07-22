@@ -148,17 +148,25 @@ function write_course_list(departments){
 
 function write_course_list(departments){
 
-    var txt='<ul class="collapsible" data-collapsible="expandable">  \
-    <li class="active"> \
-      <div class="collapsible-header" id="1" onclick="collapsible_open(this.id)"><i class="material-icons">filter_drama</i>First</div> \
-      <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
+    var txt='
+    <script>\
+    $(document).ready(function(){\
+    $(".collapsible").collapsible({\
+      accordion : false \
+    });\
+  });\
+    </script>\
+    <ul class="collapsible" data-collapsible="expandable">  \
+    <li> \
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div> \
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
-    <li class="active"> \
-      <div class="collapsible-header" title="2-header" onclick="collapsible_open(this.title)"><i class="material-icons">place</i>Second</div> \
+    <li> \
+      <div class="collapsible-header"><i class="material-icons">place</i>Second</div> \
       <div class="collapsible-body" title="2-body"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li> \
-      <div class="collapsible-header" title="3-header" onclick="collapsible_open(this.title)"><i class="material-icons">whatshot</i>Third</div> \
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div> \
       <div class="collapsible-body" title="3-body"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
   </ul>';
