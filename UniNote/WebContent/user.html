@@ -49,7 +49,7 @@
     		var xmlhttp=getXmlHttp();
     		if(xmlhttp!=null){
             	xmlhttp.onreadystatechange=function(){onUserInfoResponse(xmlhttp)};
-                xmlhttp.open("GET","UniNode/UserInfoServlet?nickname="+nickname,true);    
+                xmlhttp.open("GET","UserInfoServlet?nickname="+nickname,true);    
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');        
                 xmlhttp.send();                              
             }else{
@@ -116,7 +116,7 @@
 
 	</script>
 </head>
-<body onload="check_cookie();write_footer()">
+<body onload="check_cookie();write_footer();get_user_info()">
 	<header>
 	</header>
 
@@ -134,6 +134,7 @@
 				</ul>
 			</div>
 			<div class="col s12 l9" id="content-on-right">
+                <!--
 				<div class="card teal lighten-5">
 					<div class="card-content" id="user-info-container">
 						<div class="table-row">
@@ -169,7 +170,7 @@
 						    <a href="#" onclick="write_changepw()" class="changepw">修改密码</a>
 					    </div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
