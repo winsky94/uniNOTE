@@ -71,7 +71,7 @@ function write_header_login(username,university){
     <!-- Dropdown2 Structure -->\
     <ul id="dropdown2" class="dropdown-content">\
       <li><a href="#!">'+username+'</a></li>\
-      <li><a href="user_edit_info.html">个人信息</a></li>\
+      <li><a href="user.html">个人信息</a></li>\
       <li><a href="#!" onclick="exit()">退出登录</a></li>\
     </ul>\
     <!-- Dropdown3 Structure -->\
@@ -84,7 +84,7 @@ function write_header_login(username,university){
     <!-- Dropdown4 Structure -->\
     <ul id="dropdown4" class="dropdown-content">\
       <li><a href="#!">'+username+'</a></li>\
-      <li><a href="user_edit_info.html">个人信息</a></li>\
+      <li><a href="user.html">个人信息</a></li>\
       <li><a href="#!" onclick="exit()">退出登录</a></li>\
     </ul>\
     <div class="navbar-fixed"> \
