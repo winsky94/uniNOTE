@@ -57,6 +57,8 @@ function write_header_login(username,university){
     var txt='<script>  \
        $(document).ready(function(){  \
          $(".dropdown-button").dropdown();  \
+         $(".button-collapse").sideNav();  \
+         $(".modal-trigger").leanModal();  \
        }); \
     </script> \
     <!-- Dropdown Structure -->\
@@ -142,6 +144,8 @@ function write_header_not_login(){
     var txt='<script>  \
        $(document).ready(function(){  \
          $(".dropdown-button").dropdown();  \
+         $(".button-collapse").sideNav();  \
+         $(".modal-trigger").leanModal();  \
        }); \
     </script> \
     <!-- Dropdown Structure --> \
