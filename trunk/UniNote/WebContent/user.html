@@ -15,7 +15,7 @@
 	        margin-right: 9%;
 	    }
 	    .main{
-            margin-top: 80px;
+            margin-top: 40px;
 	    }
 	    h4{
 	    	color: #26A69A;
@@ -35,6 +35,16 @@
 	    	display: table-cell;
 	    }
 	    .value{
+	    	display: table-cell;
+	    }
+	    .table-container{
+	    	display: table;
+	    	border-spacing: 10px;
+	    }
+	    .row-container{
+            display: table-row;	    	
+	    }
+	    .cell{
 	    	display: table-cell;
 	    }
 	</style>
@@ -106,7 +116,7 @@
 
 	</script>
 </head>
-<body onload="check_cookie();write_user_info();write_footer()">
+<body onload="check_cookie();write_footer()">
 	<header>
 	</header>
 
@@ -152,12 +162,12 @@
 						</div>
 						<div class="table-row">
 							<div class="property">下载量</div>
-							<div class="value">10</div>
+							<div class="value">20</div>
 						</div>
-					<div class="card-action">
-						<a href="#" onclick="write_edit_user_info()">编辑</a>
-						<a href="#" onclick="write_changepw()">修改密码</a>
-					</div>
+					    <div class="card-action">
+						    <a href="#" onclick="write_edit_user_info()" class="edit_info">编辑</a>
+						    <a href="#" onclick="write_changepw()" class="changepw">修改密码</a>
+					    </div>
 					</div>
 				</div>
 			</div>

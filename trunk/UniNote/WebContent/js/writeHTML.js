@@ -142,7 +142,7 @@ function write_changepw(){
     var txt='<div class="row"> \
                 <div class="input-field col s10 m10 l10"> \
                     <input disabled id="nickname" type="text" name="nickname" class="validate" value="王宁"> \
-                    <label for="last_name">Nickname</label> \
+                    <label for="last_name" class="active">Nickname</label> \
                 </div> \
                 <div class="input-field col s2 m2 l2"> <font color="red" size="2"><span id="result" ></span></font>  \
                 </div> \
@@ -160,9 +160,10 @@ function write_changepw(){
                 </div> \
                 <div class="col s8 table-container"> \
                     <div class="row row-container"> \
-                        <div class="input-field cell"> \
+                        <div class="input-field"> \
                             <input type="hidden" name="flag" value="password"> \
-                            <input type="submit" value=" 提交 " onclick="verify();" class="btn btn-primary"></div> \
+                            <input type="submit" value=" 提交 " onclick="verify()" class="btn btn-primary cell"></div> \
+                            <a class="btn btn-primary cell" onclick="window.location.reload(true)">取消</a> \
                         <div class="input-field cell"> <font color="red" size="2"><span id="result" >233333333</span></font>  \
                         </div> \
                     </div> \
