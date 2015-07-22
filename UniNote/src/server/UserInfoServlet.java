@@ -121,27 +121,30 @@ public class UserInfoServlet extends HttpServlet {
 		Document doc = builder.newDocument();
 		doc.setXmlVersion("1.0");
 		
+		Element root = doc.createElement("user");
+		doc.appendChild(root); // 将根元素添加到文档上
+		
 		//创建文本邮箱节点
 		Element email = doc.createElement("email");
-		doc.appendChild(email); // 将根元素添加到文档上
+		root.appendChild(email); // 将根元素添加到文档上
 		Text tRootText = doc.createTextNode(user.getEmail());
 		email.appendChild(tRootText);
 
 		// 创建文本学校节点
 		Element school = doc.createElement("school");
-		doc.appendChild(school); // 将根元素添加到文档上
+		root.appendChild(school); // 将根元素添加到文档上
 		Text tSchool= doc.createTextNode(user.getSchool());
 		school.appendChild(tSchool);
 		
 		//创建文本电话节点
 		Element phone = doc.createElement("phoneNumber");
-		doc.appendChild(phone); // 将根元素添加到文档上
+		root.appendChild(phone); // 将根元素添加到文档上
 		Text tPhone= doc.createTextNode(user.getPhoneNumber());
 		phone.appendChild(tPhone);
 		
 		//创建积分节点
 		Element point = doc.createElement("point");
-		doc.appendChild(point); // 将根元素添加到文档上
+		root.appendChild(point); // 将根元素添加到文档上
 		Text tPoint= doc.createTextNode(user.getPoint()+"");
 		point.appendChild(tPoint);
 		
