@@ -213,7 +213,21 @@ function write_course_list(departments){
         $('a.collection-item').css('background-color','#fff');\
         $(this).css('background-color','#e0f2f1');\
         });\
-    </script>\
+    function init_list(department_chosen,course_chosen){\
+            var xmlhttp=getXmlHttp();\
+            var university=$('#university-info').attr('title');\
+            alert(university);\
+            if(xmlhttp!=null){\
+                xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+encodeURI(encodeURI(university))+'&department='+encodeURI(encodeURI(department_chosen))+\
+                    '&course='+encodeURI(encodeURI(course_chosen)),true);\
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
+                xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};\
+                xmlhttp.send();\
+            }else{\
+                alert('Your browser does not support XMLHttpRequest.');\
+            } \
+        }\
+        </script>\
     <ul class='collapsible' data-collapsible='expandable'>";
     for(i=0;i<departments.length;i++){
         //开头
