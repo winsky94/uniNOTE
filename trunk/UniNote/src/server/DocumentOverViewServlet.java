@@ -65,9 +65,11 @@ public class DocumentOverViewServlet extends HttpServlet {
 		String tempC = request.getParameter("course");
 		String course = new String(tempC.getBytes("iso-8859-1"), "utf-8");
 
+		System.out.println("传来的参数：");
 		System.out.println(school);
 		System.out.println(department);
 		System.out.println(course);
+		System.out.println("over");
 		
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		DocumentInfo documentInfo = new DocumentInfo();
