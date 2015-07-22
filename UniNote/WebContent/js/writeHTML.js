@@ -148,16 +148,16 @@ function write_course_list(departments){
 function write_course_list(departments){
 
     var txt='<ul class="collapsible" data-collapsible="accordion">  \
-    <li> \
-      <div class="collapsible-header" onclick="collapsible_initialization(this.class)"><i class="material-icons">filter_drama</i>First</div> \
+    <li class="active"> \
+      <div class="collapsible-header active" onclick="collapsible_initialization(this.class)"><i class="material-icons">filter_drama</i>First</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
-    <li class="not-active"> \
-      <div class="collapsible-header" onclick="collapsible_initialization(this.class)"><i class="material-icons">place</i>Second</div> \
+    <li class="active"> \
+      <div class="collapsible-header active" onclick="collapsible_initialization(this.class)"><i class="material-icons">place</i>Second</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
-    <li class="not-active"> \
-      <div class="collapsible-header" onclick="collapsible_initialization(this.class)"><i class="material-icons">whatshot</i>Third</div> \
+    <li class="active"> \
+      <div class="collapsible-header active" onclick="collapsible_initialization(this.class)"><i class="material-icons">whatshot</i>Third</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
   </ul>';
