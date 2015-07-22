@@ -140,11 +140,18 @@ public class DocumentInfo {
 	}
 
 	/**
-	 * 得到数据库中全部的文件对象
+	 * 检索某校某院系某课程的文档
 	 * 
-	 * @return
+	 * @param school
+	 *            学校
+	 * @param department
+	 *            院系
+	 * @param course
+	 *            课程
+	 * @return 如果全部为all，则返回所有文档
 	 */
-	public ArrayList<DocumentVO> getDocuments() {
+	public ArrayList<DocumentVO> getDocuments(String school, String department,
+			String course) {
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		try {
 			Connection con = SqlManager.getConnection();
