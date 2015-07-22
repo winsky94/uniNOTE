@@ -45,9 +45,9 @@
 
         //结尾
         if(marked=='Y'){
-            txt=txt+"<a href='#!' class='secondary-content marked' type='submit' title='selected'><i class='material-icons'>grade</i></a>";
+            txt=txt+"<a href='#!' class='secondary-content marked' title='selected'><i class='material-icons'>grade</i></a>";
         }else{
-            txt=txt+"<a href='#!' class='secondary-content not-marked' type='submit' title='not-selected'><i class='material-icons'>grade</i></a>";
+            txt=txt+"<a href='#!' class='secondary-content not-marked' title='not-selected'><i class='material-icons'>grade</i></a>";
         }
         
         txt=txt +"</li>";
