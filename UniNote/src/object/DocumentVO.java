@@ -20,11 +20,11 @@ public class DocumentVO {
 	private int criticism;
 	private int downloadNum;
 
-	public DocumentVO(String name, String customeName, String path,
+	public DocumentVO(String name, String customName, String path,
 			String profile, String tag, String postgraduateData, String school,
 			String department, String course, String uploader) {
 		this.name = name;
-		this.customName = customeName;
+		this.customName = customName;
 		this.path = path;
 		String[] buffer = path.split("\\.");
 		if (buffer.length > 1) {
