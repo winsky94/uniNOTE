@@ -3,7 +3,7 @@ function collapsible_open(message){
     alert(message);
     alert($(this).next().attr('title'));
     $(this).parent().attr('class','active');
-    $(this).next().style('block');
+    $(this).next().display('block');
 }
 
 
