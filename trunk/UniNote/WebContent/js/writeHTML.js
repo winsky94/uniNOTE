@@ -1,6 +1,8 @@
 
 function collapsible_open(message){
     alert(message);
+    $(this).parent().attr('class','active');
+    $(this).next().css('display','block');
 }
 
 
@@ -153,7 +155,7 @@ function write_course_list(departments){
       <div class="collapsible-header" title="2" onclick="collapsible_open(this.title)"><i class="material-icons">place</i>Second</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
-    <li class="active"> \
+    <li> \
       <div class="collapsible-header" onclick="collapsible_open(this.class)"><i class="material-icons">whatshot</i>Third</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
