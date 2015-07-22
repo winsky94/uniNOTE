@@ -113,15 +113,15 @@ function write_edit_user_info(){
     <div class="input-field col s12">  \
                     <input id="nickname" type="hidden" name="nickname" value="'+nickname+'"> \
                     <input id="email" type="email" name="email" class="validate" value="'+email+'">  \
-                    <label for="email">Email</label>  \
+                    <label for="email" class="active">Email</label>  \
                   </div>  \
                 <div class="input-field col s12">  \
                  <input id="school" type="text" name="school" class="validate" value="'+school+'">  \
-                 <label for="school">School</label>  \
+                 <label for="school" class="active">School</label>  \
                 </div>  \
                 <div class="input-field col s12">  \
                   <input id="phonenumber" type="text" name="phonenumber" class="validate" value="'+phonenumber+'">  \
-                  <label for="phonenumber">PhoneNumber</label>  \
+                  <label for="phonenumber" class="active">PhoneNumber</label>  \
                 </div>  \
                 <div class="col s8 table-container"> \
                     <div class="row-container"> \
