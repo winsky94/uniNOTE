@@ -102,7 +102,7 @@ function write_user_info(user_info){
                     </div> \
                     <div class="card-action"> \
                         <a href="#" onclick="write_edit_user_info()">编辑</a> \
-                        <a href="#" onclick="write_changepw()">修改密码</a>
+                        <a href="#" onclick="write_changepw()">修改密码</a> \
             </div>';
     return txt;
 
