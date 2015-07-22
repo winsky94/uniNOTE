@@ -45,44 +45,52 @@
 	<script type="text/javascript">
 
     	function get_user_info(){
+    		var nickname=$("#user-name").attr("title");
     		var xmlhttp=getXmlHttp();
     		if(xmlhttp!=null){
-            	xmlhttp.onreadystatechange=onUserInfoResponse;
-                xmlhttp.open("GET","",true);                  //server undefined
-                xmlhttp.send();                               //arguments undefined
+            	xmlhttp.onreadystatechange=function(){onUserInfoResponse(xmlhttp)};
+                xmlhttp.open("GET","UniNode/UserInfoServlet?nickname="+nickname,true);    
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');        
+                xmlhttp.send();                              
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
     	}
 
     	function get_user_upload_docs(){
+    		var nickname=$("#user-name").attr("title");
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
-                xmlhttp.onreadystatechange=onFileListResponse; 
-                xmlhttp.open("GET","",true);                  //server undefined
-                xmlhttp.send();                               //arguments undefined
+                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
+                xmlhttp.open("GET","UniNode/UserUpLoadServlet?nickname="+nickname,true);   
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');   
+                xmlhttp.send();                             
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
     	}
          
         function get_user_download_docs(){
+        	var nickname=$("#user-name").attr("title");
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
-                xmlhttp.onreadystatechange=onFileListResponse; 
-                xmlhttp.open("GET","",true);                  //server undefined
-                xmlhttp.send();                               //arguments undefined
+                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
+                xmlhttp.open("GET","UniNode/UserDownloadServlet?nickname="+nickname,true);            
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');       
+                xmlhttp.send();                               
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
     	}
 
     	function get_user_collect_docs(){
+    		var nickname=$("#user-name").attr("title");
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
-                xmlhttp.onreadystatechange=onFileListResponse; 
-                xmlhttp.open("GET","",true);                  //server undefined
-                xmlhttp.send();                               //arguments undefined
+                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
+                xmlhttp.open("GET","UniNode/UserCollectionsServelet?nickname="+nickname,true); 
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');                 
+                xmlhttp.send();                               
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
@@ -91,8 +99,9 @@
     	function onFileListResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
   	   	    	//tagName undefined
-                var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("");   
-                write_document_list(file_elements);
+                var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("document");   
+                var txt=write_document_list(file_elements);
+                $("#content-on-right").html(txt);
             }
 	    }
 
@@ -100,7 +109,8 @@
 	    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
 	    		//tagName undefined
                 var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName(""); 
-                write_user_info(user_info);
+                var txt=write_user_info(user_info);
+                $("#content-on-right").html(txt);
             }
 	    }
 
@@ -123,7 +133,7 @@
 					<a href="#!"class="collection-item" onclick="get_user_download_docs()">我的下载</a>
 				</ul>
 			</div>
-			<div class="col s12 l9" id="user-info">
+			<div class="col s12 l9" id="content-on-right">
 				<div class="card teal lighten-5">
 					<div class="card-content" id="user-info-container">
 						<div class="table-row">
