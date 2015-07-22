@@ -191,12 +191,12 @@ public class DocumentInfo {
 		String s = "";
 		boolean isHasBegin = false;
 		if (!school.equals("all")) {
-			s += "category.school='" + school + "' ";
+			s += "and category.school='" + school + "' ";
 			isHasBegin = true;
 		}
 		if (!department.equals("all")) {
 			if (isHasBegin == false) {
-				s += "category.department='" + department + "' ";
+				s += "and category.department='" + department + "' ";
 				isHasBegin = true;
 			} else {
 				s += "and category.department='" + department + "' ";
@@ -204,7 +204,7 @@ public class DocumentInfo {
 		}
 		if (!course.equals("all")) {
 			if (isHasBegin == false) {
-				s += "category.course='" + course + "' ";
+				s += "and category.course='" + course + "' ";
 				isHasBegin = true;
 			} else {
 				s += "and category.course='" + course + "' ";
@@ -213,7 +213,7 @@ public class DocumentInfo {
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String query = "select * from document,category where document.categoryID=category.cid and "
+			String query = "select * from document,category where document.categoryID=category.cid "
 					+ s;
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
@@ -389,7 +389,7 @@ public class DocumentInfo {
 //		 System.out.println(ui.add(vo1));
 //		 System.out.println(ui.add(vo2));
 //		 System.out.println(ui.search("hehe"));
-		ArrayList<DocumentVO> vos = ui.getDocuments("南京大学", "软件学院", "all");
+		ArrayList<DocumentVO> vos = ui.getDocuments("all", "all", "all");
 		for (DocumentVO vo : vos) {
 			System.out.println(vo.getID());
 			System.out.println(vo.getName());
@@ -397,19 +397,19 @@ public class DocumentInfo {
 			System.out.println(vo.getTag());
 			System.out.println("-----------------------------");
 		}
-		DocumentVO vo = vos.get(0);
-		vo.setProfile("呵呵哒");
-		vo.setTag("喵喵哒");
-		System.out.println(ui.modify(vo));
-		vos = ui.getDocuments("南京大学", "软件学院", "all");
-		for (DocumentVO vo3 : vos) {
-			System.out.println(vo3.getID());
-			System.out.println(vo3.getName());
-			System.out.println(vo3.getProfile());
-			System.out.println(vo3.getTag());
-			System.out.println("-----------------------------");
-		}
-
-		System.out.println(ui.delete(vo));
+//		DocumentVO vo = vos.get(0);
+//		vo.setProfile("呵呵哒");
+//		vo.setTag("喵喵哒");
+//		System.out.println(ui.modify(vo));
+//		vos = ui.getDocuments("南京大学", "软件学院", "all");
+//		for (DocumentVO vo3 : vos) {
+//			System.out.println(vo3.getID());
+//			System.out.println(vo3.getName());
+//			System.out.println(vo3.getProfile());
+//			System.out.println(vo3.getTag());
+//			System.out.println("-----------------------------");
+//		}
+//
+//		System.out.println(ui.delete(vo));
 	}
 }
