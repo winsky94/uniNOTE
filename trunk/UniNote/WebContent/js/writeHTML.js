@@ -153,15 +153,15 @@ function write_course_list(departments){
 
     var txt='<ul class="collapsible" data-collapsible="expandable">  \
     <li class="active"> \
-      <div class="collapsible-header active" id="1"><i class="material-icons">filter_drama</i>First</div> \
+      <div class="collapsible-header" id="1"><i class="material-icons">filter_drama</i>First</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li class="active"> \
-      <div class="collapsible-header active" title="2"><i class="material-icons">place</i>Second</div> \
+      <div class="collapsible-header" title="2"><i class="material-icons">place</i>Second</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
     <li class="active"> \
-      <div class="collapsible-header active"><i class="material-icons">whatshot</i>Third</div> \
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div> \
       <div class="collapsible-body" style="display:block;"><p>Lorem ipsum dolor sit amet.</p></div> \
     </li> \
   </ul>';
