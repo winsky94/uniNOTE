@@ -108,7 +108,7 @@
 	    function onUserInfoResponse(xmlhttp){
 	    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
 	    		//tagName undefined
-                var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName("user"); 
+                var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName("user")[0]; 
                 var txt=write_user_info(user_info);
                 $("#content-on-right").html(txt);
             }
