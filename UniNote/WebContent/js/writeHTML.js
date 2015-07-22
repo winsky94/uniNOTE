@@ -2,7 +2,7 @@
  function write_document_list(file_elements){
 	var txt=" <script> \
     $(document).ready(function(){ \
-        $('.marked').css('color','#26A69A');  \
+        $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
         $('.secondary-content').css('color','#777'); \
         $('.secondary-content').click(function(){  \
