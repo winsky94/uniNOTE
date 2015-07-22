@@ -35,10 +35,10 @@ import sql.CollectionInfo;
  * Servlet implementation class GetCollectionsServlet
  */
 @WebServlet("/GetCollectionsServlet")
-public class GetCollectionsServlet extends HttpServlet {
+public class UserCollectionsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public GetCollectionsServlet() {
+	public UserCollectionsServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
