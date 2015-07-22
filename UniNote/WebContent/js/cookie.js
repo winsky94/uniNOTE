@@ -136,8 +136,11 @@ function write_header_login(username,university){
 }
 
 function write_header_not_login(){
-    var txt=' <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> \
-    <script src="js/materialize.js"></script> \
+    var txt='<script>  \
+       $(document).ready(function(){  \
+         $(".dropdown-button").dropdown();  \
+       }); \
+    </script> \
     <!-- Dropdown Structure --> \
         <ul id="dropdown1" class="dropdown-content"> \
             <li><a href="#!">南京大学</a></li> \
