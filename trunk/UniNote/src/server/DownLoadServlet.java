@@ -3,6 +3,7 @@ package server;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +41,6 @@ public class DownLoadServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		// 下载文件
 		// !!!!!!!!!!!!!注意网页页面上的参数名称是什么!!!!!!!!!!!!!!
-		System.out.println(request.getParameter("ID"));
 		int id=Integer.parseInt(request.getParameter("ID"));
 		
 		DocumentInfo di = new DocumentInfo();
@@ -48,8 +48,8 @@ public class DownLoadServlet extends HttpServlet {
 		
 		String fileName = vo.getCustomName();
 		String type=vo.getType();
-//		String temp = URLEncoder.encode(filename, "utf-8");
-		response.setHeader("Content-Disposition", "attachment;filename=" + fileName+"."+type);
+		String temp = URLEncoder.encode(fileName, "utf-8");
+		response.setHeader("Content-Disposition", "attachment;filename=" + temp+"."+type);
 
 		// 说明一下web站点下载文件的原理
 		// 1.把文件读入到内存
