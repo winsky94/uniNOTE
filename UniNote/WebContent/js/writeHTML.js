@@ -9,7 +9,19 @@ function collapsible_open(message){
 
 
  function write_document_list(file_elements){
-	var txt=" ";
+	var txt="  $(document).ready(function(){ \
+    $('.secondary-content').css('color','#777777'); \
+    $('.secondary-content').click(function(){  \
+        var title=$(this).attr('title'); \
+        if(title=='not-selected'){ \
+            $(this).css('color','#26A69A');  \
+            $(this).attr('title','selected'); \
+        }else{ \
+            $(this).css('color','##e0f2f1');  \
+            $(this).attr('title','not-selected'); \
+        }   \
+     }); \
+});";
     for(i=0;i<file_elements.length;i++){
 
         //开头
@@ -125,8 +137,8 @@ function write_course_list(departments){
     $('.collapsible').collapsible({\
       accordion : false \
     });\
-  });\
-$('a.collection-item').click(function(){\
+    });\
+   $('a.collection-item').click(function(){\
         $('a.collection-item').css('background-color','#fff');\
         $(this).css('background-color','#e0f2f1');\
         });\
