@@ -77,12 +77,24 @@
                 $("#filelist").html(txt);
             }
 	    }
-
-	    function init_list(){
+	    function init_left_list(){
+	    	var university=$('#university-info').attr('title');
+	    	var xmlhttp_course=getXmlHttp();
+            if(xmlhttp_course!=null){
+            	xmlhttp_course.open("GET","/UniNote/CategoryServlet?school="+encodeURI(encodeURI(university)),true);
+            	xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
+            	xmlhttp_course.send();
+ 				
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+	    }
+	    function init_list(department_chosen,course_chosen){
             var xmlhttp=getXmlHttp();
             var university=$('#university-info').attr('title');
             if(xmlhttp!=null){
-            	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet?school="+encodeURI(encodeURI("南京大学")),true);
+            	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet?school="+encodeURI(encodeURI(university))+"&department="+encodeURI(encodeURI(department_chosen))+"&course="+encodeURI(encodeURI(course_chosen)),true);
             	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
                 xmlhttp.send();
@@ -90,18 +102,8 @@
  				
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
-            }
-            var xmlhttp_course=getXmlHttp();
-            if(xmlhttp_course!=null){
-            	xmlhttp_course.open("GET","/UniNote/CategoryServlet?school="+encodeURI(encodeURI("南京大学")),true);
-            	xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
-            	xmlhttp_course.send();
- 				
-            }else{
-            	alert("Your browser does not support XMLHttpRequest.");
-            }	
-            }
+            }     	
+        }
 	    //end init_list
 
 	    function get_documents_by_course(arguments){
@@ -119,7 +121,7 @@
 	</script>
 
 </head>
-<body onload='check_cookie();write_footer();init_list()'>
+<body onload='check_cookie();write_footer();init_list("all","all");init_left_list()'>
 
 	<header></header>
 
