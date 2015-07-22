@@ -106,4 +106,12 @@
     <servlet-name>UserDownloadServlet</servlet-name>
     <url-pattern>/UserDownloadServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CollectServlet</servlet-name>
+    <servlet-class>server.CollectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CollectServlet</servlet-name>
+    <url-pattern>/CollectServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
