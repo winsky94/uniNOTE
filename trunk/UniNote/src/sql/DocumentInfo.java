@@ -302,24 +302,23 @@ public class DocumentInfo {
 					+ "'";
 			ResultSet resultSet = statement.executeQuery(query);
 			while (resultSet.next()) {
+				int did = resultSet.getInt("documentID");
 				String dname = resultSet.getString("name");
-				String customeName = resultSet.getString("customeName");
+				String customName = resultSet.getString("customName");
 				String path = resultSet.getString("path");
+				String type = resultSet.getString("type");
 				String profile = resultSet.getString("profile");
 				String tag = resultSet.getString("tag");
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
-
-				// 根据分类编号可以得到学校、院系、课程，暂时先不要
-				// int categaryID = resultSet.getInt("categaryID");
-				String school = null;
-				String department = null;
-				String course = null;
-
+				int categaryID = resultSet.getInt("categaryID");
 				String uploader = resultSet.getString("uploader");
-				DocumentVO vo = new DocumentVO(dname, customeName, path,
-						profile, tag, postgraduateData, school, department,
-						course, uploader);
+				int praise = resultSet.getInt("praise");
+				int criticism = resultSet.getInt("criticism");
+				int downloadNum = resultSet.getInt("downloadNum");
+				DocumentVO vo = new DocumentVO(did, dname, customName, path,
+						type, profile, tag, postgraduateData, categaryID,
+						uploader, praise, criticism, downloadNum);
 				documents.add(vo);
 			}
 			resultSet.close();
@@ -428,7 +427,8 @@ public class DocumentInfo {
 		// System.out.println(ui.add(vo1));
 		// System.out.println(ui.add(vo2));
 		// System.out.println(ui.search("hehe"));
-		ArrayList<DocumentVO> vos = ui.getDocuments("all", "all", "all");
+		// ArrayList<DocumentVO> vos = ui.getDocuments("all", "all", "all");
+		ArrayList<DocumentVO> vos = ui.getUpLoadList("严顺宽");
 		for (DocumentVO vo : vos) {
 			System.out.println(vo.getID());
 			System.out.println(vo.getName());
