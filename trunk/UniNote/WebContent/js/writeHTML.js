@@ -18,7 +18,7 @@ function collapsible_open(message){
             var title=$(this).attr('title'); \
             if(title=='not-selected'){ \
                 $(this).addClass('marked');  \
-                $(this).css('color','#26A69A');  \
+                $(this).css('color','#ffc107');  \
                 $(this).attr('title','selected'); \
             }else{ \
                 $(this).removeClass('marked'); \
