@@ -2067,7 +2067,7 @@ img.responsive-img, video.responsive-video {
   .pagination li.active a {
     color: #fff; }
   .pagination li.active {
-    background-color: #35a79a; }
+    background-color: #ee6e73; }
   .pagination li.disabled a {
     cursor: default;
     color: #999; }
@@ -6013,7 +6013,7 @@ a.waves-effect .waves-ripple {
   background-color: #fafafa;
   padding: 0;
   max-height: 70%;
-  width: 30%;
+  width: 55%;
   margin: auto;
   overflow-y: auto;
   border-radius: 2px;
@@ -8137,13 +8137,3 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
-
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  .main {
-    flex: 1 0 auto;
-  }
