@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import object.DocumentVO;
 import sql.DocumentInfo;
+import sql.DownloadInfo;
 
 /**
  * Servlet implementation class DownLoadServlet
@@ -40,16 +41,17 @@ public class DownLoadServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 		// 下载文件
-		// !!!!!!!!!!!!!注意网页页面上的参数名称是什么!!!!!!!!!!!!!!
-		int id=Integer.parseInt(request.getParameter("ID"));
-		
+		String nickname = request.getParameter("nickname");
+		int id = Integer.parseInt(request.getParameter("ID"));
+
 		DocumentInfo di = new DocumentInfo();
-		DocumentVO vo=di.getDocumentByID(id);
-		
+		DocumentVO vo = di.getDocumentByID(id);
+
 		String fileName = vo.getCustomName();
-		String type=vo.getType();
+		String type = vo.getType();
 		String temp = URLEncoder.encode(fileName, "utf-8");
-		response.setHeader("Content-Disposition", "attachment;filename=" + temp+"."+type);
+		response.setHeader("Content-Disposition", "attachment;filename=" + temp
+				+ "." + type);
 
 		// 说明一下web站点下载文件的原理
 		// 1.把文件读入到内存
@@ -57,7 +59,8 @@ public class DownLoadServlet extends HttpServlet {
 
 		// 打开文件
 		// (1)获取到要下载文件的全路径
-		// String path = this.getServletContext().getRealPath("D:/web_server_file/"+temp);
+		// String path =
+		// this.getServletContext().getRealPath("D:/web_server_file/"+temp);
 		String path = vo.getPath();
 		// (2)创建文件输入流
 		FileInputStream fis = new FileInputStream(path);
@@ -72,6 +75,8 @@ public class DownLoadServlet extends HttpServlet {
 		fis.close();
 
 		// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
+		DownloadInfo downloadInfo = new DownloadInfo();
+		downloadInfo.add(nickname, id);
 	}
 
 	/**
