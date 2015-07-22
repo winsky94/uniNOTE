@@ -93,9 +93,10 @@
 	    function init_list(department_chosen,course_chosen){
             var xmlhttp=getXmlHttp();
             var university=$('#university-info').attr('title');
+            var nickname=$('#user-name').attr('title');
             alert(university);
             if(xmlhttp!=null){
-            	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet?school="+university+"&department="+department_chosen+"&course="+course_chosen,true);
+            	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet?school="+university+"&department="+department_chosen+"&course="+course_chosen+"&nickname="+nickname,true);
             	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
                 xmlhttp.send();	

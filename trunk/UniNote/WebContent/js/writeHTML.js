@@ -226,6 +226,7 @@ function write_course_list(departments){
     function get_documents_by_course(department_chosen,course_chosen){\
             var xmlhttp=getXmlHttp();\
             var university=$('#university-info').attr('title');\
+            var nickname=$('#user-name').attr('title');\
             if(xmlhttp!=null){\
                 xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+university+'&department='+department_chosen+\
                     '&course='+course_chosen,true);\
