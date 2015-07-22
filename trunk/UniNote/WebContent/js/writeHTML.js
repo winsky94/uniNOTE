@@ -8,12 +8,7 @@
  }
  */
 
- $(document).ready(function(){
-     $(".collapsible-header").click(function(){
-        alert($(this).attr('class')+"  "+$(this).parent().attr('class'));
-     });
 
- });
 
 
  function write_document_list(file_elements){
