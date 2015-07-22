@@ -64,15 +64,15 @@ function write_user_info(user_info){
             </div> \
             <div class="table-row"> \
                 <div class="property">Email</div> \
-                <div class="value">wn13@software.nju.edu.cn</div> \
+                <div class="value" id="email">wn13@software.nju.edu.cn</div> \
             </div> \
             <div class="table-row"> \
                 <div class="property">School</div> \
-                <div class="value">南京大学</div> \
+                <div class="value" id="school">南京大学</div> \
             </div> \
             <div class="table-row"> \
                 <div class="property">Phonenumber</div> \
-                <div class="value">6465132135494</div> \
+                <div class="value" id="phonenumber">6465132135494</div> \
             </div> \
             <div class="table-row"> \
                 <div class="property">积分</div> \
@@ -95,6 +95,9 @@ function write_user_info(user_info){
 
 function write_edit_user_info(){  
     var nickname=$("#nickname").html();
+    var email=$("#email").html();
+    var school=$("#school").html();
+    var phonenumber=$("#phonenumber").html();
     var txt ='<style type="text/css"> \
         .table-container{ \
             display: table; \
@@ -108,16 +111,16 @@ function write_edit_user_info(){
         } \
     </style> \
     <div class="input-field col s12">  \
-                    <input id="nickname" type="hidden" name="nickname" value=""> \
-                    <input id="email" type="email" name="email" class="validate">  \
+                    <input id="nickname" type="hidden" name="nickname" value="'+nickname+'"> \
+                    <input id="email" type="email" name="email" class="validate" value="'+email+'">  \
                     <label for="email">Email</label>  \
                   </div>  \
                 <div class="input-field col s12">  \
-                 <input id="school" type="text" name="school" class="validate">  \
+                 <input id="school" type="text" name="school" class="validate" value="'+school+'">  \
                  <label for="school">School</label>  \
                 </div>  \
                 <div class="input-field col s12">  \
-                  <input id="phonenumber" type="text" name="phonenumber" class="validate">  \
+                  <input id="phonenumber" type="text" name="phonenumber" class="validate" value="'+phonenumber+'">  \
                   <label for="phonenumber">PhoneNumber</label>  \
                 </div>  \
                 <div class="col s8 table-container"> \
@@ -126,6 +129,7 @@ function write_edit_user_info(){
                             <input id="flag" type="hidden" name="flag" value="userinfo"> \
                             <input type="submit" value=" 保存 " onclick="verify()" class="btn btn-primary">  \
                         </div>  \
+                        <a class="waves-effect waves-light btn" onclick="write_user_info(this.title)">取消</a>
                         <div class="input-field cell"> \
             	            <font color="red" size="2"><span id="result" >hehe</span></font> \
                         </div> \

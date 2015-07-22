@@ -33,9 +33,7 @@
 	    }
 	    .property{
 	    	display: table-cell;
-
 	    }
-
 	    .value{
 	    	display: table-cell;
 	    }
@@ -46,12 +44,31 @@
 	<script src="js/cookie.js"></script>
 	<script type="text/javascript">
 
-    	function user_documents(type){
+    	function get_user_info(){
+    		var xmlhttp=getXmlHttp();
+    		if(xmlhttp!=null){
+            	xmlhttp.onreadystatechange=onUserInfoResponse;
+                xmlhttp.open("GET","",true);                  //server undefined
+                xmlhttp.send();                               //arguments undefined
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+    	}
+
+    	function get_user_upload_docs(){
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
-            	if(type=="user_info"){
-            		xmlhttp.onreadystatechange=onUserInfoResponse;
-            	}
+                xmlhttp.onreadystatechange=onFileListResponse; 
+                xmlhttp.open("GET","",true);                  //server undefined
+                xmlhttp.send();                               //arguments undefined
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+    	}
+         
+        function get_user_download_docs(){
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
                 xmlhttp.onreadystatechange=onFileListResponse; 
                 xmlhttp.open("GET","",true);                  //server undefined
                 xmlhttp.send();                               //arguments undefined
@@ -60,23 +77,29 @@
             }
     	}
 
-        
+    	function get_user_collect_docs(){
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
+                xmlhttp.onreadystatechange=onFileListResponse; 
+                xmlhttp.open("GET","",true);                  //server undefined
+                xmlhttp.send();                               //arguments undefined
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+    	}    	
+
     	function onFileListResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
-
   	   	    	//tagName undefined
                 var file_elements=xmlhttp.responseXML.documentElement.getElementsByTagName("");   
-
                 write_document_list(file_elements);
             }
 	    }
 
 	    function onUserInfoResponse(xmlhttp){
 	    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
-
 	    		//tagName undefined
                 var user_info=xmlhttp.responseXML.documentElement.getElementsByTagName(""); 
-
                 write_user_info(user_info);
             }
 	    }
@@ -109,15 +132,15 @@
 						</div>
 						<div class="table-row">
 							<div class="property">Email</div>
-							<div class="value">wn13@software.nju.edu.cn</div>
+							<div class="value" id="email">wn13@software.nju.edu.cn</div>
 						</div>
 						<div class="table-row">
 							<div class="property">School</div>
-							<div class="value">南京大学</div>
+							<div class="value" id="school">南京大学</div>
 						</div>
 						<div class="table-row">
 							<div class="property">Phonenumber</div>
-							<div class="value">6465132135494</div>
+							<div class="value" id="phonenumber">6465132135494</div>
 						</div>
 						<div class="table-row">
 							<div class="property">积分</div>
