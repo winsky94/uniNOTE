@@ -118,9 +118,16 @@ function write_footer(){
     $("#footer").html(txt);
 }
 
-/*
+
 function write_course_list(departments){
-    var txt="<ul class='collapsible' data-collapsible='expandable'>";
+    var txt="<script>\
+    $(document).ready(function(){\
+    $('.collapsible').collapsible({\
+      accordion : false \
+    });\
+  });\
+    </script>\
+    <ul class='collapsible' data-collapsible='expandable'>";
     for(i=0;i<departments.length;i++){
         //开头
         txt=txt+"<li>";
@@ -144,8 +151,8 @@ function write_course_list(departments){
     txt=txt+"</ul>";
     return txt;
 }
-*/
 
+/*
 function write_course_list(departments){
 
     var txt='<script>\
@@ -171,4 +178,4 @@ function write_course_list(departments){
   </ul>';
 
     return txt;
-}
+}*/
