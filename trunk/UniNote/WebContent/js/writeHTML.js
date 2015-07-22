@@ -138,6 +138,39 @@ function write_edit_user_info(){
     $("#user-info-container").html(txt);
 }
 
+function write_changepw(){
+    var txt='<div class="row"> \
+                <div class="input-field col s10 m10 l10"> \
+                    <input disabled id="nickname" type="text" name="nickname" class="validate" value="王宁"> \
+                    <label for="last_name">Nickname</label> \
+                </div> \
+                <div class="input-field col s2 m2 l2"> <font color="red" size="2"><span id="result" ></span></font>  \
+                </div> \
+                <div class="input-field col s10"> \
+                    <input id="password" type="password" name="password" class="validate"> \
+                    <label for="password">当前密码:</label> \
+                </div> \
+                <div class="input-field col s10"> \
+                    <input id="newpassword" type="password" name="newpassword" class="validate"> \
+                    <label for="newpassword">修改密码:</label> \
+                </div> \
+                <div class="input-field col s10"> \
+                    <input id="confirmpassword" type="password" name="confirmpassword" class="validate"> \
+                    <label for="confirmpassword">确认密码:</label> \
+                </div> \
+                <div class="col s8 table-container"> \
+                    <div class="row row-container"> \
+                        <div class="input-field cell"> \
+                            <input type="hidden" name="flag" value="password"> \
+                            <input type="submit" value=" 提交 " onclick="verify();" class="btn btn-primary"></div> \
+                        <div class="input-field cell"> <font color="red" size="2"><span id="result" >233333333</span></font>  \
+                        </div> \
+                    </div> \
+                </div> \
+            </div>' ;
+    $("#user-info-container").html(txt);
+}
+
 function write_footer(){
     var txt='<footer class="page-footer teal lighten-3"> \
     <div class="container"> \
