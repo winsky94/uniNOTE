@@ -46,7 +46,7 @@ public class CollectionInfo {
 		}
 	}
 
-	public Map<Integer,Byte> followYourHeart(String nickname){
+	public Map<Integer,Byte> getCollections(String nickname){
 		Map<Integer,Byte> map = new HashMap<Integer,Byte>();
 		try {
 			connection = SqlManager.getConnection();
@@ -114,6 +114,6 @@ public class CollectionInfo {
 //		ci.createTable();
 		ci.changeState("1", 1);
 		ci.changeState("2", 1);
-		ci.followYourHeart("1");
+		ci.getCollections("1");
 	}
 }
