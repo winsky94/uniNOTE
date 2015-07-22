@@ -82,24 +82,23 @@ public class CollectionInfo {
 					+ name + "' and document.documentID=collection.documentID";
 			resultSet = statement.executeQuery(query);
 			while (resultSet.next()) {
+				int did = resultSet.getInt("documentID");
 				String dname = resultSet.getString("name");
-				String customeName = resultSet.getString("customeName");
+				String customName = resultSet.getString("customName");
 				String path = resultSet.getString("path");
+				String type = resultSet.getString("type");
 				String profile = resultSet.getString("profile");
 				String tag = resultSet.getString("tag");
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
-
-				// 根据分类编号可以得到学校、院系、课程，暂时先不要
-				// int categaryID = resultSet.getInt("categaryID");
-				String school = null;
-				String department = null;
-				String course = null;
-
+				int categaryID = resultSet.getInt("categaryID");
 				String uploader = resultSet.getString("uploader");
-				DocumentVO vo = new DocumentVO(dname, customeName, path,
-						profile, tag, postgraduateData, school, department,
-						course, uploader);
+				int praise = resultSet.getInt("praise");
+				int criticism = resultSet.getInt("criticism");
+				int downloadNum = resultSet.getInt("downloadNum");
+				DocumentVO vo = new DocumentVO(did, dname, customName, path,
+						type, profile, tag, postgraduateData, categaryID,
+						uploader, praise, criticism, downloadNum);
 				documents.add(vo);
 			}
 		} catch (Exception e) {
@@ -155,9 +154,9 @@ public class CollectionInfo {
 	public static void main(String[] args) {
 		CollectionInfo ci = new CollectionInfo();
 		// ci.createTable();
-		 ci.changeState("1", 1);
-		 ci.changeState("2", 1);
-		 ci.getCollections("1");
-		ci.getCollectionList("1");
+		ci.changeState("1", 1);
+		ci.changeState("2", 1);
+		ci.getCollections("1");
+		System.out.println(ci.getCollectionList("1").size());
 	}
 }
