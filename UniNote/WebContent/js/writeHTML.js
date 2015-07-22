@@ -68,11 +68,10 @@ function write_user_info(user_info){
     var point=user_info.getElementsByTagName("point")[0].firstChild.nodeValue;
 
     alert(email+" "+school+" "+phonenumber+" "+point);
+    //<div class="card teal lighten-5"> \
+    //            <div class="card-content" id="user-info-container"> \
 
-
-    var txt='<div class="card teal lighten-5"> \
-                <div class="card-content" id="user-info-container"> \
-                    <div class="table-row"> \
+    var txt='<div class="table-row"> \
                         <div class="property">Nickname</div> \
                         <div class="value" id="nickname">'+nickname+'</div> \
                     </div> \
@@ -102,8 +101,6 @@ function write_user_info(user_info){
                     </div> \
                     <div class="card-action"> \
                         <a href="#" onclick="write_edit_user_info()">编辑</a> \
-                    </div> \
-                </div> \
             </div>';
     return txt;
 
