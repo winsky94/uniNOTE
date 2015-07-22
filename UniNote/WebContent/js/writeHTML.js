@@ -45,11 +45,12 @@ function collapsible_open(message){
         var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
         var filename=file_elements[i].getElementsByTagName("filename")[0].firstChild.nodeValue;
         var name=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
-       // var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue;  // undefined
+        var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue;  // undefined
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
         var marked=file_elements[i].getElementsByTagName("bookmark")[0].firstChild.nodeValue;
+        var downloadNum=file_elements[i].getElementsByTagName("downloadNum")[0].firstChild.nodeValue;
 
-        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"'>"+filename+'</a><p>First Line<br>Second Line</p>';
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
 
         //结尾
         if(marked=='Y'){
@@ -229,7 +230,7 @@ function write_course_list(departments){
       accordion : false \
     });\
     });\
-   $('a.collection-item').click(function(){\
+    $('a.collection-item').click(function(){\
         $('a.collection-item').css('background-color','#fff');\
         $(this).css('background-color','#e0f2f1');\
         });\
