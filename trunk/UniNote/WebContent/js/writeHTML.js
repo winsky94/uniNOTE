@@ -10,19 +10,23 @@ function collapsible_open(message){
 
  function write_document_list(file_elements){
 	var txt=" <script> \
-     $(document).ready(function(){ \
-    $('.secondary-content').css('color','#777777'); \
-    $('.secondary-content').click(function(){  \
-        var title=$(this).attr('title'); \
-        if(title=='not-selected'){ \
-            $(this).css('color','#26A69A');  \
-            $(this).attr('title','selected'); \
-        }else{ \
-            $(this).css('color','#777777');  \
-            $(this).attr('title','not-selected'); \
-        }   \
-     }); \
-}); \
+    $(document).ready(function(){ \
+        $('.marked').css('color','#26A69A');  \
+        $('.not-marked').css('color','#777');  \
+        $('.secondary-content').css('color','#777'); \
+        $('.secondary-content').click(function(){  \
+            var title=$(this).attr('title'); \
+            if(title=='not-selected'){ \
+                $(this).addClass('marked');  \
+                $(this).css('color','#26A69A');  \
+                $(this).attr('title','selected'); \
+            }else{ \
+                $(this).removeClass('marked'); \
+                $(this).css('color','#777');  \
+                $(this).attr('title','not-selected'); \
+            }   \
+        }); \
+    }); \
     </script>";
     for(i=0;i<file_elements.length;i++){
 
@@ -43,11 +47,17 @@ function collapsible_open(message){
         var name=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
        // var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue;  // undefined
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
+        var marked=file_elements[i].getElementsByTagName("bookmark")[0].firstChild.nodeValue;
 
         txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"'>"+filename+'</a><p>First Line<br>Second Line</p>';
 
         //结尾
-        txt=txt+"<a href='#!' class='secondary-content' title='not-selected'><i class='material-icons'>grade</i></a>";
+        if(marked=='Y'){
+            txt=txt+"<a href='#!' class='secondary-content marked' title='selected'><i class='material-icons'>grade</i></a>";
+        }else{
+            txt=txt+"<a href='#!' class='secondary-content not-marked' title='not-selected'><i class='material-icons'>grade</i></a>";
+        }
+        
         txt=txt +"</li>";
                 
     } //end for
