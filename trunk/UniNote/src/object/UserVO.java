@@ -7,6 +7,8 @@ public class UserVO {
      private String school;
      private String phoneNumber;
      private int point;
+	private int upLoadNum;
+	private int downLoadNum;
      
      public UserVO(String nickname,String password,String email,String school,String phoneNumber){
     	 this.nickname=nickname;
@@ -79,4 +81,20 @@ public class UserVO {
      public void setPoint(int point) {
   		this.point = point;
   	}
+
+	public int getUpLoadNum() {
+		return upLoadNum;
+	}
+
+	public void setUpLoadNum(int upLoadNum) {
+		this.upLoadNum = upLoadNum;
+	}
+
+	public int getDownLoadNum() {
+		return downLoadNum;
+	}
+
+	public void setDownLoadNum(int downLoadNum) {
+		this.downLoadNum = downLoadNum;
+	}
 }
