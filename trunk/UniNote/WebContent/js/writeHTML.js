@@ -124,7 +124,9 @@ function write_user_info(user_info){
     //<div class="card teal lighten-5"> \
     //   <div class="card-content" id="user-info-container"> \
 
-    var txt='<div class="table-row"> \
+    var txt='<div class="card teal lighten-5"> \
+                <div class="card-content" id="user-info-container">  \
+                    <div class="table-row"> \
                         <div class="property">Nickname</div> \
                         <div class="value" id="nickname">'+nickname+'</div> \
                     </div> \
@@ -155,6 +157,8 @@ function write_user_info(user_info){
                     <div class="card-action"> \
                         <a href="#" onclick="write_edit_user_info()">编辑</a> \
                         <a href="#" onclick="write_changepw()">修改密码</a> \
+                    </div> \
+                </div> \
             </div>';
     return txt;
 
