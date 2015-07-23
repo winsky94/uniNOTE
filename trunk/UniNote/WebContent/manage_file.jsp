@@ -44,6 +44,7 @@
 		}
 		.table-container{
 			display: table;
+			border-spacing: 10px;
 		}
 		.table-row-container{
 			display: table-row;
