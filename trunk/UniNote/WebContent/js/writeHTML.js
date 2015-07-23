@@ -1,33 +1,32 @@
 
  function write_document_list(file_elements){
     var username=$('#user-name').attr('title');
-    var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
 	var txt=" <script> \
     $(document).ready(function(){ \
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
         $('.secondary-content').css('color','#777'); \
-        $('.secondary-content').click(function(){  \
-            var title=$(this).attr('title'); \
-            if(title=='not-selected'){ \
-                $(this).addClass('marked');  \
-                $(this).css('color','#ffc107');  \
-                $(this).attr('title','selected'); \
-            }else{ \
-                $(this).removeClass('marked'); \
-                $(this).css('color','#777');  \
-                $(this).attr('title','not-selected'); \
-            }   \
-            var xmlhttp_collect=getXmlHttp();\
-            if(xmlhttp_collect!=null){\
-                xmlhttp_collect.open(\"GET\",\"/UniNote/CollectServlet?nickname="+username+"&documentID="+id+"\",true);\
-                xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
-                xmlhttp_course.send();\
-            }else{\
-                alert(\"Your browser does not support XMLHttpRequest.\");\
-            }\
-        }); \
     }); \
+    function clickStar(id){\
+        var title=$(this).attr('title'); \
+        if(title=='not-selected'){ \
+            $(this).addClass('marked');  \
+            $(this).css('color','#ffc107');  \
+            $(this).attr('title','selected'); \
+        }else{ \
+            $(this).removeClass('marked'); \
+            $(this).css('color','#777');  \
+            $(this).attr('title','not-selected'); \
+        }   \
+        var xmlhttp_collect=getXmlHttp();\
+        if(xmlhttp_collect!=null){\
+            xmlhttp_collect.open(\"GET\",\"/UniNote/CollectServlet?nickname="+username+"&documentID=id\",true);\
+            xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
+            xmlhttp_course.send();\
+        }else{\
+            alert(\"Your browser does not support XMLHttpRequest.\");\
+        }\
+    }\
     </script>";
     for(i=0;i<file_elements.length;i++){
 
@@ -54,9 +53,9 @@
 
         //结尾
         if(marked=='Y'){
-            txt=txt+"<a href=\"#!\" class='secondary-content marked' title='selected'><i class='material-icons'>grade</i></a>";
+            txt=txt+"<a href=\"#!\" class='secondary-content marked' title='selected' onclick='clickStar("+id+")'><i class='material-icons'>grade</i></a>";
         }else{
-            txt=txt+"<a href=\"#!\" class='secondary-content not-marked' title='not-selected'><i class='material-icons'>grade</i></a>";
+            txt=txt+"<a href=\"#!\" class='secondary-content not-marked' title='not-selected' onclick='clickStar("+id+")'><i class='material-icons'>grade</i></a>";
         }
         
         txt=txt +"</li>";
