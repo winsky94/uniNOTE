@@ -10,8 +10,8 @@ import object.UserVO;
 
 public class UserInfo {
 
-	//个人资料、上传的文档、下载的文档、收藏的文档
-	
+	// 个人资料、上传的文档、下载的文档、收藏的文档
+
 	public boolean add(UserVO vo) {
 		int count = 0;
 		boolean istrue = false;
@@ -105,24 +105,28 @@ public class UserInfo {
 				String email = vo.getEmail();
 				String school = vo.getSchool();
 				String phoneNumber = vo.getPhoneNumber();
-				int point=vo.getPoint();
 				name2.replace("'", "''");
 				query = "select userID from user where nickname='" + name2
 						+ "' limit 1";
 				ResultSet resultSet2 = sql.executeQuery(query);
 
-				if(resultSet2.next()){
-					int hisnextID=resultSet2.getInt("userID");
-				    if(hisnextID!=hisID)
-					    isTrue=false;
-				    else{
-				    	query = "update user set password='"+password+"' , email='"+email+"' , school='"+school+"' , phoneNumber='"+phoneNumber+"' where nickname='"+name1+"'";
+				if (resultSet2.next()) {
+					int hisnextID = resultSet2.getInt("userID");
+					if (hisnextID != hisID)
+						isTrue = false;
+					else {
+						query = "update user set password='" + password
+								+ "' , email='" + email + "' , school='"
+								+ school + "' , phoneNumber='" + phoneNumber
+								+ "' where nickname='" + name1 + "'";
 						sql.executeUpdate(query);
 
-				    }
-				}
-				else{
-					query = "update user set nickname='"+name2+"'"+", password='"+password+"' , email='"+email+"' , school='"+school+"' , phoneNumber='"+phoneNumber+"' where nickname='"+name1+"'";
+					}
+				} else {
+					query = "update user set nickname='" + name2 + "'"
+							+ ", password='" + password + "' , email='" + email
+							+ "' , school='" + school + "' , phoneNumber='"
+							+ phoneNumber + "' where nickname='" + name1 + "'";
 					sql.executeUpdate(query);
 				}
 				resultSet2.close();
@@ -141,21 +145,55 @@ public class UserInfo {
 	}
 
 	public UserVO getVoByName(String name) {
-		UserVO vo=null;
+		UserVO vo = null;
 		try {
-			Connection connection=SqlManager.getConnection();
-			Statement statement=connection.createStatement();
-			String query="select * from user where nickname='"+name+"' limit 1";
-			ResultSet rs=statement.executeQuery(query);
-			while(rs.next()){
-				String nickname=rs.getString("nickname");
-				String password=rs.getString("password");
-				String email=rs.getString("email");
-				String school=rs.getString("school");
-				String phoneNumber=rs.getString("phonenumber");
-				int point=rs.getInt("point");
-				vo=new UserVO(nickname, password, email, school, phoneNumber,point);
+			Connection connection = SqlManager.getConnection();
+			Statement statement = connection.createStatement();
+			Statement statement1 = connection.createStatement();
+			Statement statement2 = connection.createStatement();
+			String query = "select * from user where nickname='" + name
+					+ "' limit 1";
+			ResultSet rs = statement.executeQuery(query);
+			ResultSet resultSet1 = null;
+			ResultSet resultSet2 = null;
+			while (rs.next()) {
+				String nickname = rs.getString("nickname");
+				String password = rs.getString("password");
+				String email = rs.getString("email");
+				String school = rs.getString("school");
+				String phoneNumber = rs.getString("phonenumber");
+				int point = rs.getInt("point");
+				vo = new UserVO(nickname, password, email, school, phoneNumber,
+						point);
+
+				query = "select count(documentID) as upLoadNum from document where uploader='"
+						+ name + "'";
+				resultSet1 = statement1.executeQuery(query);
+				while (resultSet1.next()) {
+					int upLoadNum = resultSet1.getInt("upLoadNum");
+					vo.setUpLoadNum(upLoadNum);
+				}
+
+				query = "select count(downloadID) as downLoadNum from download  where nickname='"
+						+ name + "'";
+				resultSet2 = statement2.executeQuery(query);
+				while (resultSet2.next()) {
+					int downLoadNum = resultSet2.getInt("downLoadNum");
+					vo.setDownLoadNum(downLoadNum);
+				}
+
 			}
+			if (resultSet1 != null) {
+				resultSet1.close();
+			}
+			if (resultSet2 != null) {
+				resultSet1.close();
+			}
+			rs.close();
+			statement.close();
+			statement1.close();
+			statement2.close();
+			connection.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -190,14 +228,14 @@ public class UserInfo {
 		}
 		return isTrue;
 	}
-	
-	public void addPoint(String nickname,int point){
+
+	public void addPoint(String nickname, int point) {
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String name=nickname.replace("'", "''");
-			String query = "update user set point=point+"+point + " where nickname='"
-					+ name + "'";
+			String name = nickname.replace("'", "''");
+			String query = "update user set point=point+" + point
+					+ " where nickname='" + name + "'";
 			sql.executeUpdate(query);
 			sql.close();
 			con.close();
@@ -209,14 +247,14 @@ public class UserInfo {
 			System.err.println("SQLException:" + ex.getMessage());
 		}
 	}
-	
-	public void minusPoint(String nickname,int point){
+
+	public void minusPoint(String nickname, int point) {
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String name=nickname.replace("'", "''");
-			String query = "update user set point=point-"+point + " where nickname='"
-					+ name + "'";
+			String name = nickname.replace("'", "''");
+			String query = "update user set point=point-" + point
+					+ " where nickname='" + name + "'";
 			sql.executeUpdate(query);
 			sql.close();
 			con.close();
@@ -240,8 +278,7 @@ public class UserInfo {
 					+ "email varchar(40) not null default 'null',"
 					+ "school varchar(40) not null default 'null',"
 					+ "phoneNumber varchar(40) not null default 'null',"
-					+ "point int not null default 0,"
-					+ "primary key(userID));");
+					+ "point int not null default 0," + "primary key(userID));");
 			sql.close();
 			con.close();
 		} catch (java.lang.ClassNotFoundException e) {
@@ -276,12 +313,18 @@ public class UserInfo {
 
 	public static void main(String[] args) {
 		UserInfo ui = new UserInfo();
-	    ui.createTable();
-		UserVO vo1 = new UserVO("1", "1", "1@qq.com", "南京大学", "13588888888",10);
-		UserVO vo2 = new UserVO("3", "3", "1@qq.com", "南京大学", "13588888888",20);
-		System.out.println(ui.add(vo1));
-		System.out.println(ui.add(vo2));
+		// ui.createTable();
+		// UserVO vo1 = new UserVO("1", "1", "1@qq.com", "南京大学", "13588888888",
+		// 10);
+		// UserVO vo2 = new UserVO("3", "3", "1@qq.com", "南京大学", "13588888888",
+		// 20);
+		// System.out.println(ui.add(vo1));
+		// System.out.println(ui.add(vo2));
 		// System.out.println(ui.login("1", "1"));
 		// System.out.println(ui.delete(vo2));
+		UserVO vo = ui.getVoByName("1");
+		System.out.println(vo.getDownLoadNum());
+		System.out.println(vo.getUpLoadNum());
+
 	}
 }
