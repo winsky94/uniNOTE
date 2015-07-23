@@ -38,7 +38,7 @@ public class CommentServlet extends HttpServlet {
 		String nickname = new String(name.getBytes("ISO-8859-1"),"utf-8");
 
 		CommentInfo di = new CommentInfo();
-		int[] result = {};// 返回值第0位表示点赞数，第1位表示踩数，第2位表示操作成功与否，1为成功，0为失败
+		int[] result = {};// 返回值第0位表示点赞数，第1位表示踩数，第2位表示操作成功与否，1为成功，0为失败，2表示自己给自己点赞
 		if (flag == 0) {
 			// 点赞
 			result = di.addPraise(nickname, doucmentID);
