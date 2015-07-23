@@ -331,13 +331,27 @@ public class DocumentInfo {
 		return documents;
 	}
 
-	public void addPraise(int id) {
+	/**
+	 * 
+	 * 
+	 * @param id
+	 * @return 返回int[],int[0]是点赞数,int[1]是被踩数
+	 */
+	public int[] addPraise(int id) {
+		int count1=0;
+		int count2=0;
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
 			String query = "update document set praise=praise+1 where documentID="
 					+ id;
 			sql.executeUpdate(query);
+			query = "select praise,criticism from document where documentID="+id+" limit 1";
+			ResultSet rs = sql.executeQuery(query);
+			rs.next();
+			count1 = rs.getInt("praise");
+			count2 = rs.getInt("criticism");
+			rs.close();
 			sql.close();
 			con.close();
 		} catch (java.lang.ClassNotFoundException e) {
@@ -347,15 +361,32 @@ public class DocumentInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
+		int[] result=new int[]{count1,count2};
+		return result;
 	}
-
-	public void addCriticism(int id) {
+	
+	
+	/**
+	 * 
+	 * 
+	 * @param id
+	 * @return 返回int[],int[0]是点赞数,int[1]是被踩数
+	 */
+	public int[] addCriticism(int id) {
+		int count1=0;
+		int count2=0;
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
 			String query = "update document set criticism=criticism+1 where documentID="
 					+ id;
 			sql.executeUpdate(query);
+			query = "select praise,criticism from document where documentID="+id+" limit 1";
+			ResultSet rs = sql.executeQuery(query);
+			rs.next();
+			count1 = rs.getInt("praise");
+			count2 = rs.getInt("criticism");
+			rs.close();
 			sql.close();
 			con.close();
 		} catch (java.lang.ClassNotFoundException e) {
@@ -365,6 +396,8 @@ public class DocumentInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
+		int[] result=new int[]{count1,count2};
+		return result;
 	}
 
 	public void addDownloadNum(int id) {
@@ -428,14 +461,14 @@ public class DocumentInfo {
 		// System.out.println(ui.add(vo2));
 		// System.out.println(ui.search("hehe"));
 		// ArrayList<DocumentVO> vos = ui.getDocuments("all", "all", "all");
-		ArrayList<DocumentVO> vos = ui.getUpLoadList("严顺宽");
-		for (DocumentVO vo : vos) {
-			System.out.println(vo.getID());
-			System.out.println(vo.getName());
-			System.out.println(vo.getProfile());
-			System.out.println(vo.getTag());
-			System.out.println("-----------------------------");
-		}
+//		ArrayList<DocumentVO> vos = ui.getUpLoadList("严顺宽");
+//		for (DocumentVO vo : vos) {
+//			System.out.println(vo.getID());
+//			System.out.println(vo.getName());
+//			System.out.println(vo.getProfile());
+//			System.out.println(vo.getTag());
+//			System.out.println("-----------------------------");
+//		}
 		// DocumentVO vo = vos.get(0);
 		// vo.setProfile("呵呵哒");
 		// vo.setTag("喵喵哒");
@@ -450,5 +483,7 @@ public class DocumentInfo {
 		// }
 		//
 		// System.out.println(ui.delete(vo));
+		System.out.println(ui.addPraise(1)[0]+" "+ui.addPraise(1)[1]);
+		System.out.println(ui.addCriticism(1)[0]+" "+ui.addCriticism(1)[1]);
 	}
 }
