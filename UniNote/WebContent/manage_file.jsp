@@ -73,7 +73,9 @@
         	$('#file-name').html("<%=filename%>");
         	$('#file-profile').html("<%=profile%>");
         	$('#ID').attr("value","<%=id%>");
+        	$("#profile").html("<%=profile%>");
         });
+
 	</script>
 
 </head>
