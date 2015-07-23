@@ -114,4 +114,12 @@
     <servlet-name>CollectServlet</servlet-name>
     <url-pattern>/CollectServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CommentServlet</servlet-name>
+    <servlet-class>server.CommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentServlet</servlet-name>
+    <url-pattern>/CommentServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
