@@ -21,8 +21,8 @@
         var xmlhttp_collect=getXmlHttp();\
         if(xmlhttp_collect!=null){\
             xmlhttp_collect.open(\"GET\",\"/UniNote/CollectServlet?nickname="+username+"&documentID=id\",true);\
-            xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
-            xmlhttp_course.send();\
+            xmlhttp_collect.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
+            xmlhttp_collect.send();\
         }else{\
             alert(\"Your browser does not support XMLHttpRequest.\");\
         }\
