@@ -324,7 +324,7 @@ function write_edit_user_info(){
 }
 
 function write_changepw(){
-    var nickname=$("#user-name").html();
+    var nickname=$("#nickname").html();
     var txt='<style type="text/css"> \
         .table-container{ \
             display: table; \
