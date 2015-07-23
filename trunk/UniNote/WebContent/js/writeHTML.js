@@ -66,25 +66,7 @@
 }
 
 function write_user_upload_files(file_elements){
-    var txt=" <ul class='collection' id='filelist'> \
-    <script> \
-    $(document).ready(function(){ \
-        $('.marked').css('color','#ffc107');  \
-        $('.not-marked').css('color','#777');  \
-        $('.secondary-content').click(function(){  \
-            var title=$(this).attr('title'); \
-            if(title=='not-selected'){ \
-                $(this).addClass('marked');  \
-                $(this).css('color','#ffc107');  \
-                $(this).attr('title','selected'); \
-            }else{ \
-                $(this).removeClass('marked'); \
-                $(this).css('color','#777');  \
-                $(this).attr('title','not-selected'); \
-            }   \
-        }); \
-    }); \
-    </script>";
+    var txt=" <ul class='collection' id='filelist'>";
     for(i=0;i<file_elements.length;i++){
 
         //开头
@@ -110,7 +92,6 @@ function write_user_upload_files(file_elements){
         txt=txt+"<a class='title' href='" +"manage_file.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
 
         //结尾
-        txt=txt+"<a href=\"#!\" class='secondary-content marked' title='selected' onclick='clickStar("+id+")'><i class='material-icons'>grade</i></a>";
         txt=txt +"</li>";
                 
     } //end for
@@ -172,25 +153,7 @@ function write_user_collect_files(file_elements){
 }
 
 function write_user_download_files(file_elements){
-    var txt=" <ul class='collection' id='filelist'> \
-    <script> \
-    $(document).ready(function(){ \
-        $('.marked').css('color','#ffc107');  \
-        $('.not-marked').css('color','#777');  \
-        $('.secondary-content').click(function(){  \
-            var title=$(this).attr('title'); \
-            if(title=='not-selected'){ \
-                $(this).addClass('marked');  \
-                $(this).css('color','#ffc107');  \
-                $(this).attr('title','selected'); \
-            }else{ \
-                $(this).removeClass('marked'); \
-                $(this).css('color','#777');  \
-                $(this).attr('title','not-selected'); \
-            }   \
-        }); \
-    }); \
-    </script>";
+    var txt=" <ul class='collection' id='filelist'>";
     for(i=0;i<file_elements.length;i++){
 
         //开头
@@ -216,7 +179,6 @@ function write_user_download_files(file_elements){
         txt=txt+"<a class='title' href='" +"documentView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
 
         //结尾
-       txt=txt+"<a href=\"#!\" class='secondary-content marked' title='selected' onclick='clickStar("+id+")'><i class='material-icons'>grade</i></a>"; 
         txt=txt +"</li>";
                 
     } //end for
