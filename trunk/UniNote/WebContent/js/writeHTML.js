@@ -324,7 +324,7 @@ function write_edit_user_info(){
 }
 
 function write_changepw(){
-    var nickname=$("#nickname").html();
+    var nickname=$("#user-name").html();
     var txt='<style type="text/css"> \
         .table-container{ \
             display: table; \
@@ -338,7 +338,7 @@ function write_changepw(){
         } \
     </style> \
                 <div class="input-field col s12"> \
-                    <input disabled type="text" name="nickname" class="validate" value="'+nickname+'"> \
+                    <input disabled type="text" id="nickname" name="nickname" class="validate" value="'+nickname+'"> \
                     <label for="last_name" class="active">Nickname</label> \
                 </div> \
                 <div class="input-field col s12"> \
@@ -356,7 +356,7 @@ function write_changepw(){
                 <div class="col s12 table-container"> \
                     <div class="row row-container"> \
                         <div class="input-field cell"> \
-                            <input type="hidden" name="flag" value="password"> \
+                            <input type="hidden" id="flag" name="flag" value="password"> \
                             <input type="submit" value="提交" onclick="verify_changepw()" class="btn btn-primary"> \
                         </div> \
                         <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a> \
