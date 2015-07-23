@@ -56,15 +56,18 @@
 
         function check_login(){
         	login=check_cookie();
-            if(!login){
+            if(!login){      	
                 $(document).ready(function(){
                     $('#modal1').openModal();
-            });        
+                });  
+                return false;      
             }else{
             	$("#nickname").attr("value",$("#user-name").attr("title"));
             	alert($("#nickname").attr("value"));
+            	return true;
             }
         }
+        
         function show_comment(xmlhttp_comment){
         	if (xmlhttp_comment.readyState==4 && xmlhttp_comment.status==200){
                 var text=xmlhttp_comment.responseText;
@@ -160,7 +163,7 @@
 						</a>
 					</div>
 				</div>
-				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="check_login()">
+				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
 					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
