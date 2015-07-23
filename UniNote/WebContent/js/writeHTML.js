@@ -4,7 +4,6 @@
     $(document).ready(function(){ \
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
-        $('.secondary-content').css('color','#777'); \
         $('.secondary-content').click(function(){\
             var title=$(this).attr('title');\
             if(title=='not-selected'){\
