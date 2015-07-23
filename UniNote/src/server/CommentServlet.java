@@ -39,12 +39,12 @@ public class CommentServlet extends HttpServlet {
 		int[] result = {};
 		if (flag == 0) {
 			// 点赞
-			result=di.addPraise(doucmentID);
-		} else if(flag==1){
+			result = di.addPraise(doucmentID);
+		} else if (flag == 1) {
 			// 踩
-			result=di.addCriticism(doucmentID);
+			result = di.addCriticism(doucmentID);
 		}
-		out.println(result[0]+","+result[1]);
+		out.println(result[0] + "," + result[1]);
 
 	}
 

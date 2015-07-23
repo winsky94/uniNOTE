@@ -30,13 +30,14 @@ public class CollectServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 
 		String nickname = request.getParameter("nickname");
+		String name=new String(nickname.getBytes("ISO-8859-1"),"utf-8");
 		int documentID = Integer.parseInt(request.getParameter("documentID"));
 
 		CollectionInfo ci = new CollectionInfo();
 		System.out.println("收藏参数：");
-		System.out.println(nickname);
+		System.out.println(name);
 		System.out.println(documentID);
-		ci.changeState(nickname, documentID);
+		ci.changeState(name, documentID);
 
 		// response.sendRedirect(request.getHeader("Referer"));
 	}
