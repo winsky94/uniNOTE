@@ -61,7 +61,7 @@
     		var nickname=$("#user-name").attr("title");
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
-                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
+                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp,"upload")};
                 xmlhttp.open("GET","UserUpLoadServlet?nickname="+nickname,true);   
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');   
                 xmlhttp.send();                             
@@ -74,7 +74,7 @@
         	var nickname=$("#user-name").attr("title");
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
-                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
+                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp,"download")};
                 xmlhttp.open("GET","UserDownloadServlet?nickname="+nickname,true);            
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');       
                 xmlhttp.send();                               
@@ -87,7 +87,7 @@
     		var nickname=$("#user-name").attr("title");
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
-                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp)};
+                xmlhttp.onreadystatechange=function(){onFileListResponse(xmlhttp,"collect")};
                 xmlhttp.open("GET","UserCollectionsServlet?nickname="+nickname,true); 
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');                 
                 xmlhttp.send();                               
@@ -96,7 +96,8 @@
             }
     	}    	
 
-    	function onFileListResponse(xmlhttp){
+
+    	function onFileListResponse(xmlhttp,type){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 var text=xmlhttp.responseText;
                 try{
@@ -112,8 +113,30 @@
                     }
                 }  
                 var file_elements=xmlDoc.getElementsByTagName("document"); 
-                var txt=write_user_upload_files(file_elements);
-                $("#content-on-right").html(txt);
+                if(type=="upload"){
+                	if(file_elements.length==0){
+                		$("#content-on-right").html("<p>您暂无上传的文件</p>");
+                    }else{
+                    	var txt=write_user_upload_files(file_elements);
+                    	$("#content-on-right").html(txt);
+                    }
+                }else if(type=="download"){
+                	if(file_elements.length==0){
+                		$("#content-on-right").html("<p>您暂无下载的文件</p>");
+                    }else{
+                    	var txt=write_document_list(file_elements);
+                    	$("#content-on-right").html(txt);
+                    }      
+                }else if(type=="collect"){
+                	if(file_elements.length==0){
+                		$("#content-on-right").html("<p>您暂无收藏的文件</p>");
+                    }else{
+                    	var txt=write_document_list(file_elements);
+                    	$("#content-on-right").html(txt);
+                    }
+                }
+
+                
             }
 	    }
 
