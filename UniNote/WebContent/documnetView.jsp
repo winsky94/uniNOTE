@@ -155,13 +155,13 @@
 				</div>
 				<div id="commentArea" class="row">
 					<div id="zan" class="col s12">
-						<a class="waves-effect waves-light btn" onclick="comment(0)"> <i class="material-icons left"></i>
+						<a class="waves-effect waves-light btn" onclick="return check_login();comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
 					</div>
 					<div class="col s12"></div>
 					<div id="cai" class="col s12">
-						<a class="waves-effect waves-light btn" onclick="comment(1)"> <i class="material-icons right"></i>
+						<a class="waves-effect waves-light btn" onclick="return check_login();comment(1)"> <i class="material-icons right"></i>
 							踩
 						</a>
 					</div>
