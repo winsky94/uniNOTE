@@ -113,7 +113,7 @@
 					 }});
 	        </script>
 			</div>
-			<form action="" method="post" class="col s12">
+			<form action="" method="post">
 			    <div class="input-field col s12">
 			        <textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
                     <label for="profile">简介</label>
