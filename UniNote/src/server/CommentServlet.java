@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sql.DocumentInfo;
+import sql.CommentInfo;
 
 /**
  * Servlet implementation class CommentServlet
@@ -36,8 +36,8 @@ public class CommentServlet extends HttpServlet {
 		int doucmentID = Integer.parseInt(request.getParameter("documentID"));
 		String name = (String) request.getAttribute("nickname");
 		String nickname = name;
-		System.out.println("评论:"+nickname);
-		DocumentInfo di = new DocumentInfo();
+		System.out.println("评论:" + nickname);
+		CommentInfo di = new CommentInfo();
 		int[] result = {};// 返回值第0位表示点赞数，第1位表示踩数，第2位表示操作成功与否，1为成功，0为失败
 		if (flag == 0) {
 			// 点赞
