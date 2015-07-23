@@ -69,10 +69,6 @@ public class DocumentOverViewServlet extends HttpServlet {
 		String name = request.getParameter("nickname");
 		String nickname = new String(name.getBytes("iso-8859-1"), "utf-8");
 
-		System.out.println("参数如下：");
-		System.out.println(nickname);
-		System.out.println("参数传递结束");
-		
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		DocumentInfo documentInfo = new DocumentInfo();
 		documents = documentInfo.getDocuments(school, department, course);
