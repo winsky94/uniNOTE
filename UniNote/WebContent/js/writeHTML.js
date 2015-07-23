@@ -71,7 +71,6 @@ function write_user_upload_files(file_elements){
     $(document).ready(function(){ \
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
-        $('.secondary-content').css('color','#777'); \
         $('.secondary-content').click(function(){  \
             var title=$(this).attr('title'); \
             if(title=='not-selected'){ \
@@ -111,7 +110,7 @@ function write_user_upload_files(file_elements){
         txt=txt+"<a class='title' href='" +"manage_file.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
 
         //结尾
-        txt=txt+"<a href='#!' class='secondary-content not-marked' type='submit' title='not-selected'><i class='material-icons'>grade</i></a>"; 
+        txt=txt+"<a href=\"#!\" class='secondary-content marked' title='selected' onclick='clickStar("+id+")'><i class='material-icons'>grade</i></a>";
         txt=txt +"</li>";
                 
     } //end for
@@ -125,7 +124,6 @@ function write_user_collect_files(file_elements){
     $(document).ready(function(){ \
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
-        $('.secondary-content').css('color','#777'); \
         $('.secondary-content').click(function(){  \
             var title=$(this).attr('title'); \
             if(title=='not-selected'){ \
@@ -179,7 +177,6 @@ function write_user_download_files(file_elements){
     $(document).ready(function(){ \
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
-        $('.secondary-content').css('color','#777'); \
         $('.secondary-content').click(function(){  \
             var title=$(this).attr('title'); \
             if(title=='not-selected'){ \
@@ -219,7 +216,7 @@ function write_user_download_files(file_elements){
         txt=txt+"<a class='title' href='" +"documentView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
 
         //结尾
-        txt=txt+"<a href='#!' class='secondary-content not-marked' type='submit' title='not-selected'><i class='material-icons'>grade</i></a>"; 
+       txt=txt+"<a href=\"#!\" class='secondary-content marked' title='selected' onclick='clickStar("+id+")'><i class='material-icons'>grade</i></a>"; 
         txt=txt +"</li>";
                 
     } //end for
