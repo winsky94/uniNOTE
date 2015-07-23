@@ -1,7 +1,7 @@
 <%@page import="server.DocConverter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%	
 	String id=request.getParameter("ID");
 	String filename=new String(request.getParameter("filename").getBytes("iso-8859-1"), "utf-8");
@@ -18,8 +18,6 @@
 
 %>
 
-
-
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +29,6 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
 
 	<style media="screen"> 
 		#flashContent { 
@@ -47,12 +44,11 @@
 		}
     </style>
 
-    <script src="js/jQuery.js"></script>
+	<script src="js/jQuery.js"></script>
+	<script src="js/flexpaper_flash.js"></script>
+	<script src="js/flexpaper_flash_debug.js"></script>
 	<script src="js/materialize.js"></script>
-	<script src="js/writeHTML.js"></script>
 	<script src="js/cookie.js"></script>
-	<script type="text/javascript" src="js/flexpaper_flash.js"></script>
-	<script type="text/javascript" src="js/flexpaper_flash_debug.js"></script>
 
 	<script>
 	    function check_login(){
@@ -74,9 +70,9 @@
 </head>
 <body onload="check_login();write_footer()">
 
-    <header></header>
+	<header></header>
 
-    <div class="main container">
+	<div class="main container">
 		<div class="row"> <font size="15"><span class="col s12 l8" id="file-name">文件名</span></font> 
 		</div>
 		<div class="row">
@@ -114,27 +110,52 @@
 	            </script>
 			</div>
 			<form action="" method="post" class="col s12 l4">
-			    <div class="input-field col s12">
-			        <textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
-                    <label for="profile">简介</label>
-			    </div>
-			    <div class="input-field col s12">
-			        <input class="validate" type="text" id="tag" name="tag" value=tag>
-                    <label for="tag">标签</label>
-			    </div>
-			    <div class="row col s12 l4">
-                    <div class="input-field col s6 l2">
-                        <input type="submit" value="保存" class="btn btn-primary">
-                    </div>
-                    <div class="col s6 l2">
-                        <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a>
-                    </div>
-			</form>
+				<div class="input-field col s12">
+					<textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
+					<label for="profile">简介</label>
+				</div>
+				<div class="input-field col s12">
+					<input class="validate" type="text" id="tag" name="tag" value=tag>
+					<label for="tag">标签</label>
+				</div>
+				<div class="row col s12 l4">
+					<div class="input-field col s6 l2">
+						<input type="submit" value="保存" class="btn btn-primary"></div>
+					<div class="col s6 l2">
+						<a class="btn btn-primary" onclick="window.location.reload(true)">取消</a>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
 
-    <div id="footer">
-	</div>
+		<footer class="page-footer teal lighten-3">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">uniNOTE 优记</h5>
+						<p class="grey-text text-lighten-4">面向全国高校的课程分类式文库。</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li>
+								<a class="grey-text text-lighten-3" href="#!">Link 1</a>
+							</li>
+							<li>
+								<a class="grey-text text-lighten-3" href="#!">Link 2</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2015 uniNOTE Group,software institute, NJU
+					<a 
+                    class="grey-text text-lighten-4 right" href="#!">Links</a>
+				</div>
+			</div>
+		</footer>
 
 </body>
-</html>
+	</html>
