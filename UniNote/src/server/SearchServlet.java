@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +31,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
+import sql.CollectionInfo;
 import sql.DocumentInfo;
 
 /**
@@ -52,21 +55,29 @@ public class SearchServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		
+
 		PrintWriter out = response.getWriter();
-		
+
+		String name = request.getParameter("nickname");
+		String nickname = new String(name.getBytes("iso-8859-1"), "utf-8");
 		String key = request.getParameter("keyword");
 		String keyword = new String(key.getBytes("iso-8859-1"), "utf-8");
 		keyword = keyword.replaceAll(" ", "");
 		String t = request.getParameter("type");
 		String type = new String(t.getBytes("iso-8859-1"), "utf-8");
+
 		DocumentInfo di = new DocumentInfo();
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		documents = di.getDocuments(keyword, type);
 
+		CollectionInfo ci = new CollectionInfo();
+		Map<Integer, Byte> maps = new HashMap<Integer, Byte>();
+		maps = ci.getCollections(nickname);
+
 		// 创建XML文件
-		String xmlStr = writeXMLString(documents);
+		String xmlStr = writeXMLString(documents, maps);
 		out.println(xmlStr);
+
 	}
 
 	protected void doPost(HttpServletRequest request,
@@ -78,7 +89,8 @@ public class SearchServlet extends HttpServlet {
 	/**
 	 * 功能：生成XML格式的字符串
 	 */
-	public String writeXMLString(ArrayList<DocumentVO> documents) {
+	public String writeXMLString(ArrayList<DocumentVO> documents,
+			Map<Integer, Byte> maps) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try {
@@ -195,6 +207,16 @@ public class SearchServlet extends HttpServlet {
 					.getDownloadNum()));
 			downloadNum.appendChild(tDownloadNum);
 
+			// 创建文件是否被收藏节点，Y表示被收藏，N表示没有被收藏
+			Element bookmark = doc.createElement("bookmark");
+			file.appendChild(bookmark);
+			String collection = "N";
+			Byte test = maps.get(vo.getID());
+			if (test != null) {
+				collection = "Y";
+			}
+			Text tBookmark = doc.createTextNode(collection);
+			bookmark.appendChild(tBookmark);
 		}
 		try {
 			String result = callWriteXmlString(doc, "utf-8");
