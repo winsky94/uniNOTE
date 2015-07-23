@@ -72,7 +72,11 @@
         	if (xmlhttp_comment.readyState==4 && xmlhttp_comment.status==200){
                 var text=xmlhttp_comment.responseText;
                 var comments=text.split(",");
-                var result="<p>感谢您的评价!</p><br><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+                if(comments[2]==0){
+                	var result="<p> 您已经评价过此文档了。</p><p> 好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+                }else{
+                var result="<p> 感谢您的评价!</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+            }
                 //$("#zan").hide();
                 //$("#cai").hide();
                 $("#commentArea").html(result);
