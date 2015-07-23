@@ -6,7 +6,7 @@
 	String id=request.getParameter("ID");
 	String filename=new String(request.getParameter("filename").getBytes("iso-8859-1"), "utf-8");
 	String profile=new String(request.getParameter("profile").getBytes("iso-8859-1"), "utf-8");
-	String origin_filename=new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");
+	String origin_filename=new String(request.getParameter("origin_filename").getBytes("iso-8859-1"), "utf-8");
     String tag=new String(request.getParameter("tag").getBytes("ios-8859-1"),"utf-8");
 
 	String[] str=origin_filename.split("\\.");
