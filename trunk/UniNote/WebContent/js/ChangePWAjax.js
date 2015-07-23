@@ -84,7 +84,7 @@ function callback_changepw() {
 				var responseMessage = textNode.nodeValue;
 				
 				if(responseMessage=='h'){
-				    window.location.href="/UniNote/user_edit_info.html";
+				    window.location.href="/UniNote/user.html";
 			    }
 				else{
 					// 将数据显示在页面上
