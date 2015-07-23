@@ -45,7 +45,6 @@ function login_callback() {
 		if (xmlHttp.status == 200) {
 
 			var text=xmlHttp.responseText;
-			alert("text="+text);
 			var message=text.substring(9,text.length-12);
 			
 			if (message.length > 0) {
@@ -56,7 +55,6 @@ function login_callback() {
 				if(strs[0]=='h'){
 					var my_school=strs[1];
 				    //登陆成功，写入cookie
-				    alert("username="+userName+" school="+my_school);
 				    add_cookie('username',userName,30*24);
 				    add_cookie('my_school',my_school,30*24);
 				    //window.location.href="/UniNote/list.html";
