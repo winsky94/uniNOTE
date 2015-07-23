@@ -131,15 +131,15 @@
 			<div class="col s12 l8">
 				<br />
 				<br />
-				<form class="form" id="searchZone" action="">
-					<input type="text" data-provide="typeahead">
+				<form class="form" id="searchZone" action="/UniNote/SearchServlet">
+					<input type="text" data-provide="typeahead" name="keyword">
 					<input type="submit" value="搜索" class="btn btn-primary">
 					<div>
-						<input type="radio" name="radio-group" id="uploader">
+						<input type="radio" name="type" id="uploader">
 						<label for="uploader">上传者</label>
-						<input type="radio" name="radio-group" id="customName"  checked="checked">
+						<input type="radio" name="type" id="customName"  checked="checked">
 						<label for="customName">文件名</label>
-						<input type="radio" name="radio-group" id="tag">
+						<input type="radio" name="type" id="tag">
 						<label for="tag">标签</label>
 					</div>
 				</form>
