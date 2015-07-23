@@ -36,7 +36,7 @@ public class CommentServlet extends HttpServlet {
 		int doucmentID = Integer.parseInt(request.getParameter("documentID"));
 
 		DocumentInfo di = new DocumentInfo();
-		int[] result;
+		int[] result = {};
 		if (flag == 0) {
 			// 点赞
 			result=di.addPraise(doucmentID);
