@@ -76,7 +76,7 @@
 
     <header></header>
 
-<div class="main container">
+    <div class="main container">
 		<div class="row"> <font size="15"><span class="col s12 l8" id="file-name">文件名</span></font> 
 		</div>
 		<div class="row">
@@ -123,10 +123,10 @@
                     <label for="tag">标签</label>
 			    </div>
 			    <div class="row col s12 l4">
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 l2">
                         <input type="submit" value="保存" class="btn btn-primary">
                     </div>
-                    <div class="col s6">
+                    <div class="col s6 l2">
                         <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a>
                     </div>
 			</form>
