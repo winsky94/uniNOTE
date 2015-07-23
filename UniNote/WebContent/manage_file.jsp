@@ -113,15 +113,22 @@
 					 }});
 	        </script>
 			</div>
-			<form action="" method="post" class="col s12 l4">
-			    <div class="input-field col s12 l4">
+			<form action="" method="post" class="col s12">
+			    <div class="input-field col s12">
 			        <textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
                     <label for="profile">简介</label>
 			    </div>
-			    <div class="input-field col s12 l4">
+			    <div class="input-field col s12">
 			        <input class="validate" type="text" id="tag" name="tag" value=tag>
                     <label for="tag">标签</label>
 			    </div>
+			    <div class="row">
+                    <div class="input-field col s6">
+                        <input type="submit" value="保存" class="btn btn-primary"></div>
+                        <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a> \
+                    <div class="input-field col s6">
+                        <font color="red" size="2"><span id="result" ></span></font></div>
+                </div>
 			</form>
 		</div>
 	</div>
