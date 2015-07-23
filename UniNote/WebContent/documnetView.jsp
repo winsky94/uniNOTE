@@ -77,9 +77,11 @@
         }
         function comment(operand){
         	var xmlhttp_comment=getXmlHttp();
+        	var username=$('#user-name').attr('title');
         	var id=<%=id%>;
             if(xmlhttp_comment!=null){
             	xmlhttp_comment.open("GET","/UniNote/CommentServlet?flag="+operand+"&documentID="+id,true);
+            	xmlhttp_comment.setAttribute("nickname",username);
             	xmlhttp_comment.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             	xmlhttp_comment.onreadystatechange=function(){show_comment(xmlhttp_comment)};
             	xmlhttp_comment.send();
