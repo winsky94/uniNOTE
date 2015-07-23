@@ -217,6 +217,7 @@ function write_edit_user_info(){
 }
 
 function write_changepw(){
+    var nickname=$("#nickname").html();
     var txt='<style type="text/css"> \
         .table-container{ \
             display: table; \
@@ -230,7 +231,7 @@ function write_changepw(){
         } \
     </style> \
                 <div class="input-field col s12"> \
-                    <input disabled id="nickname" type="text" name="nickname" class="validate" value="王宁"> \
+                    <input disabled type="text" name="nickname" class="validate" value="'+nickname+'"> \
                     <label for="last_name" class="active">Nickname</label> \
                 </div> \
                 <div class="input-field col s12"> \
