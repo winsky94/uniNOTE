@@ -148,6 +148,18 @@ public class UserInfoServlet extends HttpServlet {
 		Text tPoint= doc.createTextNode(user.getPoint()+"");
 		point.appendChild(tPoint);
 		
+		// 创建上传量节点
+		Element uploadNum = doc.createElement("uploadNum");
+		root.appendChild(uploadNum); // 将根元素添加到文档上
+		Text tUploadNum = doc.createTextNode(user.getUpLoadNum()+ "");
+		uploadNum.appendChild(tUploadNum);
+		
+		// 创建下载量节点
+		Element downloadNum = doc.createElement("downloadNum");
+		root.appendChild(downloadNum); // 将根元素添加到文档上
+		Text tDownloadNum = doc.createTextNode(user.getDownLoadNum() + "");
+		downloadNum.appendChild(tDownloadNum);
+		
 		try {
 			String result = callWriteXmlString(doc, "utf-8");
 			return result;
