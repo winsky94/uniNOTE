@@ -59,7 +59,8 @@
 }
 
 function write_user_upload_files(file_elements){
-    var txt=" <script> \
+    var txt=" <ul class='collection' id='filelist'> \
+    <script> \
     $(document).ready(function(){ \
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
@@ -107,6 +108,7 @@ function write_user_upload_files(file_elements){
         txt=txt +"</li>";
                 
     } //end for
+    txt=txt+"</ul>";
     return txt;
 }
 
