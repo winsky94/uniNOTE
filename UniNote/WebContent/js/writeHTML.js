@@ -7,7 +7,6 @@
         $('.secondary-content').css('color','#777'); \
         $('.secondary-content').click(function(){\
             var title=$(this).attr('title');\
-            alert(title);\
             if(title=='not-selected'){\
                 $(this).addClass('marked');\
                 $(this).css('color','#ffc107');\
