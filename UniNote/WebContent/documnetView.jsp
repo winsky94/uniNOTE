@@ -1,7 +1,7 @@
 <%@page import="server.DocConverter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%	
 	String id=request.getParameter("ID");
 	String filename=new String(request.getParameter("filename").getBytes("iso-8859-1"), "utf-8");
@@ -26,7 +26,7 @@
 	<script src="js/materialize.js"></script>
 	<script src="js/LoginAjax.js"></script>
 	<script src="js/cookie.js"></script>
-
+	<script type="text/javascript" src="js/xmlhttp.js"></script>
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -65,14 +65,31 @@
             	alert($("#nickname").attr("value"));
             }
         }
+        function show_comment(xmlhttp_comment){
+        	if (xmlhttp_comment.readyState==4 && xmlhttp_comment.status==200){
+                var text=xmlhttp_comment.responseText;
+                alert(text);
+            }
+        }
+        function comment(operand){
+        	var xmlhttp_comment=getXmlHttp();
+        	var id=<%=id%>;
+            if(xmlhttp_comment!=null){
+            	xmlhttp_comment.open("GET","/UniNote/CommentServlet?flag="+operand+"&documentID="+id,true);
+            	xmlhttp_comment.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            	xmlhttp_comment.onreadystatechange=function(){show_comment(xmlhttp_comment)};
+            	xmlhttp_comment.send();
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+		}
     </script>
 
 	<title>detail</title>
 </head>
 <body onload="check_cookie()">
 
-	<header>
-	</header>
+	<header></header>
 
 	<div class="main container">
 		<div class="row"> <font size="15"><span class="col s12 l8" id="file-name">文件名</span></font> 
@@ -126,14 +143,12 @@
 				</div>
 				<div class="row">
 					<div class="col s12">
-						<a class="waves-effect waves-light btn">
-							<i class="material-icons left"></i>
+						<a class="waves-effect waves-light btn" onclick="comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
 					</div>
 					<div class="col s12">
-						<a class="waves-effect waves-light btn">
-							<i class="material-icons right"></i>
+						<a class="waves-effect waves-light btn" onclick="comment(1)"> <i class="material-icons right"></i>
 							踩
 						</a>
 					</div>
@@ -141,8 +156,7 @@
 				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
-					<input type="submit" value=" 下载 " class="btn btn-primary">
-				</form>
+					<input type="submit" value=" 下载 " class="btn btn-primary"></form>
 			</div>
 		</div>
 	</div>
