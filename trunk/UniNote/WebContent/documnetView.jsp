@@ -146,18 +146,17 @@
 					</div>
 				</div>
 				<div id="commentArea" class="row">
-					<div id="zan" class="col s12">
+					<span id="zan" class="col s12">
 						<a class="waves-effect waves-light btn" onclick="comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
-						<br>
-					</div>
+					</span>
 					
-					<div id="cai" class="col s12">
+					<span id="cai" class="col s12">
 						<a class="waves-effect waves-light btn" onclick="comment(1)"> <i class="material-icons right"></i>
 							踩
 						</a>
-					</div>
+					</span>
 				</div>
 				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
