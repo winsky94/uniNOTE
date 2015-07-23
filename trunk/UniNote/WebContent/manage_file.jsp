@@ -42,6 +42,15 @@
 			display: relative;
 			margin:auto;
 		}
+		.table-container{
+			display: table;
+		}
+		.table-row-container{
+			display: table-row;
+		}
+		.table-cell-container{
+			display: table-cell;
+		}
     </style>
 
 	<script src="js/jQuery.js"></script>
@@ -118,11 +127,10 @@
 					<input class="validate" type="text" id="tag" name="tag" value=tag>
 					<label for="tag">标签</label>
 				</div>
-				<div class="row col s12 l4">
-					<div class="input-field col s6 l2">
-						<input type="submit" value="保存" class="btn btn-primary"></div>
-					<div class="col s6 l2">
-						<a class="btn btn-primary" onclick="window.location.reload(true)">取消</a>
+				<div class="row col s12 l4 table-container">
+					<div class="input-field table-row-container">
+						<input type="submit" value="保存" class="btn btn-primary table-cell-container"></div>
+						<a class="btn btn-primary table-cell-container" onclick="window.location.reload(true)">取消</a>
 					</div>
 				</form>
 			</div>
