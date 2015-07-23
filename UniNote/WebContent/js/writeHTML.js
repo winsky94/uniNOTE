@@ -88,6 +88,7 @@ function write_user_upload_files(file_elements){
         try{
             var extension=file_elements[i].getElementsByTagName("type")[0].firstChild.nodeValue; 
             txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
+            alert("type="+extension);
         }catch(e){
             txt=txt+"<i class='circle teal'><font size='2'><span>other</span></font></i>";
         }
