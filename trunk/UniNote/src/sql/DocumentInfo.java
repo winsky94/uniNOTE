@@ -457,6 +457,46 @@ public class DocumentInfo {
 		}
 		return documents;
 	}
+	
+	public ArrayList<DocumentVO> getHotDocuments(){
+ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
+		
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String query = "select * from document order by downloadNum desc limit 5";
+			ResultSet resultSet = sql.executeQuery(query);
+			while (resultSet.next()) {
+				int idi = resultSet.getInt("documentID");
+				String name = resultSet.getString("name");
+				String customName = resultSet.getString("customname");
+				String path = resultSet.getString("path");
+				String type1 = resultSet.getString("type");
+				String profile = resultSet.getString("profile");
+				String tag = resultSet.getString("tag");
+				String postgraduateData = resultSet
+						.getString("postgraduateData");
+				int id = resultSet.getInt("categoryID");
+				String uploader = resultSet.getString("uploader");
+				int praise = resultSet.getInt("praise");
+				int criticism = resultSet.getInt("criticism");
+				int downloadNum = resultSet.getInt("downloadNum");
+				DocumentVO vo = new DocumentVO(idi, name, customName, path,
+						type1, profile, tag, postgraduateData, id, uploader,
+						praise, criticism, downloadNum);
+				documents.add(vo);
+			}
+			resultSet.close();
+			sql.close();
+			con.close();
+
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return documents;
+	}
 
 	public void createTable() {
 		try {
