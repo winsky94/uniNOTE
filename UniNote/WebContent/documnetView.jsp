@@ -68,7 +68,11 @@
         function show_comment(xmlhttp_comment){
         	if (xmlhttp_comment.readyState==4 && xmlhttp_comment.status==200){
                 var text=xmlhttp_comment.responseText;
-                alert(text);
+                var comments=text.split(",");
+                var result="<p>感谢您的评价!</p><br><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+                //$("#zan").hide();
+                //$("#cai").hide();
+                $("#commentArea").html(result);
             }
         }
         function comment(operand){
@@ -141,13 +145,14 @@
 						<a href="#">上传的其他文件</a>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col s12">
+				<div id="commentArea" class="row">
+					<div id="zan" class="col s12">
 						<a class="waves-effect waves-light btn" onclick="comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
 					</div>
-					<div class="col s12">
+					<br>
+					<div id="cai" class="col s12">
 						<a class="waves-effect waves-light btn" onclick="comment(1)"> <i class="material-icons right"></i>
 							踩
 						</a>
