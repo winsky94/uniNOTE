@@ -149,13 +149,9 @@ public class UserInfo {
 		try {
 			Connection connection = SqlManager.getConnection();
 			Statement statement = connection.createStatement();
-			Statement statement1 = connection.createStatement();
-			Statement statement2 = connection.createStatement();
 			String query = "select * from user where nickname='" + name
 					+ "' limit 1";
 			ResultSet rs = statement.executeQuery(query);
-			ResultSet resultSet1 = null;
-			ResultSet resultSet2 = null;
 			while (rs.next()) {
 				String nickname = rs.getString("nickname");
 				String password = rs.getString("password");
@@ -165,34 +161,32 @@ public class UserInfo {
 				int point = rs.getInt("point");
 				vo = new UserVO(nickname, password, email, school, phoneNumber,
 						point);
-
+				
+				Statement statement1 = connection.createStatement();
 				query = "select count(documentID) as upLoadNum from document where uploader='"
 						+ name + "'";
-				resultSet1 = statement1.executeQuery(query);
+				ResultSet resultSet1 = statement1.executeQuery(query);
 				while (resultSet1.next()) {
 					int upLoadNum = resultSet1.getInt("upLoadNum");
 					vo.setUpLoadNum(upLoadNum);
 				}
-
+				resultSet1.close();
+				statement1.close();
+				
+				Statement statement2 = connection.createStatement();
 				query = "select count(downloadID) as downLoadNum from download  where nickname='"
 						+ name + "'";
-				resultSet2 = statement2.executeQuery(query);
+				ResultSet resultSet2 = statement2.executeQuery(query);
 				while (resultSet2.next()) {
 					int downLoadNum = resultSet2.getInt("downLoadNum");
 					vo.setDownLoadNum(downLoadNum);
 				}
+				resultSet2.close();
+				statement2.close();
 
-			}
-			if (resultSet1 != null) {
-				resultSet1.close();
-			}
-			if (resultSet2 != null) {
-				resultSet1.close();
 			}
 			rs.close();
 			statement.close();
-			statement1.close();
-			statement2.close();
 			connection.close();
 		} catch (Exception e) {
 			// TODO: handle exception
