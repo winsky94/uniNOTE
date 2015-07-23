@@ -458,13 +458,13 @@ public class DocumentInfo {
 		return documents;
 	}
 	
-	public ArrayList<DocumentVO> getHotDocuments(){
+	public ArrayList<DocumentVO> getHotDocuments(String school){
 ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String query = "select * from document order by downloadNum desc limit 5";
+			String query = "select * from document,category where document.categoryID=category.cid and category.school='"+school+"' order by downloadNum desc limit 5";
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
 				int idi = resultSet.getInt("documentID");
@@ -563,7 +563,8 @@ ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		// }
 		//
 		// System.out.println(ui.delete(vo));
-		System.out.println(ui.addPraise(1)[0]+" "+ui.addPraise(1)[1]);
-		System.out.println(ui.addCriticism(1)[0]+" "+ui.addCriticism(1)[1]);
+		//System.out.println(ui.addPraise(1)[0]+" "+ui.addPraise(1)[1]);
+		//System.out.println(ui.addCriticism(1)[0]+" "+ui.addCriticism(1)[1]);
+		ui.getHotDocuments("南京大学");
 	}
 }
