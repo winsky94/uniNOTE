@@ -114,10 +114,17 @@
     function search_function(){
     	var keyword=$("input[name='keyword']").val();
     	var type=$("input[name='type'][checked]").val();
+    	var nickname;
+    	var login=check_cookie();
+    	if(!login){
+            nickname="undefined";
+    	}else{
+    		nickname=$("#user-name").attr("title");
+    	}
     	var xmlhttp=getXmlHttp();
     	if(xmlhttp!=null){
             xmlhttp.onreadystatechange=function(){onSearchResponse(xmlhttp)};
-            xmlhttp.open("GET","/UniNote/SearchServlet?keyword="+keyword+"&type="+type,true);
+            xmlhttp.open("GET","/UniNote/SearchServlet?keyword="+keyword+"&type="+type+"&nickname="+nickname,true);
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xmlhttp.send();
     	}else{
