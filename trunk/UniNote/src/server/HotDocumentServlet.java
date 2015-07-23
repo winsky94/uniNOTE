@@ -190,17 +190,6 @@ public class HotDocumentServlet extends HttpServlet {
 					.getDownloadNum()));
 			downloadNum.appendChild(tDownloadNum);
 
-			// 创建文件是否被收藏节点，Y表示被收藏，N表示没有被收藏
-			Element bookmark = doc.createElement("bookmark");
-			file.appendChild(bookmark);
-			String collection = "N";
-			Byte test = maps.get(vo.getID());
-			if (test != null) {
-				collection = "Y";
-			}
-			Text tBookmark = doc.createTextNode(collection);
-			bookmark.appendChild(tBookmark);
-
 		}
 		try {
 			String result = callWriteXmlString(doc, "utf-8");
