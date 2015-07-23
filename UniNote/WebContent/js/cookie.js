@@ -177,7 +177,7 @@ function write_header_not_login(){
                             <li><a href="upload.html">上传文档</a></li> \
                             <!-- Dropdown Trigger --> \
                             <li><a class="dropdown-button" href="#!" \
-                                data-activates="dropdown1" id="university-info"> 南京大学 <i \
+                                data-activates="dropdown1" id="university-info" title="南京大学"> 南京大学 <i \
                                     class="material-icons right">arrow_drop_down</i> \
                             </a></li> \
                             <li><a class="modal-trigger" href="#modal1">登录/注册</a></li> \
