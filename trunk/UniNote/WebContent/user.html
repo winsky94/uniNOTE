@@ -124,14 +124,14 @@
                 	if(file_elements.length==0){
                 		$("#content-on-right").html("<p>您暂无下载的文件</p>");
                     }else{
-                    	var txt=write_user_download_or_collect_files(file_elements);
+                    	var txt=write_user_download_files(file_elements);
                     	$("#content-on-right").html(txt);
                     }      
                 }else if(type=="collect"){
                 	if(file_elements.length==0){
                 		$("#content-on-right").html("<p>您暂无收藏的文件</p>");
                     }else{
-                    	var txt=write_user_download_or_collect_files(file_elements);
+                    	var txt=write_user_collect_files(file_elements);
                     	$("#content-on-right").html(txt);
                     }
                 }
