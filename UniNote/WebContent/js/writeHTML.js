@@ -19,6 +19,7 @@
         }); \
     }); \
     </script>";
+    txt=txt+"<form action='/UniNote/CollectServlet' method='post'>";
     for(i=0;i<file_elements.length;i++){
 
         //开头
@@ -53,6 +54,7 @@
         txt=txt +"</li>";
                 
     } //end for
+    txt=txt+"</form>";
     return txt;
 }
 
