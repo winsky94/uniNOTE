@@ -5,6 +5,19 @@
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
         $('.secondary-content').css('color','#777'); \
+        $('.secondary-content').click(function(){\
+            var title=$(this).attr('title');\
+            alert(title);\
+            if(title=='not-selected'){\
+                $(this).addClass('marked');\
+                $(this).css('color','#ffc107');\
+                $(this).attr('title','selected'); \
+            }else{ \
+                $(this).removeClass('marked'); \
+                $(this).css('color','#777');  \
+                $(this).attr('title','not-selected'); \
+            } \
+        });\
     }); \
     </script>";
     for(i=0;i<file_elements.length;i++){
@@ -44,17 +57,6 @@
 }
  function clickStar(id){
     var username=$('#user-name').attr('title');
-    var title=$(this).attr('title');
-    alert(title);
-    if(title=='not-selected'){
-        $(this).addClass('marked');
-        $(this).css('color','#ffc107');
-        $(this).attr('title','selected'); 
-    }else{ 
-        $(this).removeClass('marked'); 
-        $(this).css('color','#777');  
-        $(this).attr('title','not-selected'); 
-    } 
     var xmlhttp_collect=getXmlHttp();
     if(xmlhttp_collect!=null){
         xmlhttp_collect.open("GET","/UniNote/CollectServlet?nickname="+username+"&documentID="+id,true);
