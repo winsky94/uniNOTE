@@ -1,32 +1,11 @@
 
  function write_document_list(file_elements){
-    var username=$('#user-name').attr('title');
 	var txt=" <script> \
     $(document).ready(function(){ \
         $('.marked').css('color','#ffc107');  \
         $('.not-marked').css('color','#777');  \
         $('.secondary-content').css('color','#777'); \
     }); \
-    function clickStar(id){\
-        var title=$(this).attr('title'); \
-        if(title=='not-selected'){ \
-            $(this).addClass('marked');  \
-            $(this).css('color','#ffc107');  \
-            $(this).attr('title','selected'); \
-        }else{ \
-            $(this).removeClass('marked'); \
-            $(this).css('color','#777');  \
-            $(this).attr('title','not-selected'); \
-        }   \
-        var xmlhttp_collect=getXmlHttp();\
-        if(xmlhttp_collect!=null){\
-            xmlhttp_collect.open(\"GET\",\"/UniNote/CollectServlet?nickname="+username+"&documentID=id\",true);\
-            xmlhttp_collect.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
-            xmlhttp_collect.send();\
-        }else{\
-            alert(\"Your browser does not support XMLHttpRequest.\");\
-        }\
-    }\
     </script>";
     for(i=0;i<file_elements.length;i++){
 
@@ -62,6 +41,27 @@
                 
     } //end for
     return txt;
+}
+ function clickStar(id){
+    var username=$('#user-name').attr('title');
+    var title=$(this).attr('title');
+    if(title=='not-selected'){
+        $(this).addClass('marked');
+        $(this).css('color','#ffc107');
+        $(this).attr('title','selected'); 
+    }else{ 
+        $(this).removeClass('marked'); 
+        $(this).css('color','#777');  
+        $(this).attr('title','not-selected'); 
+    } 
+    var xmlhttp_collect=getXmlHttp();
+    if(xmlhttp_collect!=null){
+        xmlhttp_collect.open("GET","/UniNote/CollectServlet?nickname="+username+"&documentID="+id,true);
+        xmlhttp_collect.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xmlhttp_collect.send();
+    }else{
+        alert("Your browser does not support XMLHttpRequest.");
+    }
 }
 
 function write_user_upload_files(file_elements){
