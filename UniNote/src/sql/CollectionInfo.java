@@ -91,13 +91,13 @@ public class CollectionInfo {
 				String tag = resultSet.getString("tag");
 				String postgraduateData = resultSet
 						.getString("postgraduateData");
-				int categaryID = resultSet.getInt("categaryID");
+				int categoryID = resultSet.getInt("categoryID");
 				String uploader = resultSet.getString("uploader");
 				int praise = resultSet.getInt("praise");
 				int criticism = resultSet.getInt("criticism");
 				int downloadNum = resultSet.getInt("downloadNum");
 				DocumentVO vo = new DocumentVO(did, dname, customName, path,
-						type, profile, tag, postgraduateData, categaryID,
+						type, profile, tag, postgraduateData, categoryID,
 						uploader, praise, criticism, downloadNum);
 				documents.add(vo);
 			}
@@ -107,6 +107,8 @@ public class CollectionInfo {
 		} finally {
 			closeMySql();
 		}
+		System.out.println(documents.size());
+		System.out.println("---");
 		return documents;
 	}
 
@@ -153,10 +155,10 @@ public class CollectionInfo {
 
 	public static void main(String[] args) {
 		CollectionInfo ci = new CollectionInfo();
-		// ci.createTable();
-		ci.changeState("1", 1);
-		ci.changeState("2", 1);
-		ci.getCollections("1");
+//		 ci.createTable();
+//		ci.changeState("1", 1);
+//		ci.changeState("2", 1);
+//		ci.getCollections("1");
 		System.out.println(ci.getCollectionList("1").size());
 	}
 }
