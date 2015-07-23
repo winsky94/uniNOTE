@@ -119,7 +119,7 @@ function write_user_upload_files(file_elements){
     return txt;
 }
 
-function write_user_load_files(file_elements){
+function write_user_download_or_collect_files(file_elements){
     var txt=" <ul class='collection' id='filelist'> \
     <script> \
     $(document).ready(function(){ \
@@ -162,7 +162,7 @@ function write_user_load_files(file_elements){
         var downloadNum=file_elements[i].getElementsByTagName("downloadNum")[0].firstChild.nodeValue;
         var tag=file_elements[i].getElementsByTagName("tag")[0].firstChild.nodeValue;
 
-        txt=txt+"<a class='title' href='" +"manage_file.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
+        txt=txt+"<a class='title' href='" +"documentView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
 
         //结尾
         txt=txt+"<a href='#!' class='secondary-content not-marked' type='submit' title='not-selected'><i class='material-icons'>grade</i></a>"; 
