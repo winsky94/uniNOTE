@@ -111,7 +111,7 @@
         }
 	    //end init_list
 
-    function search(){
+    function search_function(){
     	var keyword=$("input[name='keyword']").val();
     	var type=$("input[name='type'][checked]").val();
     	var xmlhttp=getXmlHttp();
@@ -168,7 +168,7 @@
 				<br />
 				<form class="form" id="searchZone" action="/UniNote/SearchServlet">
 					<input type="text"  name="keyword">
-					<a class="btn btn-primary" onclick="search()">搜索</a>
+					<a class="btn btn-primary" onclick="search_function()">搜索</a>
 					<div>
 						<input type="radio" name="type" id="uploader" value="uploader">
 						<label for="uploader">上传者</label>
