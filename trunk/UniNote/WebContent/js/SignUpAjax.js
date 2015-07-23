@@ -1,13 +1,13 @@
 ﻿//用户名检验方法  
 //这个方法将使用XMLHTTPRequest对象进行AJAX的异步数据交互  
 var xmlHttp;  
-function verify(){  
+function verify_signup(){  
     //使用dom的方式获取文本框中的值  
     //.value可以获取一个元素节点的value属性  
-    var userName = document.getElementById("nickname").value;
+    userName = document.getElementById("nickname").value;
     var password = document.getElementById("password").value;
     var email = document.getElementById("email").value;
-    var school = document.getElementById("school").value;
+    school = document.getElementById("school").value;
     var phonenumber = document.getElementById("phonenumber").value;
       
     //创建XMLHttprequest对象  
@@ -49,7 +49,7 @@ function verify(){
     //2.注册回调函数  
     //注册回调函数时，只需要函数名，不要加括号  
     //我们需要将函数名注册，如果加上括号，就会把函数的返回值注册上，这是错误的  
-    xmlHttp.onreadystatechange = callback;  
+    xmlHttp.onreadystatechange = callback_signup;  
     //3.设置连接信息  
     //第一个参数表示http的请求方式，支持所有http的请求方式，主要是get和post  
     //第二个表示请求的url地址，get方式请求的参数也是url中  
@@ -73,7 +73,7 @@ function verify(){
     
 }  
 //回调函数   
-function callback(){  
+function callback_signup(){  
     //5.接收响应数据  
     //判断对象的状态 是交互完成  
 	
@@ -93,6 +93,9 @@ function callback(){
             var responseMessage = textNode.nodeValue;  
 
             if(responseMessage=='h'){
+                //注册成功，写入cookie
+                add_cookie('username',userName,30*24);
+                add_cookie('my_school',school,30*24);
 			    window.location.href="/UniNote/list.html";
 		    }
 			else{
