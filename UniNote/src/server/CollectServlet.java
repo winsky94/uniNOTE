@@ -1,7 +1,6 @@
 package server;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,32 +16,33 @@ import sql.CollectionInfo;
 @WebServlet("/CollectServlet")
 public class CollectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public CollectServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CollectServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("application/xml;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();				
-		
+
 		String nickname = request.getParameter("nickname");
 		int documentID = Integer.parseInt(request.getParameter("documentID"));
-		
-		CollectionInfo ci=new CollectionInfo();
+
+		CollectionInfo ci = new CollectionInfo();
 		System.out.println("收藏参数：");
 		System.out.println(nickname);
 		System.out.println(documentID);
 		ci.changeState(nickname, documentID);
-		
-		response.sendRedirect(request.getHeader("Referer"));
+
+		// response.sendRedirect(request.getHeader("Referer"));
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		this.doGet(request, response);
 	}
