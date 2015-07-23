@@ -36,7 +36,7 @@ public class CommentServlet extends HttpServlet {
 		int doucmentID = Integer.parseInt(request.getParameter("documentID"));
 		String name = (String) request.getParameter("nickname");
 		String nickname = new String(name.getBytes("ISO-8859-1"),"utf-8");
-		System.out.println("评论:" + nickname);
+
 		CommentInfo di = new CommentInfo();
 		int[] result = {};// 返回值第0位表示点赞数，第1位表示踩数，第2位表示操作成功与否，1为成功，0为失败
 		if (flag == 0) {
