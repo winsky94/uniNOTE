@@ -38,7 +38,8 @@ public class CollectServlet extends HttpServlet {
 		System.out.println(nickname);
 		System.out.println(documentID);
 		ci.changeState(nickname, documentID);
-		out.println("<script language = javascript>window.history.go(-1)</script>"); 
+		
+		response.sendRedirect(request.getHeader("Referer"));
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
