@@ -74,9 +74,11 @@
                 var comments=text.split(",");
                 if(comments[2]==0){
                 	var result="<p> 您已经评价过此文档了。</p><p> 好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
-                }else{
+                }else if(comments[2]==1){
                 var result="<p> 感谢您的评价!</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
-            }
+            	}else if(comments[2]==2){
+            		var result="<p> 感谢你自己？</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+            	}
                 //$("#zan").hide();
                 //$("#cai").hide();
                 $("#commentArea").html(result);
