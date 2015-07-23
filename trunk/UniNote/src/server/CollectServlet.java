@@ -32,6 +32,9 @@ public class CollectServlet extends HttpServlet {
 		int documentID = Integer.parseInt(request.getParameter("documentID"));
 		
 		CollectionInfo ci=new CollectionInfo();
+		System.out.println("收藏参数：");
+		System.out.println(nickname);
+		System.out.println(documentID);
 		ci.changeState(nickname, documentID);
 	}
 
