@@ -205,7 +205,7 @@ function write_edit_user_info(){
                     <div class="row-container"> \
                         <div class="input-field cell">  \
                             <input id="flag" type="hidden" name="flag" value="userinfo"> \
-                            <input type="submit" value="保存" onclick="verify()" class="btn btn-primary">  \
+                            <input type="submit" value="保存" onclick="verify_change_user_info()" class="btn btn-primary">  \
                         </div>  \
                         <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a> \
                         <div class="input-field cell"> \
@@ -249,7 +249,7 @@ function write_changepw(){
                     <div class="row row-container"> \
                         <div class="input-field cell"> \
                             <input type="hidden" name="flag" value="password"> \
-                            <input type="submit" value="提交" onclick="verify()" class="btn btn-primary"> \
+                            <input type="submit" value="提交" onclick="verify_changepw()" class="btn btn-primary"> \
                         </div> \
                         <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a> \
                         <div class="input-field cell">  \
