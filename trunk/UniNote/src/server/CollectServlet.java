@@ -1,6 +1,7 @@
 package server;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +28,7 @@ public class CollectServlet extends HttpServlet {
 		response.setContentType("application/xml;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();				
 		
 		String nickname = request.getParameter("nickname");
 		int documentID = Integer.parseInt(request.getParameter("documentID"));
@@ -36,6 +38,7 @@ public class CollectServlet extends HttpServlet {
 		System.out.println(nickname);
 		System.out.println(documentID);
 		ci.changeState(nickname, documentID);
+		out.println("<script language = javascript>window.history.go(-1)</script>"); 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
