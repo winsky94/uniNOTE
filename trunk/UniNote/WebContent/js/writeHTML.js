@@ -349,7 +349,7 @@ function write_footer(){
         <div class="footer-copyright"> \
             <div class="container"> \
                 © 2015 uniNOTE Group,software institute, NJU <a \
-                    class="grey-text text-lighten-4 right" href="www.hao123.com">hao123</a> \
+                    class="grey-text text-lighten-4 right" href="http://www.hao123.com">hao123</a> \
             </div> \
         </div> \
             </footer>';
