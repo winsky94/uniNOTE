@@ -16,19 +16,21 @@ import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConv
 public class DocConverter {
 	private static final int environment = 1;// 环境 1：windows 2:linux
 	private String fileString;// (只涉及pdf2swf路径问题)
-	private String outputPath = "";// 输入路径 ，如果不设置就输出在默认的位置
+	private String outputPath = "";// 输出路径 ，如果不设置就输出在默认的位置
 	private String fileName;
 	private File pdfFile;
 	private File swfFile;
 	private File docFile;
-	
+
 	/**
 	 * 
-	 * @param fileString 要转换的文件的地址
-	 * @param name swf文件名，不含后缀
+	 * @param fileString
+	 *            要转换的文件的地址
+	 * @param name
+	 *            swf文件名，不含后缀
 	 */
-	public DocConverter(String fileString,String name) {
-		ini(fileString,name);
+	public DocConverter(String fileString, String name) {
+		ini(fileString, name);
 	}
 
 	/**
@@ -36,8 +38,8 @@ public class DocConverter {
 	 * 
 	 * @param fileString
 	 */
-	public void setFile(String fileString,String name) {
-		ini(fileString,name);
+	public void setFile(String fileString, String name) {
+		ini(fileString, name);
 	}
 
 	/**
@@ -45,15 +47,15 @@ public class DocConverter {
 	 * 
 	 * @param fileString
 	 */
-	private void ini(String fileString,String name) {
+	private void ini(String fileString, String name) {
 		this.fileString = fileString;
 		fileName = fileString.substring(0, fileString.lastIndexOf("."));
 		docFile = new File(fileString);
 		pdfFile = new File(fileName + ".pdf");
-//		swfFile = new File(fileName + ".swf");
-		swfFile=new File("../webapps/UniNote/swfFile/"+name+".swf");
+		// swfFile = new File(fileName + ".swf");
+		swfFile = new File("../webapps/UniNote/swfFile/" + name + ".swf");
 	}
-	
+
 	/**
 	 * 转为PDF
 	 * 
@@ -62,14 +64,17 @@ public class DocConverter {
 	private void doc2pdf() throws Exception {
 		if (docFile.exists()) {
 			if (!pdfFile.exists()) {
-				OpenOfficeConnection connection = new SocketOpenOfficeConnection(8100);
+				OpenOfficeConnection connection = new SocketOpenOfficeConnection(
+						8100);
 				try {
 					connection.connect();
-					DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
+					DocumentConverter converter = new OpenOfficeDocumentConverter(
+							connection);
 					converter.convert(docFile, pdfFile);
 					// close the connection
 					connection.disconnect();
-					System.out.println("****pdf转换成功，PDF输出：" + pdfFile.getPath()+ "****");
+					System.out.println("****pdf转换成功，PDF输出：" + pdfFile.getPath()
+							+ "****");
 				} catch (java.net.ConnectException e) {
 					e.printStackTrace();
 					System.out.println("****swf转换器异常，openoffice服务未启动！****");
@@ -89,7 +94,7 @@ public class DocConverter {
 			System.out.println("****swf转换器异常，需要转换的文档不存在，无法转换****");
 		}
 	}
-	
+
 	/**
 	 * 转换成 swf
 	 */
@@ -100,7 +105,11 @@ public class DocConverter {
 			if (pdfFile.exists()) {
 				if (environment == 1) {// windows环境处理
 					try {
-						Process p = r.exec("C:/Program Files (x86)/SWFTools/pdf2swf.exe "+ pdfFile.getPath() + " -o "+ swfFile.getPath() + " -T 9");
+						Process p = r
+								.exec("C:/Program Files (x86)/SWFTools/pdf2swf.exe "
+										+ pdfFile.getPath()
+										+ " -o "
+										+ swfFile.getPath() + " -T 9");
 						System.out.print(loadStream(p.getInputStream()));
 						System.err.print(loadStream(p.getErrorStream()));
 						System.out.print(loadStream(p.getInputStream()));
@@ -150,6 +159,7 @@ public class DocConverter {
 
 		return buffer.toString();
 	}
+
 	/**
 	 * 转换主方法
 	 */
@@ -195,7 +205,7 @@ public class DocConverter {
 			return "";
 		}
 	}
-	
+
 	/**
 	 * 设置输出路径
 	 */
@@ -211,10 +221,10 @@ public class DocConverter {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		DocConverter docConverter=new DocConverter("C:/Users/Administrator/Desktop/test测试.doc","test测试");
+		DocConverter docConverter = new DocConverter(
+				"C:/Users/Administrator/Desktop/test测试.doc", "test测试");
 		docConverter.conver();
 	}
 }
-	
