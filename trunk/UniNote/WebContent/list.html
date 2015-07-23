@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	
+
 	<style type="text/css">
     input{
       max-width: 80%;
@@ -25,7 +25,11 @@
 		max-width: 42px;
 		padding: 0;
 	}
+	label {
+		margin: 5px;
+	}
 	</style>
+
 	<!--  Scripts-->
 	<script src="js/jQuery.js"></script>
 	<script src="js/materialize.js"></script>
@@ -33,6 +37,7 @@
 	<script src="js/xmlhttp.js"></script>
 	<script src="js/cookie.js"></script>
 	<script src="js/LoginAjax.js"></script>
+
 	<script type="text/javascript">
 		function get_course_list(xmlhttp_course){
 			 if (xmlhttp_course.readyState==4 && xmlhttp_course.status==200){
@@ -105,8 +110,6 @@
             }     	
         }
 	    //end init_list
-
-
 	</script>
 
 </head>
@@ -128,10 +131,16 @@
 			<div class="col s12 l8">
 				<br />
 				<br />
-				<form id="searchZone">
+				<form class="form" id="searchZone" action="">
+					<input type="text" data-provide="typeahead">
+					<input type="submit" value="搜索" class="btn btn-primary">
 					<div>
-						<input type="text" data-provide="typeahead">
-						<a class="waves-effect waves-light btn">搜索</a>
+						<input type="radio" name="radio-group" id="uploader">
+						<label for="uploader">上传者</label>
+						<input type="radio" name="radio-group" id="customName">
+						<label for="customName">文件名</label>
+						<input type="radio" name="radio-group" id="tag">
+						<label for="tag">标签</label>
 					</div>
 				</form>
 				<br />
