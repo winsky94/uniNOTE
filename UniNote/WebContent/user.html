@@ -43,7 +43,6 @@
 
 	<script type="text/javascript">
 
-
     	function get_user_info(){
     		var nickname=$("#user-name").attr("title");
     		var xmlhttp=getXmlHttp();
@@ -96,7 +95,6 @@
             }
     	}    	
 
-
     	function onFileListResponse(xmlhttp,type){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 var text=xmlhttp.responseText;
@@ -135,8 +133,6 @@
                     	$("#content-on-right").html(txt);
                     }
                 }
-
-                
             }
 	    }
 
@@ -162,6 +158,7 @@
 	    }
 
 	</script>
+	
 </head>
 <body onload="check_cookie();write_footer();get_user_info()">
 	<header>
