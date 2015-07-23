@@ -19,7 +19,6 @@
         }); \
     }); \
     </script>";
-    txt=txt+"<form action='/UniNote/CollectServlet' method='post'>";
     for(i=0;i<file_elements.length;i++){
 
         //开头
@@ -41,20 +40,20 @@
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
         var marked=file_elements[i].getElementsByTagName("bookmark")[0].firstChild.nodeValue;
         var downloadNum=file_elements[i].getElementsByTagName("downloadNum")[0].firstChild.nodeValue;
+        var username=$('#user-name').attr('title');
 
         txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
 
         //结尾
         if(marked=='Y'){
-            txt=txt+"<a href='#!' class='secondary-content marked' type='submit' title='selected'><i class='material-icons'>grade</i></a>";
+            txt=txt+"<a href=\"/UniNote/CollectServlet?nickname="+username+"&documentID="+id+"\" class='secondary-content marked' type='submit' title='selected'><i class='material-icons'>grade</i></a>";
         }else{
-            txt=txt+"<a href='#!' class='secondary-content not-marked' type='submit' title='not-selected'><i class='material-icons'>grade</i></a>";
+            txt=txt+"<a href=\"/UniNote/CollectServlet?nickname="+username+"&documentID="+id+"\" class='secondary-content not-marked' type='submit' title='not-selected'><i class='material-icons'>grade</i></a>";
         }
         
         txt=txt +"</li>";
                 
     } //end for
-    txt=txt+"</form>";
     return txt;
 }
 
