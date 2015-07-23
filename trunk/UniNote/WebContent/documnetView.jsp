@@ -63,7 +63,6 @@
                 return false;      
             }else{
             	$("#nickname").attr("value",$("#user-name").attr("title"));
-            	alert($("#nickname").attr("value"));
             	return true;
             }
         }
@@ -85,6 +84,13 @@
             }
         }
         function comment(operand){
+            login=check_cookie();
+            if(!login){      	
+                $(document).ready(function(){
+                    $('#modal1').openModal();
+                });  
+                return false;      
+            }
         	var xmlhttp_comment=getXmlHttp();
         	var username=$('#user-name').attr('title');
         	var id=<%=id%>;
@@ -157,13 +163,13 @@
 				</div>
 				<div id="commentArea" class="row">
 					<div id="zan" class="col s12">
-						<a class="waves-effect waves-light btn" onclick="return check_login();comment(0)"> <i class="material-icons left"></i>
+						<a class="waves-effect waves-light btn" onclick="return comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
 					</div>
 					<div class="col s12"></div>
 					<div id="cai" class="col s12">
-						<a class="waves-effect waves-light btn" onclick="return check_login();comment(1)"> <i class="material-icons right"></i>
+						<a class="waves-effect waves-light btn" onclick="return comment(1)"> <i class="material-icons right"></i>
 							踩
 						</a>
 					</div>
