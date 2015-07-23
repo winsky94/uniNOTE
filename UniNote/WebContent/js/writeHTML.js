@@ -336,7 +336,7 @@ function write_footer(){
                     <p class="grey-text text-lighten-4">面向全国高校的课程分类式文库。</p> \
                 </div> \
                 <div class="col l4 offset-l2 s12"> \
-                    <h5 class="white-text">Links</h5> \
+                    <h5 class="white-text">联系我们</h5> \
                     <ul> \
                          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a> \
                         </li> \
@@ -349,7 +349,7 @@ function write_footer(){
         <div class="footer-copyright"> \
             <div class="container"> \
                 © 2015 uniNOTE Group,software institute, NJU <a \
-                    class="grey-text text-lighten-4 right" href="#!">Links</a> \
+                    class="grey-text text-lighten-4 right" href="www.hao123.com">hao123</a> \
             </div> \
         </div> \
             </footer>';
