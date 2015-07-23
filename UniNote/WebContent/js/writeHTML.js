@@ -61,7 +61,7 @@
 
 function write_user_info(user_info){
     var nickname=$("#user-name").attr("title");
-    $(h4).html(nickname);
+    $("#username").html(nickname);
     var email=user_info.getElementsByTagName("email")[0].firstChild.nodeValue;
     var school=user_info.getElementsByTagName("school")[0].firstChild.nodeValue;
     var phonenumber=user_info.getElementsByTagName("phoneNumber")[0].firstChild.nodeValue;
