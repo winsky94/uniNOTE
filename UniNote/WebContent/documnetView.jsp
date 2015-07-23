@@ -150,8 +150,9 @@
 						<a class="waves-effect waves-light btn" onclick="comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
+						<br>
 					</div>
-					<br>
+					
 					<div id="cai" class="col s12">
 						<a class="waves-effect waves-light btn" onclick="comment(1)"> <i class="material-icons right"></i>
 							踩
