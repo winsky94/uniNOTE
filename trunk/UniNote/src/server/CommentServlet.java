@@ -34,17 +34,19 @@ public class CommentServlet extends HttpServlet {
 
 		int flag = Integer.parseInt(request.getParameter("flag"));
 		int doucmentID = Integer.parseInt(request.getParameter("documentID"));
-
+		String name = (String) request.getAttribute("nickname");
+		String nickname = name;
+		System.out.println("评论:"+nickname);
 		DocumentInfo di = new DocumentInfo();
-		int[] result = {};
+		int[] result = {};// 返回值第0位表示点赞数，第1位表示踩数，第2位表示操作成功与否，1为成功，0为失败
 		if (flag == 0) {
 			// 点赞
-			result = di.addPraise(doucmentID);
+			result = di.addPraise(nickname, doucmentID);
 		} else if (flag == 1) {
 			// 踩
-			result = di.addCriticism(doucmentID);
+			result = di.addCriticism(nickname, doucmentID);
 		}
-		out.println(result[0] + "," + result[1]);
+		out.println(result[0] + "," + result[1] + "," + result[2]);
 
 	}
 
