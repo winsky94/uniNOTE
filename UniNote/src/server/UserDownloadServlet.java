@@ -34,14 +34,14 @@ import sql.DownloadInfo;
 /**
  * Servlet implementation class UserDownloadServet
  */
-@WebServlet("/UserDownloadServet")
-public class UserDownloadServet extends HttpServlet {
+@WebServlet("/UserDownloadServlet")
+public class UserDownloadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserDownloadServet() {
+    public UserDownloadServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
