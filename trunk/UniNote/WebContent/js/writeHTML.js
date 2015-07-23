@@ -45,6 +45,7 @@
  function clickStar(id){
     var username=$('#user-name').attr('title');
     var title=$(this).attr('title');
+    alert(title);
     if(title=='not-selected'){
         $(this).addClass('marked');
         $(this).css('color','#ffc107');
