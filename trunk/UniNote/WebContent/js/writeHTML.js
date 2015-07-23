@@ -119,6 +119,60 @@ function write_user_upload_files(file_elements){
     return txt;
 }
 
+function write_user_load_files(file_elements){
+    var txt=" <ul class='collection' id='filelist'> \
+    <script> \
+    $(document).ready(function(){ \
+        $('.marked').css('color','#ffc107');  \
+        $('.not-marked').css('color','#777');  \
+        $('.secondary-content').css('color','#777'); \
+        $('.secondary-content').click(function(){  \
+            var title=$(this).attr('title'); \
+            if(title=='not-selected'){ \
+                $(this).addClass('marked');  \
+                $(this).css('color','#ffc107');  \
+                $(this).attr('title','selected'); \
+            }else{ \
+                $(this).removeClass('marked'); \
+                $(this).css('color','#777');  \
+                $(this).attr('title','not-selected'); \
+            }   \
+        }); \
+    }); \
+    </script>";
+    for(i=0;i<file_elements.length;i++){
+
+        //开头
+        txt=txt + "<li class='collection-item avatar'>";
+
+        //根据文件格式选图片       
+        try{
+            var extension=file_elements[i].getElementsByTagName("type")[0].firstChild.nodeValue; 
+            txt=txt+"<i class='circle'><img src='images/document-icons/"+extension+".png'></i>";
+        }catch(e){
+            txt=txt+"<i class='circle teal'><font size='2'><span>other</span></font></i>";
+        }
+      
+
+        var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
+        var filename=file_elements[i].getElementsByTagName("filename")[0].firstChild.nodeValue;
+        var origin_filename=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
+        var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue; 
+        var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
+        var downloadNum=file_elements[i].getElementsByTagName("downloadNum")[0].firstChild.nodeValue;
+        var tag=file_elements[i].getElementsByTagName("tag")[0].firstChild.nodeValue;
+
+        txt=txt+"<a class='title' href='" +"manage_file.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
+
+        //结尾
+        txt=txt+"<a href='#!' class='secondary-content not-marked' type='submit' title='not-selected'><i class='material-icons'>grade</i></a>"; 
+        txt=txt +"</li>";
+                
+    } //end for
+    txt=txt+"</ul>";
+    return txt;
+}
+
 
 function write_user_info(user_info){
     var nickname=$("#user-name").attr("title");
