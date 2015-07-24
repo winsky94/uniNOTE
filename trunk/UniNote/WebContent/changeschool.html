@@ -30,6 +30,15 @@
 	<script src="js/cookie.js"></script>
 	<script src="js/LoginAjax.js"></script>
 
+	<script>
+	function change_school(){
+		var current_school=$(this).html();
+		alert("school="+current_school);
+		add_cookie("current_school",current_school,30*24);
+		write_header();
+	}
+	</script>
+
 </head>
 <body onload='write_header();write_footer()'>
 

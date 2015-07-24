@@ -36,8 +36,7 @@ function delete_cookie(){
 
 function check_cookie(){
   var username=get_cookie('username');
-  var my_school=get_cookie('my_school');
-  if (username!=null && username!="" && my_school!=null && my_school!="" &&username!='v'){
+  if (username!=null && username!="" && username!='v'){
       return true;
   }else{
     return false;
@@ -51,7 +50,13 @@ function write_header(){
   }else{
     var username=get_cookie('username');
     var my_school=get_cookie('my_school');
-    write_header_login(username,my_school);
+    var current_school=get_cookie('current_school');
+    if(current_school!=null && current_school!="" && current_school !="v"){
+      write_header_login(username,current_school);
+    }else{
+      write_header_login(username,my_school);
+    }
+    
   }
 }
 
