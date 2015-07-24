@@ -103,6 +103,8 @@
             }
 		}
 
+		/*
+
 		$(document).ready(function(){
         	var form=$("#download-form");
         	form.submit(function(){
@@ -119,6 +121,28 @@
                 return false;
         	});
 		});
+*/
+
+		$('#download-form').submit(function() {
+            var AjaxURL= "/UniNote/DownLoadServlet";       
+            alert($('#download-form').serialize());
+                $.ajax({
+                    type: "GET",
+                    dataType: "html",
+                    url: AjaxURL + '?Action=' + 'DownLoadServlet',
+                    data: $('#download-form').serialize(),
+                    success: function (data) {
+                        var strresult=data;
+                        alert(strresult);
+                        //加载最大可退金额
+                    },
+                    error: function(data) {
+                        alert("error:"+data.responseText);
+                     }
+
+                });
+        }
+    );
     </script>
 
 	<title>detail</title>
