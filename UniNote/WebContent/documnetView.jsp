@@ -14,7 +14,6 @@
 	String filePath="D:/web_server_file/"+origin_filename;
 	DocConverter c=new DocConverter(filePath,id);
 	c.conver();
-
 %>
 <!DOCTYPE html>
 <html>
@@ -32,6 +31,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/comment.css" type="text/css" rel="stylesheet" media="screen,projection">
 
 	<style media="screen"> 
 		#flashContent { 
@@ -74,11 +74,11 @@
                 var text=xmlhttp_comment.responseText;
                 var comments=text.split(",");
                 if(comments[2]==0){
-                	var result="<p> 您已经评价过此文档了。</p><p> 好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+                	var result="<p>您已经评价过此文档了。</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
                 }else if(comments[2]==1){
-                var result="<p> 感谢您的评价!</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+                var result="<p>感谢您的评价!</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
             	}else if(comments[2]==2){
-            		var result="<p> 感谢你自己？</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+            		var result="<p>感谢你自己？</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
             	}
                 $("#commentArea").html(result);
             }
@@ -147,6 +147,45 @@
   					 localeChain: 'zh_CN'
 					 }});
 	        </script>
+				<section class="comments">
+					<article class="comment">
+						<a class="comment-img" href="#non">
+							<img src="images/portrait.jpg" alt="" width="50" height="50"></a>
+						<div class="comment-body">
+							<div class="text">
+								<p>Hello, this is an example comment</p>
+							</div>
+							<p class="attribution">
+								by
+								<a href="#non">Joe Bloggs</a>
+								at 14:23pm, 4th Dec 2010
+							</p>
+
+						</div>
+					</article>
+					<article class="comment">
+						<a class="comment-img" href="#non">
+							<img src="images/portrait.jpg" alt="" width="50" height="50"></a>
+						<div class="comment-body">
+							<div class="text">
+								<p>This is a much longer one that will go on for a few lines.</p>
+								<p>
+									It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.
+								</p>
+							</div>
+							<p class="attribution">
+								by
+								<a href="#non">Joe Bloggs</a>
+								at 14:23pm, 4th Dec 2010
+							</p>
+						</div>
+					</article>
+				</section>
+				<div class="input-field" id="my-comment-area"> <i class="material-icons prefix">mode_edit</i>
+					<textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+					<label for="icon_prefix2">你的评价</label>
+					<a class="btn btn-primary">提交</a>
+				</div>
 			</div>
 			<div class="col s12 l4">
 				<div class="card">
@@ -166,7 +205,8 @@
 						<a class="waves-effect waves-light btn" onclick="return comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
-						<a class="waves-effect waves-light btn" onclick="return comment(1)"> <i class="material-icons right"></i>
+						<a class="waves-effect waves-light btn" onclick="return comment(1)">
+							<i class="material-icons right"></i>
 							踩
 						</a>
 					</div>
@@ -175,8 +215,7 @@
 				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
-					<input type="submit" value=" 下载 " onclick="verify_downLoad()" class="btn btn-primary">
-					<font color="red" size="2"><span id="result" >呵呵</span></font> 
+					<input type="submit" value=" 下载 " onclick="verify_downLoad()" class="btn btn-primary"> <font color="red" size="2"><span id="result" >呵呵</span></font> 
 				</form>
 			</div>
 		</div>
