@@ -52,7 +52,7 @@
         	$('#file-name').html("<%=filename%>");
         	$('#file-profile').html("<%=profile%>");
         	$('#ID').attr("value","<%=id%>");
-        	$('#commentNow').html("'好评数：'+<%=zanNum%>+'；差评数：'+<%=caiNum%>");
+        	$('#commentNow').html("好评数：+<%=zanNum%>+；差评数：+<%=caiNum%>");
         });
 
         function check_login(){
