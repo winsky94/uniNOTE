@@ -32,51 +32,26 @@ public class DownLoadServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Integer total = (Integer) request.getSession().getAttribute("total");
+		int temp = 0;
+		if (total == null) {
+			temp = 1;
+			total = 0;
+		} else {
+			temp = total.intValue() + 1;
+		}
+		request.getSession().setAttribute("total", total.intValue() + temp);
+		
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 
 		PrintWriter out = response.getWriter();
+		StringBuilder builder = new StringBuilder();
 		
 		// 下载文件
 		String nickname = request.getParameter("nickname");
 		int documentID = Integer.parseInt(request.getParameter("ID"));
-		
-		String isAJAX = request.getHeader("content-type");
-
-		if (isAJAX.equals("application/x-www-form-urlencoded")) {
-
-			Integer total = (Integer) request.getSession()
-					.getAttribute("total");
-			int temp = 0;
-			if (total == null) {
-				temp = 1;
-				total = 0;
-			} else {
-				temp = total.intValue() + 1;
-			}
-			request.getSession().setAttribute("total", total.intValue() + temp);
-
-
-			StringBuilder builder = new StringBuilder();
-			builder.append("<message>");
-
-			int point = 1;
-			UserInfo userInfo = new UserInfo();
-			boolean isOK = userInfo.minusPoint(nickname, point);
-
-			if (isOK) {
-				builder.append("h").append("</message>");
-				out.println(builder.toString());
-				// System.out.println("shide:"+filename);
-			} else {
-				builder.append("您已上传过该文件").append("</message>");
-				out.println(builder.toString());
-			}
-
-		}
-
-		else {
 
 		// 扣除下载者的积分
 		int point = 1;
@@ -94,11 +69,11 @@ public class DownLoadServlet extends HttpServlet {
 			// 下载文件
 			String fileName = vo.getCustomName();
 			String type = vo.getType();
-			String temp = URLEncoder.encode(fileName, "utf-8");
-			temp = temp.replace("+", "%20");
+			String tempName = URLEncoder.encode(fileName, "utf-8");
+			tempName = tempName.replace("+", "%20");
 
 			response.setHeader("Content-Disposition",
-					"attachment;filename*=utf-8''" + temp + "." + type);
+					"attachment;filename*=utf-8''" + tempName + "." + type);
 
 			// 说明一下web站点下载文件的原理
 			// 1.把文件读入到内存
@@ -124,9 +99,14 @@ public class DownLoadServlet extends HttpServlet {
 			// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
 			DownloadInfo downloadInfo = new DownloadInfo();
 			downloadInfo.add(nickname, documentID);
-					
-		} 
-	  }
+			
+			builder.append("<message>");
+			builder.append("h").append("</message>");
+		} else {
+			builder.append("<message>");
+			builder.append("您的积分不足").append("</message>");
+		}
+		out.println(builder.toString());
 	}
 
 	protected void doPost(HttpServletRequest request,
