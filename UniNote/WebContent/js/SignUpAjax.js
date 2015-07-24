@@ -9,6 +9,8 @@ function verify_signup(){
     var email = document.getElementById("email").value;
     school = document.getElementById("school").value;
     var phonenumber = document.getElementById("phonenumber").value;
+
+    alert("userName="+userName+" password="+password+" email="+email+" school="+school+" phonenumber="+phonenumber);
       
     //创建XMLHttprequest对象  
     //需要针对IE和其他类型的浏览器建议这个对象的不同方式写不同的代码  
@@ -82,7 +84,9 @@ function callback_signup(){
     	//alert("4");  
         if(xmlHttp.status == 200){  
             //使用responseXML的方式来接收xml数据对象的DOM对象  
+            var text=xmlHttp.responseText;
             var domObj = xmlHttp.responseXML;  
+            alert("text="+text);
             //<message>ggggg</message>  
             //getElementsByTagName根据标签名获取元素节点,返回的是一个数组  
             var messageNodes = domObj.getElementsByTagName("message"); 
