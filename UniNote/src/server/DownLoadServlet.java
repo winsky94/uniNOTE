@@ -37,7 +37,7 @@ public class DownLoadServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 
 		PrintWriter out = response.getWriter();
-
+		String message=null;
 		// 下载文件
 		String nickname = request.getParameter("nickname");
 		int documentID = Integer.parseInt(request.getParameter("ID"));
@@ -84,8 +84,9 @@ public class DownLoadServlet extends HttpServlet {
 			DownloadInfo downloadInfo = new DownloadInfo();
 			downloadInfo.add(nickname, documentID);
 		}else {
-			
+			message="您的积分不足，无法下载";
 		}
+		out.println(message);
 	}
 
 	protected void doPost(HttpServletRequest request,
