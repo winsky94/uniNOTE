@@ -46,6 +46,17 @@ function check_cookie(){
   }
 }
 
+function write_header(){
+  var login=check_cookie();
+  if(!login){
+    write_header_not_login();
+  }else{
+    username=get_cookie('username');
+    my_school=get_cookie('my_school');
+    write_header_login(username,my_school);
+  }
+}
+
 function exit(){
    delete_cookie('usernme');
    delete_cookie('my_school');
