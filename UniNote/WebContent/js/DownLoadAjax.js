@@ -45,7 +45,7 @@ function verify_downLoad() {
 	// 2.注册回调函数
 	// 注册回调函数时，只需要函数名，不要加括号
 	// 我们需要将函数名注册，如果加上括号，就会把函数的返回值注册上，这是错误的
-	xmlHttp.onreadystatechange = callback_signup;
+	xmlHttp.onreadystatechange = callback_downLoad;
 	// 3.设置连接信息
 	// 第一个参数表示http的请求方式，支持所有http的请求方式，主要是get和post
 	// 第二个表示请求的url地址，get方式请求的参数也是url中
@@ -66,7 +66,7 @@ function verify_downLoad() {
 
 }
 // 回调函数
-function callback_signup() {
+function callback_downLoad() {
 	// 5.接收响应数据
 	// 判断对象的状态 是交互完成
 
@@ -87,8 +87,9 @@ function callback_signup() {
 				var responseMessage = textNode.nodeValue;
 
 				if (responseMessage == 'h') {
-
+					
 				} else {
+					alert(responseMessage);
 					// 将数据显示在页面上
 					// 通过dom的方式到div标签所对应的元素节点
 					var divNode = document.getElementById("result");
