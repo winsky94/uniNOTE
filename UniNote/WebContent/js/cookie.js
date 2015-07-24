@@ -61,7 +61,7 @@ function exit(){
    window.location.reload(true);
 }
 
-function write_header_login(username,university){
+function write_header_login(username,my_school){
 
     var txt='<script>  \
        $(document).ready(function(){  \
