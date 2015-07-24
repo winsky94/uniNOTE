@@ -42,7 +42,7 @@
         var zanNum=file_elements[i].getElementsByTagName("praise")[0].firstChild.nodeValue;
         var caiNum=file_elements[i].getElementsByTagName("criticism")[0].firstChild.nodeValue;
 
-        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
 
         //结尾
         if(marked=='Y'){
