@@ -19,9 +19,6 @@ import sql.UserInfo;
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public SignUpServlet() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -43,9 +40,9 @@ public class SignUpServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();  
-		StringBuilder builder = new StringBuilder();  
-		 
+		PrintWriter out = response.getWriter();
+		StringBuilder builder = new StringBuilder();
+
 		String nickname = request.getParameter("nickname");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
@@ -53,24 +50,27 @@ public class SignUpServlet extends HttpServlet {
 		String phoneNumber = request.getParameter("phonenumber");
 
 		// System.out.println(nickname);
-		
+
 		builder.append("<message>");
-		if ("".equals(nickname) || nickname == null||"".equals(password) || password == null||"".equals(email) || email == null||"".equals(school) || school == null||"".equals(phoneNumber) || phoneNumber == null) {
+		if ("".equals(nickname) || nickname == null || "".equals(password)
+				|| password == null || "".equals(email) || email == null
+				|| "".equals(school) || school == null
+				|| "".equals(phoneNumber) || phoneNumber == null) {
 			builder.append("请输入完整信息").append("</message>");
 		} else {
-			//检查用户名、密码是否正确
+			// 检查用户名、密码是否正确
 			UserInfo user = new UserInfo();
+			// 新注册用户默认有10个积分
 			UserVO vo = new UserVO(nickname, password, email, school,
-					phoneNumber,0);
+					phoneNumber, 10);
 			boolean result = user.add(vo);
 			if (result) {
-				builder.append("h").append("</message>");				
+				builder.append("h").append("</message>");
 			} else {
-				builder.append("该昵称已被人注册").append(
-						"</message>");					
+				builder.append("该昵称已被人注册").append("</message>");
 			}
-		}     		
-		out.println(builder.toString());  
+		}
+		out.println(builder.toString());
 
 	}
 
