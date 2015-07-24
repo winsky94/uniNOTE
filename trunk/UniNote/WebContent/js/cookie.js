@@ -31,6 +31,7 @@ function delete_cookie(){
     date.setTime(date.getTime()-10000);
     document.cookie='username'+'=v; expire='+date.toGMTString();
     document.cookie='my_school'+'=v; expire='+date.toGMTString();
+    document.cookie="current_school"+'=v; expire='+date.toGMTString();
 }
 
 
@@ -56,7 +57,6 @@ function write_header(){
     }else{
       write_header_login(username,my_school);
     }
-    
   }
 }
 
