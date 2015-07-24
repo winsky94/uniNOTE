@@ -174,7 +174,7 @@
 			<div class="col s12 l8">
 				<br />
 				<br />
-				<form class="form" id="searchZone" action="/UniNote/SearchServlet">
+				<div>
 					<input type="text"  name="keyword" onkeydown='if(event.keyCode==13){search_function()}'>
 					<a class="btn btn-primary" onclick="search_function()">搜索</a>
 					<div>
@@ -185,7 +185,7 @@
 						<input type="radio" name="type" id="tag" value="tag">
 						<label for="tag">标签</label>
 					</div>
-				</form>
+				</div>
 				<br />
 				<div>
 					<ul class="collection" id="filelist"></ul>
