@@ -203,12 +203,18 @@ public class DocumentInfo {
 			}
 		}
 		if (!course.equals("all")) {
-			if (isHasBegin == false) {
-				s += "and category.course='" + course + "' ";
-				isHasBegin = true;
-			} else {
-				s += "and category.course='" + course + "' ";
+			if(course.equals("考研资料")){
+				s+="and document.postgraduateData='Y'";
+			}		 
+			else{
+				if (isHasBegin == false) {
+					s += "and category.course='" + course + "' ";
+					isHasBegin = true;
+				} else {
+					s += "and category.course='" + course + "' ";
+				}
 			}
+			
 		}
 		try {
 			Connection con = SqlManager.getConnection();
