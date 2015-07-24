@@ -25,7 +25,9 @@
 	<script src="js/materialize.js"></script>
 	<script src="js/LoginAjax.js"></script>
 	<script src="js/cookie.js"></script>
-	<script type="text/javascript" src="js/xmlhttp.js"></script>
+	<script src="js/xmlhttp.js"></script>
+	<script src="js/jsquer-form.js"></script>
+	<script src=""></script>
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
