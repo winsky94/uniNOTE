@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import object.DocumentVO;
 import sql.DocumentInfo;
 import sql.DownloadInfo;
+import sql.UserInfo;
 
 /**
  * Servlet implementation class DownLoadServlet
@@ -52,8 +53,8 @@ public class DownLoadServlet extends HttpServlet {
 		String temp = URLEncoder.encode(fileName, "utf-8");
 		temp = temp.replace("+", "%20");
 
-		response.setHeader("Content-Disposition", "attachment;filename*=utf-8''" + temp
-				+ "." + type);
+		response.setHeader("Content-Disposition",
+				"attachment;filename*=utf-8''" + temp + "." + type);
 
 		// 说明一下web站点下载文件的原理
 		// 1.把文件读入到内存
@@ -79,6 +80,11 @@ public class DownLoadServlet extends HttpServlet {
 		// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
 		DownloadInfo downloadInfo = new DownloadInfo();
 		downloadInfo.add(nickname, id);
+
+		// 扣除用户积分
+		int point = 1;
+		UserInfo ui = new UserInfo();
+		ui.minusPoint(nickname, point);
 	}
 
 	/**
