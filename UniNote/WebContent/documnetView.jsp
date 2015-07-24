@@ -176,7 +176,7 @@
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
 					<input type="submit" value=" 下载 " onclick="verify_downLoad()" class="btn btn-primary">
-					<font color="red" size="2"><span id="result" ></span></font> 
+					<font color="red" size="2"><span id="result" >呵呵</span></font> 
 				</form>
 			</div>
 		</div>
