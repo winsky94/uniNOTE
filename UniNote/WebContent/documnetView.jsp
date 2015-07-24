@@ -215,7 +215,7 @@
 				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
-					<input type="submit" value=" 下载 " onclick="verify_downLoad()" class="btn btn-primary"> <font color="red" size="2"><span id="result" >呵呵</span></font> 
+					<input type="submit" value=" 下载 " onclick="verify_downLoad()" class="btn btn-primary">
 				</form>
 			</div>
 		</div>
