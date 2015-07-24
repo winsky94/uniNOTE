@@ -106,7 +106,7 @@
 
 	<title>detail</title>
 </head>
-<body onload="check_cookie()">
+<body onload="write_header()">
 
 	<header></header>
 
