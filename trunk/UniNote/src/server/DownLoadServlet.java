@@ -3,6 +3,7 @@ package server;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
@@ -85,8 +86,12 @@ public class DownLoadServlet extends HttpServlet {
 			// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
 			DownloadInfo downloadInfo = new DownloadInfo();
 			downloadInfo.add(nickname, documentID);
-		}else {
-			
+		} else {
+			PrintWriter out = response.getWriter();
+			StringBuilder builder = new StringBuilder();
+			builder.append("<message>");
+			builder.append("您的积分不足").append("</message>");
+			out.println(builder.toString());
 		}
 	}
 
