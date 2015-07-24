@@ -33,7 +33,6 @@
       $("#course").attr('value',course);
       $("#university").attr('value',$('#university-info').attr('title'));
       $("#uploader").attr('value',$('#user-name').attr('title'));
-      alert($("#university").attr('value')+"  "+$("#uploader").attr('value'));
   }
 
     function check(){
@@ -60,10 +59,75 @@
             });        
         }
     }
+    function write_upload_course_list(departments){
+     var txt="<script>\
+    $(document).ready(function(){\
+    $('.collapsible').collapsible({\
+      accordion : false \
+    });\
+    });\
+    $('a.collection-item').click(function(){\
+        $('a.collection-item').css('background-color','#fff');\
+        $(this).css('background-color','#e0f2f1');\
+        });\
+        </script>\
+    <ul class='collapsible' data-collapsible='expandable'>";
+    for(i=0;i<departments.length;i++){
+        //开头
+        txt=txt+"<li>";
+        txt=txt+"<div class='collapsible-header'> <i class='material-icons'>list</i>"+
+                           departments[i].getAttribute("院系")+
+                "</div>\
+                 <div class='collapsible-body'> \
+                    <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
+            var courses=departments[i].getElementsByTagName("course");
+            for(j=0;j<courses.length;j++){
+                txt=txt+"<a href='#!' class='collection-item' title='"
+                +courses[j].firstChild.nodeValue+"' onclick=\"set_course(this.parentNode.title,this.title)\">"+courses[j].firstChild.nodeValue+"</a>";
+            }
+            txt=txt +" </div></div></li>";       
+    } //end for
+    txt=txt+"</ul>";
+    return txt;
+}
+function init_left_list(){
+            var university=$('#university-info').attr('title');
+            var xmlhttp_course=getXmlHttp();
+            if(xmlhttp_course!=null){
+                xmlhttp_course.open("GET","/UniNote/CategoryServlet?school="+encodeURI(encodeURI(university)),true);
+                xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
+                xmlhttp_course.send();
+                
+            }else{
+                alert("Your browser does not support XMLHttpRequest.");
+            }
+        }
+        function get_course_list(xmlhttp_course){
+             if (xmlhttp_course.readyState==4 && xmlhttp_course.status==200){
+                //file_elements是一个数组
+                var text=xmlhttp_course.responseText;
+            try{
+                var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async="false";
+                xmlDoc.loadXML(text);
+            }catch(e){
+                try{
+                    var parser=new DOMParser();
+                    xmlDoc=parser.parseFromString(text,"text/xml");
+                }catch(e) {
+                    alert(e.message);
+                }
+            }
+            var departments=xmlDoc.getElementsByTagName("department");
+            var txt=write_upload_course_list(departments);
+            $("#course_list").html(txt);
+            }
+        }
     </script>
 
 </head>
-<body onload='write_header();write_footer()'>
+<body onload='write_header();write_footer();init_left_list()'>
 
 <header>
    
@@ -75,57 +139,7 @@
         <div class="col s12 l4">
             <br/>
             <h4>选择课程</h4>
-            <ul class="collapsible" data-collapsible="expandable">
-                <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">list</i>
-                        软件学院
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="collection" title="软件学院">
-                            <a href="#!" class="collection-item" title="软件工程与计算Ⅰ" onclick="set_course(this.parentNode.title,this.title)">
-                                软件工程与计算Ⅰ</a>
-                            <a href="#!" class="collection-item" title="计算机组织结构" onclick="set_course(this.parentNode.title,this.title)">
-                                计算机组织结构</a>
-                            <a href="#!" class="collection-item" title="计算机与操作系统" onclick="set_course(this.parentNode.title,this.title)">
-                                计算机与操作系统</a>
-                            <a href="#!" class="collection-item" title="数据库系统" onclick="set_course(this.parentNode.title,this.title)">
-                                数据库系统</a>
-                            <a href="#!" class="collection-item" title="软件工程与计算Ⅲ" onclick="set_course(this.parentNode.title,this.title)">
-                                软件工程与计算Ⅲ</a>
-                            <a href="#!" class="collection-item" title="软件工程统计方法" onclick="set_course(this.parentNode.title,this.title)">
-                                软件工程统计方法</a>
-                            <a href="#!" class="collection-item" title="计算机网络" onclick="set_course(this.parentNode.title,this.title)">
-                                计算机网络</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">list</i>
-                        计算机科学与技术系
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="collection" title="计算机科学与技术系">
-                            <a href="#!" class="collection-item" title="编译原理" onclick="set_course(this.parentNode.title,this.title)">
-                                编译原理</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">list</i>
-                        Third
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="collection">
-                            <a href="#!" class="collection-item" title="编译原理" onclick="set_course(this.parentNode.title,this.title)">
-                                编译原理</a>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
+            <div id="course_list"></div>
         </div>
         <div class="col s12 l8">
 
