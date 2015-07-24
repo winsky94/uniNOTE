@@ -280,7 +280,7 @@ function write_edit_user_info(){
                         </div>  \
                         <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a> \
                         <div class="input-field cell"> \
-            	            <font color="red" size="2"><span id="result" >hehe</span></font> \
+            	            <font color="red" size="2"><span id="result" ></span></font> \
                         </div> \
                     </div> \
                 </div>';
