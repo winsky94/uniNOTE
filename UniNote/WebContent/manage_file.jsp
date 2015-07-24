@@ -138,8 +138,8 @@
 				</div>
 				<div class="row col s12 l4">
 					<div class="input-field">
-						<input class="waves-effect waves-light btn" type="submit" name="submit" value="保存">
-						<a class="waves-effect waves-light btn" id="cancel-button" onclick="window.location.reload(true)">取消</a>
+						<input class="btn btn-primary" type="submit" name="submit" value="保存">
+						<a class="btn btn-primary" id="cancel-button" onclick="window.location.reload(true)">取消</a>
 					</div>
 				</div>
 			</form>
