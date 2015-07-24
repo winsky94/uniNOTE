@@ -6,9 +6,9 @@
   <title>sign_up</title>
     <script src="js/writeHTML.js"></script>
     <script src="js/cookie.js"></script>
-    <script type="text/javascript" src="js/jQuery.js"></script>
-    <script type="text/javascript" src="js/lazyload-min.js"></script>
-    <script type="text/javascript" src="js/SignUpAjax.js"></script>
+    <script src="js/jQuery.js"></script>
+    <script src="js/lazyload-min.js"></script>
+    <script src="js/SignUpAjax.js"></script>
     <script src="js/LoginAjax.js"></script>
 
   <!-- CSS  -->
@@ -48,6 +48,7 @@
       <div class="col s12 m4 l2"></div>
       <div class="col s12 m8 l8">
           <div class="row">
+
             <div class="input-field col s12 m12 l12">
               <input id="nickname" type="text" name="nickname" class="validate">
               <label for="last_name">Nickname</label>
@@ -84,7 +85,7 @@
           <div class="table-container col s12">
             <div class="row-container">
                 <div class="input-field cell">
-                  <input type="submit" value=" 注册 " onclick="verify_signup();" class="btn btn-primary">
+                  <input type="submit" value=" 注册 " onclick="verify_signup()" class="btn btn-primary">
                 </div>
                 <div class="input-field cell">
                   <font color="red" size="2"><span id="result" >呵呵呵呵</span></font>
