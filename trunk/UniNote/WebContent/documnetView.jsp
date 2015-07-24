@@ -106,7 +106,7 @@
 		$(document).ready(function(){
         	var form=$("#download-form");
         	form.submit(function(){
-                $.post(form.attr("action"),
+                $.get(form.attr("action"),
                 form.serialize(),
                 function(result,status){
                 	debugger;
