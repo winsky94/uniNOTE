@@ -4,7 +4,7 @@ var xmlHttp;
 function verify_downLoad() {
 	// 使用dom的方式获取文本框中的值
 	// .value可以获取一个元素节点的value属性
-	userName = document.getElementById("nickname").value;
+	var userName = document.getElementById("nickname").value;
 	var id = document.getElementById("ID").value;
 
 	// 创建XMLHttprequest对象
@@ -87,7 +87,7 @@ function callback_downLoad() {
 				var responseMessage = textNode.nodeValue;
 
 				if (responseMessage == 'h') {
-					
+					window.location.reload(true);
 				} else {
 					alert(responseMessage);
 					// 将数据显示在页面上
