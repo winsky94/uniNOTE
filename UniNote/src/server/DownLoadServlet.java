@@ -41,14 +41,14 @@ public class DownLoadServlet extends HttpServlet {
 			temp = total.intValue() + 1;
 		}
 		request.getSession().setAttribute("total", total.intValue() + temp);
-		
+
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 
 		PrintWriter out = response.getWriter();
 		StringBuilder builder = new StringBuilder();
-		
+
 		// 下载文件
 		String nickname = request.getParameter("nickname");
 		int documentID = Integer.parseInt(request.getParameter("ID"));
@@ -57,6 +57,7 @@ public class DownLoadServlet extends HttpServlet {
 		int point = 1;
 		UserInfo userInfo = new UserInfo();
 		boolean result = userInfo.minusPoint(nickname, point);
+		System.out.println("扣除积分结果" + result);
 		if (result) {
 			// 只有成功扣除积分才可以进行下载
 			DocumentInfo documentInfo = new DocumentInfo();
@@ -99,7 +100,7 @@ public class DownLoadServlet extends HttpServlet {
 			// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
 			DownloadInfo downloadInfo = new DownloadInfo();
 			downloadInfo.add(nickname, documentID);
-			
+
 			builder.append("<message>");
 			builder.append("h").append("</message>");
 		} else {
