@@ -26,7 +26,7 @@
 	<script src="js/LoginAjax.js"></script>
 	<script src="js/cookie.js"></script>
 	<script src="js/xmlhttp.js"></script>
-	<script src="js/jsquer-form.js"></script>
+	<script src="js/jquery-form.js"></script>
 	<script src=""></script>
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -143,7 +143,7 @@
 
 	<title>detail</title>
 </head>
-<body onload="write_header()">
+<body onload="write_header();init_form()">
 
 	<header></header>
 
