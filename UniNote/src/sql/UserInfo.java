@@ -161,7 +161,7 @@ public class UserInfo {
 				int point = rs.getInt("point");
 				vo = new UserVO(nickname, password, email, school, phoneNumber,
 						point);
-				
+
 				Statement statement1 = connection.createStatement();
 				query = "select count(documentID) as upLoadNum from document where uploader='"
 						+ name + "'";
@@ -172,7 +172,7 @@ public class UserInfo {
 				}
 				resultSet1.close();
 				statement1.close();
-				
+
 				Statement statement2 = connection.createStatement();
 				query = "select count(downloadID) as downLoadNum from download  where nickname='"
 						+ name + "'";
@@ -242,15 +242,31 @@ public class UserInfo {
 		}
 	}
 
-	public void minusPoint(String nickname, int point) {
+	public boolean minusPoint(String nickname, int point) {
+		boolean result = false;
 		try {
 			Connection con = SqlManager.getConnection();
-			Statement sql = con.createStatement();
 			String name = nickname.replace("'", "''");
-			String query = "update user set point=point-" + point
-					+ " where nickname='" + name + "'";
-			sql.executeUpdate(query);
-			sql.close();
+			String query = "select point from user where nickname='" + name
+					+ "' limit 1";
+			Statement statement = con.createStatement();
+			ResultSet resultSet = statement.executeQuery(query);
+			while (resultSet.next()) {
+				int originalPoint = resultSet.getInt("point");
+				if (originalPoint > 0) {
+					result = true;
+				}
+			}
+			resultSet.close();
+			statement.close();
+			
+			if (result) {
+				Statement sql = con.createStatement();
+				query = "update user set point=point-" + point
+						+ " where nickname='" + name + "'";
+				sql.executeUpdate(query);
+				sql.close();
+			}
 			con.close();
 		} catch (java.lang.ClassNotFoundException e) {
 			e.printStackTrace();
@@ -259,6 +275,7 @@ public class UserInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
+		return result;
 	}
 
 	public void createTable() {
