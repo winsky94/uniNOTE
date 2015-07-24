@@ -134,13 +134,13 @@
             input3.attr("onclick","submit_form()");
             form.append(input3);            
 
-            $("#form-area").html(form);//将表单放置在web中       
+            $("#form-area").append(form);//将表单放置在web中       
 
             
         }
 
         function submit_form(){
-        	form.submit();//表单提交
+        	var message=form.submit();//表单提交
         }
 
 
