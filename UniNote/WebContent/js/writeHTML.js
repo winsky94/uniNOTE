@@ -400,7 +400,7 @@ function write_course_list(departments,isUploading){
             var courses=departments[i].getElementsByTagName("course");
             if(isUploading==0){
             	txt=txt+"<a href='#!' class='collection-item' title='考研资料' onclick=\"get_documents_by_course(\'"+departments[i].getAttribute('院系')+"\',\'"+'考研资料'+"\')\">"
-            	 +考研资料+"</a>";
+            	 +'考研资料'+"</a>";
             }
             for(j=0;j<courses.length;j++){
                 txt=txt+"<a href='#!' class='collection-item' title='"
