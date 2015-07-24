@@ -34,9 +34,6 @@ public class CollectServlet extends HttpServlet {
 		int documentID = Integer.parseInt(request.getParameter("documentID"));
 
 		CollectionInfo ci = new CollectionInfo();
-		System.out.println("收藏参数：");
-		System.out.println(name);
-		System.out.println(documentID);
 		ci.changeState(name, documentID);
 
 		// response.sendRedirect(request.getHeader("Referer"));
