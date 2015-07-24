@@ -196,6 +196,8 @@ function write_user_info(user_info){
     var school=user_info.getElementsByTagName("school")[0].firstChild.nodeValue;
     var phonenumber=user_info.getElementsByTagName("phoneNumber")[0].firstChild.nodeValue;
     var point=user_info.getElementsByTagName("point")[0].firstChild.nodeValue;
+    var uploadNum=user_info.getElementsByTagName("uploadNum")[0].firstChild.nodeValue;
+    var downloadNum=user_info.getElementsByTagName("downloadNum")[0].firstChild.nodeValue;
 
     //<div class="card teal lighten-5"> \
     //   <div class="card-content" id="user-info-container"> \
@@ -224,11 +226,11 @@ function write_user_info(user_info){
                     </div> \
                     <div class="table-row"> \
                         <div class="property">上传量</div> \
-                        <div class="value">10</div> \
+                        <div class="value">'+uploadNum+'</div> \
                     </div> \
                     <div class="table-row"> \
                         <div class="property">下载量</div> \
-                        <div class="value">10</div> \
+                        <div class="value">'+downloadNum+'</div> \
                     </div> \
                     <div class="card-action"> \
                         <a href="#" onclick="write_edit_user_info()">编辑</a> \
