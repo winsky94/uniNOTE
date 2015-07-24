@@ -35,8 +35,8 @@ function delete_cookie(){
 
 
 function check_cookie(){
-  username=get_cookie('username');
-  my_school=get_cookie('my_school');
+  var username=get_cookie('username');
+  var my_school=get_cookie('my_school');
   if (username!=null && username!="" && my_school!=null && my_school!="" &&username!='v'){
       return true;
   }else{
@@ -49,8 +49,8 @@ function write_header(){
   if(!login){
     write_header_not_login();
   }else{
-    username=get_cookie('username');
-    my_school=get_cookie('my_school');
+    var username=get_cookie('username');
+    var my_school=get_cookie('my_school');
     write_header_login(username,my_school);
   }
 }
