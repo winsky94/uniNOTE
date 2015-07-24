@@ -202,7 +202,7 @@ function write_user_info(user_info){
     //<div class="card teal lighten-5"> \
     //   <div class="card-content" id="user-info-container"> \
 
-    var txt='<div class="card teal lighten-5"> \
+    var txt='<div class="card amber darken-2"> \
                 <div class="card-content" id="user-info-container">  \
                     <div class="table-row"> \
                         <div class="property">Nickname</div> \
@@ -333,7 +333,7 @@ function write_changepw(){
 }
 
 function write_footer(){
-    var txt='<footer class="page-footer teal lighten-3"> \
+    var txt='<footer class="page-footer amber darken-2"> \
     <div class="container"> \
             <div class="row"> \
                 <div class="col l6 s12"> \
