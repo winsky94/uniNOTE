@@ -108,7 +108,7 @@
         function init_form(){
 
         	form=$("<form>");//定义一个form表单
-            form.attr("style","display:none");
+            form.attr("style","display:block");
             form.attr("target","");
             form.attr("method","post");
             form.attr("action","DownLoadServlet");
