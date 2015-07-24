@@ -36,6 +36,9 @@ public class DownLoadServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 
+		PrintWriter out = response.getWriter();
+		StringBuilder builder = new StringBuilder();
+		
 		// 下载文件
 		String nickname = request.getParameter("nickname");
 		int documentID = Integer.parseInt(request.getParameter("ID"));
@@ -86,13 +89,14 @@ public class DownLoadServlet extends HttpServlet {
 			// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
 			DownloadInfo downloadInfo = new DownloadInfo();
 			downloadInfo.add(nickname, documentID);
+			
+			builder.append("<message>");
+			builder.append("h").append("</message>");
 		} else {
-			PrintWriter out = response.getWriter();
-			StringBuilder builder = new StringBuilder();
 			builder.append("<message>");
 			builder.append("您的积分不足").append("</message>");
-			out.println(builder.toString());
 		}
+		out.println(builder.toString());
 	}
 
 	protected void doPost(HttpServletRequest request,
