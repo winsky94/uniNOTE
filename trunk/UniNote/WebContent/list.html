@@ -119,8 +119,9 @@
     	if(!login){
             nickname="undefined";
     	}else{
-    		nickname=$("#user-name").attr("title");
+    		nickname=get_cookie("username");
     	}
+    	alert("nickname="+nickname);
     	var xmlhttp=getXmlHttp();
     	if(xmlhttp!=null){
             xmlhttp.onreadystatechange=function(){onSearchResponse(xmlhttp)};
