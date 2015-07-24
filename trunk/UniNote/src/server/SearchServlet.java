@@ -58,10 +58,10 @@ public class SearchServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 
-		String name = request.getParameter("nickname");
-		String nickname = new String(name.getBytes("iso-8859-1"), "utf-8");
 		String key = request.getParameter("keyword");
 		String keyword = new String(key.getBytes("iso-8859-1"), "utf-8");
+		String name = request.getParameter("nickname");
+		String nickname = new String(name.getBytes("iso-8859-1"), "utf-8");
 		keyword = keyword.replaceAll(" ", "");
 		String t = request.getParameter("type");
 		String type = new String(t.getBytes("iso-8859-1"), "utf-8");
