@@ -81,7 +81,7 @@ public class DownLoadServlet extends HttpServlet {
 		DownloadInfo downloadInfo = new DownloadInfo();
 		downloadInfo.add(nickname, id);
 
-		// 积分的处理
+		// 关于积分的处理
 		// 扣除下载者的积分
 		int point = 1;
 		UserInfo ui = new UserInfo();
