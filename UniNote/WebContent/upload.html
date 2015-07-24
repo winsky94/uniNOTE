@@ -59,37 +59,7 @@
             });        
         }
     }
-    function write_upload_course_list(departments){
-     var txt="<script>\
-    $(document).ready(function(){\
-    $('.collapsible').collapsible({\
-      accordion : false \
-    });\
-    });\
-    $('a.collection-item').click(function(){\
-        $('a.collection-item').css('background-color','#fff');\
-        $(this).css('background-color','#e0f2f1');\
-        });\
-        </script>\
-    <ul class='collapsible' data-collapsible='expandable'>";
-    for(i=0;i<departments.length;i++){
-        //开头
-        txt=txt+"<li>";
-        txt=txt+"<div class='collapsible-header'> <i class='material-icons'>list</i>"+
-                           departments[i].getAttribute("院系")+
-                "</div>\
-                 <div class='collapsible-body'> \
-                    <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
-            var courses=departments[i].getElementsByTagName("course");
-            for(j=0;j<courses.length;j++){
-                txt=txt+"<a href='#!' class='collection-item' title='"
-                +courses[j].firstChild.nodeValue+"' onclick=\"set_course(this.parentNode.title,this.title)\">"+courses[j].firstChild.nodeValue+"</a>";
-            }
-            txt=txt +" </div></div></li>";       
-    } //end for
-    txt=txt+"</ul>";
-    return txt;
-}
+    
 function init_left_list(){
             var university=$('#university-info').attr('title');
             var xmlhttp_course=getXmlHttp();
