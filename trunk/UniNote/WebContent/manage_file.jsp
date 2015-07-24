@@ -136,11 +136,11 @@
 					<input class="validate" type="text" id="tag" name="tag" value=tag>
 					<label for="tag">标签</label>
 				</div>
-				<div class="row col s12 l4">
-					<div class="input-field">
+				<div class="row col s12">
+					
 						<a class="btn btn-primary">保存</a>
 						<a class="btn btn-primary" id="cancel-button" onclick="window.location.reload(true)">取消</a>
-					</div>
+					
 				</div>
 			</form>
 		</div>
