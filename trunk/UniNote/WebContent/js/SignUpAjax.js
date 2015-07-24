@@ -5,7 +5,8 @@ function verify_signup(){
     //使用dom的方式获取文本框中的值  
     //.value可以获取一个元素节点的value属性  
     userName = document.getElementById("nickname").value;
-    var password = document.getElementById("password").value;
+    //var password = document.getElementById("password").value;
+    var password= $("input[name='password']").val();
     var email = document.getElementById("email").value;
     school = document.getElementById("school").value;
     var phonenumber = document.getElementById("phonenumber").value;
