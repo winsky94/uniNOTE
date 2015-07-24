@@ -104,44 +104,41 @@
             	alert("Your browser does not support XMLHttpRequest.");
             }
 		}
+        
+        function init_form(){
 
-		
+        	var form=$("<form>");//定义一个form表单
+            form.attr("style","display:none");
+            form.attr("target","");
+            form.attr("method","post");
+            form.attr("action","DownLoadServlet");
 
-		$(document).ready(function(){
-        	var form=$("#download-form");
-        	form.submit(function(){
-                $.get(form.attr("action"),
-                form.serialize(),
-                function(result,status){
-                	//debugger;
-                	alert(result.Message);
-                },
-                "ajax");
-                return false;
-        	});
-		});
+            var input1=$("<input>");
+            input1.attr("type","hidden");
+            input1.attr("name","ID");
+            input1.attr("value","2");        
+            form.append(input1);
 
-/*
-		$('#download-form').submit(function() {
-            var AjaxURL= "/UniNote/DownLoadServlet";       
-            alert($('#download-form').serialize());
-                $.ajax({
-                    type: "GET",
-                    dataType: "html",
-                    url: AjaxURL,
-                    data: $('#download-form').serialize(),
-                    success: function (data) {
-                        var strresult=data;
-                        alert(strresult);
-                    },
-                    error: function(data) {
-                        alert("error:"+data.responseText);
-                     }
+            var input2=$("<input>");
+            input2.attr("type","hidden");
+            input2.attr("name","nickname");
+            input2.attr("value","sysan");   
+            form.append(input2);
 
-                });
+            var input3=$("<input>");
+            input3.attr("type","submit");
+            input3.attr("name","download");
+            input3.attr("value","下载");   
+            input3.addClass("btn");
+            input3.addClass("btn-primary");
+            form.append(input3);            
+
+            $("#form-area").html(form);//将表单放置在web中       
+
+            form.submit();//表单提交
         }
-    );
-*/
+
+
     </script>
 
 	<title>detail</title>
@@ -251,11 +248,16 @@
 					</div>
 					<div class="col s12" id="commentNow"></div>
 				</div>
+				<!--
 				<form id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
 					<input type="submit" value=" 下载 " class="btn btn-primary">
 				</form>
+				-->
+				<div id="form-area">
+					
+				</div>
 			</div>
 		</div>
 	</div>
