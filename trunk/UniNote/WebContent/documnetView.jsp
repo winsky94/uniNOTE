@@ -103,6 +103,23 @@
             	alert("Your browser does not support XMLHttpRequest.");
             }
 		}
+
+		$(document).ready(function(){
+        	var form=$("#download-form");
+        	form.submit(function(){
+                $.post(form.attr("action"),
+                form.serialize(),
+                function(result,status){
+                	debugger;
+                	alert(status);
+                	alert(result.Success);
+                	alert(result.Message);
+                	alert(result.ReturnUrl);
+                },
+                "json");
+                return false;
+        	});
+		});
     </script>
 
 	<title>detail</title>
@@ -212,10 +229,10 @@
 					</div>
 					<div class="col s12" id="commentNow"></div>
 				</div>
-				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
+				<form id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
-					<input type="submit" value=" 下载 " onclick="verify_downLoad()" class="btn btn-primary">
+					<input type="submit" value=" 下载 " class="btn btn-primary">
 				</form>
 			</div>
 		</div>
