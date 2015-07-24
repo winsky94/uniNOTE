@@ -220,7 +220,7 @@ function write_header_not_login(){
                                             placeholder="用户名" /> \
                                     </div> \
                                     <div> \
-                                        <input id="password" type="password" name="password" \
+                                        <input id="password" type="password" name="password" onkeydown="if(event.keyCode==13){verify_login()}" \
                                             placeholder="密码" /> \
                                     </div> \
                                     <p> \
