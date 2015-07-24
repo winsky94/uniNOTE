@@ -7,8 +7,8 @@
 	String filename=new String(request.getParameter("filename").getBytes("iso-8859-1"), "utf-8");
 	String profile=new String(request.getParameter("profile").getBytes("iso-8859-1"), "utf-8");
 	String origin_filename=new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");
-
-	String[] str=origin_filename.split("\\.");
+	String zanNum=request.getParameter("zanNum");
+	String caiNum=request.getParameter("caiNum");
 	//String uploader=request.getParameter("uploader");
 	String swfFilePath="swfFile/"+id+".swf";
 	String filePath="D:/web_server_file/"+origin_filename;
@@ -52,6 +52,7 @@
         	$('#file-name').html("<%=filename%>");
         	$('#file-profile').html("<%=profile%>");
         	$('#ID').attr("value","<%=id%>");
+        	$('#commentNow').html("'好评数：'+<%=zanNum%>+'；差评数：'+<%=caiNum%>");
         });
 
         function check_login(){
@@ -78,8 +79,6 @@
             	}else if(comments[2]==2){
             		var result="<p> 感谢你自己？</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
             	}
-                //$("#zan").hide();
-                //$("#cai").hide();
                 $("#commentArea").html(result);
             }
         }
@@ -162,17 +161,15 @@
 					</div>
 				</div>
 				<div id="commentArea" class="row">
-					<div id="zan" class="col s12">
+					<div class="col s12">
 						<a class="waves-effect waves-light btn" onclick="return comment(0)"> <i class="material-icons left"></i>
 							赞
 						</a>
-					</div>
-					<div class="col s12"></div>
-					<div id="cai" class="col s12">
 						<a class="waves-effect waves-light btn" onclick="return comment(1)"> <i class="material-icons right"></i>
 							踩
 						</a>
 					</div>
+					<div class="col s12" id="commentNow"></div>
 				</div>
 				<form method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
