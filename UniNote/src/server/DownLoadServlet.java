@@ -58,6 +58,7 @@ public class DownLoadServlet extends HttpServlet {
 		UserInfo userInfo = new UserInfo();
 		boolean result = userInfo.minusPoint(nickname, point);
 		System.out.println("扣除积分结果" + nickname);
+		System.out.println("扣除积分结果" + documentID);
 		System.out.println("扣除积分结果" + result);
 		if (result) {
 			// 只有成功扣除积分才可以进行下载
