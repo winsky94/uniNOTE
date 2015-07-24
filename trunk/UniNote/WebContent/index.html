@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-	<script type="text/javascript" src="js/LoginAjax.js"></script>
-	<title>home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <script type="text/javascript" src="js/LoginAjax.js"></script>
+    <title>home</title>
 
-	<!-- CSS  -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-	<link href="css/materialize.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-	<link href="css/style.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-	
-	<style type="text/css">
-		#input {
-			position: relative;
-			max-width: 40%;
-			margin: auto;
-			margin-top: 100px;
-		}		
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet"
+    media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet"
+    media="screen,projection" />
 
-		input {
-			max-width: 80%;
-		}		
+    <style type="text/css">
+        #input {
+            position: relative;
+            max-width: 40%;
+            margin: auto;
+            margin-top: 100px;
+        }       
 
-		html, body {
-			height: 100%;
-		}		
+        input {
+            max-width: 80%;
+        }       
 
-		.btn {
-			max-width: 30%;
-		}		
+        html, body {
+            height: 100%;
+            background:url();
+            background-size:100% 100%
+        }       
 
-		#container {
-			min-height: 50%; /*使内容高度和body一样*/
-			margin-bottom: 70px; /*向上缩减70像素，不至于footer超出屏幕可视范围*/
-		}		
+        .btn {
+            max-width: 30%;
+        }       
 
-		#input {
-			padding-bottom: 150px; /*这个是关键，处理页面高度超出屏幕可视范围时，控制内容和底部高度之间距离*/
-		}
-		* {
-			margin: 0;
-			padding: 0;
-		}		
-		label {
-			margin: 5px;
-		}
-	</style>
+        #container {
+            min-height: 50%; /*使内容高度和body一样*/
+            margin-bottom: 70px; /*向上缩减70像素，不至于footer超出屏幕可视范围*/
+        }       
+
+        #input {
+            padding-bottom: 150px; /*这个是关键，处理页面高度超出屏幕可视范围时，控制内容和底部高度之间距离*/
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }       
+        label {
+            margin: 5px;
+        }
+        
+    </style>
     <script src="js/cookie.js"></script>
     <script src="js/writeHTML.js"></script>
     <script src="js/xmlhttp.js"></script>
 
     <script>
     function search(){
-    	var keyword=$("input[name='keyword']").val();
-    	var type=$("input[name='type'][checked]").val();
-    	var nickname;
-    	var login=check_cookie();
-    	if(!login){
+        var keyword=$("input[name='keyword']").val();
+        var type=$("input[name='type'][checked]").val();
+        var nickname;
+        var login=check_cookie();
+        if(!login){
             nickname="undefined";
-    	}else{
-    		nickname=$("#user-name").attr("title");
-    	}
-    	var xmlhttp=getXmlHttp();
-    	if(xmlhttp!=null){
+        }else{
+            nickname=$("#user-name").attr("title");
+        }
+        var xmlhttp=getXmlHttp();
+        if(xmlhttp!=null){
             xmlhttp.onreadystatechange=function(){onSearchResponse(xmlhttp)};
             xmlhttp.open("GET","/UniNote/SearchServlet?keyword="+keyword+"&type="+type+"&nickname="+nickname,true);
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xmlhttp.send();
-    	}else{
-    		alert("Your browser does not support XMLHttpRequest");
-    	}
+        }else{
+            alert("Your browser does not support XMLHttpRequest");
+        }
     }
 
     function onSearchResponse(xmlhttp){
-    	window.href="/UniNote/list.html";
+        window.href="/UniNote/list.html";
         if (xmlhttp.readyState==4 && xmlhttp.status==200){       
             var text=xmlhttp.responseText;
             try{
@@ -90,7 +93,7 @@
                     var parser=new DOMParser();
                     xmlDoc=parser.parseFromString(text,"text/xml");
                 }catch(e) {
-            	    alert(e.message);
+                    alert(e.message);
                 }
             }
             var file_elements=xmlDoc.getElementsByTagName("document"); 
@@ -101,31 +104,15 @@
 
     </script>
 </head>
-<body onload="write_header()" style="background-image: url(https://c1.staticflickr.com/9/8332/8374153186_7ee28bf14c_h.jpg);margintop marginleft repeat">
-	<header>
-	</header>
-	<div class="main" id="container">
+<body onload="write_header()">
+    <header></header>
+    <div id="div1"></div>
 
-		<form class="form" id="input">
-			<input type="text"  name="keyword">
-			<a class="btn btn-primary" onclick="search()">搜索</a>
-			<div>
-				<input type="radio" name="type" id="uploader" value="uploader">
-				<label for="uploader">上传者</label>
-				<input type="radio" name="type" id="customName" value="customName" checked="checked">
-				<label for="customName">文件名</label>
-				<input type="radio" name="type" id="tag" value="tag">
-				<label for="tag">标签</label>			
-			</div>
-		</form>
-    </div>
+    <div id="footer"></div>
 
-    <div id="footer">
-    </div>
-
-<!--  javaScripts -->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
+    <!--  javaScripts -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
 
 </body>
 </html>
