@@ -107,7 +107,7 @@
         
         function init_form(){
 
-        	var form=$("<form>");//定义一个form表单
+        	form=$("<form>");//定义一个form表单
             form.attr("style","display:none");
             form.attr("target","");
             form.attr("method","post");
@@ -131,11 +131,16 @@
             input3.attr("value","下载");   
             input3.addClass("btn");
             input3.addClass("btn-primary");
+            input3.attr("onclick","submit_form()");
             form.append(input3);            
 
             $("#form-area").html(form);//将表单放置在web中       
 
-            form.submit();//表单提交
+            
+        }
+
+        function submit_form(){
+        	form.submit();//表单提交
         }
 
 
