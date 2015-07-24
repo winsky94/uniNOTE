@@ -362,7 +362,7 @@ function write_footer(){
 }
 
 
-function write_course_list(departments){
+function write_course_list(departments,isUploading){
     var txt="<script>\
     $(document).ready(function(){\
     $('.collapsible').collapsible({\
@@ -398,6 +398,10 @@ function write_course_list(departments){
                  <div class='collapsible-body'> \
                     <div class='collection' title='"+departments[i].getAttribute("院系")+"'>";
             var courses=departments[i].getElementsByTagName("course");
+            if(isUploading==0){
+            	txt=txt+"<a href='#!' class='collection-item' title='考研资料' onclick=\"get_documents_by_course(\'"+departments[i].getAttribute('院系')+"\',\'"+考研资料+"\')\">"
+            	 +考研资料+"</a>";
+            }
             for(j=0;j<courses.length;j++){
                 txt=txt+"<a href='#!' class='collection-item' title='"
                 +courses[j].firstChild.nodeValue+
