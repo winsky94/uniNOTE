@@ -124,6 +124,7 @@
 	            </script>
 			</div>
 			<form action="" method="post" class="col s12 l4">
+			<input class="validate" type="hidden" name="id" value="">
 				<div class="input-field col s12">
 					<textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
 					<label for="profile">简介</label>
@@ -134,7 +135,7 @@
 				</div>
 				<div class="row col s12 l4">
 					<div class="input-field">
-						<input type="submit" value="保存" class="btn btn-primary">
+						<input class="btn btn-primary" type="submit" name="submit" value="保存">
 					</div>
 			        <a class="btn btn-primary" onclick="window.location.reload(true)">取消</a>
 				</div>
