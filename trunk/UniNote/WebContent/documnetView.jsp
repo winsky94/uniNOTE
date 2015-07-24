@@ -129,12 +129,11 @@
                 $.ajax({
                     type: "GET",
                     dataType: "html",
-                    url: AjaxURL + '?Action=' + 'DownLoadServlet',
+                    url: AjaxURL,
                     data: $('#download-form').serialize(),
                     success: function (data) {
                         var strresult=data;
                         alert(strresult);
-                        //加载最大可退金额
                     },
                     error: function(data) {
                         alert("error:"+data.responseText);
