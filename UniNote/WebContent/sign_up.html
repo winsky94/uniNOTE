@@ -4,12 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>sign_up</title>
-    <script src="js/writeHTML.js"></script>
-    <script src="js/cookie.js"></script>
-    <script src="js/jQuery.js"></script>
-    <script src="js/lazyload-min.js"></script>
-    <script src="js/SignUpAjax.js"></script>
-    <script src="js/LoginAjax.js"></script>
+  <script src="js/writeHTML.js"></script>
+  <script src="js/cookie.js"></script>
+  <script src="js/jQuery.js"></script>
+  <script src="js/lazyload-min.js"></script>
+  <script src="js/SignUpAjax.js"></script>
+  <script src="js/LoginAjax.js"></script>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -29,15 +29,12 @@
       display: table-cell;
     }
   </style>
-   
+
 </head>
 <body onload='write_header();write_footer()'>
 
-  <header>
-  
-  </header>
+  <header></header>
 
-  
   <div class="main container">
     <!-- Page Content goes here -->
 
@@ -47,50 +44,47 @@
       </div>
       <div class="col s12 m4 l2"></div>
       <div class="col s12 m8 l8">
-          <div class="row">
+        <div class="row">
 
-            <div class="input-field col s12 m12 l12">
-              <input id="nickname" type="text" name="nickname" class="validate">
-              <label for="last_name">Nickname</label>
-            </div>
-<!--              <div class="input-field col s2 m2 l2">
-                    <font color="red" size="2"><span id="result" >*</span></font>
-                 </div>
--->
-            <div class="input-field col s12">
-              <input id="password" type="password" name="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-       
-
-            <div class="input-field col s12">
-              <input id="email" type="email" name="email" class="validate">
-              <label for="email">Email</label>
-            </div>
-                      
+          <div class="input-field col s12 m12 l12">
+            <input id="nickname" type="text" name="nickname" class="validate">
+            <label for="last_name">Nickname</label>
           </div>
+          <!--              <div class="input-field col s2 m2 l2"> <font color="red" size="2"><span id="result" >*</span></font> 
+        </div>
+        -->
+        <div class="input-field col s12">
+          <input id="password" type="password" name="password" class="validate">
+          <label for="password">Password</label>
+        </div>
 
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="必填" id="school" type="text" name="school" class="validate">
-              <label for="school">School</label>
-            </div>
+        <div class="input-field col s12">
+          <input id="email" type="email" name="email" class="validate">
+          <label for="email">Email</label>
+        </div>
 
-            <div class="input-field col s6">
-              <input id="phonenumber" type="text" name="phonenumber" class="validate">
-              <label for="phonenumber">PhoneNumber</label>
-            </div>
+      </div>
 
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="必填" id="school" type="text" name="school" class="validate">
+          <label for="school">School</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="phonenumber" type="text" name="phonenumber" class="validate">
+          <label for="phonenumber">PhoneNumber</label>
+        </div>
+
+      </div>
+      <div class="table-container col s12">
+        <div class="row-container">
+          <div class="input-field cell">
+            <a onclick="verify_signup()" class="btn btn-primary">注册</a>
           </div>
-          <div class="table-container col s12">
-            <div class="row-container">
-                <div class="input-field cell">
-                <a onclick="verify_signup()" class="btn btn-primary">注册</a>
-                </div>
-                <div class="input-field cell">
-                  <font color="red" size="2"><span id="result" >呵呵呵呵</span></font>
-                </div>
+          <div class="input-field cell"> <font color="red" size="2"><span id="result" >呵呵呵呵</span></font> 
           </div>
+        </div>
 
       </div>
       <div class="col s12 m4 l2"></div>
@@ -102,8 +96,9 @@
       <div class="col s12 m6 l3"></div>
     </div>
 
-  </div><!--main container-->
-<script type="text/javascript">
+  </div>
+  <!--main container-->
+  <script type="text/javascript">
         LazyLoad.css(["css/cityStyle.css"], function () {
             LazyLoad.js(["js/cityScript.js"], function () {
                 var test = new citySelector.cityInit("school");
@@ -111,14 +106,12 @@
             });
         });
     </script>
-  </div>
-    <div id="footer">
+</div>
+<div id="footer"></div>
 
-    </div>
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
 
 </body>
 </html>
