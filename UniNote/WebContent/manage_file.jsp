@@ -138,7 +138,7 @@
 				</div>
 				<div class="row col s12 l4">
 					<div class="input-field">
-						<input class="btn btn-primary" type="submit" name="submit" value="保存">
+						<a class="btn btn-primary">保存</a>
 						<a class="btn btn-primary" id="cancel-button" onclick="window.location.reload(true)">取消</a>
 					</div>
 				</div>
