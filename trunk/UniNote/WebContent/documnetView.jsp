@@ -103,7 +103,7 @@
             }
 		}
 
-		/*
+		
 
 		$(document).ready(function(){
         	var form=$("#download-form");
@@ -111,18 +111,15 @@
                 $.get(form.attr("action"),
                 form.serialize(),
                 function(result,status){
-                	debugger;
-                	alert(status);
-                	alert(result.Success);
+                	//debugger;
                 	alert(result.Message);
-                	alert(result.ReturnUrl);
                 },
-                "json");
+                "ajax");
                 return false;
         	});
 		});
-*/
 
+/*
 		$('#download-form').submit(function() {
             var AjaxURL= "/UniNote/DownLoadServlet";       
             alert($('#download-form').serialize());
@@ -142,6 +139,7 @@
                 });
         }
     );
+*/
     </script>
 
 	<title>detail</title>
