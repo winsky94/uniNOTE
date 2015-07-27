@@ -82,6 +82,11 @@
         	$("#profile").html("<%=profile%>");
         });
 
+        function cancel(){
+        	$("#profile").html("<%=profile%>");
+        	$("#tag").attr('value',"<%=tag%>");
+        }
+
 	</script>
 
 </head>
@@ -126,7 +131,7 @@
 					 }});
 	            </script>
 			</div>
-			<form action="" method="post" class="col s12 l4">
+			<form action="/UniNote/ChangeDocumentInfoServlet" method="post" class="col s12 l4">
 			<input class="validate" type="hidden" name="id" value="">
 				<div class="input-field col s12">
 					<textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
@@ -137,10 +142,8 @@
 					<label for="tag">标签</label>
 				</div>
 				<div class="row col s12">
-					
-						<a class="btn btn-primary">保存</a>
-						<a class="btn btn-primary" id="cancel-button" onclick="window.location.reload(true)">取消</a>
-					
+					<a class="btn btn-primary">保存</a>
+					<a class="btn btn-primary" id="cancel-button" onclick="cancel()">取消</a>
 				</div>
 			</form>
 		</div>
