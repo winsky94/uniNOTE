@@ -66,6 +66,14 @@
     <servlet-name>ChangeUserInfoServlet</servlet-name>
     <url-pattern>/ChangeUserInfoServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>ChangeDocumentInfoServlet</servlet-name>
+    <servlet-class>server.ChangeDocumentInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeDocumentInfoServlet</servlet-name>
+    <url-pattern>/ChangeDocumentInfoServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>CategoryServlet</servlet-name>
     <servlet-class>server.CategoryServlet</servlet-class>
