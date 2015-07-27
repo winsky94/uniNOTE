@@ -9,6 +9,8 @@
 	String origin_filename=new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");
 	String zanNum=request.getParameter("zanNum");
 	String caiNum=request.getParameter("caiNum");
+	String isOK=request.getParameter("isOK");
+	System.out.println("isOK="+isOK);
 	//String uploader=request.getParameter("uploader");
 	String swfFilePath="swfFile/"+id+".swf";
 	String filePath="D:/web_server_file/"+origin_filename;
@@ -123,25 +125,30 @@
             var input2=$("<input>");
             input2.attr("type","hidden");
             input2.attr("name","nickname");
-            input2.attr("value","sysan");   
+            input2.attr("value","1");   
             form.append(input2);
 
             var input3=$("<input>");
-            input3.attr("type","submit");
+            input3.attr("type","button");
             input3.attr("name","download");
             input3.attr("value","下载");   
             input3.addClass("btn");
             input3.addClass("btn-primary");
-            input3.attr("onclick","submit_form()");
-            form.append(input3);            
+            input3.attr("onclick","submit_form(form)");
+            form.append(input3);   
 
             $("#form-area").append(form);//将表单放置在web中       
 
             
         }
 
-        function submit_form(){
-        	var message=form.submit();//表单提交
+        function submit_form(form){
+        	alert("isOK=<%=isOK%>");
+        	if("<%=isOK%>"=='h'){
+                form.submit();       	    
+            }else{
+            	$('#result').html("您的积分不足");
+            } 
         }
         */
 
@@ -266,6 +273,9 @@
 					<input type="hidden" id="nickname" name="nickname" value="">
 					<input id="download-submit" type="submit" value=" 下载 " class="btn btn-primary">
 				</form>
+				<div id="form-area">				
+				<font color="red" size="2"><span id="result" ></span></font>
+				</div>
 				
 			</div>
 		</div>

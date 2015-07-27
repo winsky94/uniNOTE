@@ -3,7 +3,6 @@ package server;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
@@ -36,18 +35,15 @@ public class DownLoadServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 
-		PrintWriter out = response.getWriter();
-		String message=null;
 		// 下载文件
 		String nickname = request.getParameter("nickname");
 		int documentID = Integer.parseInt(request.getParameter("ID"));
-
+		
 		// 扣除下载者的积分
 		int point = 1;
 		UserInfo userInfo = new UserInfo();
-		boolean result = userInfo.minusPoint(nickname, point);
-		if (result) {
 			// 只有成功扣除积分才可以进行下载
+			System.out.println("可以下载！我进来了！");
 			DocumentInfo documentInfo = new DocumentInfo();
 			DocumentVO vo = documentInfo.getDocumentByID(documentID);
 			// 增加上传者的积分
@@ -83,10 +79,8 @@ public class DownLoadServlet extends HttpServlet {
 			// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
 			DownloadInfo downloadInfo = new DownloadInfo();
 			downloadInfo.add(nickname, documentID);
-		}else {
-			message="您的积分不足，无法下载";
-		}
-		out.println(message);
+		
+
 	}
 
 	protected void doPost(HttpServletRequest request,
