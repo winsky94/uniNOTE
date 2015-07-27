@@ -145,11 +145,9 @@
         }
         */
 
-		$(function(){
-		    $('form').ajaxForm({
-		        success: function(responseText){
-		            //alert(responseText);
-		        }
+        $(function(){
+		    $("#download-submit").click(function(){
+		        $('doanload-form').ajaxSubmit();
 		    });
 		});
 
@@ -266,7 +264,7 @@
 				<form id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="1">
 					<input type="hidden" id="nickname" name="nickname" value="">
-					<input type="submit" value=" 下载 " class="btn btn-primary">
+					<input id="download-submit" type="submit" value=" 下载 " class="btn btn-primary">
 				</form>
 				
 			</div>
