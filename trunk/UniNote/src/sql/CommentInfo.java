@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-
-import object.ChatVO;
 
 public class CommentInfo {
 	private Connection connection = null;
@@ -148,25 +145,6 @@ public class CommentInfo {
 		return result;
 	}
 
-	/**
-	 * 获取文章的评论
-	 * 
-	 * @param documentID
-	 *            文章编号
-	 */
-	public ArrayList<ChatVO> getChats(int documentID) {
-		ArrayList<ChatVO> result=new ArrayList<ChatVO>();
-		
-		return result;
-	}
-
-	/**
-	 * 存储某位用户对谋篇文章的评论
-	 * @param vo 一个评论对象
-	 */
-	public void addChat(ChatVO vo){
-		
-	}
 	@SuppressWarnings("unused")
 	private void createTable() {
 		try {
