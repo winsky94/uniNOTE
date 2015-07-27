@@ -42,6 +42,7 @@ public class DownLoadServlet extends HttpServlet {
 		// 扣除下载者的积分
 		int point = 1;
 		UserInfo userInfo = new UserInfo();
+		userInfo.minusPoint(nickname, point);
 			// 只有成功扣除积分才可以进行下载
 			System.out.println("可以下载！我进来了！");
 			DocumentInfo documentInfo = new DocumentInfo();

@@ -78,7 +78,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 		Map<Integer, Byte> maps = new HashMap<Integer, Byte>();
 		maps = ci.getCollections(nickname);
 		UserInfo userInfo = new UserInfo();
-		boolean result = userInfo.minusPoint(nickname, 1);
+		boolean result = userInfo.canMinusPoint(nickname,1);
 		String it="h";
 		if(result==false){
 			it="q";
