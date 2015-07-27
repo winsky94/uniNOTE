@@ -462,8 +462,8 @@ function write_chat_list(chats){
         <a class='comment-img' href='#non'>\
         <img src=\"images/portrait.jpg\" alt=\"\" width=\"50\" height=\"50\"></a>\
         <div class=\"comment-body\"><div class=\"text\"><p>";
-        txt=txt+content+"</p></div><p class=\"attribution\">by<a href=\"#non\">";
-        txt=txt+username+"</a>at "+date+"</p></div></article>";
+        txt=txt+content+"</p></div><p class=\"attribution\">by&nbsp;<a href=\"#non\">";
+        txt=txt+username+"</a>&nbsp;at&nbsp;"+date+"</p></div></article>";
     }
     return txt;
 }
