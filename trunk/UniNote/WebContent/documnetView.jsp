@@ -113,7 +113,7 @@
             	xmlhttp_sub.open("GET","/UniNote/SubmitChatServlet?documentID="+id+"&nickname="+username+"&content="+chatContent,true);
             	xmlhttp_sub.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             	xmlhttp_sub.send();
-            	document.getElementById("chat_textArea").innerHTML="";
+            	document.getElementById("chat_textArea").value="";
  				setTimeout("show_chats();",1000);
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
