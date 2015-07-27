@@ -69,23 +69,24 @@ public class DocumentOverViewServlet extends HttpServlet {
 		String course = new String(tempC.getBytes("iso-8859-1"), "utf-8");
 		String name = request.getParameter("nickname");
 		String nickname = new String(name.getBytes("iso-8859-1"), "utf-8");
+		int page = Integer.parseInt(request.getParameter("page"));
 
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		DocumentInfo documentInfo = new DocumentInfo();
-		documents = documentInfo.getDocuments(school, department, course);
+		documents = documentInfo.getDocuments(school, department, course, page);
 
 		CollectionInfo ci = new CollectionInfo();
 		Map<Integer, Byte> maps = new HashMap<Integer, Byte>();
 		maps = ci.getCollections(nickname);
 		UserInfo userInfo = new UserInfo();
 		boolean result = userInfo.canMinusPoint(nickname, 1);
-		String it="h";
-		if(result==false){
-			it="q";
+		String it = "h";
+		if (result == false) {
+			it = "q";
 		}
 		// 创建XML文件
 
-		String xmlStr = writeXMLString(documents, maps,it);
+		String xmlStr = writeXMLString(documents, maps, it);
 		out.println(xmlStr);
 
 	}
@@ -124,7 +125,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 	 * 功能：生成XML格式的字符串
 	 */
 	public String writeXMLString(ArrayList<DocumentVO> documents,
-			Map<Integer, Byte> maps,String isOK) {
+			Map<Integer, Byte> maps, String isOK) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try {
@@ -133,7 +134,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 		}
 		Document doc = builder.newDocument();
 		doc.setXmlVersion("1.0");
-				
+
 		Element root = doc.createElement("documents");
 		doc.appendChild(root); // 将根元素添加到文档上
 
@@ -248,11 +249,11 @@ public class DocumentOverViewServlet extends HttpServlet {
 			String collection = "N";
 			Byte test = maps.get(vo.getID());
 			if (test != null) {
-				collection = "Y";			
+				collection = "Y";
 			}
 			Text tBookmark = doc.createTextNode(collection);
 			bookmark.appendChild(tBookmark);
-			
+
 			// 创建文件下载量节点
 			Element IsOK = doc.createElement("isOK");
 			file.appendChild(IsOK);
@@ -271,7 +272,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 
 	public static void main(String[] args) {
 		System.out
-				.println(new DocumentInfo().getDocuments("all", "all", "all"));
+				.println(new DocumentInfo().getDocuments("all", "all", "all",1));
 	}
 
 }
