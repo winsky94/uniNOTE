@@ -17,6 +17,17 @@ public class ChatInfo {
 	public static void main(String[] args) {
 		ChatInfo ci = new ChatInfo();
 		ci.createTable();
+		
+		// SimpleDateFormat format = new
+		// SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// String date = format.format(new Date());
+		// ChatVO vo1=new ChatVO(1, "1", date, "测试1");
+		// ci.addChat(vo1);
+		// ChatVO vo2=new ChatVO(1, "2", date, "测试2");
+		// ci.addChat(vo2);
+		// ChatVO vo3=new ChatVO(2, "1", date, "测试3");
+		// ci.addChat(vo3);
+		// System.out.println(ci.getChats(1).size());
 	}
 
 	/**
@@ -62,16 +73,18 @@ public class ChatInfo {
 					.prepareStatement("INSERT INTO chat VALUES(?,?,?,?,?)");
 			
 			String sql="select max(chatID) as count from chat";
-			
+			resultSet=statement.executeQuery(sql);
+			int count=0;
+			while(resultSet.next()){
+				count=resultSet.getInt("count");
+			}
 			preStatement.setInt(1, ++count);
-			preStatement.setString(2, nickname);
-			preStatement.setInt(3, documentID);
-			preStatement.setString(4, "P");
+			preStatement.setString(2, vo.getNickName());
+			preStatement.setString(3, vo.getDate());
+			preStatement.setInt(4, vo.getDocumentID());
+			preStatement.setString(5, vo.getContent());
 			preStatement.execute();
 			preStatement.close();
-			query = "update document set praise=praise+1 where documentID="
-					+ documentID;
-			statement.executeUpdate(query);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
