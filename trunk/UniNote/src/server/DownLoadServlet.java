@@ -74,6 +74,7 @@ public class DownLoadServlet extends HttpServlet {
 			// 做一个缓冲字节数组
 			byte buffer[] = new byte[1024];
 			int len = 0;// 表示实际每次读取了多少个字节
+			response.reset();
 			OutputStream os = response.getOutputStream();
 			while ((len = fis.read(buffer)) > 0) {
 				os.write(buffer, 0, len);
