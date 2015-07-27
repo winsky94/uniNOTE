@@ -43,8 +43,27 @@
 	    var page_num=1;
 	    var start=1;
 	    var end=1;
+	    var active_num;
 	    var department="all";
 	    var course="all";
+
+	    $(document).ready(function(){
+	    	$(".page-selector").click(function(){
+                active_num=this.html();
+                if(active_num-2>=1){
+                	start=active_num-2;
+                }else{
+                	start=1;
+                }
+                if(active_num+2<=page_num){
+                	end=active_num+2;
+                }else{
+                	end=page_num;
+                }
+                write_pagination(active_num-2,active_num+2,active_num);
+                get_documents_by_course(department,course,active_num);  
+	    	});
+	    });
 
 	    function get_page_num(department_chosen,course_chosen){
 	    	var school=$('#university-info').attr('title');
@@ -69,7 +88,8 @@
                     start=1;
                     end=5;
 	    		}
-	    		write_pagination(start,end);	 //初始化页码
+	    		active_num=1;
+	    		write_pagination(start,end,active_num);	 //初始化页码
                 get_documents_by_course(department,course,1);  //请求第一页
 	    	}
 	    }
@@ -243,7 +263,7 @@
 							<a href="#!"> <i class="material-icons">chevron_left</i>
 							</a>
 						</li>
-						<li class="active" >
+						<li class="page-selector active" >
 							<a href="#!">1</a>
 						</li>
 						<li class="waves-effect">
