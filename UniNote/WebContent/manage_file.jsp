@@ -132,7 +132,7 @@
 	            </script>
 			</div>
 			<form action="/UniNote/ChangeDocumentInfoServlet" method="post" class="col s12 l4" id="my-form">
-			<input class="validate" type="hidden" name="id" value="">
+			<input class="validate" type="hidden" name="id" value="<%=id%>">
 				<div class="input-field col s12">
 					<textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
 					<label for="profile">简介</label>
