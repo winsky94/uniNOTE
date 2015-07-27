@@ -163,7 +163,11 @@
 
         $(function(){
 		    $("#download-submit").click(function(){
-		        $('doanload-form').ajaxSubmit();
+		        $('doanload-form').ajaxSubmit({
+		        	success: function(responseText){
+		        		alert(responseText);
+		        	}
+		        });
 		    });
 		});
 
