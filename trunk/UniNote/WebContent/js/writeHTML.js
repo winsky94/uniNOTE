@@ -463,9 +463,9 @@ function write_pagination(start,end,active_num){
 
     for( i=start ; i<=end ; i++){
         if(i==active_num){
-            txt=txt+'<li class="active">
+            txt=txt+'<li class="active"> \
                         <a href="#!">'+i+'</a> \
-                    </li>'
+                    </li>';
         }else{
             txt=txt+'<li class="waves-effect"> \
                         <a href="#!">'+i+'</a> \
