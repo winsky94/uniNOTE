@@ -56,6 +56,7 @@
 		}
 		.cell-container{
 			display: table-cell;
+			margin: 5px;
 		}
     </style>
 
