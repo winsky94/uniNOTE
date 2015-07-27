@@ -185,29 +185,17 @@ public class DocumentInfo {
 	public int getPageNum(String school, String department, String course) {
 		int result = -1;
 		String s = "";
-		boolean isHasBegin = false;
 		if (!school.equals("all")) {
 			s += "and category.school='" + school + "' ";
-			isHasBegin = true;
 		}
 		if (!department.equals("all")) {
-			if (isHasBegin == false) {
-				s += "and category.department='" + department + "' ";
-				isHasBegin = true;
-			} else {
-				s += "and category.department='" + department + "' ";
-			}
+			s += "and category.department='" + department + "' ";
 		}
 		if (!course.equals("all")) {
 			if (course.equals("考研资料")) {
 				s += "and document.postgraduateData='Y'";
 			} else {
-				if (isHasBegin == false) {
-					s += "and category.course='" + course + "' ";
-					isHasBegin = true;
-				} else {
-					s += "and category.course='" + course + "' ";
-				}
+				s += "and category.course='" + course + "' ";
 			}
 
 		}
@@ -253,29 +241,17 @@ public class DocumentInfo {
 			String course, int page) {
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		String s = "";
-		boolean isHasBegin = false;
 		if (!school.equals("all")) {
 			s += "and category.school='" + school + "' ";
-			isHasBegin = true;
 		}
 		if (!department.equals("all")) {
-			if (isHasBegin == false) {
-				s += "and category.department='" + department + "' ";
-				isHasBegin = true;
-			} else {
-				s += "and category.department='" + department + "' ";
-			}
+			s += "and category.department='" + department + "' ";
 		}
 		if (!course.equals("all")) {
 			if (course.equals("考研资料")) {
 				s += "and document.postgraduateData='Y'";
 			} else {
-				if (isHasBegin == false) {
-					s += "and category.course='" + course + "' ";
-					isHasBegin = true;
-				} else {
-					s += "and category.course='" + course + "' ";
-				}
+				s += "and category.course='" + course + "' ";
 			}
 
 		}
