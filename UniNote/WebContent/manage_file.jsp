@@ -142,7 +142,7 @@
 					<label for="tag">标签</label>
 				</div>
 				<div class="row col s12">
-					<a class="btn btn-primary">保存</a>
+					<input type="submit" class="btn btn-primary">保存</a>
 					<a class="btn btn-primary" id="cancel-button" onclick="cancel()">取消</a>
 				</div>
 			</form>
