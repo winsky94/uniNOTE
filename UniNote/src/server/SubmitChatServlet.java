@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import object.ChatVO;
-import sql.CommentInfo;
+import sql.ChatInfo;
 
 /**
  * Servlet implementation class SubmitChatServlet
@@ -42,7 +42,7 @@ public class SubmitChatServlet extends HttpServlet {
 		String date = format.format(new Date());
 		ChatVO vo = new ChatVO(documentID, nickname, date, content);
 
-		CommentInfo ci = new CommentInfo();
+		ChatInfo ci = new ChatInfo();
 		ci.addChat(vo);
 
 	}
