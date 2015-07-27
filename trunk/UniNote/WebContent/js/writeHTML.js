@@ -455,6 +455,7 @@ function write_chat_list(chats){
 }
 
 function write_pagination(start,end,active_num){
+    alert("start="+start+" end="+end+" active_num="+active_num);
     var txt='<li class="disabled"> \
                 <a href="#!">  \
                     <i class="material-icons">chevron_left</i> \
