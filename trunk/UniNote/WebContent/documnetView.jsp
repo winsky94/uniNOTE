@@ -141,7 +141,7 @@
                 }else if(comments[2]==1){
                 var result="<p>感谢您的评价!</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
             	}else if(comments[2]==2){
-            		var result="<p>感谢你自己？</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
+            		var result="<p>评价你自己？</p><p>好评数："+comments[0]+"，差评数："+comments[1]+"</p>";
             	}
                 $("#commentArea").html(result);
             }
