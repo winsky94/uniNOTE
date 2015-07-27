@@ -91,8 +91,10 @@ function write_user_upload_files(file_elements){
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
         var downloadNum=file_elements[i].getElementsByTagName("downloadNum")[0].firstChild.nodeValue;
         var tag=file_elements[i].getElementsByTagName("tag")[0].firstChild.nodeValue;
-
-        txt=txt+"<a class='title' href='" +"manage_file.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&origin_filename="+origin_filename+"&tag="+tag+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量'+downloadNum+'</p>';
+        var zanNum=file_elements[i].getElementsByTagName("praise")[0].firstChild.nodeValue;
+        var caiNum=file_elements[i].getElementsByTagName("criticism")[0].firstChild.nodeValue;
+        var isOK=file_elements[i].getElementsByTagName("isOK")[0].firstChild.nodeValue;
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"&isOK="+isOK+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
 
         //结尾
         txt=txt +"</li>";
