@@ -107,7 +107,7 @@
             }
 		}
         
-        /*
+        
         function init_form(){
 
         	form=$("<form>");//定义一个form表单
@@ -150,19 +150,13 @@
             	$('#result').html("您的积分不足");
             } 
         }
-        */
-
-        $(function(){
-		    $("#download-submit").click(function(){
-		        $('doanload-form').ajaxSubmit();
-		    });
-		});
+        
 
     </script>
 
 	<title>detail</title>
 </head>
-<body onload="write_header()">
+<body onload="write_header();init_form()">
 
 	<header></header>
 
@@ -268,13 +262,8 @@
 					<div class="col s12" id="commentNow"></div>
 				</div>
 				
-				<form id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
-					<input type="hidden" id="ID" name="ID" value="1">
-					<input type="hidden" id="nickname" name="nickname" value="">
-					<input id="download-submit" type="submit" value=" 下载 " class="btn btn-primary">
-				</form>
 				<div id="form-area">				
-				<font color="red" size="2"><span id="result" ></span></font>
+				<font color="red" size="2"><span id="result" >o</span></font>
 				</div>
 				
 			</div>
