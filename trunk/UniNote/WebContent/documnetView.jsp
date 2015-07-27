@@ -113,6 +113,7 @@
             	xmlhttp_sub.open("GET","/UniNote/SubmitChatServlet?documentID="+id+"&nickname="+username+"&content="+chatContent,true);
             	xmlhttp_sub.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             	xmlhttp_sub.send();
+            	document.getElementById("chat_textArea").innerHTML="";
  				setTimeout("show_chats();",1000);
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
@@ -251,7 +252,7 @@
   					 localeChain: 'zh_CN'
 					 }});
 	        </script>
-				<section id="chatArea"></section>
+				<section class="comments" id="chatArea"></section>
 				<div class="input-field" id="my-chat-area"> <i class="material-icons prefix">mode_edit</i>
 					<textarea id="chat_textArea" class="materialize-textarea"></textarea>
 					<label for="chat_textArea">你的评价</label>
