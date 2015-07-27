@@ -29,7 +29,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
-import sql.CommentInfo;
+import sql.ChatInfo;
 
 /**
  * Servlet implementation class ChatServlet
@@ -63,7 +63,7 @@ public class ChatServlet extends HttpServlet {
 
 		int documentID = Integer.parseInt(request.getParameter("documentID"));
 
-		CommentInfo ci = new CommentInfo();
+		ChatInfo ci = new ChatInfo();
 		ArrayList<ChatVO> chats = ci.getChats(documentID);
 		// 创建XML文件
 		String xmlStr = writeXMLString(chats);
