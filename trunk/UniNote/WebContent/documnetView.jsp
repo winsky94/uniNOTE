@@ -171,6 +171,7 @@
             form.attr("target","");
             form.attr("method","post");
             form.attr("action","DownLoadServlet");
+            form.attr("onsubmit","return check_login()");
 
             var input1=$("<input>");
             input1.attr("type","hidden");
