@@ -55,7 +55,7 @@
             if(xmlhttp!=null){
             	xmlhttp.onreadystatechange=function(){on_page_num_response(xmlhttp)};
             	xmlhttp.open("GET","/UniNote/GetPageNumServlet?school="+school+"&department="+department_chosen+"&course="+course_chosen);
-            	xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             	xmlhttp.send();
             }
 	    }
