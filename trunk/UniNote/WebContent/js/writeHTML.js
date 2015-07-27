@@ -175,7 +175,7 @@ function write_user_download_files(file_elements){
 
         var id=file_elements[i].getElementsByTagName("ID")[0].firstChild.nodeValue;
         var filename=file_elements[i].getElementsByTagName("filename")[0].firstChild.nodeValue;
-        var origin_filename=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
+        var name=file_elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
         var uploader=file_elements[i].getElementsByTagName("uploader")[0].firstChild.nodeValue; 
         var profile=file_elements[i].getElementsByTagName("profile")[0].firstChild.nodeValue;
         var downloadNum=file_elements[i].getElementsByTagName("downloadNum")[0].firstChild.nodeValue;
@@ -183,7 +183,7 @@ function write_user_download_files(file_elements){
         var zanNum=file_elements[i].getElementsByTagName("praise")[0].firstChild.nodeValue;
         var caiNum=file_elements[i].getElementsByTagName("criticism")[0].firstChild.nodeValue;
 
-       txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
 
         //结尾
         txt=txt +"</li>";
