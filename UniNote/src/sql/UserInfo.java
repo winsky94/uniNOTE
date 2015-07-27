@@ -277,6 +277,34 @@ public class UserInfo {
 		}
 		return result;
 	}
+	
+	public boolean canMinusPoint(String nickname, int point) {
+		boolean result = false;
+		try {
+			Connection con = SqlManager.getConnection();
+			String name = nickname.replace("'", "''");
+			String query = "select point from user where nickname='" + name
+					+ "' limit 1";
+			Statement statement = con.createStatement();
+			ResultSet resultSet = statement.executeQuery(query);
+			while (resultSet.next()) {
+				int originalPoint = resultSet.getInt("point");
+				if (originalPoint > point) {
+					result = true;
+				}
+			}
+			resultSet.close();
+			statement.close();
+			con.close();
+		} catch (java.lang.ClassNotFoundException e) {
+			e.printStackTrace();
+			System.err.println("ClassNotFoundException:" + e.getMessage());
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.err.println("SQLException:" + ex.getMessage());
+		}
+		return result;
+	}
 
 	public void createTable() {
 		try {
