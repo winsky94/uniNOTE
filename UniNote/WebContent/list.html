@@ -39,6 +39,42 @@
 	<script src="js/LoginAjax.js"></script>
 
 	<script type="text/javascript">
+
+	    var page_num=1;
+	    var start=1;
+	    var end=1;
+	    var school=$('#university-info').attr('title');
+	    var department="all";
+	    var course="all";
+	    var nickname=$("#user-name").attr("title");
+
+	    function get_page_num(department_chosen,course_chosen){
+            department=department_chosen;
+            course=course_chosen;
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
+            	xmlhttp.onreadystatechange=function(){on_page_num_response(xmlhttp)};
+            	xmlhttp.open("GET","/UniNote/GetPageNumServlet?school="+school+"&department="+department_chosen+"&course="+course_chosen);
+            	xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            	xmlhttp.send();
+            }
+	    }
+
+	    function on_page_num_response(xmlhttp){
+	    	if(xmlhttp.readyState==4 && xmlhttp.status==200){
+	    		page_num=xmlhttp.responseText;
+	    		if(page_num<=5){
+	    			start=1;
+	    			end=page_num;
+	    		}else{
+                    start=1;
+                    end=5;
+	    		}
+	    		write_pagination(start,end);	 //初始化页码
+                get_documents_by_course(school,department,course,1);  //请求第一页
+	    	}
+	    }
+
 		function get_course_list(xmlhttp_course){
 			 if (xmlhttp_course.readyState==4 && xmlhttp_course.status==200){
                 //file_elements是一个数组
@@ -61,6 +97,19 @@
             }
 		}
 
+		function get_documents_by_course(department_chosen,course_chosen,current_page){
+            var xmlhttp=getXmlHttp();
+            if(xmlhttp!=null){
+                xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+school+'&department='+department_chosen+
+                    '&course='+course_chosen+'&nickname='+nickname+"&page="+current_page,true);
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
+                xmlhttp.send();
+            }else{
+                alert('Your browser does not support XMLHttpRequest.');
+            } 
+        }
+
 	    function onResponse(xmlhttp){
   	   	    if (xmlhttp.readyState==4 && xmlhttp.status==200){
                 //file_elements是一个数组
@@ -82,34 +131,19 @@
                 $("#filelist").html(txt);
             }
 	    }
+
 	    function init_left_list(){
-	    	var university=$('#university-info').attr('title');
 	    	var xmlhttp_course=getXmlHttp();
             if(xmlhttp_course!=null){
-            	xmlhttp_course.open("GET","/UniNote/CategoryServlet?school="+encodeURI(encodeURI(university)),true);
+            	xmlhttp_course.open("GET","/UniNote/CategoryServlet?school="+encodeURI(encodeURI(school)),true);
             	xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             	xmlhttp_course.onreadystatechange=function(){get_course_list(xmlhttp_course)};
             	xmlhttp_course.send();
- 				
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
 	    }
-	    function init_list(department_chosen,course_chosen){
-            var xmlhttp=getXmlHttp();
-            var university=$('#university-info').attr('title');
-            var nickname=$('#user-name').attr('title');
-            //alert(university);
-            if(xmlhttp!=null){
-            	xmlhttp.open("GET","/UniNote/DocumentOverViewServlet?school="+university+"&department="+department_chosen+"&course="+course_chosen+"&nickname="+nickname,true);
-            	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};
-                xmlhttp.send();	
-            }else{
-            	alert("Your browser does not support XMLHttpRequest.");
-            }     	
-        }
-	    //end init_list
+	  
 
     function search_function(){
     	var keyword=$("input[name='keyword']").val();
@@ -155,7 +189,7 @@
 	</script>
 
 </head>
-<body onload='write_header();write_footer();init_list("all","all");init_left_list()'>
+<body onload='write_header();write_footer();get_page_num("all","all");init_left_list()'>
 
 	<header></header>
 

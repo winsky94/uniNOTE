@@ -377,20 +377,6 @@ function write_course_list(departments,isUploading){
         $('a.collection-item').css('background-color','#fff');\
         $(this).css('background-color','#e0f2f1');\
         });\
-    function get_documents_by_course(department_chosen,course_chosen){\
-            var xmlhttp=getXmlHttp();\
-            var university=$('#university-info').attr('title');\
-            var nickname=$('#user-name').attr('title');\
-            if(xmlhttp!=null){\
-                xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+university+'&department='+department_chosen+\
-                    '&course='+course_chosen+'&nickname='+nickname,true);\
-                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\
-                xmlhttp.onreadystatechange=function(){onResponse(xmlhttp)};\
-                xmlhttp.send();\
-            }else{\
-                alert('Your browser does not support XMLHttpRequest.');\
-            } \
-        }\
         </script>\
     <ul class='collapsible' data-collapsible='expandable'>";
     for(i=0;i<departments.length;i++){
@@ -466,4 +452,31 @@ function write_chat_list(chats){
         txt=txt+username+"</a>&nbsp;at&nbsp;"+date+"</p></div></article>";
     }
     return txt;
+}
+
+function write_pagination(start,end,active_num){
+    var txt='<li class="disabled"> \
+                <a href="#!">  \
+                    <i class="material-icons">chevron_left</i> \
+                </a> \
+            </li>';
+
+    for( i=start ; i<=end ; i++){
+        if(i==active_num){
+            txt=txt+'<li class="active">
+                        <a href="#!">'+i+'</a> \
+                    </li>'
+        }else{
+            txt=txt+'<li class="waves-effect"> \
+                        <a href="#!">'+i+'</a> \
+                    </li>';
+        }
+    }
+
+    txt=txt+'<li class="waves-effect"> \
+                <a href="#!"> \
+                    <i class="material-icons">chevron_right</i> \
+                </a> \
+             </li>';
+    $(".pagination").html(txt);
 }
