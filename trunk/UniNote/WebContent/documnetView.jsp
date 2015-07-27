@@ -29,6 +29,7 @@
 	<script src="js/cookie.js"></script>
 	<script src="js/xmlhttp.js"></script>
 	<script src="js/jquery.form.js"></script>
+	<script src="js/writeHTML.js"></script>
 	<script src=""></script>
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
