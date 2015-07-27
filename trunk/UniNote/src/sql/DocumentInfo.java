@@ -118,12 +118,11 @@ public class DocumentInfo {
 		return result;
 	}
 
-	public boolean modify(int id,String profile,String tag) {
+	public boolean modify(int id, String profile, String tag) {
 		boolean result = false;
 		try {
 			Connection connection = SqlManager.getConnection();
 			Statement statement = connection.createStatement();
-
 
 			String query = "update document set profile='" + profile
 					+ "' , tag='" + tag + "' where documentID=" + id;
@@ -173,6 +172,43 @@ public class DocumentInfo {
 	}
 
 	/**
+	 * 检索某校某院系某课程的文档共有多少页，每页10个文档
+	 * 
+	 * @param school
+	 *            学校
+	 * @param department
+	 *            院系
+	 * @param course
+	 *            课程
+	 * @return
+	 */
+	public int getPageNum(String school, String department, String course) {
+		int result = -1;
+		try {
+			Connection con = SqlManager.getConnection();
+			Statement sql = con.createStatement();
+			String query = "select count(*) as pageNum from document";
+			ResultSet resultSet = sql.executeQuery(query);
+			while (resultSet.next()) {
+				result = resultSet.getInt("pageNum");
+			}
+			resultSet.close();
+			sql.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (result > 0) {
+			int yushu = result % 10;
+			result = result / 10;
+			if (yushu != 0) {
+				result = result + 1;
+			}
+		}
+		return result;
+	}
+
+	/**
 	 * 检索某校某院系某课程的文档
 	 * 
 	 * @param school
@@ -181,10 +217,12 @@ public class DocumentInfo {
 	 *            院系
 	 * @param course
 	 *            课程
+	 * @param page
+	 *            当前需要显示第几页
 	 * @return 如果全部为all，则返回所有文档
 	 */
 	public ArrayList<DocumentVO> getDocuments(String school, String department,
-			String course) {
+			String course, int page) {
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		String s = "";
 		boolean isHasBegin = false;
@@ -201,10 +239,9 @@ public class DocumentInfo {
 			}
 		}
 		if (!course.equals("all")) {
-			if(course.equals("考研资料")){
-				s+="and document.postgraduateData='Y'";
-			}		 
-			else{
+			if (course.equals("考研资料")) {
+				s += "and document.postgraduateData='Y'";
+			} else {
 				if (isHasBegin == false) {
 					s += "and category.course='" + course + "' ";
 					isHasBegin = true;
@@ -212,13 +249,13 @@ public class DocumentInfo {
 					s += "and category.course='" + course + "' ";
 				}
 			}
-			
+
 		}
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
 			String query = "select * from document,category where document.categoryID=category.cid "
-					+ s;
+					+ s + " limit " + ((page - 1) * 10) + ",10";
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
 				int idi = resultSet.getInt("documentID");
@@ -342,15 +379,16 @@ public class DocumentInfo {
 	 * @return 返回int[],int[0]是点赞数,int[1]是被踩数
 	 */
 	public int[] addPraise(int id) {
-		int count1=0;
-		int count2=0;
+		int count1 = 0;
+		int count2 = 0;
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
 			String query = "update document set praise=praise+1 where documentID="
 					+ id;
 			sql.executeUpdate(query);
-			query = "select praise,criticism from document where documentID="+id+" limit 1";
+			query = "select praise,criticism from document where documentID="
+					+ id + " limit 1";
 			ResultSet rs = sql.executeQuery(query);
 			rs.next();
 			count1 = rs.getInt("praise");
@@ -365,11 +403,10 @@ public class DocumentInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
-		int[] result=new int[]{count1,count2};
+		int[] result = new int[] { count1, count2 };
 		return result;
 	}
-	
-	
+
 	/**
 	 * 
 	 * 
@@ -377,15 +414,16 @@ public class DocumentInfo {
 	 * @return 返回int[],int[0]是点赞数,int[1]是被踩数
 	 */
 	public int[] addCriticism(int id) {
-		int count1=0;
-		int count2=0;
+		int count1 = 0;
+		int count2 = 0;
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
 			String query = "update document set criticism=criticism+1 where documentID="
 					+ id;
 			sql.executeUpdate(query);
-			query = "select praise,criticism from document where documentID="+id+" limit 1";
+			query = "select praise,criticism from document where documentID="
+					+ id + " limit 1";
 			ResultSet rs = sql.executeQuery(query);
 			rs.next();
 			count1 = rs.getInt("praise");
@@ -400,7 +438,7 @@ public class DocumentInfo {
 			ex.printStackTrace();
 			System.err.println("SQLException:" + ex.getMessage());
 		}
-		int[] result=new int[]{count1,count2};
+		int[] result = new int[] { count1, count2 };
 		return result;
 	}
 
@@ -421,14 +459,15 @@ public class DocumentInfo {
 			System.err.println("SQLException:" + ex.getMessage());
 		}
 	}
-	
-	public ArrayList<DocumentVO> getDocuments(String keyword,String type){
+
+	public ArrayList<DocumentVO> getDocuments(String keyword, String type) {
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
-		
+
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String query = "select * from document where document."+type+" like '%"+keyword+"%'";
+			String query = "select * from document where document." + type
+					+ " like '%" + keyword + "%'";
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
 				int idi = resultSet.getInt("documentID");
@@ -461,14 +500,15 @@ public class DocumentInfo {
 		}
 		return documents;
 	}
-	
-	public ArrayList<DocumentVO> getHotDocuments(String school){
-ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
-		
+
+	public ArrayList<DocumentVO> getHotDocuments(String school) {
+		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
+
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String query = "select * from document,category where document.categoryID=category.cid and category.school='"+school+"' order by downloadNum desc limit 5";
+			String query = "select * from document,category where document.categoryID=category.cid and category.school='"
+					+ school + "' order by downloadNum desc limit 5";
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
 				int idi = resultSet.getInt("documentID");
@@ -544,20 +584,20 @@ ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		// System.out.println(ui.add(vo1));
 		// System.out.println(ui.add(vo2));
 		// System.out.println(ui.search("hehe"));
-		// ArrayList<DocumentVO> vos = ui.getDocuments("all", "all", "all");
-//		ArrayList<DocumentVO> vos = ui.getUpLoadList("严顺宽");
-//		for (DocumentVO vo : vos) {
-//			System.out.println(vo.getID());
-//			System.out.println(vo.getName());
-//			System.out.println(vo.getProfile());
-//			System.out.println(vo.getTag());
-//			System.out.println("-----------------------------");
-//		}
+		// ArrayList<DocumentVO> vos = ui.getDocuments("all", "all", "all",1);
+		// ArrayList<DocumentVO> vos = ui.getUpLoadList("严顺宽");
+		// for (DocumentVO vo : vos) {
+		// System.out.println(vo.getID());
+		// System.out.println(vo.getName());
+		// System.out.println(vo.getProfile());
+		// System.out.println(vo.getTag());
+		// System.out.println("-----------------------------");
+		// }
 		// DocumentVO vo = vos.get(0);
 		// vo.setProfile("呵呵哒");
 		// vo.setTag("喵喵哒");
 		// System.out.println(ui.modify(vo));
-		// vos = ui.getDocuments("南京大学", "软件学院", "all");
+		// vos = ui.getDocuments("南京大学", "软件学院", "all",1);
 		// for (DocumentVO vo3 : vos) {
 		// System.out.println(vo3.getID());
 		// System.out.println(vo3.getName());
@@ -567,8 +607,10 @@ ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		// }
 		//
 		// System.out.println(ui.delete(vo));
-		//System.out.println(ui.addPraise(1)[0]+" "+ui.addPraise(1)[1]);
-		//System.out.println(ui.addCriticism(1)[0]+" "+ui.addCriticism(1)[1]);
-		ui.getHotDocuments("南京大学");
+		// System.out.println(ui.addPraise(1)[0]+" "+ui.addPraise(1)[1]);
+		// System.out.println(ui.addCriticism(1)[0]+" "+ui.addCriticism(1)[1]);
+		// ui.getHotDocuments("南京大学");
+		System.out.println(ui.getPageNum("南京大学", "软件学院", "all"));
+
 	}
 }
