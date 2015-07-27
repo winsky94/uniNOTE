@@ -289,7 +289,7 @@ public class UserInfo {
 			ResultSet resultSet = statement.executeQuery(query);
 			while (resultSet.next()) {
 				int originalPoint = resultSet.getInt("point");
-				if (originalPoint > point) {
+				if (originalPoint >=point) {
 					result = true;
 				}
 			}
