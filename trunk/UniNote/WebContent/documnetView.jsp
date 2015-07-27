@@ -147,7 +147,13 @@
 
         $(function(){
 		    $("#download-submit").click(function(){
-		        $('doanload-form').ajaxSubmit();
+		        $('doanload-form').ajaxSubmit({
+		            success: function(responseText){
+		                if(responseText=="积分不足"){
+		                	alert(responseText);
+		                }
+		            }
+        		});
 		    });
 		});
 
