@@ -168,6 +168,7 @@
 		}
               
         function init_form(){
+        	var nickname=$("#user-name").attr("title");
         	form=$("<form>");//定义一个form表单
             form.attr("style","display:block");
             form.attr("target","");
@@ -178,13 +179,13 @@
             var input1=$("<input>");
             input1.attr("type","hidden");
             input1.attr("name","ID");
-            input1.attr("value","2");        
+            input1.attr("value","<%=id%>");        
             form.append(input1);
 
             var input2=$("<input>");
             input2.attr("type","hidden");
             input2.attr("name","nickname");
-            input2.attr("value","1");   
+            input2.attr("value",nickname);   
             form.append(input2);
 
             var input3=$("<input>");
