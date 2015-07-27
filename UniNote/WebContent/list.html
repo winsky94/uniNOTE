@@ -43,10 +43,14 @@
 	    var page_num=1;
 	    var start=1;
 	    var end=1;
-	    var school=$('#university-info').attr('title');
 	    var department="all";
 	    var course="all";
-	    var nickname=$("#user-name").attr("title");
+
+	    $(document).ready(function(){
+			school=$('#university-info').attr('title');
+			nickname=$("#user-name").attr("title");
+			alert("school="+school+" course="+course);
+	    });
 
 	    function get_page_num(department_chosen,course_chosen){
             department=department_chosen;
