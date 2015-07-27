@@ -468,7 +468,7 @@ function write_pagination(start,end,active_num){
                         <a href="#!">'+i+'</a> \
                     </li>';
         }else{
-            txt=txt+'<li class="page-selector waves-effect" title="'+i+'" onclick="turn_to_page()"> \
+            txt=txt+'<li class="page-selector waves-effect" title="'+i+'" onclick="turn_to_page(this.title)"> \
                         <a href="#!">'+i+'</a> \
                     </li>';
         }
