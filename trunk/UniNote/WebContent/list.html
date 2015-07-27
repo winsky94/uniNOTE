@@ -47,9 +47,9 @@
 	    var department="all";
 	    var course="all";
 
-	    $(document).ready(function(){
-	    	$(".page-selector").click(function(){
-                active_num=$(this).attr("title");
+	    
+	    function turn_to_page(){
+            active_num=$(this).attr("title");
                 if(active_num-2>=1){
                 	start=active_num-2;
                 }else{
@@ -64,7 +64,7 @@
                 write_pagination(active_num-2,active_num+2,active_num);
                 get_documents_by_course(department,course,active_num);  
 	    	});
-	    });
+	   
 
 	    function get_page_num(department_chosen,course_chosen){
 	    	var school=$('#university-info').attr('title');
