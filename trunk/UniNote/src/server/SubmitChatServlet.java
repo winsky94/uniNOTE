@@ -38,7 +38,7 @@ public class SubmitChatServlet extends HttpServlet {
 		String cont = request.getParameter("content");
 		String content = new String(cont.getBytes("iso-8859-1"), "utf-8");
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd H:m:s");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = format.format(new Date());
 		ChatVO vo = new ChatVO(documentID, nickname, date, content);
 
