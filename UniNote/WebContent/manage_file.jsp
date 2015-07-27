@@ -131,7 +131,7 @@
 					 }});
 	            </script>
 			</div>
-			<form action="/UniNote/ChangeDocumentInfoServlet" method="post" class="col s12 l4">
+			<form action="/UniNote/ChangeDocumentInfoServlet" method="post" class="col s12 l4" id="my-form">
 			<input class="validate" type="hidden" name="id" value="">
 				<div class="input-field col s12">
 					<textarea class="materialize-textarea" id="profile" name="profile"  length="300"></textarea>
@@ -142,7 +142,7 @@
 					<label for="tag">标签</label>
 				</div>
 				<div class="row col s12">
-					<input type="submit" class="btn btn-primary">保存</a>
+					<a class="btn btn-primary" onclick="$('#my-form').submit()">保存</a>
 					<a class="btn btn-primary" id="cancel-button" onclick="cancel()">取消</a>
 				</div>
 			</form>
