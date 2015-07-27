@@ -69,8 +69,54 @@
         	$('#file-profile').html("<%=profile%>");
         	$('#ID').attr("value","<%=id%>");
         	$('#commentNow').html("好评数：<%=zanNum%>，差评数：<%=caiNum%>");
+        	show_chats();
         });
-
+        function show_chats(){
+	    	var xmlhttp_sc=getXmlHttp();
+        	var id=<%=id%>;
+            if(xmlhttp_sc!=null){
+            	xmlhttp_sc.open("GET","/UniNote/ChatServlet?documentID="+id,true);
+            	xmlhttp_sc.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            	xmlhttp_sc.onreadystatechange=function(){
+            		if (xmlhttp_sc.readyState==4 && xmlhttp_sc.status==200){
+            			var text=xmlhttp_sc.responseText;
+            			try{
+			                var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+			                xmlDoc.async="false";
+			                xmlDoc.loadXML(text);
+			            }catch(e){
+			                try{
+			                    var parser=new DOMParser();
+			                    xmlDoc=parser.parseFromString(text,"text/xml");
+			                }catch(e) {
+			            	    alert(e.message);
+			                }
+			            }
+			            var chats=xmlDoc.getElementsByTagName("chat");
+			            var result=write_chat_list(chats);
+            			$("#chatArea").html(result);
+            		}
+            	};
+            	xmlhttp_sc.send();
+ 				
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+        }
+        function submit_chat(){
+        	var xmlhttp_sub=getXmlHttp();
+        	var id=<%=id%>;
+        	var username=$('#user-name').attr('title');
+        	var chatContent=document.getElementById("chat_textArea").value;
+            if(xmlhttp_sub!=null){
+            	xmlhttp_sub.open("GET","/UniNote/SubmitChatServlet?documentID="+id+"&nickname="+username+"&content="+chatContent,true);
+            	xmlhttp_sub.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            	xmlhttp_sub.send();
+ 				show_chats();
+            }else{
+            	alert("Your browser does not support XMLHttpRequest.");
+            }
+        }
         function check_login(){
         	login=check_cookie();
             if(!login){      	
@@ -119,9 +165,14 @@
             }
 		}
         
+<<<<<<< .mine
+=======
         
         function init_form(){
+>>>>>>> .r1053
 
+<<<<<<< .mine
+=======
         	form=$("<form>");//定义一个form表单
             form.attr("style","display:block");
             form.attr("target","");
@@ -162,6 +213,7 @@
         }
         
 
+>>>>>>> .r1053
     </script>
 
 	<title>detail</title>
@@ -206,44 +258,11 @@
   					 localeChain: 'zh_CN'
 					 }});
 	        </script>
-				<section class="comments">
-					<article class="comment">
-						<a class="comment-img" href="#non">
-							<img src="images/portrait.jpg" alt="" width="50" height="50"></a>
-						<div class="comment-body">
-							<div class="text">
-								<p>Hello, this is an example comment</p>
-							</div>
-							<p class="attribution">
-								by
-								<a href="#non">Joe Bloggs</a>
-								at 14:23pm, 4th Dec 2010
-							</p>
-
-						</div>
-					</article>
-					<article class="comment">
-						<a class="comment-img" href="#non">
-							<img src="images/portrait.jpg" alt="" width="50" height="50"></a>
-						<div class="comment-body">
-							<div class="text">
-								<p>This is a much longer one that will go on for a few lines.</p>
-								<p>
-									It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.
-								</p>
-							</div>
-							<p class="attribution">
-								by
-								<a href="#non">Joe Bloggs</a>
-								at 14:23pm, 4th Dec 2010
-							</p>
-						</div>
-					</article>
-				</section>
-				<div class="input-field" id="my-comment-area"> <i class="material-icons prefix">mode_edit</i>
-					<textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-					<label for="icon_prefix2">你的评价</label>
-					<a class="btn btn-primary">提交</a>
+				<section id="chatArea"></section>
+				<div class="input-field" id="my-chat-area"> <i class="material-icons prefix">mode_edit</i>
+					<textarea id="chat_textArea" class="materialize-textarea"></textarea>
+					<label for="chat_textArea">你的评价</label>
+					<a class="btn btn-primary" onclick="submit_chat()">提交</a>
 				</div>
 			</div>
 			<div class="col s12 l4">
@@ -271,18 +290,28 @@
 					</div>
 					<div class="col s12" id="commentNow"></div>
 				</div>
-				
+
 				
 				<div class="table-container">
 					<div class="row-container">
+<<<<<<< .mine
+						<form class="cell-container" id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
+							<input type="hidden" id="ID" name="ID" value="1">
+							<input type="hidden" id="nickname" name="nickname" value="">
+							<input id="download-submit" type="submit" value=" 下载 " class="btn btn-primary"></form>
+						<div class="cell-container" id="form-area"> <font color="red" size="2"><span id="result" ></span></font> 
+						</div>
+					</div>
+=======
 					        <div class="cell-container" id="form-area">
 					        </div>
 					        <div class="cell-container">
 							<font color="red" size="2"><span id="result" >o</span></font>
 						   </div>
 					</div>				
+>>>>>>> .r1053
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
