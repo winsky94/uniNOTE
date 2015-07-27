@@ -118,17 +118,15 @@ public class DocumentInfo {
 		return result;
 	}
 
-	public boolean modify(DocumentVO vo) {
+	public boolean modify(int id,String profile,String tag) {
 		boolean result = false;
 		try {
 			Connection connection = SqlManager.getConnection();
 			Statement statement = connection.createStatement();
 
-			String profile = vo.getProfile();
-			String tag = vo.getTag();
 
 			String query = "update document set profile='" + profile
-					+ "' , tag='" + tag + "' where documentID=" + vo.getID();
+					+ "' , tag='" + tag + "' where documentID=" + id;
 			int res = statement.executeUpdate(query);
 			if (res != 0) {
 				result = true;
