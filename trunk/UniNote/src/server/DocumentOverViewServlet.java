@@ -133,6 +133,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 		}
 		Document doc = builder.newDocument();
 		doc.setXmlVersion("1.0");
+				
 		Element root = doc.createElement("documents");
 		doc.appendChild(root); // 将根元素添加到文档上
 
