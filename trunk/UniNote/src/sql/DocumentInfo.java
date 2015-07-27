@@ -214,7 +214,7 @@ public class DocumentInfo {
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String query = "select count(*) as pageNum from documentfrom document,category where document.categoryID=category.cid "
+			String query = "select count(*) as pageNum from document,category where document.categoryID=category.cid "
 					+ s;
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
