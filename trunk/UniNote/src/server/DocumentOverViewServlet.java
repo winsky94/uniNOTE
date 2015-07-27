@@ -78,13 +78,13 @@ public class DocumentOverViewServlet extends HttpServlet {
 		Map<Integer, Byte> maps = new HashMap<Integer, Byte>();
 		maps = ci.getCollections(nickname);
 		UserInfo userInfo = new UserInfo();
-		boolean result = userInfo.canMinusPoint(nickname,1);
+		boolean result = userInfo.canMinusPoint(nickname, 1);
 		String it="h";
 		if(result==false){
 			it="q";
 		}
 		// 创建XML文件
-		System.out.println("it1 "+it);
+
 		String xmlStr = writeXMLString(documents, maps,it);
 		out.println(xmlStr);
 
