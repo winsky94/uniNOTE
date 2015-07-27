@@ -58,7 +58,7 @@
 		.cell-container{
 			display: table-cell;
 			margin: 5px;
-			padding: 5px;
+			padding-right: 10px;
 		}
     </style>
 
