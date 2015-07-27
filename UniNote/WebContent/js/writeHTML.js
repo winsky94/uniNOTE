@@ -206,7 +206,7 @@ function write_user_info(user_info){
     //<div class="card teal lighten-5"> \
     //   <div class="card-content" id="user-info-container"> \
 
-    var txt='<div class="card amber darken-2"> \
+    var txt='<div class="card teal lighten-2"> \
                 <div class="card-content" id="user-info-container">  \
                     <div class="table-row"> \
                         <div class="property">Nickname</div> \
