@@ -33,6 +33,7 @@ import org.w3c.dom.Text;
 
 import sql.CollectionInfo;
 import sql.DocumentInfo;
+import sql.UserInfo;
 
 /**
  * Servlet implementation class DocumentServlet
@@ -76,9 +77,15 @@ public class DocumentOverViewServlet extends HttpServlet {
 		CollectionInfo ci = new CollectionInfo();
 		Map<Integer, Byte> maps = new HashMap<Integer, Byte>();
 		maps = ci.getCollections(nickname);
-
+		UserInfo userInfo = new UserInfo();
+		boolean result = userInfo.minusPoint(nickname, 1);
+		String it="h";
+		if(result==false){
+			it="q";
+		}
 		// 创建XML文件
-		String xmlStr = writeXMLString(documents, maps);
+		System.out.println("it1 "+it);
+		String xmlStr = writeXMLString(documents, maps,it);
 		out.println(xmlStr);
 
 	}
@@ -117,7 +124,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 	 * 功能：生成XML格式的字符串
 	 */
 	public String writeXMLString(ArrayList<DocumentVO> documents,
-			Map<Integer, Byte> maps) {
+			Map<Integer, Byte> maps,String isOK) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try {
@@ -240,10 +247,16 @@ public class DocumentOverViewServlet extends HttpServlet {
 			String collection = "N";
 			Byte test = maps.get(vo.getID());
 			if (test != null) {
-				collection = "Y";
+				collection = "Y";			
 			}
 			Text tBookmark = doc.createTextNode(collection);
 			bookmark.appendChild(tBookmark);
+			
+			// 创建文件下载量节点
+			Element IsOK = doc.createElement("isOK");
+			file.appendChild(IsOK);
+			Text tisok = doc.createTextNode(isOK);
+			IsOK.appendChild(tisok);
 
 		}
 		try {
