@@ -48,6 +48,15 @@
 			display: relative;
 			margin:auto;
 		}
+		.table-container{
+			display: table;
+		}
+		.row-container{
+			display: table-row;
+		}
+		.cell-container{
+			display: table-cell;
+		}
     </style>
 
 	<script type="text/javascript">
@@ -262,8 +271,13 @@
 					<div class="col s12" id="commentNow"></div>
 				</div>
 				
-				<div id="form-area">				
-				<font color="red" size="2"><span id="result" >o</span></font>
+				
+				<div class="table-container">
+					<div class="row-container">
+					        <div class="cell-container" id="form-area">				
+							<font color="red" size="2"><span id="result" >o</span></font>
+						   </div>
+					</div>				
 				</div>
 				
 			</div>
