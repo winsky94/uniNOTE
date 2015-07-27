@@ -26,7 +26,7 @@
 	<script src="js/LoginAjax.js"></script>
 	<script src="js/cookie.js"></script>
 	<script src="js/xmlhttp.js"></script>
-	<script src="js/jquery-form.js"></script>
+	<script src="js/jquery.form.js"></script>
 	<script src=""></script>
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -105,6 +105,7 @@
             }
 		}
         
+        /*
         function init_form(){
 
         	form=$("<form>");//定义一个form表单
@@ -142,13 +143,21 @@
         function submit_form(){
         	var message=form.submit();//表单提交
         }
+        */
 
+        $(function(){
+        	$("#download-form").ajaxForm({
+                success: function(responseText){
+            	alert(responseText);
+        		}
+    		});
+		});
 
     </script>
 
 	<title>detail</title>
 </head>
-<body onload="write_header();init_form()">
+<body onload="write_header()">
 
 	<header></header>
 
@@ -253,13 +262,13 @@
 					</div>
 					<div class="col s12" id="commentNow"></div>
 				</div>
-				<!--
+				
 				<form id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
 					<input type="hidden" id="ID" name="ID" value="456">
 					<input type="hidden" id="nickname" name="nickname" value="">
 					<input type="submit" value=" 下载 " class="btn btn-primary">
 				</form>
-				-->
+				
 				<div id="form-area">
 					
 				</div>
