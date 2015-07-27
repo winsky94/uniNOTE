@@ -47,6 +47,7 @@ public class DownLoadServlet extends HttpServlet {
 		UserInfo userInfo = new UserInfo();
 		boolean result = userInfo.minusPoint(nickname, point);
 		if (result) {
+			out.close();
 			// 只有成功扣除积分才可以进行下载
 			DocumentInfo documentInfo = new DocumentInfo();
 			DocumentVO vo = documentInfo.getDocumentByID(documentID);
@@ -74,7 +75,6 @@ public class DownLoadServlet extends HttpServlet {
 			// 做一个缓冲字节数组
 			byte buffer[] = new byte[1024];
 			int len = 0;// 表示实际每次读取了多少个字节
-			response.reset();
 			OutputStream os = response.getOutputStream();
 			while ((len = fis.read(buffer)) > 0) {
 				os.write(buffer, 0, len);
@@ -86,8 +86,9 @@ public class DownLoadServlet extends HttpServlet {
 			downloadInfo.add(nickname, documentID);
 		}else {
 			message="您的积分不足，无法下载";
+			out.println(message);
 		}
-		out.println(message);
+		
 	}
 
 	protected void doPost(HttpServletRequest request,
