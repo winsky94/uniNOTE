@@ -42,8 +42,9 @@ public class DownLoadServlet extends HttpServlet {
 		// 扣除下载者的积分
 		int point = 1;
 		UserInfo userInfo = new UserInfo();
-		userInfo.minusPoint(nickname, point);
+		boolean result=userInfo.minusPoint(nickname, point);
 			// 只有成功扣除积分才可以进行下载
+		if(result){
 			System.out.println("可以下载！我进来了！");
 			DocumentInfo documentInfo = new DocumentInfo();
 			DocumentVO vo = documentInfo.getDocumentByID(documentID);
@@ -80,7 +81,7 @@ public class DownLoadServlet extends HttpServlet {
 			// <a href="/web/DowFileServlet?filename=xx.mp3">点击下载</a>
 			DownloadInfo downloadInfo = new DownloadInfo();
 			downloadInfo.add(nickname, documentID);
-		
+		}
 
 	}
 

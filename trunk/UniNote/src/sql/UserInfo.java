@@ -253,13 +253,13 @@ public class UserInfo {
 			ResultSet resultSet = statement.executeQuery(query);
 			while (resultSet.next()) {
 				int originalPoint = resultSet.getInt("point");
-				if (originalPoint > 0) {
+				if (originalPoint >=point) {
 					result = true;
 				}
 			}
 			resultSet.close();
 			statement.close();
-			
+			System.out.println("result="+result);
 			if (result) {
 				Statement sql = con.createStatement();
 				query = "update user set point=point-" + point
