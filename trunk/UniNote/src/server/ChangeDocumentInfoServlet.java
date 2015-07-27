@@ -40,7 +40,9 @@ public class ChangeDocumentInfoServlet extends HttpServlet {
                 String did=request.getParameter("id");
                 
                 DocumentInfo di=new DocumentInfo();
-                di.modify(Integer.parseInt(did), profile, tag);							
+                di.modify(Integer.parseInt(did), profile, tag);		
+                
+                request.getRequestDispatcher("/manage_file.jsp").forward(request, response);
 
 	}
 
