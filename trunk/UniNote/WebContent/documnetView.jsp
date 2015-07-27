@@ -50,6 +50,7 @@
 		}
 		.table-container{
 			display: table;
+
 		}
 		.row-container{
 			display: table-row;
@@ -57,6 +58,7 @@
 		.cell-container{
 			display: table-cell;
 			margin: 5px;
+			padding: 5px;
 		}
     </style>
 
