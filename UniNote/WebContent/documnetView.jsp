@@ -112,7 +112,7 @@
             	xmlhttp_sub.open("GET","/UniNote/SubmitChatServlet?documentID="+id+"&nickname="+username+"&content="+chatContent,true);
             	xmlhttp_sub.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             	xmlhttp_sub.send();
- 				show_chats();
+ 				setTimeout("show_chats();",1000);
             }else{
             	alert("Your browser does not support XMLHttpRequest.");
             }
@@ -164,15 +164,8 @@
             	alert("Your browser does not support XMLHttpRequest.");
             }
 		}
-        
-<<<<<<< .mine
-=======
-        
+              
         function init_form(){
->>>>>>> .r1053
-
-<<<<<<< .mine
-=======
         	form=$("<form>");//定义一个form表单
             form.attr("style","display:block");
             form.attr("target","");
@@ -212,8 +205,6 @@
             } 
         }
         
-
->>>>>>> .r1053
     </script>
 
 	<title>detail</title>
@@ -294,22 +285,12 @@
 				
 				<div class="table-container">
 					<div class="row-container">
-<<<<<<< .mine
-						<form class="cell-container" id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
-							<input type="hidden" id="ID" name="ID" value="1">
-							<input type="hidden" id="nickname" name="nickname" value="">
-							<input id="download-submit" type="submit" value=" 下载 " class="btn btn-primary"></form>
-						<div class="cell-container" id="form-area"> <font color="red" size="2"><span id="result" ></span></font> 
-						</div>
-					</div>
-=======
 					        <div class="cell-container" id="form-area">
 					        </div>
 					        <div class="cell-container">
 							<font color="red" size="2"><span id="result" >o</span></font>
 						   </div>
 					</div>				
->>>>>>> .r1053
 				</div>
 
 			</div>
