@@ -46,13 +46,8 @@
 	    var department="all";
 	    var course="all";
 
-	    $(document).ready(function(){
-			school=$('#university-info').attr('title');
-			nickname=$("#user-name").attr("title");
-			alert("school="+school+" course="+course);
-	    });
-
 	    function get_page_num(department_chosen,course_chosen){
+	    	var school=$('#university-info').attr('title');
             department=department_chosen;
             course=course_chosen;
             var xmlhttp=getXmlHttp();
@@ -102,6 +97,8 @@
 		}
 
 		function get_documents_by_course(department_chosen,course_chosen,current_page){
+			var school=$('#university-info').attr('title');
+			var nickname=$("#user-name").attr("title");
             var xmlhttp=getXmlHttp();
             if(xmlhttp!=null){
                 xmlhttp.open('GET','/UniNote/DocumentOverViewServlet?school='+school+'&department='+department_chosen+
@@ -138,6 +135,7 @@
 
 	    function init_left_list(){
 	    	var xmlhttp_course=getXmlHttp();
+	    	var school=$('#university-info').attr('title');
             if(xmlhttp_course!=null){
             	xmlhttp_course.open("GET","/UniNote/CategoryServlet?school="+encodeURI(encodeURI(school)),true);
             	xmlhttp_course.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
