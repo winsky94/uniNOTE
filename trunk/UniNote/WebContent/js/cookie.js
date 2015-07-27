@@ -103,7 +103,7 @@ function write_header_login(username,my_school){
     </ul>\
     <div class="navbar-fixed"> \
         <nav> \
-            <div class="nav-wrapper  amber darken-2"> \
+            <div class="nav-wrapper teal darken-2"> \
                 <div class="container"> \
                     <div class="row"> \
                             <a href="#!" class="brand-logo">uniNOTE</a> \
