@@ -145,12 +145,12 @@
         }
         */
 
-        $(function(){
-        	$("#download-form").ajaxForm({
-                success: function(responseText){
-            	alert(responseText);
-        		}
-    		});
+		$(function(){
+		    $('form').ajaxForm({
+		        success: function(responseText){
+		            alert(responseText);
+		        }
+		    });
 		});
 
     </script>
@@ -269,9 +269,6 @@
 					<input type="submit" value=" 下载 " class="btn btn-primary">
 				</form>
 				
-				<div id="form-area">
-					
-				</div>
 			</div>
 		</div>
 	</div>
