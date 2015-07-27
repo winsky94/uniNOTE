@@ -451,3 +451,19 @@ function write_upload_course_list(departments){
     txt=txt+"</ul>";
     return txt;
 }
+
+function write_chat_list(chats){
+    var txt="";
+    for(i=0;i<chats.length;i++){
+        var username=chats[i].getElementsByTagName("name")[0].firstChild.nodeValue;
+        var date=chats[i].getElementsByTagName("date")[0].firstChild.nodeValue;
+        var content=chats[i].getElementsByTagName("content")[0].firstChild.nodeValue;
+        txt=txt+"<article class='comment'>\
+        <a class='comment-img' href='#non'>\
+        <img src=\"images/portrait.jpg\" alt=\"\" width=\"50\" height=\"50\"></a>\
+        <div class=\"comment-body\"><div class=\"text\"><p>";
+        txt=txt+content+"</p></div><p class=\"attribution\">by<a href="#non">";
+        txt=txt+username+"</a>at "+date+"</p></div></article>";
+    }
+    return txt;
+}
