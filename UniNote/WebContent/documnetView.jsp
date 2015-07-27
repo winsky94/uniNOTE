@@ -48,6 +48,15 @@
 			display: relative;
 			margin:auto;
 		}
+		.table-container{
+			display: table;
+		}
+		.row-container{
+			display: table-row;
+		}
+		.cell-container{
+			display: table-cell;
+		}
     </style>
 
 	<script type="text/javascript">
@@ -268,13 +277,17 @@
 					<div class="col s12" id="commentNow"></div>
 				</div>
 				
-				<form id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
-					<input type="hidden" id="ID" name="ID" value="1">
-					<input type="hidden" id="nickname" name="nickname" value="">
-					<input id="download-submit" type="submit" value=" 下载 " class="btn btn-primary">
-				</form>
-				<div id="form-area">				
-				<font color="red" size="2"><span id="result" ></span></font>
+				<div class="table-container">
+					<div class="row-container">
+						<form class="cell-container" id="download-form" method="post" action="/UniNote/DownLoadServlet" onsubmit="return check_login()">
+							<input type="hidden" id="ID" name="ID" value="1">
+							<input type="hidden" id="nickname" name="nickname" value="">
+							<input id="download-submit" type="submit" value=" 下载 " class="btn btn-primary">
+						</form>
+						<div class="cell-container" id="form-area">				
+							<font color="red" size="2"><span id="result" ></span></font>
+						</div>
+					</div>
 				</div>
 				
 			</div>
