@@ -66,7 +66,7 @@
     <servlet-name>ChangeUserInfoServlet</servlet-name>
     <url-pattern>/ChangeUserInfoServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>ChangeDocumentInfoServlet</servlet-name>
     <servlet-class>server.ChangeDocumentInfoServlet</servlet-class>
   </servlet>
@@ -153,5 +153,13 @@
   <servlet-mapping>
     <servlet-name>ChatServlet</servlet-name>
     <url-pattern>/ChatServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetPageNumServlet</servlet-name>
+    <servlet-class>server.GetPageNumServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetPageNumServlet</servlet-name>
+    <url-pattern>/GetPageNumServlet</url-pattern>
   </servlet-mapping>
 </web-app>
