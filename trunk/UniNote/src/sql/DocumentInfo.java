@@ -184,10 +184,38 @@ public class DocumentInfo {
 	 */
 	public int getPageNum(String school, String department, String course) {
 		int result = -1;
+		String s = "";
+		boolean isHasBegin = false;
+		if (!school.equals("all")) {
+			s += "and category.school='" + school + "' ";
+			isHasBegin = true;
+		}
+		if (!department.equals("all")) {
+			if (isHasBegin == false) {
+				s += "and category.department='" + department + "' ";
+				isHasBegin = true;
+			} else {
+				s += "and category.department='" + department + "' ";
+			}
+		}
+		if (!course.equals("all")) {
+			if (course.equals("考研资料")) {
+				s += "and document.postgraduateData='Y'";
+			} else {
+				if (isHasBegin == false) {
+					s += "and category.course='" + course + "' ";
+					isHasBegin = true;
+				} else {
+					s += "and category.course='" + course + "' ";
+				}
+			}
+
+		}
 		try {
 			Connection con = SqlManager.getConnection();
 			Statement sql = con.createStatement();
-			String query = "select count(*) as pageNum from document";
+			String query = "select count(*) as pageNum from documentfrom document,category where document.categoryID=category.cid "
+					+ s;
 			ResultSet resultSet = sql.executeQuery(query);
 			while (resultSet.next()) {
 				result = resultSet.getInt("pageNum");
