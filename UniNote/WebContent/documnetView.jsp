@@ -146,9 +146,7 @@
             input3.attr("onclick","submit_form(form)");
             form.append(input3);   
 
-            $("#form-area").append(form);//将表单放置在web中       
-
-            
+            $("#form-area").append(form);//将表单放置在web中        
         }
 
         function submit_form(form){
@@ -274,7 +272,9 @@
 				
 				<div class="table-container">
 					<div class="row-container">
-					        <div class="cell-container" id="form-area">				
+					        <div class="cell-container" id="form-area">
+					        </div>
+					        <div class="cell-container">
 							<font color="red" size="2"><span id="result" >o</span></font>
 						   </div>
 					</div>				
