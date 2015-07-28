@@ -246,16 +246,18 @@
 				<br />
 				<br />
 				<div>
+				<form id="search-form" onsubmit="return function(){return false;}">
 					<input type="text"  name="keyword" onkeydown='if(event.keyCode==13){search_function()}'>
-					<a class="btn btn-primary" onclick="search_function()">搜索</a>
+					<input type="submit" value="搜索" class="btn btn-primary" onclick="search_function()">
 					<div>
 						<input type="radio" name="type" id="uploader" value="uploader">
 						<label for="uploader">上传者</label>
-						<input type="radio" name="type" id="customName" value="customName">
+						<input type="radio" name="type" id="customName" value="customName" checked="checked">
 						<label for="customName">文件名</label>
 						<input type="radio" name="type" id="tag" value="tag">
 						<label for="tag">标签</label>
 					</div>
+				</form>
 				</div>
 				<br />
 				<div>
