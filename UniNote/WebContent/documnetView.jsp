@@ -235,7 +235,7 @@
 					 ZoomTime : 0.5,
 					 ZoomInterval : 0.2,
 					 FitPageOnLoad : true,
-					 FitWidthOnLoad : false,
+					 FitWidthOnLoad : true,
 					 FullScreenAsMaxWindow : false,
 					 ProgressiveLoading : false,
 					 MinZoomSize : 0.2,
