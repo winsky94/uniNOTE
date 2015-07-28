@@ -254,7 +254,7 @@ public class DocumentOverViewServlet extends HttpServlet {
 			Text tBookmark = doc.createTextNode(collection);
 			bookmark.appendChild(tBookmark);
 
-			// 创建文件下载量节点
+			// 创建文件isOK节点
 			Element IsOK = doc.createElement("isOK");
 			file.appendChild(IsOK);
 			Text tisok = doc.createTextNode(isOK);

@@ -145,8 +145,8 @@ function write_user_collect_files(file_elements){
         var tag=file_elements[i].getElementsByTagName("tag")[0].firstChild.nodeValue;
         var zanNum=file_elements[i].getElementsByTagName("praise")[0].firstChild.nodeValue;
         var caiNum=file_elements[i].getElementsByTagName("criticism")[0].firstChild.nodeValue;
-
-       txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
+        var isOK=file_elements[i].getElementsByTagName("isOK")[0].firstChild.nodeValue;
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"&isOK="+isOK+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
 
         //结尾
         txt=txt+"<a href=\"#!\" class='secondary-content marked' title='selected' onclick='clickStar("+id+")'><i class='material-icons'>grade</i></a>";
@@ -182,8 +182,8 @@ function write_user_download_files(file_elements){
         var tag=file_elements[i].getElementsByTagName("tag")[0].firstChild.nodeValue;
         var zanNum=file_elements[i].getElementsByTagName("praise")[0].firstChild.nodeValue;
         var caiNum=file_elements[i].getElementsByTagName("criticism")[0].firstChild.nodeValue;
-
-        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
+        var isOK=file_elements[i].getElementsByTagName("isOK")[0].firstChild.nodeValue;
+        txt=txt+"<a class='title' href='" +"documnetView.jsp?ID="+id+"&filename="+filename+"&profile="+profile+"&name="+name+"&zanNum="+zanNum+"&caiNum="+caiNum+"&isOK="+isOK+"'>"+filename+'</a><p>上传者：'+uploader+'<br>下载量：'+downloadNum+'</p>';
 
         //结尾
         txt=txt +"</li>";

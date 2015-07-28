@@ -30,6 +30,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 import sql.DownloadInfo;
+import sql.UserInfo;
 
 /**
  * Servlet implementation class UserDownloadServet
@@ -70,9 +71,16 @@ public class UserDownloadServlet extends HttpServlet {
 
   		DownloadInfo downloadInfo = new DownloadInfo();
   		ArrayList<DocumentVO> vos=downloadInfo.getDownloads(nickname);
+  		
+  		UserInfo userInfo = new UserInfo();
+		boolean result = userInfo.canMinusPoint(nickname, 1);
+		String it = "h";
+		if (result == false) {
+			it = "q";
+		}
 
   		// 创建XML文件
-  		String xmlStr = writeXMLString(vos);
+  		String xmlStr = writeXMLString(vos, it);
   		out.println(xmlStr);
 
   	}
@@ -110,7 +118,7 @@ public class UserDownloadServlet extends HttpServlet {
   	/**
   	 * 功能：生成XML格式的字符串
   	 */
-  	public String writeXMLString(ArrayList<DocumentVO> documents) {
+  	public String writeXMLString(ArrayList<DocumentVO> documents,String isOK) {
   		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
   		DocumentBuilder builder = null;
   		try {
@@ -227,6 +235,12 @@ public class UserDownloadServlet extends HttpServlet {
 			Text tDownloadNum = doc.createTextNode(String.valueOf(vo
 					.getDownloadNum()));
 			downloadNum.appendChild(tDownloadNum);
+			
+			// 创建文件isOK节点
+			Element IsOK = doc.createElement("isOK");
+			file.appendChild(IsOK);
+			Text tisok = doc.createTextNode(isOK);
+			IsOK.appendChild(tisok);
 
 		}
   		
