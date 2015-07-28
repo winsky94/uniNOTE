@@ -237,7 +237,7 @@
 					 FitPageOnLoad : true,
 					 FitWidthOnLoad : true,
 					 FullScreenAsMaxWindow : false,
-					 ProgressiveLoading : false,
+					 ProgressiveLoading : true,
 					 MinZoomSize : 0.2,
 					 MaxZoomSize : 5,
 					 SearchMatchAll : false,
