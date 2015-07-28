@@ -26,12 +26,11 @@ public class DocumentVO {
 		this.name = name;
 		this.customName = customName;
 		this.path = path;
-		String[] buffer = path.split("\\.");
-		if (buffer.length > 1) {
-			this.type = buffer[buffer.length - 1];
-		} else {
-			this.type = "";
-		}
+		int index=path.lastIndexOf(".");		
+		if(index!=-1)
+		     this.type = path.substring(index+1,path.length());
+		else 
+			 this.type="";
 		this.profile = profile;
 		this.tag = tag;
 		this.postgraduateData = postgraduateData;
