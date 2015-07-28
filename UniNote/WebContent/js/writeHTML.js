@@ -455,7 +455,6 @@ function write_chat_list(chats){
 }
 
 function write_pagination(start,end,active_num,page_num){
-    alert("start="+start+" end="+end+" active_num="+active_num);
     var txt;
     if(start==1 && active_num==1){
         txt='<li class="disabled"> \
