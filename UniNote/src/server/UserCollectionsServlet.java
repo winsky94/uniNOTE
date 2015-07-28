@@ -30,6 +30,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 import sql.CollectionInfo;
+import sql.UserInfo;
 
 /**
  * Servlet implementation class GetCollectionsServlet
@@ -67,9 +68,16 @@ public class UserCollectionsServlet extends HttpServlet {
 		CollectionInfo ci = new CollectionInfo();
 		ArrayList<DocumentVO> documents = new ArrayList<DocumentVO>();
 		documents = ci.getCollectionList(nickname);
+		
+		UserInfo userInfo = new UserInfo();
+		boolean result = userInfo.canMinusPoint(nickname, 1);
+		String it = "h";
+		if (result == false) {
+			it = "q";
+		}
 
 		// 创建XML文件
-		String xmlStr = writeXMLString(documents);
+		String xmlStr = writeXMLString(documents,it);
 		out.println(xmlStr);
 	}
 
@@ -82,7 +90,7 @@ public class UserCollectionsServlet extends HttpServlet {
 	/**
 	 * 功能：生成XML格式的字符串
 	 */
-	public String writeXMLString(ArrayList<DocumentVO> documents) {
+	public String writeXMLString(ArrayList<DocumentVO> documents,String isOK) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try {
@@ -198,6 +206,12 @@ public class UserCollectionsServlet extends HttpServlet {
 			Text tDownloadNum = doc.createTextNode(String.valueOf(vo
 					.getDownloadNum()));
 			downloadNum.appendChild(tDownloadNum);
+			
+			// 创建文件isOK节点
+			Element IsOK = doc.createElement("isOK");
+			file.appendChild(IsOK);
+			Text tisok = doc.createTextNode(isOK);
+			IsOK.appendChild(tisok);
 
 		}
 		try {
