@@ -231,7 +231,7 @@
 					 'viewerPlaceHolder', { config : {
 					 SwfFile : encodeURI('<%=swfFilePath%>'),
 					 Scale : 0.6, 
-					 ZoomTransition : 'easeOut',
+					 ZoomTransition : 'easenone',
 					 ZoomTime : 0.5,
 					 ZoomInterval : 0.2,
 					 FitPageOnLoad : true,
