@@ -484,7 +484,7 @@ function write_pagination(start,end,active_num,page_num){
         }
     }
      
-    if(end==page_num){
+    if(end==page_num && active_num==page_num){
         txt=txt+'<li class="disabled"> \
                 <a href="#!"> \
                     <i class="material-icons">chevron_right</i> \
