@@ -181,10 +181,14 @@
 
     function search_function(){
     	var keyword=$("input[name='keyword']").val();
-    	var type=$("input[name='type'][checked]").val();
-    	if(type==null){
-    		type="customName";
-    	}
+    	var type;
+        var type_radio_pointers = document.querySelectorAll('[name="type"]');
+        for (var i=0; i<type_radio_pointers.length; i++){
+        	if(type_radio_pointers[i].checked){
+        		type=type_radio_pointers[i].value;
+        	}
+        } 
+
     	alert("type="+type);
     	var nickname;
     	var login=check_cookie();
@@ -202,7 +206,6 @@
     	}else{
     		alert("Your browser does not support XMLHttpRequest");
     	}
-    	return false;
     }
 
     function onSearchResponse(xmlhttp){
@@ -247,18 +250,17 @@
 				<br />
 				<br />
 				<div>
-				<form id="search-form" onsubmit="return search_function()">
-					<input type="text"  name="keyword" onkeydown='if(event.keyCode==13){$("#search-form").submit()}'>
-					<input type="submit" value="搜索" class="btn btn-primary" onclick='$("#search-form").submit()'>
+					<input type="text"  name="keyword" onkeydown='if(event.keyCode==13){search_function()}'>
+					<a class="btn btn-primary" onclick="search_function()">搜索</a>
 					<div>
+
 						<input type="radio" name="type" id="uploader" value="uploader">
 						<label for="uploader">上传者</label>
-						<input type="radio" name="type" id="customName" value="customName" checked="checked">
+						<input type="radio" name="type" id="customName" value="customName">
 						<label for="customName">文件名</label>
 						<input type="radio" name="type" id="tag" value="tag">
 						<label for="tag">标签</label>
 					</div>
-				</form>
 				</div>
 				<br />
 				<div>
