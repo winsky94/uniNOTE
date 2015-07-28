@@ -21,6 +21,7 @@ public class DocConverter {
 	private File pdfFile;
 	private File swfFile;
 	private File docFile;
+	private boolean isPDF=false;
 
 	/**
 	 * 
@@ -88,6 +89,7 @@ public class DocConverter {
 					throw e;
 				}
 			} else {
+				isPDF=true;
 				System.out.println("****已经转换为pdf，不需要再进行转化****");
 			}
 		} else {
@@ -115,7 +117,7 @@ public class DocConverter {
 						System.out.print(loadStream(p.getInputStream()));
 						System.err.println("****swf转换成功，文件输出："
 								+ swfFile.getPath() + "****");
-						if (pdfFile.exists()) {
+						if (pdfFile.exists()&&!isPDF) {
 							pdfFile.delete();
 						}
 
