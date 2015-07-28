@@ -202,6 +202,7 @@
     	}else{
     		alert("Your browser does not support XMLHttpRequest");
     	}
+    	return false;
     }
 
     function onSearchResponse(xmlhttp){
@@ -246,9 +247,9 @@
 				<br />
 				<br />
 				<div>
-				<form id="search-form" onsubmit="return function(){return false;}">
-					<input type="text"  name="keyword" onkeydown='if(event.keyCode==13){search_function()}'>
-					<input type="submit" value="搜索" class="btn btn-primary" onclick="search_function()">
+				<form id="search-form" onsubmit="return search_function()">
+					<input type="text"  name="keyword" onkeydown='if(event.keyCode==13){$("#search-form").submit()}'>
+					<input type="submit" value="搜索" class="btn btn-primary" onclick='$("#search-form").submit()'>
 					<div>
 						<input type="radio" name="type" id="uploader" value="uploader">
 						<label for="uploader">上传者</label>
