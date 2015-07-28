@@ -181,7 +181,10 @@
 
     function search_function(){
     	var keyword=$("input[name='keyword']").val();
-    	var type=$("input[name='type']").val();
+    	var type=$("input[name='type'][checked]").val();
+    	if(type==null){
+    		type="customName";
+    	}
     	alert("type="+type);
     	var nickname;
     	var login=check_cookie();
@@ -248,7 +251,7 @@
 					<div>
 						<input type="radio" name="type" id="uploader" value="uploader">
 						<label for="uploader">上传者</label>
-						<input type="radio" name="type" id="customName" value="customName"  checked="checked">
+						<input type="radio" name="type" id="customName" value="customName">
 						<label for="customName">文件名</label>
 						<input type="radio" name="type" id="tag" value="tag">
 						<label for="tag">标签</label>
