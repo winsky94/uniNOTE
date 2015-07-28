@@ -454,13 +454,23 @@ function write_chat_list(chats){
     return txt;
 }
 
-function write_pagination(start,end,active_num){
+function write_pagination(start,end,active_num,page_num){
     alert("start="+start+" end="+end+" active_num="+active_num);
-    var txt='<li class="disabled"> \
+    var txt;
+    if(start==1){
+        txt='<li class="disabled"> \
                 <a href="#!">  \
                     <i class="material-icons">chevron_left</i> \
                 </a> \
             </li>';
+    }else{
+        txt='<li class="waves-effect"> \
+                <a href="#!" onclick="page_up(active_num)">  \
+                    <i class="material-icons">chevron_left</i> \
+                </a> \
+            </li>';
+    }
+    
 
     for( i=start ; i<=end ; i++){
         if(i==active_num){
@@ -473,11 +483,20 @@ function write_pagination(start,end,active_num){
                     </li>';
         }
     }
-
-    txt=txt+'<li class="waves-effect"> \
+     
+    if(end==page_num){
+        txt=txt+'<li class="disabled"> \
                 <a href="#!"> \
                     <i class="material-icons">chevron_right</i> \
                 </a> \
-             </li>';
+             </li>';  
+    }else{
+        txt=txt+'<li class="waves-effect"> \
+                <a href="#!" onclick="page_down(active_num)"> \
+                    <i class="material-icons">chevron_right</i> \
+                </a> \
+             </li>';  
+    }
+
     $(".pagination").html(txt);
 }

@@ -60,10 +60,21 @@
                 }else{
                 	end=page_num;
                 }
-                alert("click "+active_num);
-                write_pagination(start,end,active_num);
+                write_pagination(start,end,active_num,page_num);
                 get_documents_by_course(department,course,active_num);  
 	    	}
+
+	    function page_up(current_page){
+	    	if(current_page>1){
+	    		turn_to_page(current_page-1);
+	    	}	
+	    }
+
+	    function page_down(current_page){
+	    	if(current_page<page_num){
+	    		turn_to_page(current_page+1);
+	    	}
+	    }
 	   
 
 	    function get_page_num(department_chosen,course_chosen){
@@ -90,7 +101,7 @@
                     end=5;
 	    		}
 	    		active_num=1;
-	    		write_pagination(start,end,active_num);	 //初始化页码
+	    		write_pagination(start,end,active_num,page_num);	 //初始化页码
                 get_documents_by_course(department,course,1);  //请求第一页
 	    	}
 	    }
