@@ -80,7 +80,6 @@ function callback_signup(){
             //使用responseXML的方式来接收xml数据对象的DOM对象  
             var text=xmlHttp.responseText;
             var domObj = xmlHttp.responseXML;  
-            alert("text="+text);
             //<message>ggggg</message>  
             //getElementsByTagName根据标签名获取元素节点,返回的是一个数组  
             var messageNodes = domObj.getElementsByTagName("message"); 

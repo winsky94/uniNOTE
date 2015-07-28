@@ -33,7 +33,6 @@
 	<script>
 	function change_school(){
 		var current_school=$(this).html();
-		alert("school="+current_school);
 		add_cookie("current_school",current_school,30*24);
 		write_header();
 	}

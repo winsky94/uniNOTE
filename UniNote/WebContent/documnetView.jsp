@@ -201,7 +201,6 @@
         }
 
         function submit_form(form){
-        	alert("isOK=<%=isOK%>");
         	if("<%=isOK%>"=='h'){
                 form.submit();       	    
             }else{
