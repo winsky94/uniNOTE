@@ -8,7 +8,7 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/style.css" type="text/css" rel="" el="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <style type="text/css">
         .row {
@@ -47,7 +47,13 @@
 
     function create_default_title(){
         var fullname=$('input[type=file]').val().split('\\').pop();
-        var filename=fullname.split('.')[0];
+        //var filename=fullname.split('.')[0];
+        var index=fullname.lastIndexOf('.');
+        var filename=fullname;
+        if(index!=-1){
+        	filename=fullname.substring(0,index);
+        }
+        
         $('#filename').attr('value',filename);
     }
 
