@@ -103,7 +103,7 @@ function write_header_login(username,my_school){
     </ul>\
     <div class="navbar-fixed"> \
         <nav> \
-            <div class="nav-wrapper teal lighten-2"> \
+            <div class="nav-wrapper teal lighten-3"> \
                 <div class="container"> \
                     <div class="row"> \
                             <a href="#!" class="brand-logo">uniNOTE</a> \
@@ -178,7 +178,7 @@ function write_header_not_login(){
         </ul> \
         <div class="navbar-fixed"> \
         <nav> \
-            <div class="nav-wrapper teal lighten-2"> \
+            <div class="nav-wrapper teal lighten-3"> \
                 <div class="container"> \
                     <div class="row"> \
                         <div class="col l6 s12"> \

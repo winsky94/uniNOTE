@@ -6182,8 +6182,9 @@ Picker.extend( 'pickadate', DatePicker )
 
     $('.slider').slider({
     	full_width: true,
-    	interval:3500,
-    	indicators:false
+    	interval:6000,
+    	indicators:false,
+    	transition:1500
     });
 
 });
