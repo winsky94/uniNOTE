@@ -15,44 +15,31 @@
     <link href="css/style.css" type="text/css" rel="stylesheet"
     media="screen,projection" />
 
-    <style type="text/css">
-        #input {
-            position: relative;
-            max-width: 40%;
-            margin: auto;
-            margin-top: 100px;
-        }       
-
-        input {
-            max-width: 80%;
-        }       
+    <style type="text/css">      
 
         html, body {
             height: 100%;
-            background:url();
+            /*background:url();
             background-size:100% 100% ;
-        }       
-
-        .btn {
-            max-width: 30%;
-        }       
+            */
+        }             
 
         #container {
             min-height: 50%; /*使内容高度和body一样*/
             margin-bottom: 70px; /*向上缩减70像素，不至于footer超出屏幕可视范围*/
         }       
-
-        #input {
-            padding-bottom: 150px; /*这个是关键，处理页面高度超出屏幕可视范围时，控制内容和底部高度之间距离*/
-        }
-        * {
-            margin: 0;
-            padding: 0;
-        }       
+      
         label {
             margin: 5px;
         }
-        
+
+        .slider{
+            height:610px;
+        }
+
+        img{
+            height: 610px;
+        }
     </style>
     <script src="js/cookie.js"></script>
     <script src="js/writeHTML.js"></script>
@@ -101,10 +88,20 @@
             $("#filelist").html(txt);
         }
     }
+
+    function func(){
+        var window_height=$(window).height();
+        var header_height=$("header").outerHeight();
+        var height=window_height-header_height;
+        $(".slider").css("height",height);
+        $(".slides").css("height",height);
+        $("img").css("height",height);
+    }
+
     </script>
 
 </head>
-<body onload="write_header()">
+<body onload="write_header();func()" onresize="func()">
     <header></header>
     <div class="main" id="div1">
         <div class="slider">
