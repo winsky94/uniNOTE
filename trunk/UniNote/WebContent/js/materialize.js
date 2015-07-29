@@ -6183,7 +6183,6 @@ Picker.extend( 'pickadate', DatePicker )
     $('.slider').slider({
     	full_width: true,
     	interval:3500,
-    	height:615,
     	indicators:false
     });
 
