@@ -578,7 +578,7 @@ public class DocumentInfo {
 
 	public static void main(String[] args) {
 		DocumentInfo ui = new DocumentInfo();
-		// ui.createTable();
+		 ui.createTable();
 		// DocumentVO vo1 = new DocumentVO("hehe", "哼！", "C:/1.c", "这是一个c代码文件",
 		// "c", "N", "南京大学", "软件学院", "计算机与操作系统", "王宁");
 		// DocumentVO vo2 = new DocumentVO("时机+市场规模.docx", "23333",
@@ -614,7 +614,7 @@ public class DocumentInfo {
 		// System.out.println(ui.addPraise(1)[0]+" "+ui.addPraise(1)[1]);
 		// System.out.println(ui.addCriticism(1)[0]+" "+ui.addCriticism(1)[1]);
 		// ui.getHotDocuments("南京大学");
-		System.out.println(ui.getPageNum("南京大学", "软件学院", "all"));
+//		System.out.println(ui.getPageNum("南京大学", "软件学院", "all"));
 
 	}
 }

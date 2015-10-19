@@ -112,7 +112,6 @@ public class CollectionInfo {
 		return documents;
 	}
 
-	@SuppressWarnings("unused")
 	private void createTable() {
 		try {
 			connection = SqlManager.getConnection();
@@ -155,10 +154,10 @@ public class CollectionInfo {
 
 	public static void main(String[] args) {
 		CollectionInfo ci = new CollectionInfo();
-//		 ci.createTable();
-//		ci.changeState("1", 1);
-//		ci.changeState("2", 1);
-//		ci.getCollections("1");
+		ci.createTable();
+		// ci.changeState("1", 1);
+		// ci.changeState("2", 1);
+		// ci.getCollections("1");
 		System.out.println(ci.getCollectionList("1").size());
 	}
 }

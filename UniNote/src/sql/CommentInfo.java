@@ -189,9 +189,9 @@ public class CommentInfo {
 
 	public static void main(String[] args) {
 		CommentInfo ci = new CommentInfo();
-		// ci.createTable();
-		int[] a = ci.addPraise("1", 1);
-		System.out.println(a[0] + " " + a[1] + " " + a[2]);
+		ci.createTable();
+		// int[] a = ci.addPraise("1", 1);
+		// System.out.println(a[0] + " " + a[1] + " " + a[2]);
 		// int[] b=ci.addCriticism("1", 1);
 		// System.out.println(b[0]+" "+b[1]+" "+b[2]);
 
