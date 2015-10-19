@@ -125,9 +125,9 @@ public class DownloadInfo {
 	public static void main(String[] args) {
           DownloadInfo dl=new DownloadInfo();
           dl.createTable();
-          dl.add("1", 1);
-          dl.add("1", 1);
-          dl.getDownloads("1");
-          dl.getDownloads("2");
+//          dl.add("1", 1);
+//          dl.add("1", 1);
+//          dl.getDownloads("1");
+//          dl.getDownloads("2");
 	}
 }

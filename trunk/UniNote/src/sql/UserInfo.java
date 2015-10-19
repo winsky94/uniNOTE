@@ -350,12 +350,12 @@ public class UserInfo {
 
 	public static void main(String[] args) {
 		UserInfo ui = new UserInfo();
-		// ui.createTable();
-		// UserVO vo1 = new UserVO("1", "1", "1@qq.com", "南京大学", "13588888888",
-		// 10);
+		 ui.createTable();
+		 UserVO vo1 = new UserVO("1", "1", "1@qq.com", "南京大学", "13588888888",
+		 10);
 		// UserVO vo2 = new UserVO("3", "3", "1@qq.com", "南京大学", "13588888888",
 		// 20);
-		// System.out.println(ui.add(vo1));
+		 System.out.println(ui.add(vo1));
 		// System.out.println(ui.add(vo2));
 		// System.out.println(ui.login("1", "1"));
 		// System.out.println(ui.delete(vo2));
